@@ -37,26 +37,24 @@ class TODO {
 	 */
 	function __construct() {
 	
-    // Define constnats used throughout the plugin
-    $this->init_plugin_constants();
+	    // Define constants used throughout the plugin
+	    $this->init_plugin_constants();
   
 		load_plugin_textdomain(PLUGIN_LOCALE, false, dirname(plugin_basename(__FILE__)) . '/lang');
 		
-    /*
-     * TODO:
-     * Define the custom functionality for your plugin. The first parameter of the
-     * add_action/add_filter calls are the hooks into which your code should fire.
-     *
-     * The second parameter is the function name located within this class. See the stubs
-     * later in the file.
-     *
-     * For more information: 
-     * http://codex.wordpress.org/Plugin_API#Hooks.2C_Actions_and_Filters
-     */
-    add_action('TODO', array($this, 'action_method_name'));
-    add_filter('TODO', array($this, 'filter_method_name'));
-		
-		} // end if
+	    /*
+	     * TODO:
+	     * Define the custom functionality for your plugin. The first parameter of the
+	     * add_action/add_filter calls are the hooks into which your code should fire.
+	     *
+	     * The second parameter is the function name located within this class. See the stubs
+	     * later in the file.
+	     *
+	     * For more information: 
+	     * http://codex.wordpress.org/Plugin_API#Hooks.2C_Actions_and_Filters
+	     */
+	    add_action('TODO', array($this, 'action_method_name'));
+	    add_filter('TODO', array($this, 'filter_method_name'));
 
 	} // end constructor
 	
@@ -64,69 +62,69 @@ class TODO {
 	 * Core Functions
 	 *---------------------------------------------*/
 	
-  /**
-   * Note:  Actions are points in the execution of a page or process
-   *        lifecycle that WordPress fires.
-   */
+	/**
+ 	 * Note:  Actions are points in the execution of a page or process
+	 *        lifecycle that WordPress fires.
+	 */
 	function action_method_name() {
-    // TODO define your action method here
+    	// TODO define your action method here
 	} // end action_method_name
 	
-  /**
-   * Note:  Filters are points of execution in which WordPress modifies data
-   *        before saving it or sending it to the browser.
-   */
-  function filter_method_name() {
-    // TODO define your filter method here
+	/**
+	 * Note:  Filters are points of execution in which WordPress modifies data
+	 *        before saving it or sending it to the browser.
+	 */
+	function filter_method_name() {
+	    // TODO define your filter method here
 	} // end filter_method_name
   
 	/*--------------------------------------------*
 	 * Private Functions
 	 *---------------------------------------------*/
    
-  /**
-   * Initializes constants used for convenience throughout 
-   * the plugin.
-   */
-  private function init_plugin_constants() {
-    
-    /* TODO
-     * 
-     * This provides the unique identifier for your plugin used in
-     * localizing the strings used throughout.
-     * 
-     * For example: wordpress-widget-boilerplate-locale.
-     */
-    if(!defined('PLUGIN_LOCALE')) {
-      define('PLUGIN_LOCALE', 'plugin-name-locale');
-    } // end if
-    
-    /* TODO
-     * 
-     * Define this as the name of your plugin. This is what shows
-     * in the Widgets area of WordPress.
-     * 
-     * For example: WordPress Widget Boilerplate.
-     */
-    if(!defined('PLUGIN_NAME')) {
-      define('PLUGIN_NAME', 'Plugin Name');
-    } // end if
-    
-    /* TODO
-     * 
-     * this is the slug of your plugin used in initializing it with
-     * the WordPress API.
-     
-     * This should also be the
-     * directory in which your plugin resides. Use hyphens.
-     * 
-     * For example: wordpress-widget-boilerplate
-     */
-    if(!defined('PLUGIN_SLUG')) {
-      define('PLUGIN_SLUG', 'plugin-name-slug');
-    } // end if
-  
-  } // end init_plugin_constants
+	/**
+	 * Initializes constants used for convenience throughout 
+	 * the plugin.
+	 */
+	private function init_plugin_constants() {
+	
+		/* TODO
+		 * 
+		 * This provides the unique identifier for your plugin used in
+		 * localizing the strings used throughout.
+		 * 
+		 * For example: wordpress-widget-boilerplate-locale.
+		 */
+		if(!defined('PLUGIN_LOCALE')) {
+		  define('PLUGIN_LOCALE', 'plugin-name-locale');
+		} // end if
+		
+		/* TODO
+		 * 
+		 * Define this as the name of your plugin. This is what shows
+		 * in the Widgets area of WordPress.
+		 * 
+		 * For example: WordPress Widget Boilerplate.
+		 */
+		if(!defined('PLUGIN_NAME')) {
+		  define('PLUGIN_NAME', 'Plugin Name');
+		} // end if
+		
+		/* TODO
+		 * 
+		 * this is the slug of your plugin used in initializing it with
+		 * the WordPress API.
+		 
+		 * This should also be the
+		 * directory in which your plugin resides. Use hyphens.
+		 * 
+		 * For example: wordpress-widget-boilerplate
+		 */
+		if(!defined('PLUGIN_SLUG')) {
+		  define('PLUGIN_SLUG', 'plugin-name-slug');
+		} // end if
+	
+	} // end init_plugin_constants
 	
 	/**
 	 * Helper function for registering and loading scripts and styles.
