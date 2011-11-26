@@ -40,7 +40,7 @@ class TODO {
 	    // Define constants used throughout the plugin
 	    $this->init_plugin_constants();
   
-		load_plugin_textdomain(PLUGIN_LOCALE, false, dirname(plugin_basename(__FILE__)) . '/lang');
+		load_plugin_textdomain( PLUGIN_LOCALE, false, dirname( plugin_basename( __FILE__ ) ) . '/lang' );
 		
 	    /*
 	     * TODO:
@@ -53,8 +53,8 @@ class TODO {
 	     * For more information: 
 	     * http://codex.wordpress.org/Plugin_API#Hooks.2C_Actions_and_Filters
 	     */
-	    add_action('TODO', array($this, 'action_method_name'));
-	    add_filter('TODO', array($this, 'filter_method_name'));
+	    add_action( 'TODO', array( $this, 'action_method_name' ) );
+	    add_filter( 'TODO', array( $this, 'filter_method_name' ) );
 
 	} // end constructor
 	
@@ -95,8 +95,8 @@ class TODO {
 		 * 
 		 * For example: wordpress-widget-boilerplate-locale.
 		 */
-		if(!defined('PLUGIN_LOCALE')) {
-		  define('PLUGIN_LOCALE', 'plugin-name-locale');
+		if ( !defined( 'PLUGIN_LOCALE' ) ) {
+		  define( 'PLUGIN_LOCALE', 'plugin-name-locale' );
 		} // end if
 		
 		/* TODO
@@ -106,8 +106,8 @@ class TODO {
 		 * 
 		 * For example: WordPress Widget Boilerplate.
 		 */
-		if(!defined('PLUGIN_NAME')) {
-		  define('PLUGIN_NAME', 'Plugin Name');
+		if ( !defined( 'PLUGIN_NAME' ) ) {
+		  define( 'PLUGIN_NAME', 'Plugin Name' );
 		} // end if
 		
 		/* TODO
@@ -120,8 +120,8 @@ class TODO {
 		 * 
 		 * For example: wordpress-widget-boilerplate
 		 */
-		if(!defined('PLUGIN_SLUG')) {
-		  define('PLUGIN_SLUG', 'plugin-name-slug');
+		if ( !defined( 'PLUGIN_SLUG' ) ) {
+		  define( 'PLUGIN_SLUG', 'plugin-name-slug' );
 		} // end if
 	
 	} // end init_plugin_constants
@@ -133,16 +133,16 @@ class TODO {
 	 * @file_path		The path to the actual file
 	 * @is_script		Optional argument for if the incoming file_path is a JavaScript source file.
 	 */
-	private function load_file($name, $file_path, $is_script = false) {
+	private function load_file( $name, $file_path, $is_script = false ) {
 		$url = WP_PLUGIN_URL . $file_path;
 		$file = WP_PLUGIN_DIR . $file_path;
-		if(file_exists($file)) {
-			if($is_script) {
-				wp_register_script($name, $url);
-				wp_enqueue_script($name);
+		if( file_exists( $file ) ) {
+			if( $is_script ) {
+				wp_register_script( $name, $url );
+				wp_enqueue_script( $name );
 			} else {
-				wp_register_style($name, $url);
-				wp_enqueue_style($name);
+				wp_register_style( $name, $url );
+				wp_enqueue_style( $name );
 			} // end if
 		} // end if
 	} // end _load_file
