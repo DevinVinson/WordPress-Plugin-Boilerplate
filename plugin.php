@@ -6,27 +6,37 @@ Description: TODO
 Version: 1.0
 Author: TODO
 Author URI: TODO
+Author Email: TODO
 License:
 
-    Copyright 2011 TODO (email@domain.com)
+  Copyright 2011 TODO (email@domain.com)
 
-    This program is free software; you can redistribute it and/or modify
-    it under the terms of the GNU General Public License, version 2, as 
-    published by the Free Software Foundation.
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License, version 2, as 
+  published by the Free Software Foundation.
 
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
 
-    You should have received a copy of the GNU General Public License
-    along with this program; if not, write to the Free Software
-    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
-    
+  You should have received a copy of the GNU General Public License
+  along with this program; if not, write to the Free Software
+  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+  
 */
 
 // TODO: rename this class to a proper name for yuour plugin
-class TODO {
+class PluginName {
+	
+	/**
+	 * TODO: update these values to reflect the name, locale, and slug
+	 * of your plugin.
+	 */
+
+	const name = 'Plugin Name';
+	
+	const slug = 'plugin-name-slug';
 	 
 	/*--------------------------------------------*
 	 * Constructor
@@ -41,6 +51,9 @@ class TODO {
 	    $this->init_plugin_constants();
   
 		load_plugin_textdomain( PLUGIN_LOCALE, false, dirname( plugin_basename( __FILE__ ) ) . '/lang' );
+		
+    	// Load JavaScript and stylesheets
+    	$this->register_scripts_and_styles();
 		
 	    /*
 	     * TODO:
@@ -65,6 +78,10 @@ class TODO {
 	/**
  	 * Note:  Actions are points in the execution of a page or process
 	 *        lifecycle that WordPress fires.
+	 *
+	 *		  WordPress Actions: http://codex.wordpress.org/Plugin_API#Actions
+	 *		  Action Reference:  http://codex.wordpress.org/Plugin_API/Action_Reference
+	 *
 	 */
 	function action_method_name() {
     	// TODO define your action method here
@@ -73,6 +90,10 @@ class TODO {
 	/**
 	 * Note:  Filters are points of execution in which WordPress modifies data
 	 *        before saving it or sending it to the browser.
+	 *
+	 *		  WordPress Filters: http://codex.wordpress.org/Plugin_API#Filters
+	 *		  Filter Reference:  http://codex.wordpress.org/Plugin_API/Filter_Reference
+	 *
 	 */
 	function filter_method_name() {
 	    // TODO define your filter method here
@@ -87,17 +108,6 @@ class TODO {
 	 * the plugin.
 	 */
 	private function init_plugin_constants() {
-	
-		/* TODO
-		 * 
-		 * This provides the unique identifier for your plugin used in
-		 * localizing the strings used throughout.
-		 * 
-		 * For example: wordpress-widget-boilerplate-locale.
-		 */
-		if ( !defined( 'PLUGIN_LOCALE' ) ) {
-		  define( 'PLUGIN_LOCALE', 'plugin-name-locale' );
-		} // end if
 		
 		/* TODO
 		 * 
@@ -127,6 +137,20 @@ class TODO {
 	} // end init_plugin_constants
 	
 	/**
+	 * Registers and enqueues stylesheets for the administration panel and the
+	 * public facing site.
+	 */
+	private function register_scripts_and_styles() {
+		if ( is_admin() ) {
+			$this->load_file( plugin_dir_path(__FILE__) . '/js/admin.js', true );
+			$this->load_file( plugin_dir_path(__FILE__) . '/css/admin.css' );
+		} else { 
+			$this->load_file( plugin_dir_path(__FILE__) . '/js/widget.js', true );
+			$this->load_file( plugin_dir_path(__FILE__) . '/css/widget.css' );
+		} // end if/else
+	} // end register_scripts_and_styles
+	
+	/**
 	 * Helper function for registering and loading scripts and styles.
 	 *
 	 * @name	The 	ID to register with WordPress
@@ -134,8 +158,10 @@ class TODO {
 	 * @is_script		Optional argument for if the incoming file_path is a JavaScript source file.
 	 */
 	private function load_file( $name, $file_path, $is_script = false ) {
+	
 		$url = WP_PLUGIN_URL . $file_path;
 		$file = WP_PLUGIN_DIR . $file_path;
+		
 		if( file_exists( $file ) ) {
 			if( $is_script ) {
 				wp_register_script( $name, $url );
@@ -145,9 +171,10 @@ class TODO {
 				wp_enqueue_style( $name );
 			} // end if
 		} // end if
+		
 	} // end _load_file
   
 } // end class
 // TODO: update the instantiation call of your plugin to the name given at the class definition
-new TODO();
+new PluginName();
 ?>
