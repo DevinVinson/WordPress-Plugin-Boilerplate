@@ -29,9 +29,12 @@ License:
 // TODO: rename this class to a proper name for yuour plugin
 class PluginName {
 	
+	/*--------------------------------------------*
+	 * Constants
+	 *--------------------------------------------*/
+	
 	/**
-	 * TODO: update these values to reflect the name, locale, and slug
-	 * of your plugin.
+	 * TODO: update these values to reflect the name  and slug of your plugin.
 	 */
 
 	const name = 'Plugin Name';
@@ -117,7 +120,7 @@ class PluginName {
 		 * For example: WordPress Widget Boilerplate.
 		 */
 		if ( !defined( 'PLUGIN_NAME' ) ) {
-		  define( 'PLUGIN_NAME', 'Plugin Name' );
+		  define( 'PLUGIN_NAME', self::name );
 		} // end if
 		
 		/* TODO
@@ -131,7 +134,7 @@ class PluginName {
 		 * For example: wordpress-widget-boilerplate
 		 */
 		if ( !defined( 'PLUGIN_SLUG' ) ) {
-		  define( 'PLUGIN_SLUG', 'plugin-name-slug' );
+		  define( 'PLUGIN_SLUG', self::slug );
 		} // end if
 	
 	} // end init_plugin_constants
@@ -142,11 +145,11 @@ class PluginName {
 	 */
 	private function register_scripts_and_styles() {
 		if ( is_admin() ) {
-			$this->load_file( plugin_dir_path(__FILE__) . '/js/admin.js', true );
-			$this->load_file( plugin_dir_path(__FILE__) . '/css/admin.css' );
+			$this->load_file( self::slug . '-admin-script', plugin_dir_path(__FILE__) . '/js/admin.js', true );
+			$this->load_file( self::slug . '-admin-styles', plugin_dir_path(__FILE__) . '/css/admin.css' );
 		} else { 
-			$this->load_file( plugin_dir_path(__FILE__) . '/js/widget.js', true );
-			$this->load_file( plugin_dir_path(__FILE__) . '/css/widget.css' );
+			$this->load_file( self::slug . '-scripts', plugin_dir_path(__FILE__) . '/js/display.js', true );
+			$this->load_file( self::slug . '-styles', plugin_dir_path(__FILE__) . '/css/display.css' );
 		} // end if/else
 	} // end register_scripts_and_styles
 	
