@@ -145,37 +145,37 @@ class PluginName {
 	 */
 	private function register_scripts_and_styles() {
 		if ( is_admin() ) {
-			$this->load_file( self::slug . '-admin-script', plugin_dir_path(__FILE__) . '/js/admin.js', true );
-			$this->load_file( self::slug . '-admin-styles', plugin_dir_path(__FILE__) . '/css/admin.css' );
+			$this->load_file( self::slug . '-admin-script', '/js/admin.js', true );
+			$this->load_file( self::slug . '-admin-style', '/css/admin.css' );
 		} else { 
-			$this->load_file( self::slug . '-scripts', plugin_dir_path(__FILE__) . '/js/display.js', true );
-			$this->load_file( self::slug . '-styles', plugin_dir_path(__FILE__) . '/css/display.css' );
+			$this->load_file( self::slug . '-script', '/js/widget.js', true );
+			$this->load_file( self::slug . '-style', '/css/widget.css' );
 		} // end if/else
 	} // end register_scripts_and_styles
 	
 	/**
-	 * Helper function for registering and loading scripts and styles.
+	 * Helper function for registering and enqueueing scripts and styles.
 	 *
 	 * @name	The 	ID to register with WordPress
 	 * @file_path		The path to the actual file
 	 * @is_script		Optional argument for if the incoming file_path is a JavaScript source file.
 	 */
 	private function load_file( $name, $file_path, $is_script = false ) {
-	
-		$url = WP_PLUGIN_URL . $file_path;
-		$file = WP_PLUGIN_DIR . $file_path;
 		
+		$url = plugins_url($file_path, __FILE__);
+		$file = plugins_dir_path(__FILE__) . $file_path;
+
 		if( file_exists( $file ) ) {
 			if( $is_script ) {
-				wp_register_script( $name, $url );
+				wp_register_script( $name, $url, array('jquery') );
 				wp_enqueue_script( $name );
 			} else {
 				wp_register_style( $name, $url );
 				wp_enqueue_style( $name );
 			} // end if
 		} // end if
-		
-	} // end _load_file
+    
+	} // end load_file
   
 } // end class
 // TODO: update the instantiation call of your plugin to the name given at the class definition
