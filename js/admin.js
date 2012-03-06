@@ -1,3 +1,5 @@
 (function($) {
-  // Place your administration-specific code here
+	$(function() {
+		// Place your administration-specific JavaScript here
+	});
 })(jQuery);

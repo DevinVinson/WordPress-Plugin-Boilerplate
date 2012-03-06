@@ -9,7 +9,7 @@ Author URI: TODO
 Author Email: TODO
 License:
 
-  Copyright 2011 TODO (email@domain.com)
+  Copyright 2012 TODO (email@domain.com)
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License, version 2, as 
