@@ -58,6 +58,9 @@ class PluginName {
     	// Load JavaScript and stylesheets
     	$this->register_scripts_and_styles();
 		
+		register_activation_hook( __FILE__, array( &$this, 'activate' ) );
+		register_deactivation_hook( __FILE__, array( &$this, 'deactivate' ) );
+		
 	    /*
 	     * TODO:
 	     * Define the custom functionality for your plugin. The first parameter of the
@@ -73,6 +76,20 @@ class PluginName {
 	    add_filter( 'TODO', array( $this, 'filter_method_name' ) );
 
 	} // end constructor
+	
+	function activate($network_wide) {
+		/*
+			TODO define activation functionality here
+			$network_wide is true if WPMU superadmin uses "Network Activate" action, false if WPMU is disabled or plugin is activated on an individual blog
+		*/
+	}
+	
+	function deactivate($network_wide) {
+		/*
+			TODO define deactivation functionality here
+			$network_wide is true if WPMU superadmin uses "Network Deactivate" action, false if WPMU is disabled or plugin is deactivated on an individual blog
+		*/
+	}
 	
 	/*--------------------------------------------*
 	 * Core Functions
