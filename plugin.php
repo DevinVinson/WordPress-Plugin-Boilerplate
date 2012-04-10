@@ -28,18 +28,6 @@ License:
 
 // TODO: rename this class to a proper name for yuour plugin
 class PluginName {
-	
-	/*--------------------------------------------*
-	 * Constants
-	 *--------------------------------------------*/
-	
-	/**
-	 * TODO: update these values to reflect the name  and slug of your plugin.
-	 */
-
-	const name = 'Plugin Name';
-	
-	const slug = 'plugin-name-slug';
 	 
 	/*--------------------------------------------*
 	 * Constructor
@@ -50,13 +38,11 @@ class PluginName {
 	 */
 	function __construct() {
 	
-	    // Define constants used throughout the plugin
-	    $this->init_plugin_constants();
-  
-		load_plugin_textdomain( PLUGIN_LOCALE, false, dirname( plugin_basename( __FILE__ ) ) . '/lang' );
+		// TODO: replace "plugin-name-locale" with a unique value for your plugin
+		load_plugin_textdomain( 'plugin-name-locale', false, dirname( plugin_basename( __FILE__ ) ) . '/lang' );
 		
     	// Load JavaScript and stylesheets
-    	$this->register_scripts_and_styles();
+		$this->register_scripts_and_styles();
 		
 		register_activation_hook( __FILE__, array( &$this, 'activate' ) );
 		register_deactivation_hook( __FILE__, array( &$this, 'deactivate' ) );
@@ -77,19 +63,23 @@ class PluginName {
 
 	} // end constructor
 	
-	function activate($network_wide) {
-		/*
-			TODO define activation functionality here
-			$network_wide is true if WPMU superadmin uses "Network Activate" action, false if WPMU is disabled or plugin is activated on an individual blog
-		*/
-	}
+	/**
+	 * Fired when the plugin is activated.
+	 *
+	 * @params	$network_wide	True if WPMU superadmin uses "Network Activate" action, false if WPMU is disabled or plugin is activated on an individual blog 
+	 */
+	function activate( $network_wide ) {
+		// TODO define activation functionality here
+	} // end activate
 	
-	function deactivate($network_wide) {
-		/*
-			TODO define deactivation functionality here
-			$network_wide is true if WPMU superadmin uses "Network Deactivate" action, false if WPMU is disabled or plugin is deactivated on an individual blog
-		*/
-	}
+	/**
+	 * Fired when the plugin is deactivated.
+	 *
+	 * @params	$network_wide	True if WPMU superadmin uses "Network Activate" action, false if WPMU is disabled or plugin is activated on an individual blog 
+	 */
+	function deactivate( $network_wide ) {
+		// TODO define deactivation functionality here		
+	} // end deactivate
 	
 	/*--------------------------------------------*
 	 * Core Functions
@@ -122,52 +112,27 @@ class PluginName {
 	/*--------------------------------------------*
 	 * Private Functions
 	 *---------------------------------------------*/
-   
-	/**
-	 * Initializes constants used for convenience throughout 
-	 * the plugin.
-	 */
-	private function init_plugin_constants() {
-		
-		/* TODO
-		 * 
-		 * Define this as the name of your plugin. This is what shows
-		 * in the Widgets area of WordPress.
-		 * 
-		 * For example: WordPress Widget Boilerplate.
-		 */
-		if ( !defined( 'PLUGIN_NAME' ) ) {
-		  define( 'PLUGIN_NAME', self::name );
-		} // end if
-		
-		/* TODO
-		 * 
-		 * this is the slug of your plugin used in initializing it with
-		 * the WordPress API.
-		 
-		 * This should also be the
-		 * directory in which your plugin resides. Use hyphens.
-		 * 
-		 * For example: wordpress-widget-boilerplate
-		 */
-		if ( !defined( 'PLUGIN_SLUG' ) ) {
-		  define( 'PLUGIN_SLUG', self::slug );
-		} // end if
-	
-	} // end init_plugin_constants
 	
 	/**
 	 * Registers and enqueues stylesheets for the administration panel and the
 	 * public facing site.
 	 */
 	private function register_scripts_and_styles() {
+	
 		if ( is_admin() ) {
-			$this->load_file( self::slug . '-admin-script', '/js/admin.js', true );
-			$this->load_file( self::slug . '-admin-style', '/css/admin.css' );
+		
+			// TODO replace 'plugin-slug-' with a unique value for your plugin
+			$this->load_file( 'plugin-slug-admin-script', '/js/admin.js', true );
+			$this->load_file( 'plugin-slug-admin-style', '/css/admin.css' );
+	
 		} else { 
-			$this->load_file( self::slug . '-script', '/js/widget.js', true );
-			$this->load_file( self::slug . '-style', '/css/widget.css' );
+	
+			// TODO replace 'plugin-slug-' with a unique value for your plugin
+			$this->load_file( 'plugin-slug-script', '/js/widget.js', true );
+			$this->load_file( 'plugin-slug-style', '/css/widget.css' );
+	
 		} // end if/else
+	
 	} // end register_scripts_and_styles
 	
 	/**
@@ -179,17 +144,23 @@ class PluginName {
 	 */
 	private function load_file( $name, $file_path, $is_script = false ) {
 		
-		$url = plugins_url($file_path, __FILE__);
-		$file = plugin_dir_path(__FILE__) . $file_path;
+		$url = plugins_url( $file_path, __FILE__ );
+		$file = plugin_dir_path( __FILE__ ) . $file_path;
 
 		if( file_exists( $file ) ) {
+		
 			if( $is_script ) {
-				wp_register_script( $name, $url, array('jquery') );
+				
+				wp_register_script( $name, $url, array( 'jquery' ) );
 				wp_enqueue_script( $name );
+				
 			} else {
+			
 				wp_register_style( $name, $url );
 				wp_enqueue_style( $name );
+				
 			} // end if
+			
 		} // end if
     
 	} // end load_file
