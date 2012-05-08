@@ -41,8 +41,13 @@ class PluginName {
 		// TODO: replace "plugin-name-locale" with a unique value for your plugin
 		load_plugin_textdomain( 'plugin-name-locale', false, dirname( plugin_basename( __FILE__ ) ) . '/lang' );
 		
-    	// Load JavaScript and stylesheets
-		$this->register_scripts_and_styles();
+		// Register admin styles and scripts
+		add_action( 'admin_print_styles', array( &$this, 'register_admin_styles' ) );
+		add_action( 'admin_enqueue_scripts', array( &$this, 'register_admin_scripts' ) );
+	
+		// Register site styles and scripts
+		add_action( 'wp_enqueue_scripts', array( &$this, 'register_plugin_styles' ) );
+		add_action( 'wp_enqueue_scripts', array( &$this, 'register_plugin_scripts' ) );
 		
 		register_activation_hook( __FILE__, array( &$this, 'activate' ) );
 		register_deactivation_hook( __FILE__, array( &$this, 'deactivate' ) );
@@ -81,6 +86,50 @@ class PluginName {
 		// TODO define deactivation functionality here		
 	} // end deactivate
 	
+	/**
+	 * Registers and enqueues admin-specific styles.
+	 */
+	public function register_admin_styles() {
+	
+		// TODO change 'plugin-name' to the name of your plugin
+		wp_register_script( 'plugin-name-admin-styles', plugins_url( 'plugin-name/css/admin.css' ) );
+		wp_enqueue_script( 'plugin-name-admin-styles' );
+	
+	} // end register_admin_styles
+
+	/**
+	 * Registers and enqueues admin-specific JavaScript.
+	 */	
+	public function register_admin_scripts() {
+	
+		// TODO change 'plugin-name' to the name of your plugin
+		wp_register_script( 'plugin-name-admin-script', plugins_url( 'plugin-name/js/admin.js' ) );
+		wp_enqueue_script( 'plugin-name-admin-script' );
+	
+	} // end register_admin_scripts
+	
+	/**
+	 * Registers and enqueues plugin-specific styles.
+	 */
+	public function register_plugin_styles() {
+	
+		// TODO change 'plugin-name' to the name of your plugin
+		wp_register_script( 'plugin-name-admin-styles', plugins_url( 'plugin-name/css/admin.css' ) );
+		wp_enqueue_script( 'plugin-name-admin-styles' );
+	
+	} // end register_plugin_styles
+	
+	/**
+	 * Registers and enqueues plugin-specific scripts.
+	 */
+	public function register_plugin_scripts() {
+	
+		// TODO change 'plugin-name' to the name of your plugin
+		wp_register_script( 'plugin-name-plugin-script', plugins_url( 'plugin-name/js/plugin.js' ) );
+		wp_enqueue_script( 'plugin-name-plugin-script' );
+	
+	} // end register_plugin_scripts
+	
 	/*--------------------------------------------*
 	 * Core Functions
 	 *---------------------------------------------*/
@@ -108,62 +157,6 @@ class PluginName {
 	function filter_method_name() {
 	    // TODO define your filter method here
 	} // end filter_method_name
-  
-	/*--------------------------------------------*
-	 * Private Functions
-	 *---------------------------------------------*/
-	
-	/**
-	 * Registers and enqueues stylesheets for the administration panel and the
-	 * public facing site.
-	 */
-	private function register_scripts_and_styles() {
-	
-		if ( is_admin() ) {
-		
-			// TODO replace 'plugin-slug-' with a unique value for your plugin
-			$this->load_file( 'plugin-slug-admin-script', '/js/admin.js', true );
-			$this->load_file( 'plugin-slug-admin-style', '/css/admin.css' );
-	
-		} else { 
-	
-			// TODO replace 'plugin-slug-' with a unique value for your plugin
-			$this->load_file( 'plugin-slug-script', '/js/widget.js', true );
-			$this->load_file( 'plugin-slug-style', '/css/widget.css' );
-	
-		} // end if/else
-	
-	} // end register_scripts_and_styles
-	
-	/**
-	 * Helper function for registering and enqueueing scripts and styles.
-	 *
-	 * @name	The 	ID to register with WordPress
-	 * @file_path		The path to the actual file
-	 * @is_script		Optional argument for if the incoming file_path is a JavaScript source file.
-	 */
-	private function load_file( $name, $file_path, $is_script = false ) {
-		
-		$url = plugins_url( $file_path, __FILE__ );
-		$file = plugin_dir_path( __FILE__ ) . $file_path;
-
-		if( file_exists( $file ) ) {
-		
-			if( $is_script ) {
-				
-				wp_register_script( $name, $url, array( 'jquery' ) );
-				wp_enqueue_script( $name );
-				
-			} else {
-			
-				wp_register_style( $name, $url );
-				wp_enqueue_style( $name );
-				
-			} // end if
-			
-		} // end if
-    
-	} // end load_file
   
 } // end class
 // TODO: update the instantiation call of your plugin to the name given at the class definition
