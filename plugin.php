@@ -114,7 +114,7 @@ class PluginName {
 	public function register_plugin_styles() {
 	
 		// TODO change 'plugin-name' to the name of your plugin
-		wp_register_script( 'plugin-name-admin-styles', plugins_url( 'plugin-name/css/admin.css' ) );
+		wp_register_script( 'plugin-name-admin-styles', plugins_url( 'plugin-name/css/display.css' ) );
 		wp_enqueue_script( 'plugin-name-admin-styles' );
 	
 	} // end register_plugin_styles
@@ -125,7 +125,7 @@ class PluginName {
 	public function register_plugin_scripts() {
 	
 		// TODO change 'plugin-name' to the name of your plugin
-		wp_register_script( 'plugin-name-plugin-script', plugins_url( 'plugin-name/js/plugin.js' ) );
+		wp_register_script( 'plugin-name-plugin-script', plugins_url( 'plugin-name/js/display.js' ) );
 		wp_enqueue_script( 'plugin-name-plugin-script' );
 	
 	} // end register_plugin_scripts
