@@ -26,7 +26,7 @@ License:
   
 */
 
-// TODO: rename this class to a proper name for yuour plugin
+// TODO: rename this class to a proper name for your plugin
 class PluginName {
 	 
 	/*--------------------------------------------*
@@ -46,7 +46,7 @@ class PluginName {
 		add_action( 'admin_enqueue_scripts', array( &$this, 'register_admin_scripts' ) );
 	
 		// Register site styles and scripts
-		add_action( 'wp_enqueue_scripts', array( &$this, 'register_plugin_styles' ) );
+		add_action( 'wp_print_styles', array( &$this, 'register_plugin_styles' ) );
 		add_action( 'wp_enqueue_scripts', array( &$this, 'register_plugin_scripts' ) );
 		
 		register_activation_hook( __FILE__, array( &$this, 'activate' ) );
@@ -92,8 +92,8 @@ class PluginName {
 	public function register_admin_styles() {
 	
 		// TODO change 'plugin-name' to the name of your plugin
-		wp_register_script( 'plugin-name-admin-styles', plugins_url( 'plugin-name/css/admin.css' ) );
-		wp_enqueue_script( 'plugin-name-admin-styles' );
+		wp_register_style( 'plugin-name-admin-styles', plugins_url( 'plugin-name/css/admin.css' ) );
+		wp_enqueue_style( 'plugin-name-admin-styles' );
 	
 	} // end register_admin_styles
 
@@ -114,8 +114,8 @@ class PluginName {
 	public function register_plugin_styles() {
 	
 		// TODO change 'plugin-name' to the name of your plugin
-		wp_register_script( 'plugin-name-admin-styles', plugins_url( 'plugin-name/css/display.css' ) );
-		wp_enqueue_script( 'plugin-name-admin-styles' );
+		wp_register_style( 'plugin-name-plugin-styles', plugins_url( 'plugin-name/css/display.css' ) );
+		wp_enqueue_style( 'plugin-name-plugin-styles' );
 	
 	} // end register_plugin_styles
 	
