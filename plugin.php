@@ -159,6 +159,7 @@ class PluginName {
 	} // end filter_method_name
   
 } // end class
+
 // TODO: update the instantiation call of your plugin to the name given at the class definition
 new PluginName();
 ?>
