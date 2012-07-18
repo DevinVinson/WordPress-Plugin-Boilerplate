@@ -6,7 +6,8 @@ if( ! class_exists( 'PluginName' ) ){
 	class PluginName {
 	
 		
-		private static $plugin_obj = false;
+		private static $plugin_obj	= false;
+		private static $db 			= false;
 		
 		/**
 		 * Constructor
@@ -22,20 +23,42 @@ if( ! class_exists( 'PluginName' ) ){
 			self::$plugin_obj->class_name 	= __CLASS__;
 			self::$plugin_obj->name 		= self::set_plugin_name();
 			self::$plugin_obj->path 		= str_replace( '/inc', '', plugin_dir_path(__FILE__) );
+			self::$plugin_obj->include_path = plugin_dir_path(__FILE__);
 			self::$plugin_obj->url 			= str_replace( '/inc', '', plugin_dir_url(__FILE__) );
 			self::$plugin_obj->Version		= self::get_plugin_version();
-
 			
 
 			load_plugin_textdomain( self::$plugin_obj->class_name . '_lang', false, self::$plugin_obj->path  . 'lang' );
 			
-			// Register admin styles and scripts
-			add_action( 'admin_print_styles', array( &$this, 'register_admin_styles' ) );
-			add_action( 'admin_enqueue_scripts', array( &$this, 'register_admin_scripts' ) );
-		
-			// Register site styles and scripts
-			add_action( 'wp_print_styles', array( &$this, 'register_plugin_styles' ) );
-			add_action( 'wp_enqueue_scripts', array( &$this, 'register_plugin_scripts' ) );
+
+			if(is_admin()){
+				
+				// Register admin styles and scripts
+				add_action( 'admin_print_styles', array( &$this, 'register_admin_styles' ) );
+				add_action( 'admin_enqueue_scripts', array( &$this, 'register_admin_scripts' ) );
+				
+				// Include the Database class
+				require_once( self::$plugin_obj->include_path  . "/db.class.php" );
+				
+				/*
+				 * Init the Database class
+				 *
+				 * TODO: 
+				 * Go to the db.class.php and replace PluginName with your new plugin name,
+				 * like this class MyAwsome_Plugin extends MyAwsome_Plugin_db_class 
+				*/
+				self::$db = new PluginName_db_class();
+				
+				// Update and setup Database
+				self::update_db();
+				
+			}else{
+			
+				// Register site styles and scripts
+				add_action( 'wp_print_styles', array( &$this, 'register_plugin_styles' ) );
+				add_action( 'wp_enqueue_scripts', array( &$this, 'register_plugin_scripts' ) );
+				
+			}
 			
 			register_activation_hook( __FILE__, array( &$this, 'activate' ) );
 			register_deactivation_hook( __FILE__, array( &$this, 'deactivate' ) );
@@ -116,6 +139,7 @@ if( ! class_exists( 'PluginName' ) ){
 			return $plugin_basename[0];
 		}
 		
+		
 		private function get_plugin_version(){
 			
 			$filePath = self::$plugin_obj->path . self::$plugin_obj->class_name . '.php';
@@ -134,6 +158,15 @@ if( ! class_exists( 'PluginName' ) ){
 				}
 			}
 		}
+		
+		
+		private function update_db(){
+			if( get_option( self::$plugin_obj->class_name  . '_version' ) != self::$plugin_obj->Version ){
+				update_option( self::$plugin_obj->class_name  . '_version', self::$plugin_obj->Version );
+				self::$db->create_db_tables();
+			}
+		}
+
 		
 		/*--------------------------------------------*
 		 * Core Functions
