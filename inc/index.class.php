@@ -16,16 +16,15 @@ if( ! class_exists( 'PluginName' ) ){
 		 *
 		 * @param array $plugin_data plugin data like Autor, Version, Name ...
 		 */
-		function __construct( $plugin_data ) {
+		function __construct() {
 			
 			//Catch some useful information about the pluign in the $plugin_obj
 			self::$plugin_obj->class_name 	= __CLASS__;
 			self::$plugin_obj->name 		= self::set_plugin_name();
 			self::$plugin_obj->path 		= str_replace( '/inc', '', plugin_dir_path(__FILE__) );
 			self::$plugin_obj->url 			= str_replace( '/inc', '', plugin_dir_url(__FILE__) );
-			self::$plugin_obj->Version		= $plugin_data['Version'];
-			
-			//
+			self::$plugin_obj->Version		= self::get_plugin_version();
+
 			load_plugin_textdomain( self::$plugin_obj->class_name . '_lang', false, dirname( plugin_basename( __FILE__ ) ) . '/lang' );
 			
 			// Register admin styles and scripts
@@ -110,11 +109,29 @@ if( ! class_exists( 'PluginName' ) ){
 		} // end register_plugin_scripts
 		
 		
-		public function set_plugin_name(){
+		private function set_plugin_name(){
 			$plugin_basename = explode( '/', plugin_basename(__FILE__) );
 			return $plugin_basename[0];
 		}
 		
+		private function get_plugin_version(){
+			
+			$filePath = self::$plugin_obj->path . self::$plugin_obj->class_name . '.php';
+			
+			if(is_readable($filePath)){
+	      		$fp = fopen($filePath, 'r');
+			
+				if(filesize($filePath) > 0){
+	      			$content = fread($fp,filesize($filePath));
+					preg_match('/Version:\s(.*?)\s/',$content,$version);
+
+					return $version[1];
+				}else{
+					fclose ($fp);
+					return false;
+				}
+			}
+		}
 		
 		/*--------------------------------------------*
 		 * Core Functions

@@ -27,5 +27,5 @@ License:
 */
 
 require_once 'inc/index.class.php';
-new PluginName( get_plugin_data(__FILE__) );
+new PluginName();
 ?>
