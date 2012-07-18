@@ -25,7 +25,9 @@ if( ! class_exists( 'PluginName' ) ){
 			self::$plugin_obj->url 			= str_replace( '/inc', '', plugin_dir_url(__FILE__) );
 			self::$plugin_obj->Version		= self::get_plugin_version();
 
-			load_plugin_textdomain( self::$plugin_obj->class_name . '_lang', false, dirname( plugin_basename( __FILE__ ) ) . '/lang' );
+			
+
+			load_plugin_textdomain( self::$plugin_obj->class_name . '_lang', false, self::$plugin_obj->path  . 'lang' );
 			
 			// Register admin styles and scripts
 			add_action( 'admin_print_styles', array( &$this, 'register_admin_styles' ) );
