@@ -34,7 +34,7 @@ if( defined('WP_UNINSTALL_PLUGIN') ){
 }else{
 
 	require_once 'inc/index.class.php';
-	new PluginName();
+	new PluginName( plugin_basename(__FILE__) );
 
 }
 
