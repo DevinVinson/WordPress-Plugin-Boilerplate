@@ -17,12 +17,18 @@ if( ! class_exists( 'PluginName' ) ){
 		 *
 		 * @param array $plugin_data plugin data like Autor, Version, Name ...
 		 */
-		function __construct() {
+		function __construct( $plugin_basename ) {
 			
 			//Catch some useful information about the pluign in the $plugin_obj
 			self::$plugin_obj->class_name 	= __CLASS__;
+<<<<<<< HEAD
 			self::$plugin_obj->name 	= self::set_plugin_name();
 			self::$plugin_obj->path 	= str_replace( '/inc', '', plugin_dir_path(__FILE__) );
+=======
+			self::$plugin_obj->name 		= self::set_plugin_name();
+			self::$plugin_obj->base			= $plugin_basename;
+			self::$plugin_obj->path 		= str_replace( '/inc', '', plugin_dir_path(__FILE__) );
+>>>>>>> Add Plugin base part 2
 			self::$plugin_obj->include_path = plugin_dir_path(__FILE__);
 			self::$plugin_obj->url 		= str_replace( '/inc', '', plugin_dir_url(__FILE__) );
 			self::$plugin_obj->Version	= self::get_plugin_version();
@@ -36,7 +42,7 @@ if( ! class_exists( 'PluginName' ) ){
 				// Register admin styles and scripts
 				add_action( 'admin_print_styles', array( &$this, 'register_admin_styles' ) );
 				add_action( 'admin_enqueue_scripts', array( &$this, 'register_admin_scripts' ) );
-				
+	
 				// Include the Database class
 				require_once( self::$plugin_obj->include_path  . "/db.class.php" );
 				
@@ -161,13 +167,16 @@ if( ! class_exists( 'PluginName' ) ){
 		
 		
 		private function update_db(){
+			
 			if( get_option( self::$plugin_obj->class_name  . '_version' ) != self::$plugin_obj->Version ){
+			
 				update_option( self::$plugin_obj->class_name  . '_version', self::$plugin_obj->Version );
 				self::$db->create_db_tables();
 			}
+			
 		}
-
 		
+				
 		/*--------------------------------------------*
 		 * Core Functions
 		 *---------------------------------------------*/
