@@ -27,15 +27,10 @@ License:
 */
 
 if( defined('WP_UNINSTALL_PLUGIN') ){
-
-	debug( 'Lösch mich' );
   //delete options, tables or anything else
-  
 }else{
-
 	require_once 'inc/index.class.php';
 	new PluginName( plugin_basename(__FILE__) );
-
 }
 
 ?>
