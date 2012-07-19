@@ -4,9 +4,9 @@
 
 class PluginName_db_class extends PluginName {
 	
-	private static $prefix	 		= "plugin_prefix";
+	private static $prefix	 	= "plugin_prefix";
 	private static $plugin_table 	= "_plugin";
-	private static $DB				= false;
+	private static $DB		= false;
 	
 	
 	function __construct() {
