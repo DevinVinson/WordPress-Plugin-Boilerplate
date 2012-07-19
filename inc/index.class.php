@@ -7,7 +7,7 @@ if( ! class_exists( 'PluginName' ) ){
 	
 		
 		private static $plugin_obj	= false;
-		private static $db 			= false;
+		private static $db 		= false;
 		
 		/**
 		 * Constructor
@@ -21,11 +21,11 @@ if( ! class_exists( 'PluginName' ) ){
 			
 			//Catch some useful information about the pluign in the $plugin_obj
 			self::$plugin_obj->class_name 	= __CLASS__;
-			self::$plugin_obj->name 		= self::set_plugin_name();
-			self::$plugin_obj->path 		= str_replace( '/inc', '', plugin_dir_path(__FILE__) );
+			self::$plugin_obj->name 	= self::set_plugin_name();
+			self::$plugin_obj->path 	= str_replace( '/inc', '', plugin_dir_path(__FILE__) );
 			self::$plugin_obj->include_path = plugin_dir_path(__FILE__);
-			self::$plugin_obj->url 			= str_replace( '/inc', '', plugin_dir_url(__FILE__) );
-			self::$plugin_obj->Version		= self::get_plugin_version();
+			self::$plugin_obj->url 		= str_replace( '/inc', '', plugin_dir_url(__FILE__) );
+			self::$plugin_obj->Version	= self::get_plugin_version();
 			
 
 			load_plugin_textdomain( self::$plugin_obj->class_name . '_lang', false, self::$plugin_obj->path  . 'lang' );
@@ -148,7 +148,7 @@ if( ! class_exists( 'PluginName' ) ){
 	      		$fp = fopen($filePath, 'r');
 			
 				if(filesize($filePath) > 0){
-	      			$content = fread($fp,filesize($filePath));
+	      				$content = fread($fp,filesize($filePath));
 					preg_match('/Version:\s(.*?)\s/',$content,$version);
 
 					return $version[1];
