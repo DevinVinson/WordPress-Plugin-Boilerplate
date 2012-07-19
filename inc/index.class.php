@@ -43,6 +43,9 @@ if( ! class_exists( 'PluginName' ) ){
 				add_action( 'admin_print_styles', array( &$this, 'register_admin_styles' ) );
 				add_action( 'admin_enqueue_scripts', array( &$this, 'register_admin_scripts' ) );
 	
+				// Add Uninstall action link
+				add_action( 'plugin_action_links_' . self::$plugin_obj->base, array( &$this, 'uninstall_action_link' ) );
+	
 				// Include the Database class
 				require_once( self::$plugin_obj->include_path  . "/db.class.php" );
 				
@@ -176,6 +179,19 @@ if( ! class_exists( 'PluginName' ) ){
 			
 		}
 		
+		/**
+		  * Add unistall action link for the Plugin!
+		  *
+		  * @param 	array	$action_links 	the original links by Wordpress
+		  * @return arry 	$action_links 	the filtered links
+		  *   
+		  */
+		public function uninstall_action_link( $action_links ){ 
+			
+		 $action_links['unistall'] = '<span class="delete"><a href="'. admin_url() .'plugins.php?action=unistall&plugin=' . self::$plugin_obj->name  . '" title="Unistall this plugin" class="delete">Unistall</a></span>';
+		 return $action_links;
+		
+		}
 				
 		/*--------------------------------------------*
 		 * Core Functions
