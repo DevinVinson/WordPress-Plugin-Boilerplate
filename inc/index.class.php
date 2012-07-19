@@ -43,6 +43,9 @@ if( ! class_exists( 'PluginName' ) ){
 				add_action( 'admin_print_styles', array( &$this, 'register_admin_styles' ) );
 				add_action( 'admin_enqueue_scripts', array( &$this, 'register_admin_scripts' ) );
 	
+				// add row meta links
+				add_filter( 'plugin_row_meta',  array( __CLASS__, 'plugin_row_meta_link' ), 10, 2 );
+	
 				// Add Uninstall action link
 				add_action( 'plugin_action_links_' . self::$plugin_obj->base, array( &$this, 'uninstall_action_link' ) );
 	
@@ -192,6 +195,31 @@ if( ! class_exists( 'PluginName' ) ){
 		 return $action_links;
 		
 		}
+				
+		
+		
+		/**
+		* Metalinks
+		*
+		* @param   array   $data  existing links
+		* @param   string  $page  current page
+		* @return  array   $data  modified links
+		*/
+		public function plugin_row_meta_link($data, $page){
+
+			if ( $page != self::$plugin_obj->base ) {
+				return $data;
+			}
+        
+			return array_merge(
+				$data,
+				array(
+					'<a href="https://plus.google.com/116520935691953756105" target="_blank">Auf Google+ folgen</a>'
+				)
+			);
+			
+		}
+				
 				
 		/*--------------------------------------------*
 		 * Core Functions
