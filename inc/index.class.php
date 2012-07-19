@@ -21,14 +21,9 @@ if( ! class_exists( 'PluginName' ) ){
 			
 			//Catch some useful information about the pluign in the $plugin_obj
 			self::$plugin_obj->class_name 	= __CLASS__;
-<<<<<<< HEAD
 			self::$plugin_obj->name 	= self::set_plugin_name();
+			self::$plugin_obj->base		= $plugin_basename;
 			self::$plugin_obj->path 	= str_replace( '/inc', '', plugin_dir_path(__FILE__) );
-=======
-			self::$plugin_obj->name 		= self::set_plugin_name();
-			self::$plugin_obj->base			= $plugin_basename;
-			self::$plugin_obj->path 		= str_replace( '/inc', '', plugin_dir_path(__FILE__) );
->>>>>>> Add Plugin base part 2
 			self::$plugin_obj->include_path = plugin_dir_path(__FILE__);
 			self::$plugin_obj->url 		= str_replace( '/inc', '', plugin_dir_url(__FILE__) );
 			self::$plugin_obj->Version	= self::get_plugin_version();
