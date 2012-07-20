@@ -6,7 +6,7 @@ if( ! class_exists( 'PluginName' ) ){
 	class PluginName {
 	
 		
-		private static $plugin_obj	= false;
+		public static $plugin_obj	= false;
 		private static $db 		= false;
 		
 		/**
@@ -32,30 +32,42 @@ if( ! class_exists( 'PluginName' ) ){
 			
 			if(is_admin()){
 				
-				// Register admin styles and scripts
-				add_action( 'admin_print_styles', array( &$this, 'register_admin_styles' ) );
-				add_action( 'admin_enqueue_scripts', array( &$this, 'register_admin_scripts' ) );
-	
 				// add row meta links
 				add_filter( 'plugin_row_meta',  array( __CLASS__, 'plugin_row_meta_link' ), 10, 2 );
-	
-				// Add Uninstall action link
-				add_action( 'plugin_action_links_' . self::$plugin_obj->base, array( &$this, 'uninstall_action_link' ) );
-	
-				// Include the Database class
-				require_once( self::$plugin_obj->include_path  . "/db.class.php" );
 				
-				/*
-				 * Init the Database class
-				 *
-				 * TODO: 
-				 * Go to the db.class.php and replace PluginName with your new plugin name,
-				 * like this class MyAwsome_Plugin extends MyAwsome_Plugin_db_class 
-				*/
-				self::$db = new PluginName_db_class();
+				if( defined('WP_UNINSTALL_PLUGIN') || $_GET['action'] == 'unistall' ){
+				 	
+					// Include the Database class
+					require_once( self::$plugin_obj->include_path  . "/unistall.class.php" );
+					
+					new PluginName_unistall_class();
+					
+				}else{
 				
-				// Update and setup Database
-				self::update_db();
+					// Include the Database class
+					require_once( self::$plugin_obj->include_path  . "/db.class.php" );
+
+					/*
+					 * Init the Database class
+					 *
+					 * TODO: 
+					 * Go to the db.class.php and replace PluginName with your new plugin name,
+					 * like this class MyAwsome_Plugin extends MyAwsome_Plugin_db_class 
+					*/
+					self::$db = new PluginName_db_class();
+				
+					// Update and setup Database
+					self::update_db();
+					
+					// Register admin styles and scripts
+					add_action( 'admin_print_styles', array( &$this, 'register_admin_styles' ) );
+					add_action( 'admin_enqueue_scripts', array( &$this, 'register_admin_scripts' ) );
+
+	            	
+					// Add Uninstall action link
+					add_action( 'plugin_action_links_' . self::$plugin_obj->base, array( &$this, 'uninstall_action_link' ) );
+	
+				}
 				
 			}else{
 			
@@ -185,6 +197,8 @@ if( ! class_exists( 'PluginName' ) ){
 		public function uninstall_action_link( $action_links ){ 
 			
 		 $action_links['unistall'] = '<span class="delete"><a href="'. admin_url() .'plugins.php?action=unistall&plugin=' . self::$plugin_obj->name  . '" title="' . __( 'Unistall this plugin', self::$plugin_obj->class_name ) . '" class="delete">' . __( 'Unistall', self::$plugin_obj->class_name )  . '</a></span>';
+		 unset( $action_links['deactivate'] );
+		
 		 return $action_links;
 		
 		}
