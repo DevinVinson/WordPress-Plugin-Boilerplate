@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TODO v1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-07-20 22:30+0100\n"
-"PO-Revision-Date: 2012-07-20 22:30+0100\n"
+"POT-Creation-Date: 2012-07-21 00:25+0100\n"
+"PO-Revision-Date: 2012-07-21 00:26+0100\n"
 "Last-Translator: Rene  <rene@die-pixler.de>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -19,21 +19,23 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 
 # @ PluginName
-#: inc/index.class.php:188
+#: inc/index.class.php:198
 msgid "Unistall this plugin"
 msgstr "Dieses Plugin deinstallieren"
 
 # @ PluginName
-#: inc/index.class.php:188
+#: inc/index.class.php:198
 msgid "Unistall"
 msgstr "Deinstallieren"
 
 # @ PluginName
-#: inc/index.class.php:211
+#: inc/index.class.php:223
 msgid "follow me on Google+"
 msgstr "Folge mir auf Google+"
 
-#: inc/index.class.php:211
-msgid "TEST"
-msgstr "ASDSD"
+#: inc/unistall.class.php:43
+msgid "<b>the Plugin</b> is now deinstalled and cleaned up!"
+msgstr "<b>Das Plugin</b> wurde deinstalliert und aufgreäumt!"
 
+#~ msgid "TEST"
+#~ msgstr "ASDSD"
