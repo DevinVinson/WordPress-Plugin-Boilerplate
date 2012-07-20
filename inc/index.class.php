@@ -28,10 +28,8 @@ if( ! class_exists( 'PluginName' ) ){
 			self::$plugin_obj->url 		= str_replace( '/inc', '', plugin_dir_url(__FILE__) );
 			self::$plugin_obj->Version	= self::get_plugin_version();
 			
-
-			load_plugin_textdomain( self::$plugin_obj->class_name . '_lang', false, self::$plugin_obj->path  . 'lang' );
+			load_plugin_textdomain( self::$plugin_obj->class_name, false, self::$plugin_obj->name  . '/lang/' );
 			
-
 			if(is_admin()){
 				
 				// Register admin styles and scripts
@@ -186,7 +184,7 @@ if( ! class_exists( 'PluginName' ) ){
 		  */
 		public function uninstall_action_link( $action_links ){ 
 			
-		 $action_links['unistall'] = '<span class="delete"><a href="'. admin_url() .'plugins.php?action=unistall&plugin=' . self::$plugin_obj->name  . '" title="Unistall this plugin" class="delete">Unistall</a></span>';
+		 $action_links['unistall'] = '<span class="delete"><a href="'. admin_url() .'plugins.php?action=unistall&plugin=' . self::$plugin_obj->name  . '" title="' . __( 'Unistall this plugin', self::$plugin_obj->class_name ) . '" class="delete">' . __( 'Unistall', self::$plugin_obj->class_name )  . '</a></span>';
 		 return $action_links;
 		
 		}
@@ -209,7 +207,7 @@ if( ! class_exists( 'PluginName' ) ){
 			return array_merge(
 				$data,
 				array(
-					'<a href="https://plus.google.com/116520935691953756105" target="_blank">Auf Google+ folgen</a>'
+					'<a href="https://plus.google.com/116520935691953756105" target="_blank">' . __( 'follow me on Google+', self::$plugin_obj->class_name ) . '</a>'
 				)
 			);
 			
