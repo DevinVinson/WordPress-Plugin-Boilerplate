@@ -39,7 +39,6 @@ class PluginName_unistall_class extends PluginName {
 	}
 
 	public function unistall_admin_notice(){
-		$msg = '<b>the Plugin</b> is now deinstalled and cleaned up!'; 
 		echo '<div id="message" class="updated"><p>'. __( '<b>the Plugin</b> is now deinstalled and cleaned up!', parent::$plugin_obj->class_name ) .'</p></div>';
 	}
 
