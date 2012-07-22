@@ -17,7 +17,7 @@ if( ! class_exists( 'PluginName' ) ){
 		 *
 		 * @param array $plugin_data plugin data like Autor, Version, Name ...
 		 */
-		function init( $plugin_basename ) {
+		function __construct( $plugin_basename ) {
 
 			//Catch some useful information about the pluign in the $plugin_obj
 			self::$plugin_obj->class_name 	= __CLASS__;
@@ -79,8 +79,6 @@ if( ! class_exists( 'PluginName' ) ){
 				
 			}
 			
-			register_activation_hook( __FILE__, array( &$this, 'activate' ) );
-			register_deactivation_hook( __FILE__, array( &$this, 'deactivate' ) );
 			
 		    /*
 		     * TODO:
@@ -98,23 +96,7 @@ if( ! class_exists( 'PluginName' ) ){
 	
 		} // end constructor
 		
-		/**
-		 * Fired when the plugin is activated.
-		 *
-		 * @params	$network_wide	True if WPMU superadmin uses "Network Activate" action, false if WPMU is disabled or plugin is activated on an individual blog 
-		 */
-		function activate( $network_wide ) {
-			// TODO define activation functionality here
-		} // end activate
 		
-		/**
-		 * Fired when the plugin is deactivated.
-		 *
-		 * @params	$network_wide	True if WPMU superadmin uses "Network Activate" action, false if WPMU is disabled or plugin is activated on an individual blog 
-		 */
-		function deactivate( $network_wide ) {
-			// TODO define deactivation functionality here		
-		} // end deactivate
 		
 		/**
 		 * Registers and enqueues admin-specific styles.

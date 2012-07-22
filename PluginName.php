@@ -25,13 +25,42 @@ License:
   Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
   
 */
+
+
+/** 
+ * Init Plugin when is it Loaded
+ * 
+ * TODO: Replace PluginName with your new plugin name
+ */
 add_action( 'plugins_loaded', 'init_PluginName');
 
 function init_PluginName(){
 	require_once 'inc/index.class.php';
-	
-	$PluginName = new PluginName();
-	$PluginName->init( plugin_basename(__FILE__) );
+	new PluginName( plugin_basename(__FILE__) );
 }
+
+
+
+/**
+ * Fired when the plugin is activated.
+ *
+ * @params	$network_wide	True if WPMU superadmin uses "Network Activate" action, false if WPMU is disabled or plugin is activated on an individual blog 
+ */
+register_activation_hook( __FILE__, 'activate' );
+
+function activate( $network_wide ) {
+	// TODO define activation functionality here
+} // end activate
+
+/**
+ * Fired when the plugin is deactivated.
+ *
+ * @params	$network_wide	True if WPMU superadmin uses "Network Activate" action, false if WPMU is disabled or plugin is activated on an individual blog 
+ */
+register_deactivation_hook( __FILE__, 'deactivate' );
+
+function deactivate( $network_wide ) {
+	// TODO define deactivation functionality here		
+} // end deactivate
 
 ?>
