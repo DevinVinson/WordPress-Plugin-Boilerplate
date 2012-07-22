@@ -25,8 +25,13 @@ License:
   Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
   
 */
+add_action( 'plugins_loaded', 'init_PluginName');
 
-require_once 'inc/index.class.php';
-new PluginName( plugin_basename(__FILE__) );
+function init_PluginName(){
+	require_once 'inc/index.class.php';
+	
+	$PluginName = new PluginName();
+	$PluginName->init( plugin_basename(__FILE__) );
+}
 
 ?>

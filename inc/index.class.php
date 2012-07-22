@@ -17,8 +17,8 @@ if( ! class_exists( 'PluginName' ) ){
 		 *
 		 * @param array $plugin_data plugin data like Autor, Version, Name ...
 		 */
-		function __construct( $plugin_basename ) {
-			
+		function init( $plugin_basename ) {
+
 			//Catch some useful information about the pluign in the $plugin_obj
 			self::$plugin_obj->class_name 	= __CLASS__;
 			self::$plugin_obj->name 	= self::set_plugin_name();
@@ -27,6 +27,8 @@ if( ! class_exists( 'PluginName' ) ){
 			self::$plugin_obj->include_path = plugin_dir_path(__FILE__);
 			self::$plugin_obj->url 		= str_replace( '/inc', '', plugin_dir_url(__FILE__) );
 			self::$plugin_obj->Version	= self::get_plugin_version();
+
+			debug( self::$plugin_obj );
 			
 			load_plugin_textdomain( self::$plugin_obj->class_name, false, self::$plugin_obj->name  . '/lang/' );
 			
