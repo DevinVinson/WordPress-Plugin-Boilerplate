@@ -27,8 +27,6 @@ if( ! class_exists( 'PluginName' ) ){
 			self::$plugin_obj->include_path = plugin_dir_path(__FILE__);
 			self::$plugin_obj->url 		= str_replace( '/inc', '', plugin_dir_url(__FILE__) );
 			self::$plugin_obj->Version	= self::get_plugin_version();
-
-			debug( self::$plugin_obj );
 			
 			load_plugin_textdomain( self::$plugin_obj->class_name, false, self::$plugin_obj->name  . '/lang/' );
 			
