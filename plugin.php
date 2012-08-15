@@ -162,4 +162,3 @@ class PluginName {
 
 // TODO: update the instantiation call of your plugin to the name given at the class definition
 new PluginName();
-?>
