@@ -46,7 +46,7 @@ class PluginName {
 		add_action( 'admin_enqueue_scripts', array( &$this, 'register_admin_scripts' ) );
 	
 		// Register site styles and scripts
-		add_action( 'wp_print_styles', array( &$this, 'register_plugin_styles' ) );
+		add_action( 'wp_enqueue_scripts', array( &$this, 'register_plugin_styles' ) );
 		add_action( 'wp_enqueue_scripts', array( &$this, 'register_plugin_scripts' ) );
 		
 		register_activation_hook( __FILE__, array( &$this, 'activate' ) );
@@ -73,7 +73,7 @@ class PluginName {
 	 *
 	 * @params	$network_wide	True if WPMU superadmin uses "Network Activate" action, false if WPMU is disabled or plugin is activated on an individual blog 
 	 */
-	function activate( $network_wide ) {
+	public function activate( $network_wide ) {
 		// TODO define activation functionality here
 	} // end activate
 	
@@ -82,7 +82,7 @@ class PluginName {
 	 *
 	 * @params	$network_wide	True if WPMU superadmin uses "Network Activate" action, false if WPMU is disabled or plugin is activated on an individual blog 
 	 */
-	function deactivate( $network_wide ) {
+	public function deactivate( $network_wide ) {
 		// TODO define deactivation functionality here		
 	} // end deactivate
 	
