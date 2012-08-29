@@ -1,4 +1,4 @@
-=== Widget Name ===
+=== Plugin Name ===
 Contributors: username1, username2 (this should be a list of wordpress.org userid's)
 Donate link: http://example.com/
 Tags: comments, spam
