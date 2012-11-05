@@ -9,21 +9,20 @@ Author URI: TODO
 Author Email: TODO
 License:
 
-  Copyright 2012 TODO (email@domain.com)
+Copyright 2012 TODO (email@domain.com)
 
-  This program is free software; you can redistribute it and/or modify
-  it under the terms of the GNU General Public License, version 2, as 
-  published by the Free Software Foundation.
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License, version 2, as 
+published by the Free Software Foundation.
 
-  This program is distributed in the hope that it will be useful,
-  but WITHOUT ANY WARRANTY; without even the implied warranty of
-  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-  GNU General Public License for more details.
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
 
-  You should have received a copy of the GNU General Public License
-  along with this program; if not, write to the Free Software
-  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
-  
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
 // TODO: rename this class to a proper name for your plugin
@@ -36,21 +35,21 @@ class PluginName {
 	/**
 	 * Initializes the plugin by setting localization, filters, and administration functions.
 	 */
-	function __construct() {
+	public function __construct() {
 	
 		// TODO: replace "plugin-name-locale" with a unique value for your plugin
 		load_plugin_textdomain( 'plugin-name-locale', false, dirname( plugin_basename( __FILE__ ) ) . '/lang' );
 		
 		// Register admin styles and scripts
-		add_action( 'admin_print_styles', array( $this, 'register_admin_styles' ) );
-		add_action( 'admin_enqueue_scripts', array( $this, 'register_admin_scripts' ) );
+		add_action( 'admin_print_styles', array( __CLASS__, 'register_admin_styles' ) );
+		add_action( 'admin_enqueue_scripts', array( __CLASS__, 'register_admin_scripts' ) );
 	
 		// Register site styles and scripts
-		add_action( 'wp_enqueue_scripts', array( $this, 'register_plugin_styles' ) );
-		add_action( 'wp_enqueue_scripts', array( $this, 'register_plugin_scripts' ) );
+		add_action( 'wp_enqueue_scripts', array( __CLASS__, 'register_plugin_styles' ) );
+		add_action( 'wp_enqueue_scripts', array( __CLASS__, 'register_plugin_scripts' ) );
 		
-		register_activation_hook( __FILE__, array( $this, 'activate' ) );
-		register_deactivation_hook( __FILE__, array( $this, 'deactivate' ) );
+		register_activation_hook( __FILE__, array( __CLASS__, 'activate' ) );
+		register_deactivation_hook( __FILE__, array( __CLASS__, 'deactivate' ) );
 		
 	    /*
 	     * TODO:
@@ -63,8 +62,8 @@ class PluginName {
 	     * For more information: 
 	     * http://codex.wordpress.org/Plugin_API#Hooks.2C_Actions_and_Filters
 	     */
-	    add_action( 'TODO', array( $this, 'action_method_name' ) );
-	    add_filter( 'TODO', array( $this, 'filter_method_name' ) );
+	    add_action( 'TODO', array( __CLASS__, 'action_method_name' ) );
+	    add_filter( 'TODO', array( __CLASS__, 'filter_method_name' ) );
 
 	} // end constructor
 	
@@ -73,7 +72,7 @@ class PluginName {
 	 *
 	 * @params	$network_wide	True if WPMU superadmin uses "Network Activate" action, false if WPMU is disabled or plugin is activated on an individual blog 
 	 */
-	public function activate( $network_wide ) {
+	public static function activate( $network_wide ) {
 		// TODO define activation functionality here
 	} // end activate
 	
@@ -82,14 +81,14 @@ class PluginName {
 	 *
 	 * @params	$network_wide	True if WPMU superadmin uses "Network Activate" action, false if WPMU is disabled or plugin is activated on an individual blog 
 	 */
-	public function deactivate( $network_wide ) {
+	public static function deactivate( $network_wide ) {
 		// TODO define deactivation functionality here		
 	} // end deactivate
 	
 	/**
 	 * Registers and enqueues admin-specific styles.
 	 */
-	public function register_admin_styles() {
+	public static function register_admin_styles() {
 	
 		// TODO change 'plugin-name' to the name of your plugin
 		wp_enqueue_style( 'plugin-name-admin-styles', plugins_url( 'plugin-name/css/admin.css' ) );
@@ -99,7 +98,7 @@ class PluginName {
 	/**
 	 * Registers and enqueues admin-specific JavaScript.
 	 */	
-	public function register_admin_scripts() {
+	public static function register_admin_scripts() {
 	
 		// TODO change 'plugin-name' to the name of your plugin
 		wp_enqueue_script( 'plugin-name-admin-script', plugins_url( 'plugin-name/js/admin.js' ) );
@@ -109,7 +108,7 @@ class PluginName {
 	/**
 	 * Registers and enqueues plugin-specific styles.
 	 */
-	public function register_plugin_styles() {
+	public static function register_plugin_styles() {
 	
 		// TODO change 'plugin-name' to the name of your plugin
 		wp_enqueue_style( 'plugin-name-plugin-styles', plugins_url( 'plugin-name/css/display.css' ) );
@@ -119,7 +118,7 @@ class PluginName {
 	/**
 	 * Registers and enqueues plugin-specific scripts.
 	 */
-	public function register_plugin_scripts() {
+	public static function register_plugin_scripts() {
 	
 		// TODO change 'plugin-name' to the name of your plugin
 		wp_enqueue_script( 'plugin-name-plugin-script', plugins_url( 'plugin-name/js/display.js' ) );
@@ -138,7 +137,7 @@ class PluginName {
 	 *		  Action Reference:  http://codex.wordpress.org/Plugin_API/Action_Reference
 	 *
 	 */
-	function action_method_name() {
+	public static function action_method_name() {
     	// TODO define your action method here
 	} // end action_method_name
 	
@@ -150,11 +149,11 @@ class PluginName {
 	 *		  Filter Reference:  http://codex.wordpress.org/Plugin_API/Filter_Reference
 	 *
 	 */
-	function filter_method_name() {
+	public static function filter_method_name() {
 	    // TODO define your filter method here
 	} // end filter_method_name
   
 } // end class
 
 // TODO: update the instantiation call of your plugin to the name given at the class definition
-new PluginName();
+add_action( 'plugins_loaded', create_function('', 'return new PluginName();') );
