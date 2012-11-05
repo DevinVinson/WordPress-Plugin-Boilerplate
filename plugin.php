@@ -137,7 +137,7 @@ class PluginName {
 	 *		  Action Reference:  http://codex.wordpress.org/Plugin_API/Action_Reference
 	 *
 	 */
-	public static action_method_name() {
+	public static function action_method_name() {
     	// TODO define your action method here
 	} // end action_method_name
 	
@@ -149,7 +149,7 @@ class PluginName {
 	 *		  Filter Reference:  http://codex.wordpress.org/Plugin_API/Filter_Reference
 	 *
 	 */
-	public static filter_method_name() {
+	public static function filter_method_name() {
 	    // TODO define your filter method here
 	} // end filter_method_name
   
