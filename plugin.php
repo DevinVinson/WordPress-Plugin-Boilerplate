@@ -37,10 +37,10 @@ class PluginName {
 	 * Initializes the plugin by setting localization, filters, and administration functions.
 	 */
 	function __construct() {
-	
-		// TODO: replace "plugin-name-locale" with a unique value for your plugin
-		load_plugin_textdomain( 'plugin-name-locale', false, dirname( plugin_basename( __FILE__ ) ) . '/lang' );
 		
+		// load plugin text domain
+		add_action( 'init', array( $this, 'textdomain' ) );
+
 		// Register admin styles and scripts
 		add_action( 'admin_print_styles', array( $this, 'register_admin_styles' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'register_admin_scripts' ) );
@@ -48,7 +48,7 @@ class PluginName {
 		// Register site styles and scripts
 		add_action( 'wp_enqueue_scripts', array( $this, 'register_plugin_styles' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'register_plugin_scripts' ) );
-		
+
 		register_activation_hook( __FILE__, array( $this, 'activate' ) );
 		register_deactivation_hook( __FILE__, array( $this, 'deactivate' ) );
 		
@@ -86,6 +86,14 @@ class PluginName {
 		// TODO define deactivation functionality here		
 	} // end deactivate
 	
+	/**
+	 * Loads the plugin text domain for translation
+	 */
+	public function textdomain() {
+		// TODO: replace "plugin-name-locale" with a unique value for your plugin
+		load_plugin_textdomain( 'plugin-name-locale', false, dirname( plugin_basename( __FILE__ ) ) . '/lang' );
+	}
+
 	/**
 	 * Registers and enqueues admin-specific styles.
 	 */
