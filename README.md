@@ -1,6 +1,6 @@
 # WordPress Plugin Boilerplate
 
-The WordPress Plugin Boilerplate serves as a foundation off of which to build your WordPress widgets. 
+The WordPress Plugin Boilerplate serves as a foundation off of which to build your WordPress plugins. 
 
 ## Features
 
