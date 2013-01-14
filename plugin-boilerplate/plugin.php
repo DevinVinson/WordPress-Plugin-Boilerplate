@@ -46,7 +46,7 @@ class PluginName {
 		add_action( 'admin_enqueue_scripts', array( $this, 'register_admin_scripts' ) );
 	
 		// Register site styles and scripts
-		add_action( 'wp_enqueue_scripts', array( $this, 'register_plugin_styles' ) );
+		add_action( 'wp_enqueue_styles', array( $this, 'register_plugin_styles' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'register_plugin_scripts' ) );
 	
 		// Register hooks that are fired when the plugin is activated, deactivated, and uninstalled, respectively.
