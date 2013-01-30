@@ -103,8 +103,11 @@ class PluginName {
 	public function plugin_textdomain() {
 	
 		// TODO: replace "plugin-name-locale" with a unique value for your plugin
-		load_plugin_textdomain( 'plugin-name-locale', false, dirname( plugin_basename( __FILE__ ) ) . '/lang' );
-		
+		$domain = 'plugin-name-locale';
+		$locale = apply_filters( 'plugin_locale', get_locale(), $domain );
+        load_textdomain( $domain, WP_LANG_DIR.'/'.$domain.'/'.$domain.'-'.$locale.'.mo' );
+        load_plugin_textdomain( $domain, FALSE, dirname( plugin_basename( __FILE__ ) ) . '/lang/' );
+
 	} // end plugin_textdomain
 
 	/**
