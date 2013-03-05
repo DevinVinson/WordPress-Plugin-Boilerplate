@@ -52,7 +52,6 @@ class PluginName {
 		// Register hooks that are fired when the plugin is activated, deactivated, and uninstalled, respectively.
 		register_activation_hook( __FILE__, array( $this, 'activate' ) );
 		register_deactivation_hook( __FILE__, array( $this, 'deactivate' ) );
-		register_uninstall_hook( __FILE__, array( $this, 'uninstall' ) );
 		
 	    /*
 	     * TODO:
@@ -88,15 +87,6 @@ class PluginName {
 		// TODO:	Define deactivation functionality here		
 	} // end deactivate
 	
-	/**
-	 * Fired when the plugin is uninstalled.
-	 *
-	 * @param	boolean	$network_wide	True if WPMU superadmin uses "Network Activate" action, false if WPMU is disabled or plugin is activated on an individual blog 
-	 */
-	public function uninstall( $network_wide ) {
-		// TODO:	Define uninstall functionality here		
-	} // end uninstall
-
 	/**
 	 * Loads the plugin text domain for translation
 	 */
