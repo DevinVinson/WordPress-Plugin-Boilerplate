@@ -46,6 +46,9 @@ class PluginName {
 	  # add_action('admin_menu', array( $this, 'plugin_admin_menu' ) );
 
 		// Register admin styles and scripts
+		// If the Settings page has been activated (above), the scripts and styles
+		// will only be loaded on the settings page. If not, they will be loaded for all
+		// admin pages. 
 		add_action( 'admin_enqueue_scripts', array( $this, 'register_admin_styles' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'register_admin_scripts' ) );
 
@@ -119,18 +122,53 @@ class PluginName {
 	 */
 	public function register_admin_styles() {
 
-		// TODO:	Change 'plugin-name' to the name of your plugin
-		wp_enqueue_style( 'plugin-name-admin-styles', plugins_url( 'plugin-name/css/admin.css' ) );
+		/*
+		 * Check if the plugin has registered a settings page
+		 * and if it has, make sure only to enqueue the scripts on the relevant screens
+		 */
+		
+	    if ( isset($this->plugin_screen_slug) ){
+	    	
+	    	/*
+			 * Check if current screen is the admin page for this plugin
+			 * Don't enqueue script/style if it's not
+			 */
+	    
+			 $screen = get_current_screen();
+			 if ( $screen->id != $this->plugin_screen_slug )
+			 	return;
+	    
+	    }
+
+		wp_enqueue_style( 'plugin-name-admin-styles', plugins_url( 'css/admin.css', __FILE__ ) );
 
 	} // end register_admin_styles
+
 
 	/**
 	 * Registers and enqueues admin-specific JavaScript.
 	 */
 	public function register_admin_scripts() {
 
-		// TODO:	Change 'plugin-name' to the name of your plugin
-		wp_enqueue_script( 'plugin-name-admin-script', plugins_url( 'plugin-name/js/admin.js' ), array('jquery') );
+		/*
+		 * Check if the plugin has registered a settings page
+		 * and if it has, make sure only to enqueue the scripts on the relevant screens
+		 */
+		
+	    if ( isset($this->plugin_screen_slug) ){
+	    	
+	    	/*
+			 * Check if current screen is the admin page for this plugin
+			 * Don't enqueue script/style if it's not
+			 */
+	    
+			 $screen = get_current_screen();
+			 if ( $screen->id != $this->plugin_screen_slug )
+			 	return;
+	    
+	    }
+
+		wp_enqueue_script( 'plugin-name-admin-script', plugins_url( 'js/admin.js', __FILE__ ), array('jquery') );
 
 	} // end register_admin_scripts
 
@@ -170,6 +208,7 @@ class PluginName {
 		include_once('views/admin_close.php'); 
 		
 	} // end plugin_admin_page
+
 
 
 	/*--------------------------------------------*
