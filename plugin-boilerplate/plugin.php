@@ -41,6 +41,10 @@ class PluginName {
 		// Load plugin text domain
 		add_action( 'init', array( $this, 'plugin_textdomain' ) );
 
+	    // Add the options page and menu item
+	    // Uncomment the following line to enable the Settings Page for the plugin
+	  # add_action('admin_menu', array( $this, 'plugin_admin_menu' ) );
+
 		// Register admin styles and scripts
 		add_action( 'admin_enqueue_scripts', array( $this, 'register_admin_styles' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'register_admin_scripts' ) );
@@ -147,6 +151,26 @@ class PluginName {
 		wp_enqueue_script( 'plugin-name-plugin-script', plugins_url( 'js/display.js', __FILE__ ), array('jquery') );
 
 	} // end register_plugin_scripts
+
+
+	function plugin_admin_menu() {
+    	// TODO:	Change 'Page Title' to the title of your plugin admin page
+    	// TODO:	Change 'Menu Text' to the text for menu item for the plugin settings page 
+    	// TODO:	Change 'plugin-name' to the name of your plugin
+    	$this->plugin_screen_slug = add_plugins_page('Page Title', 'Menu Text', 'read', 'plugin-name', array( $this, 'plugin_admin_page' ));
+    	
+	} // end plugin_admin_menu
+	
+	
+	function plugin_admin_page() {
+		
+		// output the cpanel
+		include_once('views/admin_open.php');
+		include_once('views/admin.php'); // outputs the settings/form markup for the plugin admin markup
+		include_once('views/admin_close.php'); 
+		
+	} // end plugin_admin_page
+
 
 	/*--------------------------------------------*
 	 * Core Functions
