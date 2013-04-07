@@ -42,7 +42,7 @@ class PluginName {
 		add_action( 'init', array( $this, 'plugin_textdomain' ) );
 
 		// Register admin styles and scripts
-		add_action( 'admin_print_styles', array( $this, 'register_admin_styles' ) );
+		add_action( 'admin_enqueue_scripts', array( $this, 'register_admin_styles' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'register_admin_scripts' ) );
 
 		// Register site styles and scripts
