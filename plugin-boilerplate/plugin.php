@@ -30,20 +30,36 @@ License:
 class PluginName {
 
 	/*--------------------------------------------*
+	 * Attributes
+	 *--------------------------------------------*/
+	 
+	/** Refers to a single instance of this class. */
+	private static $instance;
+
+	/*--------------------------------------------*
 	 * Constructor
 	 *--------------------------------------------*/
+	 
+	/**
+	 * Creates or returns an instance of this class.
+	 *
+	 * @return	PluginName	A single instance of this class.
+	 */
+	public function get_instance() {
+		return null == self::$instance ? new self : self::$instance;
+	} // end get_instance;
 
 	/**
 	 * Initializes the plugin by setting localization, filters, and administration functions.
 	 */
-	function __construct() {
+	private function __construct() {
 
 		// Load plugin text domain
 		add_action( 'init', array( $this, 'plugin_textdomain' ) );
 
 	    // Add the options page and menu item
 	    // Uncomment the following line to enable the Settings Page for the plugin
-	  # add_action('admin_menu', array( $this, 'plugin_admin_menu' ) );
+	    # add_action('admin_menu', array( $this, 'plugin_admin_menu' ) );
 
 		// Register admin styles and scripts
 		// If the Settings page has been activated (above), the scripts and styles
@@ -232,4 +248,4 @@ class PluginName {
 } // end class
 
 // TODO:	Update the instantiation call of your plugin to the name given at the class definition
-$plugin_name = new PluginName();
+PluginName::get_instance();
