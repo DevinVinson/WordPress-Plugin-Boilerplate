@@ -197,7 +197,7 @@ class PluginName {
 	} // end register_plugin_scripts
 
 
-	function plugin_admin_menu() {
+	public function plugin_admin_menu() {
     	// TODO:	Change 'Page Title' to the title of your plugin admin page
     	// TODO:	Change 'Menu Text' to the text for menu item for the plugin settings page 
     	// TODO:	Change 'plugin-name' to the name of your plugin
@@ -206,7 +206,7 @@ class PluginName {
 	} // end plugin_admin_menu
 	
 	
-	function plugin_admin_page() {
+	public function plugin_admin_page() {
 		
 		// output the cpanel
 		include_once('views/admin_open.php');
@@ -229,7 +229,7 @@ class PluginName {
 	 *		  Action Reference:  http://codex.wordpress.org/Plugin_API/Action_Reference
 	 *
 	 */
-	function action_method_name() {
+	public function action_method_name() {
     	// TODO:	Define your action method here
 	} // end action_method_name
 
@@ -241,7 +241,7 @@ class PluginName {
 	 *		  Filter Reference:  http://codex.wordpress.org/Plugin_API/Filter_Reference
 	 *
 	 */
-	function filter_method_name() {
+	public function filter_method_name() {
 	    // TODO:	Define your filter method here
 	} // end filter_method_name
 
