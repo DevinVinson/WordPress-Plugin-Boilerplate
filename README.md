@@ -49,7 +49,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 ## Changelog
 
-### 2.0 (7 May 2012)
+### 2.0 (7 May 2013)
 
 * Disabling the admin menu by default
 * Initializing the attributes
