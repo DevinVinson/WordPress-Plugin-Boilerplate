@@ -26,7 +26,17 @@ License:
 
 */
 
-// TODO: rename this class to a proper name for your plugin
+/**
+ * TODO: 
+ *
+ * Rename this class to a proper name for your plugin. Give a proper description of
+ * the plugin, it's purpose, and any dependencies it has.
+ *
+ * Use PHPDoc directives if you wish to be able to document the code using a documentation
+ * generator.
+ *
+ * @version	1.0
+ */
 class PluginName {
 
 	/*--------------------------------------------*
