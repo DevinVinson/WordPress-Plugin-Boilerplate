@@ -64,7 +64,7 @@ class PluginName {
 	     * Add the options page and menu item.
 	     * Uncomment the following line to enable the Settings Page for the plugin:
 	     */
-	     add_action( 'admin_menu', array( $this, 'plugin_admin_menu' ) );
+	     //add_action( 'admin_menu', array( $this, 'plugin_admin_menu' ) );
 
 	    /*
 		 * Register admin styles and scripts
