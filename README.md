@@ -49,7 +49,11 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 ## Changelog
 
-### 2.0 (7 May 2013)
+### 2.0.1 (7 May 2013)
+
+* Updating the year of the release of 2.0
+
+### 2.0.0 (7 May 2013)
 
 * Disabling the admin menu by default
 * Initializing the attributes
