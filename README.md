@@ -50,6 +50,19 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 ## Changelog
 
+### 2.1.0 (9 May 2013)
+
+* Refactoring the ternary operator in the constructor to make the code more readable for developers and to avoid returning an orphaned object
+* Updating certain function names to use verbs to be clearer in their purpose
+* Updating versioning in the plugin and in the `README` to use the `x.y.z` convention rather than the `x.y` convention
+* Adding class property DocBlocks
+* Adding `@since` tags to each of the DocBlocks for methods
+* Cleaning up the PHP code formatting for easier readability
+* Adding a note about POEdit and it being used as my preferred translations
+* Automatically displaying the name of the plugin admin page
+* Changing 'directives' to 'tags'
+* Updating page-level DocBlocks for `plugin.php` and for `uninstall.php`
+
 ### 2.0.1 (7 May 2013)
 
 * Updating the year of the release of 2.0
