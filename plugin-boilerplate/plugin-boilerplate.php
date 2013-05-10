@@ -40,7 +40,7 @@ if ( ! defined('PLUGIN_NAME_VERSION' ) ) {
     // TODO: Make sure that this version correspondings to the value in the 'Version' in the header
     define( 'PLUGIN_NAME_VERSION', '1.0.0' );
     
-} // end if
+}
 
 /**
  * TODO: 
@@ -91,11 +91,11 @@ class PluginName {
         // If the single instance hasn't been set, set it now.
         if ( null == self::$instance ) {
             self::$instance = new self;
-        } // end if
+        }
         
         return self::$instance;
         
-    } // end get_instance;
+    }
     
     /**
      * Initializes the plugin by setting localization, filters, and administration functions.
@@ -146,7 +146,7 @@ class PluginName {
         add_action( 'TODO', array( $this, 'action_method_name' ) );
         add_filter(' TODO', array( $this, 'filter_method_name' ) );
         
-    } // end constructor
+    }
     
     /**
      * Fired when the plugin is activated.
@@ -155,7 +155,7 @@ class PluginName {
      */
     public function activate( $network_wide ) {
         // TODO:	Define activation functionality here
-    } // end activate
+    }
     
     /**
      * Fired when the plugin is deactivated.
@@ -165,7 +165,7 @@ class PluginName {
      */
     public function deactivate( $network_wide ) {
         // TODO:	Define deactivation functionality here
-    } // end deactivate
+    }
     
     /**
      * Loads the plugin text domain for translation
@@ -179,7 +179,7 @@ class PluginName {
         load_textdomain( $domain, WP_LANG_DIR . '/' . $domain . '/' . $domain . '-' . $locale . '.mo' );
         load_plugin_textdomain( $domain, FALSE, dirname( plugin_basename( __FILE__ ) ) . '/lang/' );
         
-    } // end load_plugin_textdomain
+    }
     
     /**
      * Registers and enqueues admin-specific styles.
@@ -203,11 +203,11 @@ class PluginName {
             $screen = get_current_screen();
             if ( $screen->id == $this->plugin_screen_slug ) {
                 wp_enqueue_style( 'plugin-name-admin-styles', plugins_url( 'css/admin.css', __FILE__ ), PLUGIN_NAME_VERSION );
-            } // end if
+            }
             
-        } // end if
+        }
         
-    } // end register_admin_styles
+    }
     
     /**
      * Registers and enqueues admin-specific JavaScript.
@@ -231,11 +231,11 @@ class PluginName {
             $screen = get_current_screen();
             if ( $screen->id == $this->plugin_screen_slug ) {
                 wp_enqueue_script( 'plugin-name-admin-script', plugins_url('js/admin.js', __FILE__), array( 'jquery' ), PLUGIN_NAME_VERSION );
-            } // end if
+            }
             
-        } // end if
+        }
         
-    } // end register_admin_scripts
+    }
     
     /**
      * Registers and enqueues public-facing stylesheets.
@@ -244,7 +244,7 @@ class PluginName {
      */
     public function register_plugin_styles() {
         wp_enqueue_style( 'plugin-name-plugin-styles', plugins_url( 'css/display.css', __FILE__ ), PLUGIN_NAME_VERSION );
-    } // end register_plugin_styles
+    }
     
     /**
      * Registers and enqueues public-facing JavaScript.
@@ -253,7 +253,7 @@ class PluginName {
      */
     public function register_plugin_scripts() {
         wp_enqueue_script( 'plugin-name-plugin-script', plugins_url( 'js/display.js', __FILE__ ), array( 'jquery' ), PLUGIN_NAME_VERSION );
-    } // end register_plugin_scripts
+    }
     
     /**
      * Registers the administration menu for this plugin into the WordPress Dashboard menu.
@@ -277,7 +277,7 @@ class PluginName {
         	array( $this, 'display_plugin_admin_page' )
         );
         
-    } // end add_plugin_admin_menu
+    }
     
     /**
      * Renders the options page for this plugin.
@@ -286,7 +286,7 @@ class PluginName {
      */
     public function display_plugin_admin_page() {
         include_once('views/admin.php');
-    } // end add_plugin_admin_page
+    }
     
     /*--------------------------------------------*
      * Core Functions
@@ -303,7 +303,7 @@ class PluginName {
      */
     public function action_method_name() {
         // TODO:	Define your action method here
-    } // end action_method_name
+    }
     
     /*
      * NOTE:  Filters are points of execution in which WordPress modifies data
@@ -316,9 +316,9 @@ class PluginName {
      */
     public function filter_method_name() {
         // TODO:	Define your filter method here
-    } // end filter_method_name
+    }
     
-} // end class
+}
 
 // TODO:	Update the instantiation call of your plugin to the name given at the class definition
 PluginName::get_instance();
