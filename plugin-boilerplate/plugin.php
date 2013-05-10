@@ -51,6 +51,7 @@ if ( ! defined('PLUGIN_NAME_VERSION' ) ) {
  * Use PHPDoc tags if you wish to be able to document the code using a documentation
  * generator.
  *
+ * @package	PluginName
  * @version	1.0.0
  */
 class PluginName {
