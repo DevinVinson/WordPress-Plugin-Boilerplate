@@ -67,7 +67,7 @@ the directory of the stable readme.txt, so in this case, `/tags/4.3/screenshot-1
 * A change since the previous version.
 * Another change.
 
-= 0.0.5 =
+= 0.5.0 =
 * List versions from most recent at top to oldest at bottom.
 
 == Upgrade Notice ==
