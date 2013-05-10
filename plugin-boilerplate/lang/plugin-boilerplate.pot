@@ -8,9 +8,10 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2013-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2013-05-10 10:37-0500\n"
+"Last-Translator: Tom McFarlin <tom@tommcfarlin.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"X-Generator: Poedit 1.5.5\n"
 
 #: plugin-boilerplate.php:273
 msgid "Page Title"
@@ -26,23 +27,4 @@ msgstr ""
 
 #: plugin-boilerplate.php:276
 msgid "plugin-name"
-msgstr ""
-#. Plugin Name of the plugin/theme
-msgid "TODO"
-msgstr ""
-
-#. Plugin URI of the plugin/theme
-msgid "TODO"
-msgstr ""
-
-#. Description of the plugin/theme
-msgid "TODO"
-msgstr ""
-
-#. Author of the plugin/theme
-msgid "TODO"
-msgstr ""
-
-#. Author URI of the plugin/theme
-msgid "TODO"
 msgstr ""

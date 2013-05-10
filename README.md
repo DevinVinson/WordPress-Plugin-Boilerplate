@@ -50,6 +50,10 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 ## Changelog
 
+### 2.2.1 (10 May 2013)
+
+* Updating the `.pot` file as it was resulting in a minor error in one of the translation tools.
+
 ### 2.2.0 (10 May 2013)
 
 * Updating the README so the demo changelog is more accurate
