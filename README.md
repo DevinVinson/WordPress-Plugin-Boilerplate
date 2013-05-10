@@ -50,6 +50,16 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 ## Changelog
 
+### 2.2.0 (10 May 2013)
+
+* Updating the README so the demo changelog is more accurate
+* Renaming the core plugin file to match the name of the plugin (specifically `plugin-boilerplate.php` from `plugin.php`)
+* Removing the default `.po` file and introducing the `plugin-boilerplate.pot` catalog
+* Removing all terminating code block comments
+* Adding braces around the `uninstall.php` conditional
+* Changing access modifiers from `private` to `protected`. See [this discussion](https://github.com/tommcfarlin/WordPress-Plugin-Boilerplate/issues/36) for more details.
+* Removing redundant headers since properties, constructors, and methods are clearly defined and segmented throughout the code.
+
 ### 2.1.0 (9 May 2013)
 
 * Refactoring the ternary operator in the constructor to make the code more readable for developers and to avoid returning an orphaned object
