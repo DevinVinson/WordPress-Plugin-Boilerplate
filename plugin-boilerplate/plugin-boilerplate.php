@@ -56,10 +56,6 @@ if ( ! defined('PLUGIN_NAME_VERSION' ) ) {
  */
 class PluginName {
     
-    /*--------------------------------------------*
-     * Properties
-     *--------------------------------------------*/
-    
     /**
      * Refers to a single instance of this class. 
      *
@@ -73,10 +69,6 @@ class PluginName {
      * @var		string
      */
     protected $plugin_screen_slug = null;
-    
-    /*--------------------------------------------*
-     * Constructor
-     *--------------------------------------------*/
     
     /**
      * Creates or returns an instance of this class.
@@ -285,10 +277,6 @@ class PluginName {
     public function display_plugin_admin_page() {
         include_once('views/admin.php');
     }
-    
-    /*--------------------------------------------*
-     * Core Functions
-     *---------------------------------------------*/
     
     /*
      * NOTE:  Actions are points in the execution of a page or process
