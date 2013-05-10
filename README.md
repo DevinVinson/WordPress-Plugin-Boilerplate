@@ -8,6 +8,7 @@ The WordPress Plugin Boilerplate serves as a foundation and aims to provide a cl
 * Uses [PHPDoc](http://en.wikipedia.org/wiki/PHPDoc) conventions for easily following the code
 * Liberal use of `TODO` to guide you through what you need to change
 * Uses a strict file organization scheme to make sure the assets are easily maintainable
+* Note that this boilerplate uses `plugin.po` to provide a translation file. This is compatible with [POEdit](http://www.poedit.net/)
 
 ## Contents
 
