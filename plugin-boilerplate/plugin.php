@@ -64,6 +64,7 @@ class PluginName {
 	/**
 	 * Creates or returns an instance of this class.
 	 *
+	 * @since	1.0.0
 	 * @return	PluginName	A single instance of this class.
 	 */
 	public function get_instance() {
@@ -79,6 +80,8 @@ class PluginName {
 
 	/**
 	 * Initializes the plugin by setting localization, filters, and administration functions.
+	 *
+	 * @since	1.0.0
 	 */
 	private function __construct() {
 
@@ -139,6 +142,7 @@ class PluginName {
 	 * Fired when the plugin is deactivated.
 	 *
 	 * @param	boolean	$network_wide	True if WPMU superadmin uses "Network Activate" action, false if WPMU is disabled or plugin is activated on an individual blog
+	 * @since	1.0.0
 	 */
 	public function deactivate( $network_wide ) {
 		// TODO:	Define deactivation functionality here
@@ -160,6 +164,8 @@ class PluginName {
 
 	/**
 	 * Registers and enqueues admin-specific styles.
+	 *
+	 * @since	1.0.0
 	 */
 	public function register_admin_styles() {
 
@@ -186,6 +192,8 @@ class PluginName {
 
 	/**
 	 * Registers and enqueues admin-specific JavaScript.
+	 *
+	 * @since	1.0.0
 	 */
 	public function register_admin_scripts() {
 
@@ -212,6 +220,8 @@ class PluginName {
 
 	/**
 	 * Registers and enqueues plugin-specific styles.
+	 *
+	 * @since	1.0.0
 	 */
 	public function register_plugin_styles() {
 		wp_enqueue_style( 'plugin-name-plugin-styles', plugins_url( 'css/display.css', __FILE__ ) );
@@ -219,6 +229,8 @@ class PluginName {
 
 	/**
 	 * Registers and enqueues plugin-specific scripts.
+	 *
+	 * @since	1.0.0
 	 */
 	public function register_plugin_scripts() {
 		wp_enqueue_script( 'plugin-name-plugin-script', plugins_url( 'js/display.js', __FILE__ ), array( 'jquery' ) );
@@ -226,6 +238,8 @@ class PluginName {
 
 	/**
 	 * Registers the administration menu for this plugin into the WordPress Dashboard menu.
+	 *
+	 * @since	1.0.0
 	 */
 	public function add_plugin_admin_menu() {
 	
@@ -248,6 +262,8 @@ class PluginName {
 	
 	/**
 	 * Renders the options page for this plugin.
+	 *
+	 * @since	1.0.0
 	 */
 	public function display_plugin_admin_page() {
 		include_once( 'views/admin.php' );
@@ -264,6 +280,7 @@ class PluginName {
 	 *		  WordPress Actions: http://codex.wordpress.org/Plugin_API#Actions
 	 *		  Action Reference:  http://codex.wordpress.org/Plugin_API/Action_Reference
 	 *
+	 * @since	1.0.0
 	 */
 	public function action_method_name() {
     	// TODO:	Define your action method here
@@ -276,6 +293,7 @@ class PluginName {
 	 *		  WordPress Filters: http://codex.wordpress.org/Plugin_API#Filters
 	 *		  Filter Reference:  http://codex.wordpress.org/Plugin_API/Filter_Reference
 	 *
+	 * @since	1.0.0
 	 */
 	public function filter_method_name() {
 	    // TODO:	Define your filter method here
