@@ -48,7 +48,7 @@ if ( ! defined('PLUGIN_NAME_VERSION' ) ) {
  * Rename this class to a proper name for your plugin. Give a proper description of
  * the plugin, it's purpose, and any dependencies it has.
  *
- * Use PHPDoc directives if you wish to be able to document the code using a documentation
+ * Use PHPDoc tags if you wish to be able to document the code using a documentation
  * generator.
  *
  * @version	1.0.0
