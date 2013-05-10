@@ -75,13 +75,13 @@ class PluginName {
 	private function __construct() {
 
 		// Load plugin text domain
-		add_action( 'init', array( $this, 'plugin_textdomain' ) );
+		add_action( 'init', array( $this, 'load_plugin_textdomain' ) );
 
 	    /*
 	     * Add the options page and menu item.
 	     * Uncomment the following line to enable the Settings Page for the plugin:
 	     */
-	     //add_action( 'admin_menu', array( $this, 'plugin_admin_menu' ) );
+	     //add_action( 'admin_menu', array( $this, 'add_plugin_admin_menu' ) );
 
 	    /*
 		 * Register admin styles and scripts
@@ -139,7 +139,7 @@ class PluginName {
 	/**
 	 * Loads the plugin text domain for translation
 	 */
-	public function plugin_textdomain() {
+	public function load_plugin_textdomain() {
 
 		// TODO: replace "plugin-name-locale" with a unique value for your plugin
 		$domain = 'plugin-name-locale';
@@ -148,7 +148,7 @@ class PluginName {
         load_textdomain( $domain, WP_LANG_DIR . '/' . $domain . '/' . $domain . '-' . $locale . '.mo' );
         load_plugin_textdomain( $domain, FALSE, dirname( plugin_basename( __FILE__ ) ) . '/lang/' );
 
-	} // end plugin_textdomain
+	} // end load_plugin_textdomain
 
 	/**
 	 * Registers and enqueues admin-specific styles.
@@ -219,7 +219,7 @@ class PluginName {
 	/**
 	 * Registers the administration menu for this plugin into the WordPress Dashboard menu.
 	 */
-	public function plugin_admin_menu() {
+	public function add_plugin_admin_menu() {
 	
 		/*
     	 * TODO:	
@@ -228,23 +228,22 @@ class PluginName {
     	 * Change 'Menu Text' to the text for menu item for the plugin settings page 
     	 * Change 'plugin-name' to the name of your plugin
     	 */
-    	
     	$this->plugin_screen_slug = add_plugins_page( 
     		__( 'Page Title', 'plugin-name-locale' ), 
     		__( 'Menu Text', 'plugin-name-locale' ), 
     		__( 'read', 'plugin-name-locale' ), 
     		__( 'plugin-name', 'plugin-name-locale' ), 
-    		array( $this, 'plugin_admin_page' ) 
+    		array( $this, 'display_plugin_admin_page' ) 
     	);
     	
-	} // end plugin_admin_menu
+	} // end add_plugin_admin_menu
 	
 	/**
 	 * Renders the options page for this plugin.
 	 */
-	public function plugin_admin_page() {
+	public function display_plugin_admin_page() {
 		include_once( 'views/admin.php' );
-	} // end plugin_admin_page
+	} // end add_plugin_admin_page
 	
 	/*--------------------------------------------*
 	 * Core Functions
