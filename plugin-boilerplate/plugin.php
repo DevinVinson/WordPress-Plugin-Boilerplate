@@ -3,7 +3,7 @@
 Plugin Name: TODO
 Plugin URI: TODO
 Description: TODO
-Version: 1.0
+Version: 1.0.0
 Author: TODO
 Author URI: TODO
 Author Email: TODO
@@ -35,7 +35,7 @@ License:
  * Use PHPDoc directives if you wish to be able to document the code using a documentation
  * generator.
  *
- * @version	1.0
+ * @version	1.0.0
  */
 class PluginName {
 

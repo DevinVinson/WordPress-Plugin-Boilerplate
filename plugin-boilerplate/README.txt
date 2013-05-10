@@ -4,7 +4,7 @@ Donate link: http://example.com/
 Tags: comments, spam
 Requires at least: 3.3.1
 Tested up to: 3.3.1
-Stable tag: 4.3
+Stable tag: 1.0.0
 
 Here is a short description of the plugin.  This should be no more than 150 characters.  No markup here.
 
@@ -63,19 +63,19 @@ the directory of the stable readme.txt, so in this case, `/tags/4.3/screenshot-1
 
 == Changelog ==
 
-= 1.0 =
+= 1.0.0 =
 * A change since the previous version.
 * Another change.
 
-= 0.5 =
+= 0.0.5 =
 * List versions from most recent at top to oldest at bottom.
 
 == Upgrade Notice ==
 
-= 1.0 =
+= 1.0.0 =
 Upgrade notices describe the reason a user should upgrade.  No more than 300 characters.
 
-= 0.5 =
+= 0.0.5 =
 This version fixes a security related bug.  Upgrade immediately.
 
 == Arbitrary section ==
