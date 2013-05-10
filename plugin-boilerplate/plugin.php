@@ -40,13 +40,21 @@ License:
 class PluginName {
 
 	/*--------------------------------------------*
-	 * Attributes
+	 * Properties
 	 *--------------------------------------------*/
 	 
-	/** Refers to a single instance of this class. */
+	/**
+	 * Refers to a single instance of this class. 
+	 * @access	private
+	 * @var		object
+	 */
 	private static $instance = null;
 	
-	/** Refers to the slug of the plugin screen. */
+	/** 
+	 * Refers to the slug of the plugin screen.
+	 * @access	private
+	 * @var		string
+	 */
 	private $plugin_screen_slug = null;
 
 	/*--------------------------------------------*
