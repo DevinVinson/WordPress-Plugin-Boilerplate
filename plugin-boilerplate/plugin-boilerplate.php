@@ -65,14 +65,14 @@ class PluginName {
      *
      * @var		object
      */
-    private static $instance = null;
+    protected static $instance = null;
     
     /** 
      * Refers to the slug of the plugin screen.
      *
      * @var		string
      */
-    private $plugin_screen_slug = null;
+    protected $plugin_screen_slug = null;
     
     /*--------------------------------------------*
      * Constructor
