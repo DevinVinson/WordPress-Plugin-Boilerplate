@@ -59,7 +59,14 @@ class PluginName {
 	 * @return	PluginName	A single instance of this class.
 	 */
 	public function get_instance() {
-		return null == self::$instance ? new self : self::$instance;
+	
+		// If the single instance hasn't been set, set it now.
+		if( null == self::$instance ) {
+			self::$instance = new self;
+		} // end if
+		
+		return self::$instance;
+		
 	} // end get_instance;
 
 	/**
