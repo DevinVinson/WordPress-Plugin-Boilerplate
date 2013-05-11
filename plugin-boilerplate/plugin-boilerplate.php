@@ -258,11 +258,11 @@ class PluginName {
          * Change 'plugin-name' to the name of your plugin
          */
         $this->plugin_screen_slug = add_plugins_page(
-        	__('Page Title', 'plugin-name-locale'), 
-        	__('Menu Text', 'plugin-name-locale'), 
-        	__('read', 'plugin-name-locale'), 
-        	__('plugin-name', 'plugin-name-locale'), 
-        	array( $this, 'display_plugin_admin_page' )
+            __('Page Title', 'plugin-name-locale'), 
+            __('Menu Text', 'plugin-name-locale'), 
+            'read', 
+            'plugin-name',
+            array( $this, 'display_plugin_admin_page' )
         );
         
     }
