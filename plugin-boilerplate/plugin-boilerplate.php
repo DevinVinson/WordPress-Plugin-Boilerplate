@@ -21,7 +21,7 @@ Copyright 2013 TODO (email@domain.com)
  * that request data directly.
  */
 if ( ! defined( 'ABSPATH' ) ) {
-	exit;
+    exit;
 }
 
 /*
@@ -71,7 +71,7 @@ class PluginName {
     /**
      * Creates or returns an instance of this class.
      *
-     * @since    1.0.0
+     * @since     1.0.0
      * @return    PluginName    A single instance of this class.
      */
     public function get_instance() {
@@ -142,7 +142,7 @@ class PluginName {
      * @param    boolean    $network_wide    True if WPMU superadmin uses "Network Activate" action, false if WPMU is disabled or plugin is activated on an individual blog
      */
     public function activate( $network_wide ) {
-        // TODO:	Define activation functionality here
+        // TODO:    Define activation functionality here
     }
 
     /**
@@ -152,7 +152,7 @@ class PluginName {
      * @since    1.0.0
      */
     public function deactivate( $network_wide ) {
-        // TODO:	Define deactivation functionality here
+        // TODO:    Define deactivation functionality here
     }
 
     /**
@@ -280,8 +280,8 @@ class PluginName {
      * NOTE:  Actions are points in the execution of a page or process
      *        lifecycle that WordPress fires.
      *
-     *.       WordPress Actions: http://codex.wordpress.org/Plugin_API#Actions
-     * .      Action Reference:  http://codex.wordpress.org/Plugin_API/Action_Reference
+     *        WordPress Actions: http://codex.wordpress.org/Plugin_API#Actions
+     *        Action Reference:  http://codex.wordpress.org/Plugin_API/Action_Reference
      *
      * @since    1.0.0
      */
@@ -294,7 +294,7 @@ class PluginName {
      *        before saving it or sending it to the browser.
      *
      *        WordPress Filters: http://codex.wordpress.org/Plugin_API#Filters
-     *.       Filter Reference:  http://codex.wordpress.org/Plugin_API/Filter_Reference
+     *        Filter Reference:  http://codex.wordpress.org/Plugin_API/Filter_Reference
      *
      * @since       1.0.0
      */
