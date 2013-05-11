@@ -33,10 +33,10 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 // TODO: Replace 'PLUGIN_NAME' wih the name of your class
 if ( ! defined('PLUGIN_NAME_VERSION' ) ) {
-    
+
     // TODO: Make sure that this version correspondings to the value in the 'Version' in the header
     define( 'PLUGIN_NAME_VERSION', '1.0.0' );
-    
+
 }
 
 /**
@@ -52,14 +52,14 @@ if ( ! defined('PLUGIN_NAME_VERSION' ) ) {
  * @version	1.0.0
  */
 class PluginName {
-    
+
     /**
      * Refers to a single instance of this class. 
      *
      * @var		object
      */
     protected static $instance = null;
-    
+
     /** 
      * Refers to the slug of the plugin screen.
      *
@@ -74,32 +74,32 @@ class PluginName {
      * @return	PluginName	A single instance of this class.
      */
     public function get_instance() {
-        
+
         // If the single instance hasn't been set, set it now.
         if ( null == self::$instance ) {
             self::$instance = new self;
         }
-        
+
         return self::$instance;
-        
+
     }
-    
+
     /**
      * Initializes the plugin by setting localization, filters, and administration functions.
      *
      * @since	1.0.0
      */
     private function __construct() {
-        
+
         // Load plugin text domain
         add_action( 'init', array( $this, 'load_plugin_textdomain' ) );
-        
+
         /*
          * Add the options page and menu item.
          * Uncomment the following line to enable the Settings Page for the plugin:
          */
         //add_action( 'admin_menu', array( $this, 'add_plugin_admin_menu' ) );
-        
+
         /*
          * Register admin styles and scripts
          * If the Settings page has been activated using the above hook, the scripts and styles
@@ -109,15 +109,15 @@ class PluginName {
          * add_action( 'admin_enqueue_scripts', array( $this, 'register_admin_styles' ) );
          * add_action( 'admin_enqueue_scripts', array( $this, 'register_admin_scripts' ) );
          */
-        
+
         // Register site stylesheets and JavaScript
         add_action( 'wp_enqueue_scripts', array( $this, 'register_plugin_styles' ) );
         add_action( 'wp_enqueue_scripts', array( $this, 'register_plugin_scripts' ) );
-        
+
         // Register hooks that are fired when the plugin is activated, deactivated, and uninstalled, respectively.
         register_activation_hook( __FILE__, array( $this, 'activate' ) );
         register_deactivation_hook( __FILE__, array( $this, 'deactivate' ) );
-        
+
         /*
          * TODO:
          * 
@@ -134,7 +134,7 @@ class PluginName {
         add_filter(' TODO', array( $this, 'filter_method_name' ) );
         
     }
-    
+
     /**
      * Fired when the plugin is activated.
      *
@@ -143,7 +143,7 @@ class PluginName {
     public function activate( $network_wide ) {
         // TODO:	Define activation functionality here
     }
-    
+
     /**
      * Fired when the plugin is deactivated.
      *
@@ -153,40 +153,40 @@ class PluginName {
     public function deactivate( $network_wide ) {
         // TODO:	Define deactivation functionality here
     }
-    
+
     /**
      * Loads the plugin text domain for translation
      */
     public function load_plugin_textdomain() {
-        
+
         // TODO: replace "plugin-name-locale" with a unique value for your plugin
         $domain = 'plugin-name-locale';
         $locale = apply_filters( 'plugin_locale', get_locale(), $domain );
-        
+
         load_textdomain( $domain, WP_LANG_DIR . '/' . $domain . '/' . $domain . '-' . $locale . '.mo' );
         load_plugin_textdomain( $domain, FALSE, dirname( plugin_basename( __FILE__ ) ) . '/lang/' );
         
     }
-    
+
     /**
      * Registers and enqueues admin-specific styles.
      *
      * @since	1.0.0
      */
     public function register_admin_styles() {
-        
+
         /*
          * Check if the plugin has registered a settings page
          * and if it has, make sure only to enqueue the scripts on the relevant screens
          */
-        
+
         if ( isset( $this->plugin_screen_slug ) ) {
-            
+
             /*
              * Check if current screen is the admin page for this plugin
              * Don't enqueue stylesheet or JavaScript if it's not
              */
-            
+
             $screen = get_current_screen();
             if ( $screen->id == $this->plugin_screen_slug ) {
                 wp_enqueue_style( 'plugin-name-admin-styles', plugins_url( 'css/admin.css', __FILE__ ), PLUGIN_NAME_VERSION );
@@ -195,26 +195,26 @@ class PluginName {
         }
         
     }
-    
+
     /**
      * Registers and enqueues admin-specific JavaScript.
      *
      * @since	1.0.0
      */
     public function register_admin_scripts() {
-        
+
         /*
          * Check if the plugin has registered a settings page
          * and if it has, make sure only to enqueue the scripts on the relevant screens
          */
-        
+
         if ( isset( $this->plugin_screen_slug ) ) {
             
             /*
              * Check if current screen is the admin page for this plugin
              * Don't enqueue stylesheet or JavaScript if it's not
              */
-            
+
             $screen = get_current_screen();
             if ( $screen->id == $this->plugin_screen_slug ) {
                 wp_enqueue_script( 'plugin-name-admin-script', plugins_url('js/admin.js', __FILE__), array( 'jquery' ), PLUGIN_NAME_VERSION );
@@ -223,7 +223,7 @@ class PluginName {
         }
         
     }
-    
+
     /**
      * Registers and enqueues public-facing stylesheets.
      *
@@ -232,7 +232,7 @@ class PluginName {
     public function register_plugin_styles() {
         wp_enqueue_style( 'plugin-name-plugin-styles', plugins_url( 'css/display.css', __FILE__ ), PLUGIN_NAME_VERSION );
     }
-    
+
     /**
      * Registers and enqueues public-facing JavaScript.
      *
@@ -241,7 +241,7 @@ class PluginName {
     public function register_plugin_scripts() {
         wp_enqueue_script( 'plugin-name-plugin-script', plugins_url( 'js/display.js', __FILE__ ), array( 'jquery' ), PLUGIN_NAME_VERSION );
     }
-    
+
     /**
      * Registers the administration menu for this plugin into the WordPress Dashboard menu.
      *
@@ -265,7 +265,7 @@ class PluginName {
         );
         
     }
-    
+
     /**
      * Renders the options page for this plugin.
      *
@@ -274,7 +274,7 @@ class PluginName {
     public function display_plugin_admin_page() {
         include_once('views/admin.php');
     }
-    
+
     /*
      * NOTE:  Actions are points in the execution of a page or process
      *        lifecycle that WordPress fires.
@@ -287,7 +287,7 @@ class PluginName {
     public function action_method_name() {
         // TODO:	Define your action method here
     }
-    
+
     /*
      * NOTE:  Filters are points of execution in which WordPress modifies data
      *        before saving it or sending it to the browser.
@@ -300,7 +300,7 @@ class PluginName {
     public function filter_method_name() {
         // TODO:	Define your filter method here
     }
-    
+
 }
 
 // TODO:	Update the instantiation call of your plugin to the name given at the class definition
