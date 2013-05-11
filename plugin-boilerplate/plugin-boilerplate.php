@@ -13,6 +13,16 @@ License URI: http://www.gnu.org/licenses/gpl.txt
 Copyright 2013 TODO (email@domain.com)
 */
 
+/**
+ * If this file is attempted to be accessed directly, we'll exit.
+ *
+ * The following check provides a level of security from other files
+ * that request data directly.
+ */
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 /*
  * The following constant is used to define a constant for this plugin to make it
  * easier to provide cache-busting functionality on loading stylesheets
