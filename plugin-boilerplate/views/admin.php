@@ -5,4 +5,4 @@
 	
 	<!-- TODO: Provide markup for your options page here. -->
 	
-</div><!-- .wrap -->
+</div>
