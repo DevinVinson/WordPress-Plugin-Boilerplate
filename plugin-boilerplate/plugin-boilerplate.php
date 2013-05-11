@@ -48,30 +48,30 @@ if ( ! defined('PLUGIN_NAME_VERSION' ) ) {
  * Use PHPDoc tags if you wish to be able to document the code using a documentation
  * generator.
  *
- * @package	PluginName
- * @version	1.0.0
+ * @package    PluginName
+ * @version    1.0.0
  */
 class PluginName {
 
     /**
      * Refers to a single instance of this class. 
      *
-     * @var		object
+     * @var    object
      */
     protected static $instance = null;
 
     /** 
      * Refers to the slug of the plugin screen.
      *
-     * @var		string
+     * @var    string
      */
     protected $plugin_screen_slug = null;
     
     /**
      * Creates or returns an instance of this class.
      *
-     * @since	1.0.0
-     * @return	PluginName	A single instance of this class.
+     * @since    1.0.0
+     * @return    PluginName    A single instance of this class.
      */
     public function get_instance() {
 
@@ -87,7 +87,7 @@ class PluginName {
     /**
      * Initializes the plugin by setting localization, filters, and administration functions.
      *
-     * @since	1.0.0
+     * @since    1.0.0
      */
     private function __construct() {
 
@@ -138,7 +138,7 @@ class PluginName {
     /**
      * Fired when the plugin is activated.
      *
-     * @param	boolean	$network_wide	True if WPMU superadmin uses "Network Activate" action, false if WPMU is disabled or plugin is activated on an individual blog
+     * @param    boolean    $network_wide    True if WPMU superadmin uses "Network Activate" action, false if WPMU is disabled or plugin is activated on an individual blog
      */
     public function activate( $network_wide ) {
         // TODO:	Define activation functionality here
@@ -147,8 +147,8 @@ class PluginName {
     /**
      * Fired when the plugin is deactivated.
      *
-     * @param	boolean	$network_wide	True if WPMU superadmin uses "Network Activate" action, false if WPMU is disabled or plugin is activated on an individual blog
-     * @since	1.0.0
+     * @param    boolean    $network_wide    True if WPMU superadmin uses "Network Activate" action, false if WPMU is disabled or plugin is activated on an individual blog
+     * @since    1.0.0
      */
     public function deactivate( $network_wide ) {
         // TODO:	Define deactivation functionality here
@@ -171,7 +171,7 @@ class PluginName {
     /**
      * Registers and enqueues admin-specific styles.
      *
-     * @since	1.0.0
+     * @since    1.0.0
      */
     public function register_admin_styles() {
 
@@ -199,7 +199,7 @@ class PluginName {
     /**
      * Registers and enqueues admin-specific JavaScript.
      *
-     * @since	1.0.0
+     * @since    1.0.0
      */
     public function register_admin_scripts() {
 
@@ -227,7 +227,7 @@ class PluginName {
     /**
      * Registers and enqueues public-facing stylesheets.
      *
-     * @since	1.0.0
+     * @since    1.0.0
      */
     public function register_plugin_styles() {
         wp_enqueue_style( 'plugin-name-plugin-styles', plugins_url( 'css/display.css', __FILE__ ), PLUGIN_NAME_VERSION );
@@ -236,7 +236,7 @@ class PluginName {
     /**
      * Registers and enqueues public-facing JavaScript.
      *
-     * @since	1.0.0
+     * @since    1.0.0
      */
     public function register_plugin_scripts() {
         wp_enqueue_script( 'plugin-name-plugin-script', plugins_url( 'js/display.js', __FILE__ ), array( 'jquery' ), PLUGIN_NAME_VERSION );
@@ -245,12 +245,12 @@ class PluginName {
     /**
      * Registers the administration menu for this plugin into the WordPress Dashboard menu.
      *
-     * @since	1.0.0
+     * @since    1.0.0
      */
     public function add_plugin_admin_menu() {
         
         /*
-         * TODO:	
+         * TODO:
          *
          * Change 'Page Title' to the title of your plugin admin page
          * Change 'Menu Text' to the text for menu item for the plugin settings page 
@@ -269,7 +269,7 @@ class PluginName {
     /**
      * Renders the options page for this plugin.
      *
-     * @since	1.0.0
+     * @since    1.0.0
      */
     public function display_plugin_admin_page() {
         include_once('views/admin.php');
@@ -279,29 +279,29 @@ class PluginName {
      * NOTE:  Actions are points in the execution of a page or process
      *        lifecycle that WordPress fires.
      *
-     *		  WordPress Actions: http://codex.wordpress.org/Plugin_API#Actions
-     *		  Action Reference:  http://codex.wordpress.org/Plugin_API/Action_Reference
+     *.       WordPress Actions: http://codex.wordpress.org/Plugin_API#Actions
+     * .      Action Reference:  http://codex.wordpress.org/Plugin_API/Action_Reference
      *
-     * @since	1.0.0
+     * @since    1.0.0
      */
     public function action_method_name() {
-        // TODO:	Define your action method here
+        // TODO:    Define your action method here
     }
 
     /*
      * NOTE:  Filters are points of execution in which WordPress modifies data
      *        before saving it or sending it to the browser.
      *
-     *		  WordPress Filters: http://codex.wordpress.org/Plugin_API#Filters
-     *		  Filter Reference:  http://codex.wordpress.org/Plugin_API/Filter_Reference
+     *        WordPress Filters: http://codex.wordpress.org/Plugin_API#Filters
+     *.       Filter Reference:  http://codex.wordpress.org/Plugin_API/Filter_Reference
      *
-     * @since	1.0.0
+     * @since       1.0.0
      */
     public function filter_method_name() {
-        // TODO:	Define your filter method here
+        // TODO:....Define your filter method here
     }
 
 }
 
-// TODO:	Update the instantiation call of your plugin to the name given at the class definition
+// TODO:....Update the instantiation call of your plugin to the name given at the class definition
 PluginName::get_instance();
