@@ -299,10 +299,10 @@ class PluginName {
      * @since       1.0.0
      */
     public function filter_method_name() {
-        // TODO:....Define your filter method here
+        // TODO:    Define your filter method here
     }
 
 }
 
-// TODO:....Update the instantiation call of your plugin to the name given at the class definition
+// TODO:    Update the instantiation call of your plugin to the name given at the class definition
 PluginName::get_instance();
