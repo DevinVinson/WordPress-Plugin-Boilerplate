@@ -7,6 +7,7 @@ Version: 1.0.0
 Author: TODO
 Author URI: TODO
 Author Email: TODO
+Text Domain: plugin-name-locale
 License: GNU General Public License Unversioned
 License URI: http://www.gnu.org/licenses/gpl.txt
 
