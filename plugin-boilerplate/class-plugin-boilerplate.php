@@ -5,6 +5,9 @@
  * A foundation off of which to build well-documented WordPress plugins that also follow
  * WordPress coding standards and PHP best practices.
  *
+ * Use PHPDoc tags if you wish to be able to document the code using a documentation
+ * generator.
+ *
  * @package PluginName
  * @author  Your Name <email@example.com>
  * @license GPL-2.0+
@@ -38,18 +41,7 @@ if ( ! defined( 'PLUGIN_NAME_VERSION' ) ) {
 
 }
 
-/**
- * TODO:
- *
- * Rename this class to a proper name for your plugin. Give a proper description of
- * the plugin, it's purpose, and any dependencies it has.
- *
- * Use PHPDoc tags if you wish to be able to document the code using a documentation
- * generator.
- *
- * @package    PluginName
- * @version    1.0.0
- */
+// TODO: Rename this class to a proper name for your plugin.
 class PluginName {
 
     /**

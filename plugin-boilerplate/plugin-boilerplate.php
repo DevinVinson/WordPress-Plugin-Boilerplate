@@ -37,5 +37,5 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 require_once( plugin_dir_path( __FILE__ ) . 'class-plugin-boilerplate.php' );
 
-// TODO: make sure to replace PluginName with the name of the plugin defined in `class-plugin-boilerplate.php`
+// TODO: replace PluginName with the name of the plugin defined in `class-plugin-boilerplate.php`
 PluginName::get_instance();
