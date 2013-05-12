@@ -22,7 +22,7 @@
  * that request data directly.
  */
 if ( ! defined( 'ABSPATH' ) ) {
-    exit;
+	exit;
 }
 
 /*
