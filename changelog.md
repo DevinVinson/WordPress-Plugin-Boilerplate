@@ -1,5 +1,3 @@
-# WordPress Plugin Boilerplate Changelog
-
 ## 2.2.1 (10 May 2013)
 
 * Updating the `.pot` file as it was resulting in a minor error in one of the translation tools.
