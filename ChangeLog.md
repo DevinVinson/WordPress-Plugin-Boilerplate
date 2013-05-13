@@ -1,3 +1,28 @@
+## 2.3.0 (13 May 2013)
+
+* Moving the activation hooks outside of the class and marking the methods as static
+* Removing the @version tag from everything but the core plugin class
+* Removing deprecating @subpackage tags
+* Renaming the changelog filename to follow the canonical convention
+* Including an `assets` directory with sample images and instructions for how to use it
+* Finalized page-level documentation to the PHP files
+* Moving to the plugin boilerplate to its own class
+* Adding DocBlocks to the views
+* Generalizing the name, language, and email address in the `.pot` file
+* Updating the DocBlock in the uninstall file
+* Adding the 'Domain Path' to the header of the plugin file
+* Moving the changelog into its own file
+* Updating GPL licensing and adding a note about licensing with the GPL and the Apache license
+* Removing terminating code comments from the admin view
+* Removing the localization functions from plugin page parameters
+* Adding 'Text Domain' to the plugin header
+* Adding gettext and plural forms to the `.pot` file
+* Replacing all midline tabs and replacing them with tabs
+* Removing tabs and spaces from empty lines
+* Adding a security check to prevent the plugin file from being accessed directly
+* Improving spacing to better comply with coding conventions
+* Adding LICENSE.txt and removing it from the plugin's header
+
 ## 2.2.1 (10 May 2013)
 
 * Updating the `.pot` file as it was resulting in a minor error in one of the translation tools.
