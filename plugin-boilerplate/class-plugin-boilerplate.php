@@ -82,10 +82,6 @@ class PluginName {
 		add_action( 'wp_enqueue_scripts', array( $this, 'register_plugin_styles' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'register_plugin_scripts' ) );
 
-		// Register hooks that are fired when the plugin is activated, deactivated, and uninstalled, respectively.
-		register_activation_hook( __FILE__, array( $this, 'activate' ) );
-		register_deactivation_hook( __FILE__, array( $this, 'deactivate' ) );
-
 		/*
 		 * TODO:
 		 *
@@ -108,7 +104,7 @@ class PluginName {
 	 *
 	 * @param    boolean    $network_wide    True if WPMU superadmin uses "Network Activate" action, false if WPMU is disabled or plugin is activated on an individual blog
 	 */
-	 public function activate( $network_wide ) {
+	 public static function activate( $network_wide ) {
 		// TODO: Define activation functionality here
 	}
 
@@ -118,7 +114,7 @@ class PluginName {
 	 * @param    boolean    $network_wide    True if WPMU superadmin uses "Network Activate" action, false if WPMU is disabled or plugin is activated on an individual blog
 	 * @since    1.0.0
 	 */
-	 public function deactivate( $network_wide ) {
+	 public static function deactivate( $network_wide ) {
 		// TODO: Define deactivation functionality here
 	}
 
