@@ -25,8 +25,8 @@
  */
 
 // If this file is called directly, abort.
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
+if ( ! defined( 'WPINC' ) ) {
+	die;
 }
 
 // TODO: replace `class-plugin-boilerplate.php` with the name of the actual plugin's class file
