@@ -12,30 +12,29 @@
  *
  * @wordpress-plugin
  * Plugin Name: TODO
- * Plugin URI: TODO
+ * Plugin URI:  TODO
  * Description: TODO
- * Version: 1.0.0
- * Author: TODO
- * Author URI: TODO
- * Author Email: TODO
+ * Version:     1.0.0
+ * Author:      TODO
+ * Author URI:  TODO
  * Text Domain: plugin-name-locale
- * License: GPL-2.0+
+ * License:     GPL-2.0+
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
- * Domain Path: /lang/
+ * Domain Path: /lang
  */
 
 // If this file is called directly, abort.
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
+if ( ! defined( 'WPINC' ) ) {
+	die;
 }
 
-// TODO: replace `class-plugin-boilerplate.php` with the name of the actual plugin's class file
-require_once( plugin_dir_path( __FILE__ ) . 'class-plugin-boilerplate.php' );
+// TODO: replace `class-plugin-name.php` with the name of the actual plugin's class file
+require_once( plugin_dir_path( __FILE__ ) . 'class-plugin-name.php' );
 
 // Register hooks that are fired when the plugin is activated, deactivated, and uninstalled, respectively.
-// TODO: replace PluginName with the name of the plugin defined in `class-plugin-boilerplate.php`
+// TODO: replace PluginName with the name of the plugin defined in `class-plugin-name.php`
 register_activation_hook( __FILE__, array( 'PluginName', 'activate' ) );
 register_deactivation_hook( __FILE__, array( 'PluginName', 'deactivate' ) );
 
-// TODO: replace PluginName with the name of the plugin defined in `class-plugin-boilerplate.php`
+// TODO: replace PluginName with the name of the plugin defined in `class-plugin-name.php`
 PluginName::get_instance();

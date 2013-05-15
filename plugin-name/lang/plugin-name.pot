@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TODO 1.0.0\n"
-"Report-Msgid-Bugs-To: http://wordpress.org/tag/plugin-boilerplate\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/plugin-name\n"
 "POT-Creation-Date: 2013-05-10 11:23:19+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,18 +18,18 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: plugin-boilerplate.php:273
+#: plugin-name.php:273
 msgid "Page Title"
 msgstr ""
 
-#: plugin-boilerplate.php:274
+#: plugin-name.php:274
 msgid "Menu Text"
 msgstr ""
 
-#: plugin-boilerplate.php:275
+#: plugin-name.php:275
 msgid "read"
 msgstr ""
 
-#: plugin-boilerplate.php:276
+#: plugin-name.php:276
 msgid "plugin-name"
 msgstr ""

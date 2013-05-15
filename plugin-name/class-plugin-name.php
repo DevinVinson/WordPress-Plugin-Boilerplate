@@ -71,17 +71,18 @@ class PluginName {
 		// Add the options page and menu item.
 		// add_action( 'admin_menu', array( $this, 'add_plugin_admin_menu' ) );
 
-		// Enqueue admin styles and scripts.
+		// Load admin style sheet and JavaScript.
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_styles' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_scripts' ) );
 
-		// Enqueue public style and scripts.
+		// Load public-facing style sheet and JavaScript.
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_styles' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 
-		// Define custom functionality. See http://codex.wordpress.org/Plugin_API#Hooks.2C_Actions_and_Filters
+		// Define custom functionality. Read more about actions and filters: http://codex.wordpress.org/Plugin_API#Hooks.2C_Actions_and_Filters
 		add_action( 'TODO', array( $this, 'action_method_name' ) );
 		add_filter( 'TODO', array( $this, 'filter_method_name' ) );
+
 	}
 
 	/**
@@ -92,6 +93,7 @@ class PluginName {
 	 * @return    object    A single instance of this class.
 	 */
 	public static function get_instance() {
+
 		// If the single instance hasn't been set, set it now.
 		if ( null == self::$instance ) {
 			self::$instance = new self;
@@ -128,6 +130,7 @@ class PluginName {
 	 * @since    1.0.0
 	 */
 	public function load_plugin_textdomain() {
+
 		$domain = $this->plugin_slug;
 		$locale = apply_filters( 'plugin_locale', get_locale(), $domain );
 
@@ -136,7 +139,7 @@ class PluginName {
 	}
 
 	/**
-	 * Enqueue admin-specific style sheets.
+	 * Register and enqueue admin-specific style sheet.
 	 *
 	 * @since     1.0.0
 	 *
@@ -156,7 +159,7 @@ class PluginName {
 	}
 
 	/**
-	 * Enqueue admin-specific JavaScript.
+	 * Register and enqueue admin-specific JavaScript.
 	 *
 	 * @since     1.0.0
 	 *
@@ -176,7 +179,7 @@ class PluginName {
 	}
 
 	/**
-	 * Enqueue public-facing style sheets.
+	 * Register and enqueue public-facing style sheet.
 	 *
 	 * @since    1.0.0
 	 */
@@ -185,7 +188,7 @@ class PluginName {
 	}
 
 	/**
-	 * Enqueues public-facing script files.
+	 * Register and enqueues public-facing JavaScript files.
 	 *
 	 * @since    1.0.0
 	 */
@@ -199,6 +202,7 @@ class PluginName {
 	 * @since    1.0.0
 	 */
 	public function add_plugin_admin_menu() {
+
 		/*
 		 * TODO:
 		 *
@@ -213,6 +217,7 @@ class PluginName {
 			$this->plugin_slug,
 			array( $this, 'display_plugin_admin_page' )
 		);
+
 	}
 
 	/**
@@ -249,4 +254,5 @@ class PluginName {
 	public function filter_method_name() {
 		// TODO: Define your filter hook callback here
 	}
+
 }
