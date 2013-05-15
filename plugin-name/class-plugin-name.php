@@ -71,11 +71,11 @@ class PluginName {
 		// Add the options page and menu item.
 		// add_action( 'admin_menu', array( $this, 'add_plugin_admin_menu' ) );
 
-		// Load admin stylesheets and JavaScript.
+		// Load admin style sheet and JavaScript.
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_styles' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_scripts' ) );
 
-		// Load public-facing stylesheets and JavaScript.
+		// Load public-facing style sheet and JavaScript.
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_styles' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 
@@ -139,7 +139,7 @@ class PluginName {
 	}
 
 	/**
-	 * Register and enqueue admin-specific stylesheets.
+	 * Register and enqueue admin-specific style sheet.
 	 *
 	 * @since     1.0.0
 	 *
@@ -179,7 +179,7 @@ class PluginName {
 	}
 
 	/**
-	 * Register and enqueue public-facing stylesheets.
+	 * Register and enqueue public-facing style sheet.
 	 *
 	 * @since    1.0.0
 	 */
