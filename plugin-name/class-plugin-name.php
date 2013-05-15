@@ -130,6 +130,7 @@ class PluginName {
 	 * @since    1.0.0
 	 */
 	public function load_plugin_textdomain() {
+
 		$domain = $this->plugin_slug;
 		$locale = apply_filters( 'plugin_locale', get_locale(), $domain );
 
