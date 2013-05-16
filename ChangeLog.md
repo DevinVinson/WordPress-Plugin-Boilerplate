@@ -1,7 +1,7 @@
 ## 2.5.0 (16 May 2013)
 
-* Updated to `readme.txt` to be up to standard with the current WordPress Plugin Repository demo
-
+* Updating `readme.txt` to be up to standard with the current WordPress Plugin Repository demo
+* Updating page-level DocBlocks for consistency
 
 ## 2.4.0 (15 May 2013)
 
