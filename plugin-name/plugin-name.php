@@ -8,7 +8,7 @@
  * @package PluginName
  * @author  Your Name <email@example.com>
  * @license GPL-2.0+
- * @link    TODO
+ * @link    example.com
  *
  * @wordpress-plugin
  * Plugin Name: TODO
