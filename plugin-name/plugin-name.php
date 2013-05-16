@@ -8,7 +8,7 @@
  * @package   PluginName
  * @author    Your Name <email@example.com>
  * @license   GPL-2.0+
- * @link      example.com
+ * @link      http://example.com
  * @copyright 2013 Your Name or Company Name
  *
  * @wordpress-plugin
