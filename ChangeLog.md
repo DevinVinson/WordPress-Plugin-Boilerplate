@@ -1,3 +1,16 @@
+## 2.4.0 (15 May 2013)
+
+* Renaming and updating references in the pot file to match the new file names
+* Renaming all `display` files to `public` (i.e., `display.js` to `public.js`)
+* Updating references in comments and in code to the plugin class files and plugin files
+* Updating the way the plugin terminates execution if accessed directly
+* Updating code comments, clearing extraneous whitespace
+* Renaming files to be more consistent with the example name of the plugin
+* Renaming 'plugin-boilerplate' to 'plugin-name' to be more consistent with the naming conventions of the class file
+* Adding a sample screenshot to match the example WordPress Plugin Repository `readme.txt`
+* Removing the plugin version constant in favor of a property in the plugin class
+* Adding proper page-level DocBlocks
+
 ## 2.3.0 (13 May 2013)
 
 * Moving the activation hooks outside of the class and marking the methods as static
