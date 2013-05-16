@@ -1,10 +1,12 @@
 === Plugin Name ===
-Contributors: username1, username2 (this should be a list of wordpress.org userid's)
+Contributors: (this should be a list of wordpress.org userid's)
 Donate link: http://example.com/
 Tags: comments, spam
-Requires at least: 3.3.1
-Tested up to: 3.3.1
+Requires at least: 3.5.1
+Tested up to: 3.6
 Stable tag: 1.0.0
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Here is a short description of the plugin.  This should be no more than 150 characters.  No markup here.
 
@@ -58,24 +60,26 @@ Answer to foo bar dilemma.
 == Screenshots ==
 
 1. This screen shot description corresponds to screenshot-1.(png|jpg|jpeg|gif). Note that the screenshot is taken from
-the directory of the stable readme.txt, so in this case, `/tags/4.3/screenshot-1.png` (or jpg, jpeg, gif)
+the /assets directory or the directory that contains the stable readme.txt (tags or trunk). Screenshots in the /assets
+directory take precedence. For example, `/assets/screenshot-1.png` would win over `/tags/4.3/screenshot-1.png`
+(or jpg, jpeg, gif).
 2. This is the second screen shot
 
 == Changelog ==
 
-= 1.0.0 =
+= 1.0 =
 * A change since the previous version.
 * Another change.
 
-= 0.5.0 =
+= 0.5 =
 * List versions from most recent at top to oldest at bottom.
 
 == Upgrade Notice ==
 
-= 1.0.0 =
+= 1.0 =
 Upgrade notices describe the reason a user should upgrade.  No more than 300 characters.
 
-= 0.0.5 =
+= 0.5 =
 This version fixes a security related bug.  Upgrade immediately.
 
 == Arbitrary section ==

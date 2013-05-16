@@ -1,3 +1,8 @@
+## 2.5.0 (16 May 2013)
+
+* Updated to `readme.txt` to be up to standard with the current WordPress Plugin Repository demo
+
+
 ## 2.4.0 (15 May 2013)
 
 * Renaming and updating references in the pot file to match the new file names
