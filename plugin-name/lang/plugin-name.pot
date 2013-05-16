@@ -18,18 +18,10 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: plugin-name.php:273
+#: class-plugin-name.php:214
 msgid "Page Title"
 msgstr ""
 
-#: plugin-name.php:274
+#: class-plugin-name.php:215
 msgid "Menu Text"
-msgstr ""
-
-#: plugin-name.php:275
-msgid "read"
-msgstr ""
-
-#: plugin-name.php:276
-msgid "plugin-name"
 msgstr ""
