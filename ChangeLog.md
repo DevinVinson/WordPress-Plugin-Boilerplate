@@ -1,3 +1,7 @@
+## 2.5.1 (17 May 2013)
+
+* Updating a reference to the plugin slug
+
 ## 2.5.0 (16 May 2013)
 
 * Updating `readme.txt` to be up to standard with the current WordPress Plugin Repository demo
