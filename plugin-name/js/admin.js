@@ -1,6 +1,4 @@
-(function ($) {
-	"use strict";
-	$(function () {
-		// Place your administration-specific JavaScript here
-	});
-}(jQuery));
+jQuery(function($) {
+  "use strict";
+  // Place your administration-specific JavaScript here
+});
