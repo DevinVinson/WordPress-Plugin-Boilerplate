@@ -5,7 +5,7 @@
  * A foundation off of which to build well-documented WordPress plugins that also follow
  * WordPress coding standards and PHP best practices.
  *
- * @package   PluginName
+ * @package   Plugin_Name
  * @author    Your Name <email@example.com>
  * @license   GPL-2.0+
  * @link      http://example.com
@@ -33,9 +33,9 @@ if ( ! defined( 'WPINC' ) ) {
 require_once( plugin_dir_path( __FILE__ ) . 'class-plugin-name.php' );
 
 // Register hooks that are fired when the plugin is activated, deactivated, and uninstalled, respectively.
-// TODO: replace PluginName with the name of the plugin defined in `class-plugin-name.php`
-register_activation_hook( __FILE__, array( 'PluginName', 'activate' ) );
-register_deactivation_hook( __FILE__, array( 'PluginName', 'deactivate' ) );
+// TODO: replace Plugin_Name with the name of the plugin defined in `class-plugin-name.php`
+register_activation_hook( __FILE__, array( 'Plugin_Name', 'activate' ) );
+register_deactivation_hook( __FILE__, array( 'Plugin_Name', 'deactivate' ) );
 
-// TODO: replace PluginName with the name of the plugin defined in `class-plugin-name.php`
-PluginName::get_instance();
+// TODO: replace Plugin_Name with the name of the plugin defined in `class-plugin-name.php`
+Plugin_Name::get_instance();
