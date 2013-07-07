@@ -2,7 +2,7 @@
 /**
  * Plugin Name.
  *
- * @package   PluginName
+ * @package   Plugin_Name
  * @author    Your Name <email@example.com>
  * @license   GPL-2.0+
  * @link      http://example.com
@@ -14,10 +14,10 @@
  *
  * TODO: Rename this class to a proper name for your plugin.
  *
- * @package PluginName
+ * @package Plugin_Name
  * @author  Your Name <email@example.com>
  */
-class PluginName {
+class Plugin_Name {
 
 	/**
 	 * Plugin version, used for cache-busting of style and script file references.

@@ -2,7 +2,7 @@
 /**
  * Fired when the plugin is uninstalled.
  *
- * @package   PluginName
+ * @package   Plugin_Name
  * @author    Your Name <email@example.com>
  * @license   GPL-2.0+
  * @link      http://example.com
