@@ -1,3 +1,7 @@
+## 2.6.0 (7 July 2013)
+
+* Updating `PluginName` to `Plugin_Name` to follow the WordPress Coding Standards
+
 ## 2.5.1 (17 May 2013)
 
 * Updating a reference to the plugin slug
