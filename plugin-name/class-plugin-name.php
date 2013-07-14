@@ -79,7 +79,7 @@ class Plugin_Name {
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_styles' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 
-		// Add an sction link pointing to th e optionspage. TODO: Rename "plugin-name.php" to the name your plugin
+		// Add an sction link pointing to the options page. TODO: Rename "plugin-name.php" to the name your plugin
 		// $plugin_basename = plugin_basename( plugin_dir_path( __FILE__ ) . 'plugin-name.php' );
 		// add_filter( 'plugin_action_links_' . $plugin_basename, array( $this, 'add_action_links' ) );
 
