@@ -234,7 +234,7 @@ class Plugin_Name {
 		include_once( 'views/admin.php' );
 	}
 
-	/*
+	/**
 	 * Add settings action link to the plugins page.
 	 *
 	 * @since    1.0.0
