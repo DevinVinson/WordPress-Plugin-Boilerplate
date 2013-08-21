@@ -71,6 +71,10 @@ class Plugin_Name {
 		// Add the options page and menu item.
 		// add_action( 'admin_menu', array( $this, 'add_plugin_admin_menu' ) );
 
+		// Add an action link pointing to the options page. TODO: Rename "plugin-name.php" to the name your plugin
+		// $plugin_basename = plugin_basename( plugin_dir_path( __FILE__ ) . 'plugin-name.php' );
+		// add_filter( 'plugin_action_links_' . $plugin_basename, array( $this, 'add_action_links' ) );
+
 		// Load admin style sheet and JavaScript.
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_styles' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_scripts' ) );
@@ -79,9 +83,6 @@ class Plugin_Name {
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_styles' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 
-		// Add an sction link pointing to the options page. TODO: Rename "plugin-name.php" to the name your plugin
-		// $plugin_basename = plugin_basename( plugin_dir_path( __FILE__ ) . 'plugin-name.php' );
-		// add_filter( 'plugin_action_links_' . $plugin_basename, array( $this, 'add_action_links' ) );
 
 		// Define custom functionality. Read more about actions and filters: http://codex.wordpress.org/Plugin_API#Hooks.2C_Actions_and_Filters
 		add_action( 'TODO', array( $this, 'action_method_name' ) );
@@ -233,7 +234,7 @@ class Plugin_Name {
 		include_once( 'views/admin.php' );
 	}
 
-	/*
+	/**
 	 * Add settings action link to the plugins page.
 	 *
 	 * @since    1.0.0
