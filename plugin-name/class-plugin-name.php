@@ -170,7 +170,7 @@ class Plugin_Name {
 	 * @param	int	$blog_id ID of the new blog.
 	 */
 	public function activate_new_site( $blog_id ) {
-		if ( did_action( 'wpmu_new_blog' ) !== 1 )
+		if ( 1 !== did_action( 'wpmu_new_blog' ) )
 			return;
 
 		switch_to_blog( $blog_id );
