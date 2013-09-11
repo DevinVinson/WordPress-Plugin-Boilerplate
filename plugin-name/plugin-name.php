@@ -38,4 +38,4 @@ register_activation_hook( __FILE__, array( 'Plugin_Name', 'activate' ) );
 register_deactivation_hook( __FILE__, array( 'Plugin_Name', 'deactivate' ) );
 
 // TODO: replace Plugin_Name with the name of the plugin defined in `class-plugin-name.php`
-Plugin_Name::get_instance();
+add_action( 'plugins_loaded', array( 'Plugin_Name', 'get_instance' ) );
