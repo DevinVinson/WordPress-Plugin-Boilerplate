@@ -103,7 +103,7 @@ class Plugin_Name {
 	public static function get_instance() {
 
 		// If the instance hasn't been set, set it now.
-		if ( !isset(static::$isntance) ) {
+		if ( !isset(static::$instance) ) {
 			static::$instance = new static();
 		}
 
