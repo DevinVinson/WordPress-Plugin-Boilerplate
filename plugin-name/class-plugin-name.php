@@ -301,7 +301,6 @@ class Plugin_Name {
 		 * Change 'Page Title' to the title of your plugin admin page
 		 * Change 'Menu Text' to the text for menu item for the plugin settings page
 		 * Change 'manage_options' to the capability you see fit (http://codex.wordpress.org/Roles_and_Capabilities)
-		 * Change 'plugin-name' to the name of your plugin
 		 */
 		$this->plugin_screen_hook_suffix = add_plugins_page(
 			__( 'Page Title', $this->plugin_slug ),
