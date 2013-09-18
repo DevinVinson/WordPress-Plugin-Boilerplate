@@ -94,20 +94,20 @@ class Plugin_Name {
 	}
 
 	/**
-	 * Return an instance of this class.
+	 * Return an instance of the called class.
 	 *
 	 * @since     1.0.0
 	 *
-	 * @return    object    A single instance of this class.
+	 * @return    object    A single instance of the called class.
 	 */
 	public static function get_instance() {
 
-		// If the single instance hasn't been set, set it now.
-		if ( null == self::$instance ) {
-			self::$instance = new self;
+		// If the instance hasn't been set, set it now.
+		if ( !isset(static::$instance) ) {
+			static::$instance = new static();
 		}
 
-		return self::$instance;
+		return static::$instance;
 	}
 
 	/**
