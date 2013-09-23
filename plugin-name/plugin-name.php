@@ -32,7 +32,8 @@ if ( ! defined( 'WPINC' ) ) {
 // TODO: replace `class-plugin-name.php` with the name of the actual plugin's class file
 require_once( plugin_dir_path( __FILE__ ) . 'class-plugin-name.php' );
 
-// Register hooks that are fired when the plugin is activated, deactivated, and uninstalled, respectively.
+// Register hooks that are fired when the plugin is activated or deactivated.
+// When the plugin is deleted, the uninstall.php file is loaded.
 // TODO: replace Plugin_Name with the name of the plugin defined in `class-plugin-name.php`
 register_activation_hook( __FILE__, array( 'Plugin_Name', 'activate' ) );
 register_deactivation_hook( __FILE__, array( 'Plugin_Name', 'deactivate' ) );
