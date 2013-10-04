@@ -31,8 +31,8 @@ class Plugin_Name {
 	/**
 	 * Unique identifier for your plugin.
 	 *
-	 * Use this value (not the variable name) as the text domain when internationalizing strings of text. It should
-	 * match the Text Domain file header in the main plugin file.
+	 * The variable name is used as the text domain when internationalizing strings of text.
+	 * Its value should match the Text Domain file header in the main plugin file.
 	 *
 	 * @since    1.0.0
 	 *
