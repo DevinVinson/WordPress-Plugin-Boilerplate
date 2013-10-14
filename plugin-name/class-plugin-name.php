@@ -59,7 +59,7 @@ class Plugin_Name {
 	protected static $instance = null;
 
 	/**
-	 * Initialize the plugin by setting localization, filters, and administration functions.
+	 * Initialize the plugin by setting localization and loading public scripts and styles.
 	 *
 	 * @since     1.0.0
 	 */

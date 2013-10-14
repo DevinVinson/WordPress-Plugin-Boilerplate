@@ -2,7 +2,7 @@
 /**
  * Plugin Name.
  *
- * @package   Plugin_Name_Admin
+ * @package   Plugin_Name\Admin
  * @author    Your Name <email@example.com>
  * @license   GPL-2.0+
  * @link      http://example.com
@@ -14,7 +14,7 @@
  *
  * TODO: Rename this class to a proper name for your plugin.
  *
- * @package Plugin_Name_Settings
+ * @package Plugin_Name_Admin
  * @author  Your Name <email@example.com>
  */
 class Plugin_Name_Admin {
@@ -38,7 +38,7 @@ class Plugin_Name_Admin {
 	protected $plugin_screen_hook_suffix = null;
 
 	/**
-	 * Initialize the plugin by setting localization, filters, and administration functions.
+	 * Initialize the plugin by loading admin scripts & styles and adding a settings page and menu.
 	 *
 	 * @since     1.0.0
 	 */
