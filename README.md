@@ -30,6 +30,11 @@ A new menu item will be added to the *Plugins* menu if you uncomment Line 71 in 
 
 `add_action( 'admin_menu', array( $this, 'add_plugin_admin_menu' ) );`
 
+## Recommended Tools
+
+* Localization Tools
+* GitHub Plugin Updater
+
 ## License
 
 The WordPress Plugin Boilerplate is licensed under the GPL v2 or later.
