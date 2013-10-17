@@ -1,3 +1,37 @@
+## TBD (TBD October 2013)
+
+* Updating the read me to include the new features of the boilerplate
+* Adding whitespace between the header and the markup of the views
+* Removing a lot of whitespace, updating function comments, and comment blocks within a function, and making sure no comments exceed 80 characters
+* Adding a 'TODO' so users can more easily find where all they need to supply the name of their plugin
+* Update README.txt (grappler)
+* Defining a section to provide links for recommended tools
+* Adding a 'GitHub Plugin URI' to the wordpress-plugin header
+* Updating the javascript to include more whitespace as per the WordPress JavaScript Coding Standards
+* Update inline documentation (grappler)
+* Add admin class (grappler)
+* Update $plugin_slug comment (barryceelen)
+* Place options page under 'Settings' in stead of 'Plugins' menu (barryceelen)
+* Replace plugin-name with $this->plugin_slug in add_action_links (barryceelen)
+* Removes 'Change 'plugin-name' to the name of your plugin' from DocBlock (barryceelen)
+* Mention uninstall.php in code comment (barryceelen)
+* Removes reference to register_uninstall_hook from code comment (barryceelen)
+* Initialize plugin on plugins_loaded hook (barryceelen)
+* Change default capability to 'manage_options' (nextgenthemes)
+* Make WP_LANG_DIR constant safer (GaryJones)
+* Replacing `$this->version` by the new class constant (GeertDD)
+* Update activate_new_site did_action to become Yoda condition (thuijssoon)
+* Fix typo and move add_filter under menu add_action (Grappler)
+* Storing plugin version in a class constant (GeertDD)
+* Removing useless closing php tags (GeertDD)
+* Fix loading textdomain when the plugin is symlinked (andrejcremoznik)
+* Fix typo (grappler)
+* Add action link to plugin page (grappler)
+* Replacing all instances of PluginName with PluginName as per the WordPress Coding Standards
+* Added multisite activation/deactivation functionality. (thuijssoon)
+* Adding index.php with silence is golden security method (danielantunes)
+* Added empty array for dependency to fix version number. (tokkonopapa)
+
 ## 2.6.0 (7 July 2013)
 
 * Updating `PluginName` to `Plugin_Name` to follow the WordPress Coding Standards
