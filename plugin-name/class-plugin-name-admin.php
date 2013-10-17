@@ -2,7 +2,7 @@
 /**
  * Plugin Name.
  *
- * @package   Plugin_Name\Admin
+ * @package   Plugin_Name_Admin
  * @author    Your Name <email@example.com>
  * @license   GPL-2.0+
  * @link      http://example.com
@@ -10,7 +10,11 @@
  */
 
 /**
- * Plugin Admin class.
+ * Plugin class. This class should ideally be used to work with the
+ * administrative side of the WordPress site.
+ *
+ * If you're interested in introducing public-facing
+ * functionality, then refer to `class-plugin-name-admin.php`
  *
  * TODO: Rename this class to a proper name for your plugin.
  *
@@ -38,13 +42,21 @@ class Plugin_Name_Admin {
 	protected $plugin_screen_hook_suffix = null;
 
 	/**
-	 * Initialize the plugin by loading admin scripts & styles and adding a settings page and menu.
+	 * Initialize the plugin by loading admin scripts & styles and adding a
+	 * settings page and menu.
 	 *
 	 * @since     1.0.0
 	 */
 	private function __construct() {
 
-		// Call $plugin_slug from initial plugin class. TODO: Rename "Plugin_Name" to the name of your initial plugin class
+		/*
+		 * Call $plugin_slug from public plugin class.
+		 *
+		 * TODO:
+		 *
+		 * - Rename "Plugin_Name" to the name of your initial plugin class
+		 *
+		 */
 		$plugin = Plugin_Name::get_instance();
 		$this->plugin_slug = $plugin->get_plugin_slug();
 
@@ -55,11 +67,22 @@ class Plugin_Name_Admin {
 		// Add the options page and menu item.
 		add_action( 'admin_menu', array( $this, 'add_plugin_admin_menu' ) );
 
-		// Add an action link pointing to the options page. TODO: Rename "plugin-name.php" to the name your plugin
+		/*
+		 * Add an action link pointing to the options page.
+		 *
+		 * TODO:
+		 *
+		 * - Rename "plugin-name.php" to the name your plugin
+		 */
 		$plugin_basename = plugin_basename( plugin_dir_path( __FILE__ ) . 'plugin-name.php' );
 		add_filter( 'plugin_action_links_' . $plugin_basename, array( $this, 'add_action_links' ) );
 
-		// Define custom functionality. Read more about actions and filters: http://codex.wordpress.org/Plugin_API#Hooks.2C_Actions_and_Filters
+		/*
+		 * Define custom functionality.
+		 *
+		 * Read more about actions and filters:
+		 * http://codex.wordpress.org/Plugin_API#Hooks.2C_Actions_and_Filters
+		 */
 		add_action( 'TODO', array( $this, 'action_method_name' ) );
 		add_filter( 'TODO', array( $this, 'filter_method_name' ) );
 
@@ -96,7 +119,7 @@ class Plugin_Name_Admin {
 		}
 
 		$screen = get_current_screen();
-		if ( $screen->id == $this->plugin_screen_hook_suffix ) {
+		if ( $this->plugin_screen_hook_suffix == $screen->id ) {
 			wp_enqueue_style( $this->plugin_slug .'-admin-styles', plugins_url( 'css/admin.css', __FILE__ ), array(), Plugin_Name::VERSION );
 		}
 
@@ -116,7 +139,7 @@ class Plugin_Name_Admin {
 		}
 
 		$screen = get_current_screen();
-		if ( $screen->id == $this->plugin_screen_hook_suffix ) {
+		if ( $this->plugin_screen_hook_suffix == $screen->id ) {
 			wp_enqueue_script( $this->plugin_slug . '-admin-script', plugins_url( 'js/admin.js', __FILE__ ), array( 'jquery' ), Plugin_Name::VERSION );
 		}
 
@@ -138,9 +161,10 @@ class Plugin_Name_Admin {
 		 *
 		 * TODO:
 		 *
-		 * Change 'Page Title' to the title of your plugin admin page
-		 * Change 'Menu Text' to the text for menu item for the plugin settings page
-		 * Change 'manage_options' to the capability you see fit (http://codex.wordpress.org/Roles_and_Capabilities)
+		 * - Change 'Page Title' to the title of your plugin admin page
+		 * - Change 'Menu Text' to the text for menu item for the plugin settings page
+		 * - Change 'manage_options' to the capability you see fit
+		 *   For reference: http://codex.wordpress.org/Roles_and_Capabilities
 		 */
 		$this->plugin_screen_hook_suffix = add_options_page(
 			__( 'Page Title', $this->plugin_slug ),
@@ -178,11 +202,11 @@ class Plugin_Name_Admin {
 	}
 
 	/**
-	 * NOTE:  Actions are points in the execution of a page or process
-	 *        lifecycle that WordPress fires.
+	 * NOTE:     Actions are points in the execution of a page or process
+	 *           lifecycle that WordPress fires.
 	 *
-	 *        WordPress Actions: http://codex.wordpress.org/Plugin_API#Actions
-	 *        Action Reference:  http://codex.wordpress.org/Plugin_API/Action_Reference
+	 *           Actions:    http://codex.wordpress.org/Plugin_API#Actions
+	 *           Reference:  http://codex.wordpress.org/Plugin_API/Action_Reference
 	 *
 	 * @since    1.0.0
 	 */
@@ -191,11 +215,11 @@ class Plugin_Name_Admin {
 	}
 
 	/**
-	 * NOTE:  Filters are points of execution in which WordPress modifies data
-	 *        before saving it or sending it to the browser.
+	 * NOTE:     Filters are points of execution in which WordPress modifies data
+	 *           before saving it or sending it to the browser.
 	 *
-	 *        WordPress Filters: http://codex.wordpress.org/Plugin_API#Filters
-	 *        Filter Reference:  http://codex.wordpress.org/Plugin_API/Filter_Reference
+	 *           Filters: http://codex.wordpress.org/Plugin_API#Filters
+	 *           Reference:  http://codex.wordpress.org/Plugin_API/Filter_Reference
 	 *
 	 * @since    1.0.0
 	 */
