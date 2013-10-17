@@ -10,7 +10,11 @@
  */
 
 /**
- * Plugin class.
+ * Plugin class. This class should ideally be used to work with the
+ * public-facing side of the WordPress site.
+ *
+ * If you're interested in introducing administrative or dashboard
+ * functionality, then refer to `class-plugin-name-admin.php`
  *
  * TODO: Rename this class to a proper name for your plugin.
  *
@@ -26,13 +30,14 @@ class Plugin_Name {
 	 *
 	 * @var     string
 	 */
-	const VERSION = '1.0.0';
+	public const VERSION = '1.0.0';
 
 	/**
 	 * Unique identifier for your plugin.
 	 *
-	 * The variable name is used as the text domain when internationalizing strings of text.
-	 * Its value should match the Text Domain file header in the main plugin file.
+	 * The variable name is used as the text domain when internationalizing strings
+	 * of text. Its value should match the Text Domain file header in the main
+	 * plugin file.
 	 *
 	 * @since    1.0.0
 	 *
@@ -50,7 +55,8 @@ class Plugin_Name {
 	protected static $instance = null;
 
 	/**
-	 * Initialize the plugin by setting localization and loading public scripts and styles.
+	 * Initialize the plugin by setting localization and loading public scripts
+	 * and styles.
 	 *
 	 * @since     1.0.0
 	 */
@@ -66,7 +72,9 @@ class Plugin_Name {
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_styles' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 
-		// Define custom functionality. Read more about actions and filters: http://codex.wordpress.org/Plugin_API#Hooks.2C_Actions_and_Filters
+		/* Define custom functionality.
+		 * Refer To http://codex.wordpress.org/Plugin_API#Hooks.2C_Actions_and_Filters
+		 */
 		add_action( 'TODO', array( $this, 'action_method_name' ) );
 		add_filter( 'TODO', array( $this, 'filter_method_name' ) );
 
@@ -105,25 +113,36 @@ class Plugin_Name {
 	 *
 	 * @since    1.0.0
 	 *
-	 * @param    boolean    $network_wide    True if WPMU superadmin uses "Network Activate" action, false if WPMU is disabled or plugin is activated on an individual blog.
+	 * @param    boolean    $network_wide    True if WPMU superadmin uses
+	 *                                       "Network Activate" action, false if
+	 *                                       WPMU is disabled or plugin is
+	 *                                       activated on an individual blog.
 	 */
 	public static function activate( $network_wide ) {
+
 		if ( function_exists( 'is_multisite' ) && is_multisite() ) {
+
 			if ( $network_wide  ) {
+
 				// Get all blog ids
 				$blog_ids = self::get_blog_ids();
 
 				foreach ( $blog_ids as $blog_id ) {
+
 					switch_to_blog( $blog_id );
 					self::single_activate();
 				}
+
 				restore_current_blog();
+
 			} else {
 				self::single_activate();
 			}
+
 		} else {
 			self::single_activate();
 		}
+
 	}
 
 	/**
@@ -131,25 +150,37 @@ class Plugin_Name {
 	 *
 	 * @since    1.0.0
 	 *
-	 * @param    boolean    $network_wide    True if WPMU superadmin uses "Network Deactivate" action, false if WPMU is disabled or plugin is deactivated on an individual blog.
+	 * @param    boolean    $network_wide    True if WPMU superadmin uses
+	 *                                       "Network Deactivate" action, false if
+	 *                                       WPMU is disabled or plugin is
+	 *                                       deactivated on an individual blog.
 	 */
 	public static function deactivate( $network_wide ) {
+
 		if ( function_exists( 'is_multisite' ) && is_multisite() ) {
+
 			if ( $network_wide ) {
+
 				// Get all blog ids
 				$blog_ids = self::get_blog_ids();
 
 				foreach ( $blog_ids as $blog_id ) {
+
 					switch_to_blog( $blog_id );
 					self::single_deactivate();
+
 				}
+
 				restore_current_blog();
+
 			} else {
 				self::single_deactivate();
 			}
+
 		} else {
 			self::single_deactivate();
 		}
+
 	}
 
 	/**
@@ -157,15 +188,18 @@ class Plugin_Name {
 	 *
 	 * @since    1.0.0
 	 *
-	 * @param    int    $blog_id ID of the new blog.
+	 * @param    int    $blog_id    ID of the new blog.
 	 */
 	public function activate_new_site( $blog_id ) {
-		if ( 1 !== did_action( 'wpmu_new_blog' ) )
+
+		if ( 1 !== did_action( 'wpmu_new_blog' ) ) {
 			return;
+		}
 
 		switch_to_blog( $blog_id );
 		self::single_activate();
 		restore_current_blog();
+
 	}
 
 	/**
@@ -179,13 +213,16 @@ class Plugin_Name {
 	 * @return   array|false    The blog ids, false if no matches.
 	 */
 	private static function get_blog_ids() {
+
 		global $wpdb;
 
 		// get an array of blog ids
 		$sql = "SELECT blog_id FROM $wpdb->blogs
 			WHERE archived = '0' AND spam = '0'
 			AND deleted = '0'";
+
 		return $wpdb->get_col( $sql );
+
 	}
 
 	/**
@@ -218,6 +255,7 @@ class Plugin_Name {
 
 		load_textdomain( $domain, trailingslashit( WP_LANG_DIR ) . $domain . '/' . $domain . '-' . $locale . '.mo' );
 		load_plugin_textdomain( $domain, FALSE, basename( dirname( __FILE__ ) ) . '/languages' );
+
 	}
 
 	/**
@@ -242,8 +280,8 @@ class Plugin_Name {
 	 * NOTE:  Actions are points in the execution of a page or process
 	 *        lifecycle that WordPress fires.
 	 *
-	 *        WordPress Actions: http://codex.wordpress.org/Plugin_API#Actions
-	 *        Action Reference:  http://codex.wordpress.org/Plugin_API/Action_Reference
+	 *        Actions:    http://codex.wordpress.org/Plugin_API#Actions
+	 *        Reference:  http://codex.wordpress.org/Plugin_API/Action_Reference
 	 *
 	 * @since    1.0.0
 	 */
@@ -255,8 +293,8 @@ class Plugin_Name {
 	 * NOTE:  Filters are points of execution in which WordPress modifies data
 	 *        before saving it or sending it to the browser.
 	 *
-	 *        WordPress Filters: http://codex.wordpress.org/Plugin_API#Filters
-	 *        Filter Reference:  http://codex.wordpress.org/Plugin_API/Filter_Reference
+	 *        Filters: http://codex.wordpress.org/Plugin_API#Filters
+	 *        Reference:  http://codex.wordpress.org/Plugin_API/Filter_Reference
 	 *
 	 * @since    1.0.0
 	 */
