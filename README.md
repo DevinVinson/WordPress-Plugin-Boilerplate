@@ -9,13 +9,15 @@ The WordPress Plugin Boilerplate serves as a foundation and aims to provide a cl
 * Example values are given, so you can see what needs to be changed.
 * Uses a strict file organization scheme to make sure the assets are easily maintainable.
 * Note that this boilerplate includes a `.pot` as a starting translation file.
+* Notes on managing assets prior to deployment are covered below
+* Tools used for translation are below
 
 ## Contents
 
 The WordPress Plugin Boilerplate includes the following files:
 
 * This README, a ChangeLog, and a `gitignore` file.
-* A subdirectory called `plugin-name`
+* A subdirectory called `plugin-name`. This represents the core plugin file.
 
 ## Installation
 
@@ -26,14 +28,39 @@ The WordPress Plugin Boilerplate includes the following files:
 
 This will activate the WordPress Plugin Boilerplate. Because the Boilerplate has no real functionality, nothing will be added to WordPress; however, this demonstrates exactly how your plugin should behave while you're working with it.
 
-A new menu item will be added to the *Plugins* menu if you uncomment Line 71 in the class file which contains the following line:
+If you uncomment Line 71, a new menu item will be added to the *Plugins* menu in the class file which contains the following line:
 
 `add_action( 'admin_menu', array( $this, 'add_plugin_admin_menu' ) );`
 
 ## Recommended Tools
 
-* Localization Tools
-* GitHub Plugin Updater
+### Localization Tools
+
+The WordPress Plugin Boilerplate uses a variable to store the text domain used when internationalizing strings throughout the Boilerplate. To take advantage of this method,
+there are tools that are recommended for providing correct, translatable files:
+
+* [Poedit](http://www.poedit.net/)
+* [makepot](http://i18n.svn.wordpress.org/tools/trunk/)
+* [i18n](https://github.com/grappler/i18n)
+
+Any of the above tools should provide you with the proper tooling to localize the plugin.
+
+### GitHub Updater
+
+The WordPress Plugin Boilerplate includes native support for the [GitHub Updater](https://github.com/afragen/github-updater) which allows you to provide updates to your WordPress plugin from GitHub.
+
+This uses a new tag in the plugin header:
+
+>  `* GitHub Plugin URI: https://github.com/<owner>/<repo>`
+
+Here's how to take advantage of this feature:
+
+1. Install the [GitHub Updater](https://github.com/afragen/github-updater)
+2. Replace `<owner>` with your username and `<repo>` with the repository of your plugin
+3. Push commits to the master branch
+4. Enjoy your plugin being updated in the WordPress dashboard
+
+In future versions, there will be steps to specify branches or tags rather than the `master` branch.
 
 ## License
 
@@ -85,5 +112,5 @@ For more, in-depth information about this, read [this post](http://make.wordpres
 
 Plugin screenshots can be saved to one of two locations:
 
-* The traditional location is to keep them in the root of the plugin directory. This will increase the size of the download of the plugin, but make the images accessible for those who install it.
-* Alternatively, you can save the screenshots in the `assets` directory, as well. The repository will look here for the screenshot files as well; however, they will not be included in the plugin download thus reducing the size of the plugin.
+1. The old way is to keep them in the root of the plugin directory. This will increase the size of the download of the plugin, but make the images accessible for those who install it. This is deprecated in the WordPress Plugin Boilerplate
+2. With the alternative way, you can save the screenshots in the `assets` directory, as well. The repository will look here for the screenshot files as well; however, they will not be included in the plugin download thus reducing the size of the plugin. As of its latest version, the WordPress Plugin Boilerplate now follows this convention.
