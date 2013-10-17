@@ -12,4 +12,5 @@
  * @copyright 2013 Your Name or Company Name
  */
 ?>
+
 <!-- This file is used to markup the public facing aspect of the plugin. -->
