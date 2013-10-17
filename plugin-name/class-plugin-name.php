@@ -30,7 +30,7 @@ class Plugin_Name {
 	 *
 	 * @var     string
 	 */
-	public const VERSION = '1.0.0';
+	const VERSION = '1.0.0';
 
 	/**
 	 * Unique identifier for your plugin.
