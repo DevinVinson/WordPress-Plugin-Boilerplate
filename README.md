@@ -23,14 +23,10 @@ The WordPress Plugin Boilerplate includes the following files:
 
 1. Copy the `plugin-name` directory into your `wp-content/plugins` directory
 2. Navigate to the *Plugins* dashboard page
-3. Locate the menu item that reads *Plugin Name*
+3. Locate the menu item that reads *TODO*
 4. Click on *Activate*
 
 This will activate the WordPress Plugin Boilerplate. Because the Boilerplate has no real functionality, nothing will be added to WordPress; however, this demonstrates exactly how your plugin should behave while you're working with it.
-
-If you uncomment Line 71, a new menu item will be added to the *Plugins* menu in the class file which contains the following line:
-
-`add_action( 'admin_menu', array( $this, 'add_plugin_admin_menu' ) );`
 
 ## Recommended Tools
 
