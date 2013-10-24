@@ -14,7 +14,7 @@
  * administrative side of the WordPress site.
  *
  * If you're interested in introducing public-facing
- * functionality, then refer to `class-plugin-name-admin.php`
+ * functionality, then refer to `class-plugin-name.php`
  *
  * TODO: Rename this class to a proper name for your plugin.
  *
