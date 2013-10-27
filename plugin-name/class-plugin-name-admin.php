@@ -101,6 +101,10 @@ class Plugin_Name_Admin {
 
 	/**
 	 * Register and enqueue admin-specific style sheet.
+	 * 
+	 * TODO:
+	 *
+	 * - Rename "Plugin_Name" to the name your plugin
 	 *
 	 * @since     1.0.0
 	 *
@@ -121,6 +125,10 @@ class Plugin_Name_Admin {
 
 	/**
 	 * Register and enqueue admin-specific JavaScript.
+	 * 
+	 * TODO:
+	 *
+	 * - Rename "Plugin_Name" to the name your plugin
 	 *
 	 * @since     1.0.0
 	 *
