@@ -67,14 +67,8 @@ class Plugin_Name_Admin {
 		// Add the options page and menu item.
 		add_action( 'admin_menu', array( $this, 'add_plugin_admin_menu' ) );
 
-		/*
-		 * Add an action link pointing to the options page.
-		 *
-		 * TODO:
-		 *
-		 * - Rename "plugin-name.php" to the name your plugin
-		 */
-		$plugin_basename = plugin_basename( plugin_dir_path( __FILE__ ) . 'plugin-name.php' );
+		// Add an action link pointing to the options page.
+		$plugin_basename = plugin_basename( plugin_dir_path( __FILE__ ) . $this->plugin_slug . '.php' );
 		add_filter( 'plugin_action_links_' . $plugin_basename, array( $this, 'add_action_links' ) );
 
 		/*
