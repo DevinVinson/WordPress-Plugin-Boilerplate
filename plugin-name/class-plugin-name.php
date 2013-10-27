@@ -42,6 +42,7 @@ class Plugin_Name {
 	 * @since    1.0.0
 	 *
 	 * @var      string
+	 * //TODO - Rename "plugin-name" to the name your your plugin
 	 */
 	protected $plugin_slug = 'plugin-name';
 
