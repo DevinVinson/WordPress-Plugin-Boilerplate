@@ -33,7 +33,10 @@ class Plugin_Name {
 	const VERSION = '1.0.0';
 
 	/**
+	 * TODO - Rename "plugin-name" to the name your your plugin
+	 *
 	 * Unique identifier for your plugin.
+	 *
 	 *
 	 * The variable name is used as the text domain when internationalizing strings
 	 * of text. Its value should match the Text Domain file header in the main
@@ -42,7 +45,6 @@ class Plugin_Name {
 	 * @since    1.0.0
 	 *
 	 * @var      string
-	 * //TODO - Rename "plugin-name" to the name your your plugin
 	 */
 	protected $plugin_slug = 'plugin-name';
 
