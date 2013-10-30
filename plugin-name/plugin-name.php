@@ -30,6 +30,10 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
+/*----------------------------------------------------------------------------*
+ * Public-Facing Functionality
+ *----------------------------------------------------------------------------*/
+
 /*
  * TODO:
  *
@@ -37,8 +41,7 @@ if ( ! defined( 'WPINC' ) ) {
  * - replace `class-plugin-admin.php` with the name of the plugin's admin file
  *
  */
-require_once( plugin_dir_path( __FILE__ ) . 'class-plugin-name.php' );
-require_once( plugin_dir_path( __FILE__ ) . 'class-plugin-name-admin.php' );
+require_once( plugin_dir_path( __FILE__ ) . '/public/class-plugin-name.php' );
 
 /*
  * Register hooks that are fired when the plugin is activated or deactivated.
@@ -62,6 +65,25 @@ register_deactivation_hook( __FILE__, array( 'Plugin_Name', 'deactivate' ) );
  */
 add_action( 'plugins_loaded', array( 'Plugin_Name', 'get_instance' ) );
 
+/*----------------------------------------------------------------------------*
+ * Dashboard and Administrative Functionality
+ *----------------------------------------------------------------------------*/
+
+/*
+ * TODO:
+ *
+ * If you want to include Ajax within the dashboard, change the following
+ * conditional to:
+ *
+ * if ( is_admin() ) {
+ *   ...
+ * }
+ *
+ * The code below is intended to to give the lightest footprint possible.
+ */
 if ( is_admin() && ( ! defined( 'DOING_AJAX' ) || ! DOING_AJAX ) ) {
+
+	require_once( plugin_dir_path( __FILE__ ) . '/admin/class-plugin-name-admin.php' );
 	add_action( 'plugins_loaded', array( 'Plugin_Name_Admin', 'get_instance' ) );
+
 }
