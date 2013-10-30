@@ -61,4 +61,7 @@ register_deactivation_hook( __FILE__, array( 'Plugin_Name', 'deactivate' ) );
  *   `class-plugin-name-admin.php`
  */
 add_action( 'plugins_loaded', array( 'Plugin_Name', 'get_instance' ) );
-add_action( 'plugins_loaded', array( 'Plugin_Name_Admin', 'get_instance' ) );
+
+if ( is_admin() && ( ! defined( 'DOING_AJAX' ) || ! DOING_AJAX ) ) {
+	add_action( 'plugins_loaded', array( 'Plugin_Name_Admin', 'get_instance' ) );
+}
