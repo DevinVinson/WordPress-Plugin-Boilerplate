@@ -1,5 +1,17 @@
-## TBD (TBD October 2013)
+## 2.6.0 (TBD)
 
+* Merging changes from the previous, untagged version, into this version
+* Removing left over files from the plguin root
+* Moving all public-specific functionality into the public subdirectory
+* Moving all admin-specific functionality into the admin subdirectory
+* Loading the admin class only if the dashboard is being loaded
+* Added a TODO for Plugin_Name::Version (grappler)
+* Replacine plugin-name with plugin_slug and removed a TODO (grappler)
+* Added a 'TODO' to prmpt the user to change the plugin name (haleeben)
+* Updating the class-plugin-name.admin.php (will83)
+* Updating references to the languages directory
+* Update plugin-name.post (grappler)
+* Including more information about the GitHub Upater
 * Updating the read me to include the new features of the boilerplate
 * Adding whitespace between the header and the markup of the views
 * Removing a lot of whitespace, updating function comments, and comment blocks within a function, and making sure no comments exceed 80 characters
@@ -31,9 +43,6 @@
 * Added multisite activation/deactivation functionality. (thuijssoon)
 * Adding index.php with silence is golden security method (danielantunes)
 * Added empty array for dependency to fix version number. (tokkonopapa)
-
-## 2.6.0 (7 July 2013)
-
 * Updating `PluginName` to `Plugin_Name` to follow the WordPress Coding Standards
 * Removing some whitespace in the first line of the README file
 * Removing an unnecessary apostrophe from the Boilerplate README.txt
