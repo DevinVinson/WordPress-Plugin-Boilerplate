@@ -229,4 +229,14 @@ class Plugin_Name_Admin {
 		// TODO: Define your filter hook callback here
 	}
 
+ 	/**
+         * NOTE: Shallow copies of PHP 5 objects can be created (with the clone keyword)
+         * after which, the __clone() magic method of the object is called. By  making 
+         * ours private, a PHP Fatal Error will occur preventing the cloning of our 
+         * object and preserving our single-instance pattern.  This method intentionally
+         * left blank.
+         *
+         * @since 2.7.0
+         */
+        private function __clone() { }
 }
