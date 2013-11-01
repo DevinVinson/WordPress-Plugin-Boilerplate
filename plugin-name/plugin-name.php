@@ -31,7 +31,7 @@ if ( ! defined( 'WPINC' ) ) {
 }
 
 /*----------------------------------------------------------------------------*
- * Public-Facing Functionality
+ * Shared Functionality
  *----------------------------------------------------------------------------*/
 
 /*
@@ -40,7 +40,7 @@ if ( ! defined( 'WPINC' ) ) {
  * - replace `class-plugin-name.php` with the name of the plugin's class file
  *
  */
-require_once( plugin_dir_path( __FILE__ ) . '/public/class-plugin-name.php' );
+require_once( plugin_dir_path( __FILE__ ) . '/includes/class-plugin-name.php' );
 
 /*
  * Register hooks that are fired when the plugin is activated or deactivated.
