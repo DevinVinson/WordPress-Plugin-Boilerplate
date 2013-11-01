@@ -1,5 +1,6 @@
-## 2.6.0 (TBD)
+## 2.6.0 (1 November 2013)
 
+* Adding includes, admin/includes, public/includes for housing libraries and dependecies (garyjones)
 * Merging changes from the previous, untagged version, into this version
 * Removing left over files from the plguin root
 * Moving all public-specific functionality into the public subdirectory
