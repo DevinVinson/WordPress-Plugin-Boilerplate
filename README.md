@@ -17,7 +17,7 @@ The WordPress Plugin Boilerplate serves as a foundation and aims to provide a cl
 The WordPress Plugin Boilerplate includes the following files:
 
 * This README, a ChangeLog, and a `gitignore` file.
-* A subdirectory called `plugin-name`. This represents the core plugin file.
+* A subdirectory called `plugin-name` that represents the core plugin file.
 
 ## Installation
 
@@ -26,7 +26,7 @@ The WordPress Plugin Boilerplate includes the following files:
 3. Locate the menu item that reads *TODO*
 4. Click on *Activate*
 
-This will activate the WordPress Plugin Boilerplate. Because the Boilerplate has no real functionality, nothing will be added to WordPress; however, this demonstrates exactly how your plugin should behave while you're working with it.
+This will activate the WordPress Plugin Boilerplate. Because the Boilerplate has no real functionality, nothing will be added to WordPress; however, this demonstrates exactly how your plugin should behave while you're working with the Boilerplate.
 
 ## Recommended Tools
 
@@ -85,6 +85,14 @@ The WordPress Plugin Boilerplate is licensed under the GPL v2 or later; however,
 
 For reference, [here's a discussion](http://make.wordpress.org/themes/2013/03/04/licensing-note-apache-and-gpl/) that covers the Apache 2.0 License used by [Bootstrap](http://twitter.github.io/bootstrap/).
 
+### Includes
+
+Note that if you include your own classes, or third-party libraries, there are three locations in which said files may go:
+
+1. `plugin-name/includes` is where shared functionality should be placed between `public` and `admin`
+2. `plugin-name/admin/includes` is where dashboard-specific classes and dependencies should be placed
+3. `plugin-name/public/includes` is where public-specific classes and dependencies should be placed
+
 ## Assets
 
 The assets directory provides two files that are used to represent plugin header images.
@@ -102,7 +110,7 @@ You'll need to add an `assets` directory into the root of the repository. So the
 3. `tags`
 4. `trunk`
 
-Next, copy the contents of the `assets` directory that are bundled with the Boilerplate into the root of the repository. This is how the WordPress Plugin Repository will retrievie the plugin header image.
+Next, copy the contents of the `assets` directory that are bundled with the Boilerplate into the root of the repository. This is how the WordPress Plugin Repository will retrieve the plugin header image.
 
 Of course, you'll want to customize the header images from the place holders that are provided with the Boilerplate.
 
