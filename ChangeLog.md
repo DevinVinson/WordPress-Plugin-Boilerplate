@@ -6,11 +6,11 @@
 * Moving all admin-specific functionality into the admin subdirectory
 * Loading the admin class only if the dashboard is being loaded
 * Added a TODO for Plugin_Name::Version (grappler)
-* Replacine plugin-name with plugin_slug and removed a TODO (grappler)
+* Replacing plugin-name with plugin_slug and removed a TODO (grappler)
 * Added a 'TODO' to prmpt the user to change the plugin name (haleeben)
 * Updating the class-plugin-name.admin.php (will83)
 * Updating references to the languages directory
-* Update plugin-name.post (grappler)
+* Update plugin-name.pos (grappler)
 * Including more information about the GitHub Upater
 * Updating the read me to include the new features of the boilerplate
 * Adding whitespace between the header and the markup of the views
