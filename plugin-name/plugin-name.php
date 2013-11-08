@@ -30,48 +30,43 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-/*----------------------------------------------------------------------------*
- * Public-Facing Functionality
- *----------------------------------------------------------------------------*/
 
 /*
- * TODO:
+ * TODO: Plugin name replacement
  *
  * - replace `class-plugin-name.php` with the name of the plugin's class file
+ * - replace Plugin_Name with the name of the class defined in `class-plugin-name.php`
+ * - replace `class-plugin-admin.php` with the name of the plugin's admin file
+ * - replace Plugin_Name_Admin with the name of the class defined in `class-plugin-name-admin.php` 
  *
  */
-require_once( plugin_dir_path( __FILE__ ) . '/public/class-plugin-name.php' );
+
+$class_plugin_name_php = 'class-plugin-name.php';
+$plugin_name = 'Plugin_Name';
+$class_plugin_name_admin_php = 'class-plugin-name-admin.php';
+$plugin_name_admin = 'Plugin_Name_admin';
+
+/*----------------------------------------------------------------------------*
+ * Public-Facing Functionality
+ *----------------------------------------------------------------------------*/  
+
+require_once( plugin_dir_path( __FILE__ ) . "/public/$class_plugin_name_php" );
 
 /*
  * Register hooks that are fired when the plugin is activated or deactivated.
  * When the plugin is deleted, the uninstall.php file is loaded.
  *
- * TODO:
- *
- * - replace Plugin_Name with the name of the class defined in
- *   `class-plugin-name.php`
  */
-register_activation_hook( __FILE__, array( 'Plugin_Name', 'activate' ) );
-register_deactivation_hook( __FILE__, array( 'Plugin_Name', 'deactivate' ) );
+register_activation_hook( __FILE__, array( $plugin_name, 'activate' ) );
+register_deactivation_hook( __FILE__, array( $plugin_name, 'deactivate' ) );
 
-/*
- * TODO:
- *
- * - replace Plugin_Name with the name of the class defined in
- *   `class-plugin-name.php`
- */
-add_action( 'plugins_loaded', array( 'Plugin_Name', 'get_instance' ) );
+add_action( 'plugins_loaded', array( $plugin_name, 'get_instance' ) );
 
 /*----------------------------------------------------------------------------*
  * Dashboard and Administrative Functionality
  *----------------------------------------------------------------------------*/
 
 /*
- * TODO:
- *
- * - replace `class-plugin-admin.php` with the name of the plugin's admin file
- * - replace Plugin_Name_Admin with the name of the class defined in
- *   `class-plugin-name-admin.php`
  *
  * If you want to include Ajax within the dashboard, change the following
  * conditional to:
@@ -84,7 +79,7 @@ add_action( 'plugins_loaded', array( 'Plugin_Name', 'get_instance' ) );
  */
 if ( is_admin() && ( ! defined( 'DOING_AJAX' ) || ! DOING_AJAX ) ) {
 
-	require_once( plugin_dir_path( __FILE__ ) . '/admin/class-plugin-name-admin.php' );
-	add_action( 'plugins_loaded', array( 'Plugin_Name_Admin', 'get_instance' ) );
+	require_once( plugin_dir_path( __FILE__ ) . "/admin/$class_plugin_name_admin_php" );
+	add_action( 'plugins_loaded', array( $plugin_name_admin, 'get_instance' ) );
 
 }
