@@ -52,13 +52,6 @@ $plugin_name_admin = 'Plugin_Name_admin';
 
 require_once( plugin_dir_path( __FILE__ ) . "/public/$class_plugin_name_php" );
 
-$class_plugin_name_php = 'class-plugin-name.php';
-$plugin_name = 'Plugin_Name';
-$class_plugin_name_admin_php = 'class-plugin-name-admin.php';
-$plugin_name_admin = 'Plugin_Name_admin';
-
-require_once( plugin_dir_path( __FILE__ ) . "/public/$class_plugin_name_php" );
-
 /*
  * Register hooks that are fired when the plugin is activated or deactivated.
  * When the plugin is deleted, the uninstall.php file is loaded.
