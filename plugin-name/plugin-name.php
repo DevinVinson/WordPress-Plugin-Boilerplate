@@ -46,6 +46,10 @@ $plugin_name = 'Plugin_Name';
 $class_plugin_name_admin_php = 'class-plugin-name-admin.php';
 $plugin_name_admin = 'Plugin_Name_admin';
 
+/*----------------------------------------------------------------------------*
+ * Public-Facing Functionality
+ *----------------------------------------------------------------------------*/  
+
 require_once( plugin_dir_path( __FILE__ ) . "/public/$class_plugin_name_php" );
 
 /*
