@@ -44,13 +44,13 @@ require_once( plugin_dir_path( __FILE__ ) . 'class-plugin-name-admin.php' );
  * Register hooks that are fired when the plugin is activated or deactivated.
  * When the plugin is deleted, the uninstall.php file is loaded.
  *
- * TODO:
- *
- * - replace Plugin_Name with the name of the class defined in
- *   `class-plugin-name.php`
+ * @TODO:
+ * - replace Plugin_Name with the name of the class defined in `uninstall.php`
  */
-register_activation_hook( __FILE__, array( 'Plugin_Name', 'activate' ) );
-register_deactivation_hook( __FILE__, array( 'Plugin_Name', 'deactivate' ) );
+register_activation_hook(   __FILE__, array( 'PluginNameSetup', 'activate' ) );
+register_deactivation_hook( __FILE__, array( 'PluginNameSetup', 'deactivate' ) );
+register_uninstall_hook(    __FILE__, array( 'PluginNameSetup', 'onUninstall' ) );
+add_action( 'wpmu_new_blog', array( 'PluginNameSetup', 'onActivateNewSite' ) );
 
 /*
  * TODO:
