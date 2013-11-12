@@ -1,12 +1,12 @@
 === TODO: Plugin Name ===
-Contributors:      @TODO (this should be a list of wordpress.org userids)
-Donate link:       @TODO http://example.com/
-Tags:              comments, spam
-Requires at least: 3.7.1
-Tested up to:      3.7.1
-Stable tag:        1.0.0
-License:           @TODO
-License URI:       http://www.tldrlegal.com/ @TODO Search up license
+Contributors: (this should be a list of wordpress.org userids)
+Donate link: http://example.com/
+Tags: comments, spam
+Requires at least: 3.5.1
+Tested up to: 3.6
+Stable tag: 1.0.0
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Here is a short description of the plugin.  This should be no more than 150 characters.  No markup here.
 
