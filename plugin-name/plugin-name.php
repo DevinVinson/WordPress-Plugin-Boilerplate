@@ -40,7 +40,7 @@ if ( ! defined( 'WPINC' ) ) {
  * - replace `class-plugin-name.php` with the name of the plugin's class file
  *
  */
-require_once( plugin_dir_path( __FILE__ ) . '/public/class-plugin-name.php' );
+require_once( plugin_dir_path( __FILE__ ) . 'public/class-plugin-name.php' );
 
 /*
  * Register hooks that are fired when the plugin is activated or deactivated.
@@ -84,7 +84,7 @@ add_action( 'plugins_loaded', array( 'Plugin_Name', 'get_instance' ) );
  */
 if ( is_admin() && ( ! defined( 'DOING_AJAX' ) || ! DOING_AJAX ) ) {
 
-	require_once( plugin_dir_path( __FILE__ ) . '/admin/class-plugin-name-admin.php' );
+	require_once( plugin_dir_path( __FILE__ ) . 'admin/class-plugin-name-admin.php' );
 	add_action( 'plugins_loaded', array( 'Plugin_Name_Admin', 'get_instance' ) );
 
 }
