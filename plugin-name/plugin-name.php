@@ -12,12 +12,12 @@
  * @copyright 2013 Your Name or Company Name
  *
  * @wordpress-plugin
- * Plugin Name:       TODO
- * Plugin URI:        TODO
- * Description:       TODO
+ * Plugin Name:       @TODO
+ * Plugin URI:        @TODO
+ * Description:       @TODO
  * Version:           1.0.0
- * Author:            TODO
- * Author URI:        TODO
+ * Author:            @TODO
+ * Author URI:        @TODO
  * Text Domain:       plugin-name-locale
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
@@ -35,7 +35,7 @@ if ( ! defined( 'WPINC' ) ) {
  *----------------------------------------------------------------------------*/
 
 /*
- * TODO:
+ * @TODO:
  *
  * - replace `class-plugin-name.php` with the name of the plugin's class file
  *
@@ -46,7 +46,7 @@ require_once( plugin_dir_path( __FILE__ ) . 'public/class-plugin-name.php' );
  * Register hooks that are fired when the plugin is activated or deactivated.
  * When the plugin is deleted, the uninstall.php file is loaded.
  *
- * TODO:
+ * @TODO:
  *
  * - replace Plugin_Name with the name of the class defined in
  *   `class-plugin-name.php`
@@ -55,7 +55,7 @@ register_activation_hook( __FILE__, array( 'Plugin_Name', 'activate' ) );
 register_deactivation_hook( __FILE__, array( 'Plugin_Name', 'deactivate' ) );
 
 /*
- * TODO:
+ * @TODO:
  *
  * - replace Plugin_Name with the name of the class defined in
  *   `class-plugin-name.php`
@@ -67,7 +67,7 @@ add_action( 'plugins_loaded', array( 'Plugin_Name', 'get_instance' ) );
  *----------------------------------------------------------------------------*/
 
 /*
- * TODO:
+ * @TODO:
  *
  * - replace `class-plugin-admin.php` with the name of the plugin's admin file
  * - replace Plugin_Name_Admin with the name of the class defined in

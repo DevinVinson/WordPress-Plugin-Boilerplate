@@ -16,7 +16,7 @@
  * If you're interested in introducing administrative or dashboard
  * functionality, then refer to `class-plugin-name-admin.php`
  *
- * TODO: Rename this class to a proper name for your plugin.
+ * @TODO: Rename this class to a proper name for your plugin.
  *
  * @package Plugin_Name
  * @author  Your Name <email@example.com>
@@ -33,7 +33,7 @@ class Plugin_Name {
 	const VERSION = '1.0.0';
 
 	/**
-	 * TODO - Rename "plugin-name" to the name your your plugin
+	 * @TODO - Rename "plugin-name" to the name your your plugin
 	 *
 	 * Unique identifier for your plugin.
 	 *
@@ -78,8 +78,8 @@ class Plugin_Name {
 		/* Define custom functionality.
 		 * Refer To http://codex.wordpress.org/Plugin_API#Hooks.2C_Actions_and_Filters
 		 */
-		add_action( 'TODO', array( $this, 'action_method_name' ) );
-		add_filter( 'TODO', array( $this, 'filter_method_name' ) );
+		add_action( '@TODO', array( $this, 'action_method_name' ) );
+		add_filter( '@TODO', array( $this, 'filter_method_name' ) );
 
 	}
 
@@ -234,7 +234,7 @@ class Plugin_Name {
 	 * @since    1.0.0
 	 */
 	private static function single_activate() {
-		// TODO: Define activation functionality here
+		// @TODO: Define activation functionality here
 	}
 
 	/**
@@ -243,7 +243,7 @@ class Plugin_Name {
 	 * @since    1.0.0
 	 */
 	private static function single_deactivate() {
-		// TODO: Define deactivation functionality here
+		// @TODO: Define deactivation functionality here
 	}
 
 	/**
@@ -289,7 +289,7 @@ class Plugin_Name {
 	 * @since    1.0.0
 	 */
 	public function action_method_name() {
-		// TODO: Define your action hook callback here
+		// @TODO: Define your action hook callback here
 	}
 
 	/**
@@ -302,7 +302,7 @@ class Plugin_Name {
 	 * @since    1.0.0
 	 */
 	public function filter_method_name() {
-		// TODO: Define your filter hook callback here
+		// @TODO: Define your filter hook callback here
 	}
 
 }

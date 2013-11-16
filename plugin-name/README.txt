@@ -1,4 +1,4 @@
-=== TODO: Plugin Name ===
+=== @TODO: Plugin Name ===
 Contributors: (this should be a list of wordpress.org userids)
 Donate link: http://example.com/
 Tags: comments, spam
