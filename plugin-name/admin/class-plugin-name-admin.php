@@ -52,7 +52,7 @@ class Plugin_Name_Admin {
 		/*
 		 * @TODO :
 		 *
-		 * - Decomment following lines if the admin class should only be available for super admins
+		 * - Uncomment following lines if the admin class should only be available for super admins
 		 */
 		/* if( ! is_super_admin() ) {
 			return;
@@ -103,7 +103,7 @@ class Plugin_Name_Admin {
 		/*
 		 * @TODO :
 		 *
-		 * - Decomment following lines if the admin class should only be available for super admins
+		 * - Uncomment following lines if the admin class should only be available for super admins
 		 */
 		/* if( ! is_super_admin() ) {
 			return;
