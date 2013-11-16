@@ -1,3 +1,16 @@
+## 2.6.1 (TODO)
+
+* Changing 'decomment' to 'uncomment'
+* changing all 'TODO' to '@TODO'
+* Removed the trailing slash (@jameswlane)
+* Revert "Extended and aligned comment header" (@franz-josef-kaiser)
+* Extended and aligned comment header (@franz-josef-kaiser)
+* Update class-plugin-name-admin.php (@rockaut)
+* Replaced deleted comment block (@akshayraje)
+* Updated plugin-name.php to get all name replacement changes at one place (@akshayraje)
+* Fix textdomain not loading (@neverything)
+* Fix $plugin_basename to allow plugin_action_links (@neverything)
+
 ## 2.6.0 (1 November 2013)
 
 * Adding includes, admin/includes, public/includes for housing libraries and dependecies (garyjones)
