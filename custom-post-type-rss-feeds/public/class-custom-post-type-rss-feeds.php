@@ -1,12 +1,12 @@
 <?php
 /**
- * Plugin Name.
+ * Custom Post Type RSS feeds.
  *
- * @package   Plugin_Name
- * @author    Your Name <email@example.com>
+ * @package   Custom_Post_Type_RSS_Feeds
+ * @author    Jonathan Harris <jon@computingcorner.co.uk>
  * @license   GPL-2.0+
- * @link      http://example.com
- * @copyright 2013 Your Name or Company Name
+ * @link      http://www.jonathandavidharris.co.uk
+ * @copyright 2013 Jonathan Harris
  */
 
 /**
@@ -14,14 +14,14 @@
  * public-facing side of the WordPress site.
  *
  * If you're interested in introducing administrative or dashboard
- * functionality, then refer to `class-plugin-name-admin.php`
+ * functionality, then refer to `class-custom-post-type-rss-feeds-admin.php`
  *
  * TODO: Rename this class to a proper name for your plugin.
  *
- * @package Plugin_Name
- * @author  Your Name <email@example.com>
+ * @package Custom_Post_Type_RSS_Feeds
+ * @author  Jonathan Harris <jon@computingcorner.co.uk>
  */
-class Plugin_Name {
+class Custom_Post_Type_RSS_Feeds {
 
 	/**
 	 * Plugin version, used for cache-busting of style and script file references.
@@ -33,7 +33,7 @@ class Plugin_Name {
 	const VERSION = '1.0.0';
 
 	/**
-	 * TODO - Rename "plugin-name" to the name your your plugin
+	 * TODO - Rename "custom-post-type-rss-feeds" to the name your your plugin
 	 *
 	 * Unique identifier for your plugin.
 	 *
@@ -46,7 +46,7 @@ class Plugin_Name {
 	 *
 	 * @var      string
 	 */
-	protected $plugin_slug = 'plugin-name';
+	protected $plugin_slug = 'custom-post-type-rss-feeds';
 
 	/**
 	 * Instance of this class.
@@ -250,6 +250,7 @@ class Plugin_Name {
 	 * Load the plugin text domain for translation.
 	 *
 	 * @since    1.0.0
+	 * 
 	 */
 	public function load_plugin_textdomain() {
 

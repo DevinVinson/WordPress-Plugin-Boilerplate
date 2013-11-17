@@ -1,6 +1,6 @@
-=== TODO: Plugin Name ===
+=== TODO: Custom Post Type RSS feeds ===
 Contributors: (this should be a list of wordpress.org userids)
-Donate link: http://example.com/
+Donate link: http://www.jonathandavidharris.co.uk/
 Tags: comments, spam
 Requires at least: 3.5.1
 Tested up to: 3.6
@@ -46,7 +46,7 @@ e.g.
 = Using The WordPress Dashboard =
 
 1. Navigate to the 'Add New' in the plugins dashboard
-2. Search for 'plugin-name'
+2. Search for 'custom-post-type-rss-feeds'
 3. Click 'Install Now'
 4. Activate the plugin on the Plugin dashboard
 
@@ -54,15 +54,15 @@ e.g.
 
 1. Navigate to the 'Add New' in the plugins dashboard
 2. Navigate to the 'Upload' area
-3. Select `plugin-name.zip` from your computer
+3. Select `custom-post-type-rss-feeds.zip` from your computer
 4. Click 'Install Now'
 5. Activate the plugin in the Plugin dashboard
 
 = Using FTP =
 
-1. Download `plugin-name.zip`
-2. Extract the `plugin-name` directory to your computer
-3. Upload the `plugin-name` directory to the `/wp-content/plugins/` directory
+1. Download `custom-post-type-rss-feeds.zip`
+2. Extract the `custom-post-type-rss-feeds` directory to your computer
+3. Upload the `custom-post-type-rss-feeds` directory to the `/wp-content/plugins/` directory
 4. Activate the plugin in the Plugin dashboard
 
 

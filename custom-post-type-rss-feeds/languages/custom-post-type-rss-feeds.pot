@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TODO 1.0.0\n"
-"Report-Msgid-Bugs-To: http://wordpress.org/plugins/plugin-name\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/plugins/custom-post-type-rss-feeds\n"
 "POT-Creation-Date: 2013-05-10 11:23:19+00:00\n"
 "PO-Revision-Date: 2013-05-10 10:37-0500\n"
 "Last-Translator: FULL NAME <email@example.com>\n"
@@ -18,14 +18,14 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: class-plugin-name-admin.php:170
+#: class-custom-post-type-rss-feeds-admin.php:170
 msgid "Page Title"
 msgstr ""
 
-#: class-plugin-name-admin.php:171
+#: class-custom-post-type-rss-feeds-admin.php:171
 msgid "Menu Text"
 msgstr ""
 
-#: class-plugin-name-admin.php:197
+#: class-custom-post-type-rss-feeds-admin.php:197
 msgid "Settings"
 msgstr ""

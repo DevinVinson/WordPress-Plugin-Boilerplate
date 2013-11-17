@@ -5,11 +5,11 @@
  * This includes the header, options, and other information that should provide
  * The User Interface to the end user.
  *
- * @package   Plugin_Name
- * @author    Your Name <email@example.com>
+ * @package   Custom_Post_Type_RSS_Feeds
+ * @author    Jonathan Harris <jon@computingcorner.co.uk>
  * @license   GPL-2.0+
- * @link      http://example.com
- * @copyright 2013 Your Name or Company Name
+ * @link      http://www.jonathandavidharris.co.uk
+ * @copyright 2013 Jonathan Harris
  */
 ?>
 
