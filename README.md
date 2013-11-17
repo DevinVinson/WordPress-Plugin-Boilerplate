@@ -1,4 +1,4 @@
-# WordPress Plugin Boilerplate
+# Testing 
 
 The WordPress Plugin Boilerplate serves as a foundation and aims to provide a clear and consistent guide for building your WordPress plugins.
 
