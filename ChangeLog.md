@@ -1,5 +1,7 @@
-## 2.6.1 (TODO)
+## 2.6.1 (20 November 2013)
 
+* Updating the localization functions to that `load_textdomain` is called.
+* Removing plugin textdomain
 * Changing 'decomment' to 'uncomment'
 * changing all 'TODO' to '@TODO'
 * Removed the trailing slash (@jameswlane)
