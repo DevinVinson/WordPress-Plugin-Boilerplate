@@ -107,6 +107,10 @@ You may provide arbitrary sections, in the same format as the ones above.  This 
 plugins where more information needs to be conveyed that doesn't fit into the categories of "description" or
 "installation."  Arbitrary sections will be shown below the built-in sections outlined above.
 
+== Updates ==
+
+This plugin supports the [GitHub Updater](https://github.com/afragen/github-updater) plugin, so if you install that, this plugin becomes automatically updateable direct from GitHub. Any submission to WP.org repo will make this redundant.
+
 == A brief Markdown Example ==
 
 Ordered list:

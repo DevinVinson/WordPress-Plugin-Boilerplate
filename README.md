@@ -56,9 +56,13 @@ Here's how to take advantage of this feature:
 3. Push commits to the master branch
 4. Enjoy your plugin being updated in the WordPress dashboard
 
-The current version of the GitHub Updater supports tags/branches - whichever has the highest number. It also supports different branches using the `GitHub Branch:` header. All that info is in [the project](https://github.com/afragen/github-updater)
+The current version of the GitHub Updater supports tags/branches - whichever has the highest number.
 
-In future versions, there will be steps to specify branches or tags rather than the `master` branch.
+To specify a branch that you would like to use for updating, just add a `GitHub Branch:` header. GitHub Updater will preferentially use a tag over a branch having the same or lesser version number. If the version number of the specified branch is greater then the update will pull from the branch and not from the tag.
+
+The default state is either `GitHub Branch: master` or nothing at all. They are equivalent.
+
+All that info is in [the project](https://github.com/afragen/github-updater).
 
 ## License
 
