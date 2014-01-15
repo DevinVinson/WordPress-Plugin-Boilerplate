@@ -69,7 +69,7 @@ add_action( 'plugins_loaded', array( 'Plugin_Name', 'get_instance' ) );
 /*
  * @TODO:
  *
- * - replace `class-plugin-admin.php` with the name of the plugin's admin file
+ * - replace `class-plugin-name-admin.php` with the name of the plugin's admin file
  * - replace Plugin_Name_Admin with the name of the class defined in
  *   `class-plugin-name-admin.php`
  *
