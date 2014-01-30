@@ -17,7 +17,7 @@
 
 * Adding includes, admin/includes, public/includes for housing libraries and dependecies (garyjones)
 * Merging changes from the previous, untagged version, into this version
-* Removing left over files from the plguin root
+* Removing left over files from the plugin root
 * Moving all public-specific functionality into the public subdirectory
 * Moving all admin-specific functionality into the admin subdirectory
 * Loading the admin class only if the dashboard is being loaded
