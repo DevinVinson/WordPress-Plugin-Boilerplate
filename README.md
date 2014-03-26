@@ -1,6 +1,6 @@
 # WordPress Plugin Boilerplate
 
-The WordPress Plugin Boilerplate serves as a foundation and aims to provide a clear and consistent guide for building your WordPress plugins.
+The WordPress Plugin Boilerplate serves as a foundation and aims to provide a clear and consistent guide for building your WordPress plugins. Just download, replace a few instances of 'plugin-name' with the name of your own plugin, and you'll get to the meat of coding your plugin in no time!.
 
 ## Features
 
