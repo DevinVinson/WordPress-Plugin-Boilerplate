@@ -23,6 +23,7 @@
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Domain Path:       /languages
  * GitHub Plugin URI: https://github.com/<owner>/<repo>
+ * WordPress-Plugin-Boilerplate: v2.6.1
  */
 
 // If this file is called directly, abort.
