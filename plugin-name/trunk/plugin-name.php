@@ -1,6 +1,8 @@
 <?php
 /**
- * @TEAM: http://make.wordpress.org/core/handbook/inline-documentation-standards/php-documentation-standards/#1-functions-and-class-methods
+ * @TODO: Short description (no period for file headers)
+ *
+ * @TODO: Long description.
  *
  * @package   Plugin_Name
  * @author    Your Name <email@example.com>
@@ -12,7 +14,7 @@
  * Plugin Name:       @TODO
  * Plugin URI:        @TODO
  * Description:       @TODO
- * Version:           1.0.0
+ * Version:           @TODO
  * Author:            @TODO
  * Author URI:        @TODO
  * Text Domain:       plugin-name-locale
@@ -25,3 +27,19 @@
 if ( ! defined( 'WPINC' ) ) {
 	die;
 }
+
+/**
+ * Includes the plugin activation class that runs during plugin activation.
+ */
+require_once( plugin_dir_path( __FILE__ ) . 'includes/class-plugin-name-activator.php' );
+
+/**
+ * Includes the plugin deactivation class that runs during plugin deactivation.
+ */
+require_once( plugin_dir_path( __FILE__ ) . 'includes/class-plugin-name-deactivator.php' );
+
+/** This action is documented in includes/class-plugin-name-activator.php */
+register_activation_hook( __FILE__, array( 'Plugin_Name_Activator', 'activate' ) );
+
+/** This action is documented in includes/class-plugin-name-deactivator.php */
+register_activation_hook( __FILE__, array( 'Plugin_Name_Deactivator', 'deactivate' ) );
