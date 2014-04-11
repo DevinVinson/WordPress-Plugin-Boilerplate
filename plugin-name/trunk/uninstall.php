@@ -1,6 +1,8 @@
 <?php
 /**
- * @TEAM: http://make.wordpress.org/core/handbook/inline-documentation-standards/php-documentation-standards/#1-functions-and-class-methods
+ * @TODO: Short description (no period for file headers)
+ *
+ * @TODO: Long description.
  *
  * @package   Plugin_Name
  * @author    Your Name <email@example.com>
