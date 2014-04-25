@@ -1,14 +1,16 @@
 <?php
-/**
- * @TEAM http://make.wordpress.org/core/handbook/inline-documentation-standards/php-documentation-standards/#1-functions-and-class-methods
- *
- * @package   Plugin_Name
- * @author    Your Name <email@example.com>
- * @license   GPL-2.0+
- * @link      http://example.com
- * @copyright 2014 Your Name or Company Name
- */
 
+/**
+ * Short Description (no period for file headers)
+ *
+ * Long Description.
+ *
+ * @link URL
+ * @since x.x.x (if available)
+ *
+ * @package WordPress
+ * @subpackage Component
+ */
 class Plugin_Name {
 
 }

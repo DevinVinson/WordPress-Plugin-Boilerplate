@@ -7,27 +7,24 @@
  *
  * @package   Plugin_Name
  * @author    Your Name <email@example.com>
- * @license   GPL-2.0+
- * @link      http://example.com
- * @copyright 2014 Your Name or Company Name
  */
 class Plugin_Name_Activator {
 
 	/**
-	 * TODO: Short description. (use period)
+	 * Short description. (use period)
 	 *
-	 * TODO: Long description.
+	 * Long description.
 	 *
 	 * @since x.x.x
+	 * @access (for functions: only use if private)
 	 *
-	 * @param type $var Description.
-	 * @param array $args {
-	 *     Short description about this hash.
+	 * @see Function/method/class relied on
+	 * @link URL
+	 * @global type $varname Short description.
 	 *
-	 *     @type type $var Description.
-	 *     @type type $var Description.
-	 * }
-	 * @param type $var Description.
+	 * @param  type $var Description.
+	 * @param  type $var Optional. Description.
+	 * @return type Description.
 	 */
 	public static function activate() {
 
