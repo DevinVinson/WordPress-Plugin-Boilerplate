@@ -1,14 +1,14 @@
 <?php
 /**
- * TODO: Short description (no period for file headers)
+ * Short Description (no period for file headers)
  *
- * TODO: Long description.
+ * Long Description.
  *
- * @package   Plugin_Name
- * @author    Your Name <email@example.com>
- * @license   GPL-2.0+
- * @link      http://example.com
- * @copyright 2014 Your Name or Company Name
+ * @link URL
+ * @since x.x.x (if available)
+ *
+ * @package WordPress
+ * @subpackage Component
  */
 
 // If uninstall not called from WordPress, then exit.
