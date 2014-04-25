@@ -1,8 +1,8 @@
 <?php
 /**
- * @TODO: Short description (no period for file headers)
+ * TODO: Short description (no period for file headers)
  *
- * @TODO: Long description.
+ * TODO: Long description.
  *
  * @package   Plugin_Name
  * @author    Your Name <email@example.com>

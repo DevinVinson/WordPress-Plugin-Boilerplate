@@ -1,8 +1,8 @@
 <?php
 /**
- * @TODO: Short description (no period for file headers)
+ * TODO: Short description (no period for file headers)
  *
- * @TODO: Long description.
+ * TODO: Long description.
  *
  * @package   Plugin_Name
  * @author    Your Name <email@example.com>
@@ -11,12 +11,12 @@
  * @copyright 2014 Your Name or Company Name
  *
  * @wordpress-plugin
- * Plugin Name:       @TODO
- * Plugin URI:        @TODO
- * Description:       @TODO
- * Version:           @TODO
- * Author:            @TODO
- * Author URI:        @TODO
+ * Plugin Name:       TODO
+ * Plugin URI:        TODO
+ * Description:       TODO
+ * Version:           TODO
+ * Author:            TODO
+ * Author URI:        TODO
  * Text Domain:       plugin-name-locale
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt

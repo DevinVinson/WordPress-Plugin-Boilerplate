@@ -1,9 +1,9 @@
 <?php
 
 /**
- * @TODO: Short description (no period for file headers)
+ * TODO: Short description (no period for file headers)
  *
- * @TODO: Long description.
+ * TODO: Long description.
  *
  * @package   Plugin_Name
  * @author    Your Name <email@example.com>
@@ -14,9 +14,9 @@
 class Plugin_Name_Deactivator {
 
 	/**
-	 * @TODO: Short description. (use period)
+	 * TODO: Short description. (use period)
 	 *
-	 * @TODO: Long description.
+	 * TODO: Long description.
 	 *
 	 * @since x.x.x
 	 *
