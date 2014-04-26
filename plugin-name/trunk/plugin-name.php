@@ -31,12 +31,12 @@ if ( ! defined( 'WPINC' ) ) {
 /**
  * Includes the plugin activation class that runs during plugin activation.
  */
-require_once plugin_dir_path( __FILE__ ) . 'includes/class-plugin-name-activator.php' );
+require_once plugin_dir_path( __FILE__ ) . 'includes/class-plugin-name-activator.php';
 
 /**
  * Includes the plugin deactivation class that runs during plugin deactivation.
  */
-require_once plugin_dir_path( __FILE__ ) . 'includes/class-plugin-name-deactivator.php' );
+require_once plugin_dir_path( __FILE__ ) . 'includes/class-plugin-name-deactivator.php';
 
 /** This action is documented in includes/class-plugin-name-activator.php */
 register_activation_hook( __FILE__, array( 'Plugin_Name_Activator', 'activate' ) );
