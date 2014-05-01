@@ -1,10 +1,24 @@
 <?php
 /**
- * @TEAM http://make.wordpress.org/core/handbook/inline-documentation-standards/php-documentation-standards/#1-functions-and-class-methods
+ * @TODO
+ * Define a short description for what this file does.
  *
- * @package   Plugin_Name
- * @author    Your Name <email@example.com>
- * @license   GPL-2.0+
- * @link      http://example.com
- * @copyright 2014 Your Name or Company Name
+ * @since   x.x.x
+ * @package TODO
  */
+
+/**
+ * @TODO
+ * Define a short description for what this file does.
+ *
+ * Define a longer description for the purpose of this file.
+ *
+ * @package   TODO
+ * @author    Your Name <your@email.com>
+ * @license   GPL-2.0+
+ * @link      URL
+ * @copyright 2014 Your Name of Your Company Name
+ */
+?>
+
+<!-- This file is used to markup the dashboard-specific aspects of the plugin. -->
