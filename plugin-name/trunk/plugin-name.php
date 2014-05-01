@@ -6,9 +6,8 @@
  *
  * Long Description.
  *
- * @link  URL
- * @since x.x.x (if available)
- *
+ * @link       URL
+ * @since      x.x.x (if available)
  * @package    TODO
  *
  * @wordpress-plugin
