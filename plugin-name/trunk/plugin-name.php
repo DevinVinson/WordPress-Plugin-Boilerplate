@@ -1,14 +1,15 @@
 <?php
 /**
+ * @TODO
+ *
  * Short Description (no period for file headers)
  *
  * Long Description.
  *
- * @link URL
+ * @link  URL
  * @since x.x.x (if available)
  *
- * @package WordPress
- * @subpackage Component
+ * @package    TODO
  *
  * @wordpress-plugin
  * Plugin Name:       TODO
