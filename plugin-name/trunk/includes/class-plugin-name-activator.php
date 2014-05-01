@@ -1,30 +1,37 @@
 <?php
 
 /**
- * TODO: Short description (no period for file headers)
+ * @TODO
+ * Short description (no period for file headers)
  *
- * TODO: Long description.
+ * Long description.
  *
- * @package   Plugin_Name
+ * @package   TODO
  * @author    Your Name <email@example.com>
+ */
+
+/**
+ * @TODO
+ * Short description (no period for file headers)
+ *
+ * Long description.
+ *
+ * @package   TODO
+ * @author    Your Name <email@example.com>
+ * @license   GPL-2.0+
+ * @link      http://example.com
+ * @copyright 2014 Your Name or Company Name
  */
 class Plugin_Name_Activator {
 
 	/**
+	 * @TODO
 	 * Short description. (use period)
 	 *
 	 * Long description.
 	 *
-	 * @since x.x.x
-	 * @access (for functions: only use if private)
-	 *
-	 * @see Function/method/class relied on
-	 * @link URL
-	 * @global type $varname Short description.
-	 *
-	 * @param  type $var Description.
-	 * @param  type $var Optional. Description.
-	 * @return type Description.
+	 * @since  x.x.x
+	 * @link   URL
 	 */
 	public static function activate() {
 

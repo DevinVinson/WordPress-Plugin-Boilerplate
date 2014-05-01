@@ -1,33 +1,37 @@
 <?php
 
 /**
- * Short Description (no period for file headers)
+ * @TODO
+ * Short description (no period for file headers)
  *
- * Long Description.
+ * Long description.
  *
- * @link URL
- * @since x.x.x (if available)
+ * @package   TODO
+ * @author    Your Name <email@example.com>
+ */
+
+/**
+ * @TODO
+ * Short description (no period for file headers)
  *
- * @package WordPress
- * @subpackage Component
+ * Long description.
+ *
+ * @package   TODO
+ * @author    Your Name <email@example.com>
+ * @license   GPL-2.0+
+ * @link      http://example.com
+ * @copyright 2014 Your Name or Company Name
  */
 class Plugin_Name_Deactivator {
 
 	/**
-	 * TODO: Short description. (use period)
+	 * @TODO
+	 * Short description. (use period)
 	 *
-	 * TODO: Long description.
+	 * Long description.
 	 *
-	 * @since x.x.x
-	 *
-	 * @param type $var Description.
-	 * @param array $args {
-	 *     Short description about this hash.
-	 *
-	 *     @type type $var Description.
-	 *     @type type $var Description.
-	 * }
-	 * @param type $var Description.
+	 * @since   x.x.x
+	 * @link   URL
 	 */
 	public static function deactivate() {
 
