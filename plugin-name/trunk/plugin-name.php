@@ -27,6 +27,11 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
+// Define the current stable version of the plugin
+if ( ! defined( 'PLUGIN_NAME_VER' ) ) {
+	define( 'PLUGIN_NAME_VER', '1.0.0' );
+}
+
 /**
  * Includes the plugin activation class that runs during plugin activation.
  */
@@ -42,3 +47,5 @@ register_activation_hook( __FILE__, array( 'Plugin_Name_Activator', 'activate' )
 
 /** This action is documented in includes/class-plugin-name-deactivator.php */
 register_activation_hook( __FILE__, array( 'Plugin_Name_Deactivator', 'deactivate' ) );
+
+
