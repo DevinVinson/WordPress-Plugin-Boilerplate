@@ -1,7 +1,6 @@
 <?php
 
 /**
- * @TODO
  * Short description (no period for file headers)
  *
  * Long description.
@@ -11,7 +10,6 @@
  */
 
 /**
- * @TODO
  * Short description (no period for file headers)
  *
  * Long description.
@@ -25,7 +23,6 @@
 class Plugin_Name_Deactivator {
 
 	/**
-	 * @TODO
 	 * Short description. (use period)
 	 *
 	 * Long description.

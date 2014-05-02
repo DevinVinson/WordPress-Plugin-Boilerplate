@@ -1,7 +1,6 @@
 <?php
 
 /**
- * @TODO
  * Define a short description for what this class does.
  *
  * @since   x.x.x
@@ -9,7 +8,6 @@
  */
 
 /**
- * @TODO
  * Define a short description for what this class does.
  *
  * Define a longer description for the purpose of this class.
@@ -23,7 +21,6 @@
 class Plugin_Name_Public {
 
 	/**
-	 * @TODO
 	 * Short description. (use period)
 	 *
 	 * Long description.

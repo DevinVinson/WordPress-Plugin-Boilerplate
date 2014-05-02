@@ -1,7 +1,6 @@
 <?php
 
 /**
- * @TODO
  * Short description (no period for file headers)
  *
  * Long description.
@@ -11,7 +10,6 @@
  */
 
 /**
- * @TODO
  * Short description (no period for file headers)
  *
  * Long description.

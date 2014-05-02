@@ -1,6 +1,6 @@
 <?php
+
 /**
- * @TODO
  * Define a short description for what this file does.
  *
  * @since   x.x.x
@@ -8,7 +8,6 @@
  */
 
 /**
- * @TODO
  * Define a short description for what this file does.
  *
  * Define a longer description for the purpose of this file.

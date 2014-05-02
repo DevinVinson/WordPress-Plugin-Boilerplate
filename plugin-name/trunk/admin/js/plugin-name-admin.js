@@ -2,8 +2,6 @@
 	'use strict';
 
 	/**
-	 * @TODO
-	 *
 	 * All of the code for your Dashboard-specific JavaScript source
 	 * should reside in this file.
 	 *

@@ -1,7 +1,6 @@
 <?php
 
 /**
- * @TODO
  * Define a short description for what this class does.
  *
  * @since   x.x.x
@@ -9,7 +8,6 @@
  */
 
 /**
- * @TODO
  * Define a short description for what this class does.
  *
  * Define a longer description for the purpose of this class.
@@ -23,7 +21,6 @@
 class Plugin_Name_Admin_Loader {
 
 	/**
-	 * @TODO
 	 * Short description. (use period)
 	 *
 	 * Long description.
@@ -35,8 +32,6 @@ class Plugin_Name_Admin_Loader {
 	public function run( $plugin_name_admin ) {
 
 		/**
-		 * @TODO
-		 *
 		 * This function is used to define the various hooks that are used in the
 		 * dashboard-specific side of the plugin. This is achieved via dependency injection
 		 * by passing an instance of Plugin_Name_Admin into this class.
