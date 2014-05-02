@@ -45,6 +45,9 @@ class Plugin_Name_Admin_Loader {
 		 * add_filter( 'the_content', array( $plugin_name_admin, 'update_the_content' ) );
 		 */
 
+		 add_action( 'admin_enqueue_scripts', array( $plugin_name_admin, 'enqueue_styles' ) );
+		 add_action( 'admin_enqueue_scripts', array( $plugin_name_admin, 'enqueue_scripts' ) );
+
 	}
 
 }
