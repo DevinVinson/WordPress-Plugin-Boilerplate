@@ -27,9 +27,8 @@ class Plugin_Name_Admin {
 	 *
 	 * @since    1.0.0
 	 * @link     URL
-	 * @param    integer    $post_id    The ID of the post that will be saved.
 	 */
-	public function save_post( $post_id ) {
+	public function enqueue_styles() {
 
 		/**
 		 * This function is provided for demonstration purposes only.
@@ -42,6 +41,8 @@ class Plugin_Name_Admin {
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
+
+		 wp_enqueue_style( 'plugin-name-admin', plugin_dir_url( __FILE__ ) . 'css/plugin-name-admin.css', array(), PLUGIN_NAME_VER, 'all' );
 
 	}
 
@@ -52,10 +53,8 @@ class Plugin_Name_Admin {
 	 *
 	 * @since    1.0.0
 	 * @link     URL
-	 * @param    string    $content    The content for the post type that's being filtered.
-	 * @return   string                The modified version of the post content.
 	 */
-	public function update_the_content( $content ) {
+	public function enqueue_scripts() {
 
 		/**
 		 * This function is provided for demonstration purposes only.
@@ -69,7 +68,7 @@ class Plugin_Name_Admin {
 		 * class.
 		 */
 
-		return $content;
+		wp_enqueue_script( 'plugin-name-admin', plugin_dir_url( __FILE__ ) . 'js/plugin-name-admin.js', array( 'jquery' ), PLUGIN_NAME_VER, FALSE );
 
 	}
 
