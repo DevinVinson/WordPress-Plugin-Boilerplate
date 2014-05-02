@@ -33,7 +33,7 @@ class Plugin_Name {
 	const VERSION = '1.0.0';
 
 	/**
-	 * @TODO - Rename "plugin-name" to the name your your plugin
+	 * @TODO - Rename "plugin-name" to the name of your plugin
 	 *
 	 * Unique identifier for your plugin.
 	 *
