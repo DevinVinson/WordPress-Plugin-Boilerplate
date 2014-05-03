@@ -5,16 +5,15 @@
  *
  * Long description.
  *
- * @package   TODO
- * @author    Your Name <email@example.com>
+ * @package    Plugin_Name
+ * @subpackage Plugin_name/includes
  */
 
 /**
- * Short description (no period for file headers)
+ * Define a short description for what this class does.
  *
- * Long description.
+ * Define a longer description for the purpose of this class.
  *
- * @package   TODO
  * @author    Your Name <email@example.com>
  * @license   GPL-2.0+
  * @link      http://example.com
