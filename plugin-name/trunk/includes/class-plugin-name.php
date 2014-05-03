@@ -5,8 +5,9 @@
  *
  * Long description.
  *
- * @package   TODO
- * @author    Your Name <email@example.com>
+ * @package    Plugin_Name
+ * @subpackage Plugin_Name/includes
+ * @author     Your Name <email@example.com>
  */
 
 /**
@@ -14,7 +15,6 @@
  *
  * Long description.
  *
- * @package   TODO
  * @author    Your Name <email@example.com>
  * @license   GPL-2.0+
  * @link      http://example.com
