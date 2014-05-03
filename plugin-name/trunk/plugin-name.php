@@ -49,3 +49,62 @@ register_activation_hook( __FILE__, array( 'Plugin_Name_Activator', 'activate' )
 
 /** This action is documented in includes/class-plugin-name-deactivator.php */
 register_activation_hook( __FILE__, array( 'Plugin_Name_Deactivator', 'deactivate' ) );
+
+add_action( 'admin_init', 'plugin_name_admin_init' );
+/**
+ * Initializes the Dashboard-specific functionality of the plugin.
+ *
+ * When the admin_init hook is fired, initializes the Dashboard-specific functionality
+ * of the plugin by injecting an instance of Plugin_Name_Admin into the
+ * Plugin_Name_Admin_Loader then executes the functionality.
+ *
+ * @since    1.0.0
+ */
+function plugin_name_admin_init() {
+
+	/**
+	 * Includes the class responsible for defining the core functionality of the
+	 * dashboard-specific part of the plugin
+	 */
+	require_once plugin_dir_path( __FILE__ ) . 'admin/class-plugin-name-admin.php';
+
+	/**
+	 * Includes the class responsible for registering all of the Plugin_Name_Admin functions
+	 * with their appropriate callbacks.
+	 */
+	require_once plugin_dir_path( __FILE__ ) . 'admin/class-plugin-name-admin-loader.php';
+
+	$admin_loader = new Plugin_Name_Admin_Loader();
+	$admin_loader->run( new Plugin_Name_Admin() );
+
+}
+
+add_action( 'plugins_loaded', 'plugin_name_plugin_loaded' );
+/**
+ * Initializes the public-facing functionality of the plugin.
+ *
+ * When the plugins_loaded hook is fired, initializes the public-facing
+ * functionality of the plugin by injecting an instance of Plugin_Name_Admin
+ * into the Plugin_Name_Admin_Loader then executes the functionality.
+ *
+ * @since    1.0.0
+ */
+function plugin_name_plugin_loaded() {
+
+	/**
+	 * Includes the class responsible for defining the core functionality of
+	 * the public-facing part of the plugin
+	 */
+	require_once plugin_dir_path( __FILE__ ) . 'public/class-plugin-name-public.php';
+
+	/**
+	 * Includes the class responsible for registering all of the Plugin_Name_Public
+	 * functions with their appropriate callbacks.
+	 */
+	require_once plugin_dir_path( __FILE__ ) . 'public/class-plugin-name-public-loader.php';
+
+
+	$loader = new Plugin_Name_Public_Loader();
+	$loader->run( new Plugin_Name_Public() );
+
+}
