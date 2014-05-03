@@ -13,14 +13,20 @@
 	 * ready:
 	 *
 	 * $(function() {
+	 *
 	 * });
 	 *
 	 * Or when the window is completely ready:
 	 *
 	 * $( window ).load(function() {
+	 *
 	 * });
 	 *
 	 * ...and so on.
+	 *
+	 * Remember that ideally, we should not attach anymore than a single DOM-ready or window-load handler
+	 * for any particular page. Though other scripts in WordPress core, other plugins, and other themes may
+	 * be doing this, we should try to minimize doing that in our own work.
 	 */
 
 })( jQuery );

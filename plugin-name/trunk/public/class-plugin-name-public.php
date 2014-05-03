@@ -1,10 +1,15 @@
 <?php
 
 /**
- * Define a short description for what this class does.
+ * Define a short description for what this class does (no period)
  *
- * @since   x.x.x
- * @package TODO
+ * @package    Plugin_Name
+ * @subpackage Plugin_Name/public
+ * @author     Your Name <email@example.com>
+ * @license    GPL-2.0+
+ * @link       http://example.com
+ * @copyright  2014 Your Name or Company Name
+ * @since      1.0.0
  */
 
 /**
@@ -12,11 +17,9 @@
  *
  * Define a longer description for the purpose of this class.
  *
- * @package   TODO
- * @author    Your Name <your@email.com>
- * @license   GPL-2.0+
- * @link      URL
- * @copyright 2014 Your Name or Company Name
+ * @package    Plugin_Name
+ * @subpackage Plugin_Name/public
+ * @author     Your Name <email@example.com>
  */
 class Plugin_Name_Public {
 
@@ -26,11 +29,8 @@ class Plugin_Name_Public {
 	 * Long description.
 	 *
 	 * @since    1.0.0
-	 * @link     URL
-	 * @param    string    $content    The content for the post type that's being filtered.
-	 * @return   string                The modified version of the post content.
 	 */
-	public function display_the_content( $content ) {
+	public function enqueue_styles() {
 
 		/**
 		 * This function is provided for demonstration purposes only.
@@ -44,7 +44,32 @@ class Plugin_Name_Public {
 		 * class.
 		 */
 
-		return $content;
+		 wp_enqueue_style( 'plugin-name-public', plugin_dir_url( __FILE__ ) . 'css/plugin-name-public.css', array(), PLUGIN_NAME_VER, 'all' );
+
+	}
+
+	/**
+	 * Short description. (use period)
+	 *
+	 * Long description.
+	 *
+	 * @since    1.0.0
+	 */
+	public function enqueue_scripts() {
+
+		/**
+		 * This function is provided for demonstration purposes only.
+		 *
+		 * An instance of this class should be passed to the run() function
+		 * defined in Plugin_Name_Public_Loader as all of the hooks are defined
+		 * in that particular class.
+		 *
+		 * The Plugin_Name_Public_Loader will then create the relationship
+		 * between the defined hooks and the functions defined in this
+		 * class.
+		 */
+
+		wp_enqueue_script( 'plugin-name-public', plugin_dir_url( __FILE__ ) . 'js/plugin-name-public.js', array( 'jquery' ), PLUGIN_NAME_VER, FALSE );
 
 	}
 

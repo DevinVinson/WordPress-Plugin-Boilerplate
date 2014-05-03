@@ -1,10 +1,15 @@
 <?php
 
 /**
- * Define a short description for what this file does.
+ * Define a short description for what this file does (no period)
  *
- * @since   x.x.x
- * @package TODO
+ * @package    Plugin_Name
+ * @subpackage Plugin_Name/public/partials
+ * @author     Your Name <email@example.com>
+ * @license    GPL-2.0+
+ * @link       http://example.com
+ * @copyright  2014 Your Name or Company Name
+ * @since      1.0.0
  */
 
 /**
@@ -12,11 +17,9 @@
  *
  * Define a longer description for the purpose of this file.
  *
- * @package   TODO
- * @author    Your Name <your@email.com>
- * @license   GPL-2.0+
- * @link      URL
- * @copyright 2014 Your Name or Company Name
+ * @package    Plugin_Name
+ * @subpackage Plugin_Name/public/partials
+ * @author     Your Name <email@example.com>
  */
 ?>
 

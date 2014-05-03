@@ -1,11 +1,15 @@
 <?php
 
 /**
- * Define a short description for what this class does.
+ * Define a short description for what this class does (no period)
  *
- * @since      1.0.0
  * @package    Plugin_Name
  * @subpackage Plugin_Name/public
+ * @author     Your Name <email@example.com>
+ * @license    GPL-2.0+
+ * @link       http://example.com
+ * @copyright  2014 Your Name or Company Name
+ * @since      1.0.0
  */
 
 /**
@@ -13,10 +17,9 @@
  *
  * Define a longer description for the purpose of this class.
  *
- * @author    Your Name <your@email.com>
- * @license   GPL-2.0+
- * @link      URL
- * @copyright 2014 Your Name or Company Name
+ * @package    Plugin_Name
+ * @subpackage Plugin_Name/public
+ * @author     Your Name <email@example.com>
  */
 class Plugin_Name_Public_Loader {
 
@@ -26,9 +29,9 @@ class Plugin_Name_Public_Loader {
 	 * Long description.
 	 *
 	 * @since    1.0.0
-	 * @param    type    $plugin_name_public    TODO
+	 * @param    type    $plugin_name_public    A reference to the Plugin_Name_Public class that defines the functions for the hooks.
 	 */
-	public function run( $plugin_name_public ) {
+	public function run( Plugin_Name_Public $plugin_name_public ) {
 
 		/**
 		 * This function is used to define the various hooks that are used in the
@@ -37,11 +40,10 @@ class Plugin_Name_Public_Loader {
 		 *
 		 * Each hook then corresponds to a public function defined within the Plugin_Name_Public
 		 * class.
-		 *
-		 * For example:
-		 *
-		 * add_filter( 'the_content', array( $plugin_name_public, 'display_the_content' ) );
 		 */
+
+		 add_action( 'wp_enqueue_scripts', array( $plugin_name_public, 'enqueue_styles' ) );
+		 add_action( 'wp_enqueue_scripts', array( $plugin_name_public, 'enqueue_scripts' ) );
 
 	}
 
