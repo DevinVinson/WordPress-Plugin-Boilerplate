@@ -5,17 +5,19 @@
  *
  * Long Description.
  *
- * @link       URL
- * @since      x.x.x (if available)
- * @package    TODO
+ * @package   Plugin_Name
+ * @author    Your Name or Company Name <email@domain.com>
+ * @license   GPL-2.0+
+ * @link      http://exmaple.com/plugin-name
+ * @copyright 2014 Your Name or Company Name
  *
  * @wordpress-plugin
- * Plugin Name:       TODO
- * Plugin URI:        TODO
- * Description:       TODO
- * Version:           TODO
- * Author:            TODO
- * Author URI:        TODO
+ * Plugin Name:       Plugin Name
+ * Plugin URI:        http://example.com/plugin-name
+ * Description:       This is a short description of what the plugin does. It's displayed in the WordPress dashboard.
+ * Version:           1.0.0
+ * Author:            Your Name or Your Company
+ * Author URI:        http://example.com
  * Text Domain:       plugin-name-locale
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
@@ -47,5 +49,3 @@ register_activation_hook( __FILE__, array( 'Plugin_Name_Activator', 'activate' )
 
 /** This action is documented in includes/class-plugin-name-deactivator.php */
 register_activation_hook( __FILE__, array( 'Plugin_Name_Deactivator', 'deactivate' ) );
-
-
