@@ -1,10 +1,15 @@
 <?php
 
 /**
- * Define a short description for what this class does.
+ * Define a short description for what this class does (no period)
  *
- * @since   x.x.x
- * @package TODO
+ * @package    Plugin_Name
+ * @subpackage Plugin_Name/admin
+ * @author     Your Name <email@example.com>
+ * @license    GPL-2.0+
+ * @link       http://example.com
+ * @copyright  2014 Your Name or Company Name
+ * @since      1.0.0
  */
 
 /**
@@ -12,11 +17,9 @@
  *
  * Define a longer description for the purpose of this class.
  *
- * @package   TODO
- * @author    Your Name <your@email.com>
- * @license   GPL-2.0+
- * @link      URL
- * @copyright 2014 Your Name of Your Company Name
+ * @package    Plugin_Name
+ * @subpackage Plugin_Name/admin
+ * @author     Your Name <email@example.com>
  */
 class Plugin_Name_Admin {
 
@@ -26,7 +29,6 @@ class Plugin_Name_Admin {
 	 * Long description.
 	 *
 	 * @since    1.0.0
-	 * @link     URL
 	 */
 	public function enqueue_styles() {
 
@@ -52,7 +54,6 @@ class Plugin_Name_Admin {
 	 * Long description.
 	 *
 	 * @since    1.0.0
-	 * @link     URL
 	 */
 	public function enqueue_scripts() {
 
