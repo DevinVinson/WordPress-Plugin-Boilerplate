@@ -5,10 +5,9 @@
  *
  * Long Description.
  *
- * @link  URL
- * @since x.x.x (if available)
- *
- * @package    TODO
+ * @package Plugin_Name
+ * @link    http://example.com
+ * @since   1.0.0
  */
 
 // If uninstall not called from WordPress, then exit.
