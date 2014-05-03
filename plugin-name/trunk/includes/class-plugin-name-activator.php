@@ -1,12 +1,15 @@
 <?php
 
 /**
- * Short description (no period for file headers)
- *
- * Long description.
+ * Define a short description for what this class does (no period)
  *
  * @package    Plugin_Name
- * @subpackage Plugin_name/includes
+ * @subpackage Plugin_Name/includes
+ * @author     Your Name <email@example.com>
+ * @license    GPL-2.0+
+ * @link       http://example.com
+ * @copyright  2014 Your Name or Company Name
+ * @since      1.0.0
  */
 
 /**
@@ -14,10 +17,9 @@
  *
  * Define a longer description for the purpose of this class.
  *
- * @author    Your Name <email@example.com>
- * @license   GPL-2.0+
- * @link      http://example.com
- * @copyright 2014 Your Name or Company Name
+ * @package    Plugin_Name
+ * @subpackage Plugin_Name/includes
+ * @author     Your Name <email@example.com>
  */
 class Plugin_Name_Activator {
 
@@ -26,8 +28,7 @@ class Plugin_Name_Activator {
 	 *
 	 * Long description.
 	 *
-	 * @since  x.x.x
-	 * @link   URL
+	 * @since    1.0.0
 	 */
 	public static function activate() {
 
