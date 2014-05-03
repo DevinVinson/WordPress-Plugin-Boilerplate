@@ -31,7 +31,7 @@ class Plugin_Name_Admin_Loader {
 	 * @since    1.0.0
 	 * @param    type    $plugin_name_admin    A reference to the Plugin_Name_Admin class that defines the functions for the hooks.
 	 */
-	public function run( $plugin_name_admin ) {
+	public function run( Plugin_Name_Admin $plugin_name_admin ) {
 
 		/**
 		 * This function is used to define the various hooks that are used in the
