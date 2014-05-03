@@ -16,7 +16,7 @@
  * @author    Your Name <your@email.com>
  * @license   GPL-2.0+
  * @link      URL
- * @copyright 2014 Your Name of Your Company Name
+ * @copyright 2014 Your Name or Company Name
  */
 ?>
 

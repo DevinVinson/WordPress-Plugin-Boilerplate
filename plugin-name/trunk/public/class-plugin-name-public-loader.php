@@ -3,8 +3,9 @@
 /**
  * Define a short description for what this class does.
  *
- * @since   x.x.x
- * @package TODO
+ * @since      1.0.0
+ * @package    Plugin_Name
+ * @subpackage Plugin_Name/public
  */
 
 /**
@@ -12,11 +13,10 @@
  *
  * Define a longer description for the purpose of this class.
  *
- * @package   TODO
  * @author    Your Name <your@email.com>
  * @license   GPL-2.0+
  * @link      URL
- * @copyright 2014 Your Name of Your Company Name
+ * @copyright 2014 Your Name or Company Name
  */
 class Plugin_Name_Public_Loader {
 
@@ -26,7 +26,6 @@ class Plugin_Name_Public_Loader {
 	 * Long description.
 	 *
 	 * @since    1.0.0
-	 * @link     URL
 	 * @param    type    $plugin_name_public    TODO
 	 */
 	public function run( $plugin_name_public ) {
