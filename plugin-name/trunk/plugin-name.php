@@ -12,8 +12,8 @@
  * @copyright 2014 Your Name or Company Name
  *
  * @wordpress-plugin
- * Plugin Name:       Plugin Name
- * Plugin URI:        http://example.com/plugin-name
+ * Plugin Name:       WordPress Plugin Boilerplate
+ * Plugin URI:        http://example.com/plugin-name-uri
  * Description:       This is a short description of what the plugin does. It's displayed in the WordPress dashboard.
  * Version:           1.0.0
  * Author:            Your Name or Your Company
@@ -29,11 +29,6 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-// Define the current stable version of the plugin
-if ( ! defined( 'PLUGIN_NAME_VER' ) ) {
-	define( 'PLUGIN_NAME_VER', '1.0.0' );
-}
-
 /**
  * Includes the plugin activation class that runs during plugin activation.
  */
@@ -44,67 +39,53 @@ require_once plugin_dir_path( __FILE__ ) . 'includes/class-plugin-name-activator
  */
 require_once plugin_dir_path( __FILE__ ) . 'includes/class-plugin-name-deactivator.php';
 
+/**
+ * The base class used to define certain functionality and attributes shared among
+ * all shared subclasses of the core plugin file.
+ */
+require_once plugin_dir_path( __FILE__ ) . 'includes/class-plugin-name.php';
+
 /** This action is documented in includes/class-plugin-name-activator.php */
 register_activation_hook( __FILE__, array( 'Plugin_Name_Activator', 'activate' ) );
 
 /** This action is documented in includes/class-plugin-name-deactivator.php */
 register_activation_hook( __FILE__, array( 'Plugin_Name_Deactivator', 'deactivate' ) );
 
-add_action( 'admin_init', 'plugin_name_admin_init' );
 /**
- * Initializes the Dashboard-specific functionality of the plugin.
- *
- * When the admin_init hook is fired, initializes the Dashboard-specific functionality
- * of the plugin by injecting an instance of Plugin_Name_Admin into the
- * Plugin_Name_Admin_Loader then executes the functionality.
- *
- * @since    1.0.0
+ * Includes the class responsible for defining the core functionality of the
+ * shared components of the plugin.
  */
-function plugin_name_admin_init() {
+require_once plugin_dir_path( __FILE__ ) . 'includes/class-plugin-name-loader.php';
+$loader = new Plugin_Name_Loader();
 
-	/**
-	 * Includes the class responsible for defining the core functionality of the
-	 * dashboard-specific part of the plugin
-	 */
-	require_once plugin_dir_path( __FILE__ ) . 'admin/class-plugin-name-admin.php';
-
-	/**
-	 * Includes the class responsible for registering all of the Plugin_Name_Admin functions
-	 * with their appropriate callbacks.
-	 */
-	require_once plugin_dir_path( __FILE__ ) . 'admin/class-plugin-name-admin-loader.php';
-
-	$admin_loader = new Plugin_Name_Admin_Loader();
-	$admin_loader->run( new Plugin_Name_Admin() );
-
-}
-
-add_action( 'plugins_loaded', 'plugin_name_plugin_loaded' );
 /**
- * Initializes the public-facing functionality of the plugin.
- *
- * When the plugins_loaded hook is fired, initializes the public-facing
- * functionality of the plugin by injecting an instance of Plugin_Name_Admin
- * into the Plugin_Name_Admin_Loader then executes the functionality.
- *
- * @since    1.0.0
+ * Includes the class responsible for defining internationalization functionality
+ * of the plugin.
  */
-function plugin_name_plugin_loaded() {
+require_once plugin_dir_path( __FILE__ ) . 'includes/class-plugin-name-i18n.php';
+$plugin_i18n = new Plugin_Name_i18n();
+$loader->add( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
 
-	/**
-	 * Includes the class responsible for defining the core functionality of
-	 * the public-facing part of the plugin
-	 */
-	require_once plugin_dir_path( __FILE__ ) . 'public/class-plugin-name-public.php';
+/**
+ * TODO
+ */
+require_once plugin_dir_path( __FILE__ ) . 'admin/class-plugin-name-admin.php';
+$plugin_name_admin = new Plugin_Name_Admin();
+$loader->add( 'admin_enqueue_scripts', $plugin_name_admin, 'enqueue_styles' );
+$loader->add( 'admin_enqueue_scripts', $plugin_name_admin, 'enqueue_scripts' );
 
-	/**
-	 * Includes the class responsible for registering all of the Plugin_Name_Public
-	 * functions with their appropriate callbacks.
-	 */
-	require_once plugin_dir_path( __FILE__ ) . 'public/class-plugin-name-public-loader.php';
+/**
+ * TODO
+ */
+require_once plugin_dir_path( __FILE__ ) . 'public/class-plugin-name-public.php';
+$plugin_name_public = new Plugin_Name_Public();
+$loader->add( 'wp_enqueue_scripts', $plugin_name_public, 'enqueue_styles' );
+$loader->add( 'wp_enqueue_scripts', $plugin_name_public, 'enqueue_scripts' );
 
+/**
+ * TODO
+ */
+require_once plugin_dir_path( __FILE__ ) . 'includes/class-plugin-name.php';
+$plugin = new Plugin_Name( $loader );
 
-	$loader = new Plugin_Name_Public_Loader();
-	$loader->run( new Plugin_Name_Public() );
-
-}
+$plugin->run();
