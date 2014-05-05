@@ -54,10 +54,9 @@ class Plugin_Name_Loader {
 		 * achieved via dependency injection by passing an instance of Plugin_Name
 		 * into this class.
 		 *
-		 * Each hook then corresponds to a public function defined within the Plugin_Name_Admin
-		 * class.
+		 * TODO
 		 */
-		 foreach ( $this->hooks as $plugin_name => $hook ) {
+		 foreach ( $this->hooks as $hook ) {
 			 add_action( $hook['hook'], array( $hook['component'], $hook['callback'] ) );
 		 }
 
