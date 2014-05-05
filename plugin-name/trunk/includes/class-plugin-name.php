@@ -23,6 +23,20 @@
  */
 class Plugin_Name {
 
+	protected $plugin_slug = 'plugin-name-slug';
+
+	protected $version = '1.0.0';
+
+	protected $loader;
+
+	public function __construct( Plugin_Name_Loader $loader = NULL ) {
+		$this->loader = $loader;
+	}
+
+	public function run() {
+		$this->loader->run();
+	}
+
 	/**
 	 * This class is used to define common functionality that exists between
 	 * both the dashboard and the public-facing side of the website. Think
