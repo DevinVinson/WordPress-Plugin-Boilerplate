@@ -20,8 +20,9 @@
  * @package    Plugin_Name
  * @subpackage Plugin_Name/admin
  * @author     Your Name <email@example.com>
+ * @extends    Plugin_Name
  */
-class Plugin_Name_Admin {
+class Plugin_Name_Admin extends Plugin_Name {
 
 	/**
 	 * Short description. (use period)
@@ -44,7 +45,7 @@ class Plugin_Name_Admin {
 		 * class.
 		 */
 
-		 wp_enqueue_style( 'plugin-name-admin', plugin_dir_url( __FILE__ ) . 'css/plugin-name-admin.css', array(), PLUGIN_NAME_VER, 'all' );
+		 wp_enqueue_style( 'plugin-name-admin', plugin_dir_url( __FILE__ ) . 'css/plugin-name-admin.css', array(), $this->version, 'all' );
 
 	}
 
@@ -69,7 +70,7 @@ class Plugin_Name_Admin {
 		 * class.
 		 */
 
-		wp_enqueue_script( 'plugin-name-admin', plugin_dir_url( __FILE__ ) . 'js/plugin-name-admin.js', array( 'jquery' ), PLUGIN_NAME_VER, FALSE );
+		wp_enqueue_script( 'plugin-name-admin', plugin_dir_url( __FILE__ ) . 'js/plugin-name-admin.js', array( 'jquery' ), $this->version, FALSE );
 
 	}
 
