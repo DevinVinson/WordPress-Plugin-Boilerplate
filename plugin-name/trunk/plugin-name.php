@@ -64,23 +64,23 @@ $loader = new Plugin_Name_Loader();
  */
 require_once plugin_dir_path( __FILE__ ) . 'includes/class-plugin-name-i18n.php';
 $plugin_i18n = new Plugin_Name_i18n();
-$loader->add( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
+$loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
 
 /**
  * TODO
  */
 require_once plugin_dir_path( __FILE__ ) . 'admin/class-plugin-name-admin.php';
 $plugin_name_admin = new Plugin_Name_Admin();
-$loader->add( 'admin_enqueue_scripts', $plugin_name_admin, 'enqueue_styles' );
-$loader->add( 'admin_enqueue_scripts', $plugin_name_admin, 'enqueue_scripts' );
+$loader->add_action( 'admin_enqueue_scripts', $plugin_name_admin, 'enqueue_styles' );
+$loader->add_action( 'admin_enqueue_scripts', $plugin_name_admin, 'enqueue_scripts' );
 
 /**
  * TODO
  */
 require_once plugin_dir_path( __FILE__ ) . 'public/class-plugin-name-public.php';
 $plugin_name_public = new Plugin_Name_Public();
-$loader->add( 'wp_enqueue_scripts', $plugin_name_public, 'enqueue_styles' );
-$loader->add( 'wp_enqueue_scripts', $plugin_name_public, 'enqueue_scripts' );
+$loader->add_action( 'wp_enqueue_scripts', $plugin_name_public, 'enqueue_styles' );
+$loader->add_action( 'wp_enqueue_scripts', $plugin_name_public, 'enqueue_scripts' );
 
 /**
  * TODO
