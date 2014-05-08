@@ -23,24 +23,6 @@
  */
 class Plugin_Name {
 
-	protected $plugin_slug = 'plugin-name-slug';
-
-	protected $version = '1.0.0';
-
-	protected $loader;
-
-	public function __construct( Plugin_Name_Loader $loader = NULL ) {
-		$this->loader = $loader;
-	}
-
-	public function run() {
-		$this->loader->run();
-	}
-
-	public function get_plugin_slug() {
-		return $this->plugin_slug;
-	}
-
 	/**
 	 * This class is used to define common functionality that exists between
 	 * both the dashboard and the public-facing side of the website. Think
@@ -52,5 +34,27 @@ class Plugin_Name {
 	 *
 	 * An instance of this class should then be passed to the loader.
 	 */
+
+	protected $plugin_slug = 'plugin-name-slug';
+
+	protected $version = '1.0.0';
+
+	protected $loader;
+
+	public function __construct( Plugin_Name_Loader $loader ) {
+		$this->loader = $loader;
+	}
+
+	public function run() {
+		$this->loader->run();
+	}
+
+	public function get_version() {
+		return $this->version;
+	}
+
+	public function get_slug() {
+		return $this->plugin_slug;
+	}
 
 }
