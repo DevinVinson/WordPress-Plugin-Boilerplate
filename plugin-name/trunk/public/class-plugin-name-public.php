@@ -20,9 +20,14 @@
  * @package    Plugin_Name
  * @subpackage Plugin_Name/public
  * @author     Your Name <email@example.com>
- * @extends    Plugin_Name
  */
-class Plugin_Name_Public extends Plugin_Name {
+class Plugin_Name_Public {
+
+	private $version;
+
+	public function __construct( $version ) {
+		$this->version = $version;
+	}
 
 	/**
 	 * Short description. (use period)
