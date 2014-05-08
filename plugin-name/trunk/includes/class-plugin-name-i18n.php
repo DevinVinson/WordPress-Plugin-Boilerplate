@@ -20,9 +20,10 @@
  * @package    Plugin_Name
  * @subpackage Plugin_Name/includes
  * @author     Your Name <email@example.com>
- * @extends    Plugin_Name
  */
-class Plugin_Name_i18n extends Plugin_Name {
+class Plugin_Name_i18n {
+
+	private $domain;
 
 	/**
 	 *
@@ -32,12 +33,15 @@ class Plugin_Name_i18n extends Plugin_Name {
 	 */
 	public function load_plugin_textdomain() {
 
-		$domain = $this->plugin_slug;
-		$locale = apply_filters( 'plugin_locale', get_locale(), $domain );
+		$locale = apply_filters( 'plugin_locale', get_locale(), $this->domain );
 
-		load_textdomain( $domain, trailingslashit( WP_LANG_DIR ) . $domain . '/' . $domain . '-' . $locale . '.mo' );
-		load_plugin_textdomain( $domain, FALSE, basename( plugin_dir_path( dirname( __FILE__ ) ) ) . '/languages/' );
+		load_textdomain( $this->domain, trailingslashit( WP_LANG_DIR ) . $this->domain . '/' . $this->domain . '-' . $locale . '.mo' );
+		load_plugin_textdomain( $this->domain, FALSE, basename( plugin_dir_path( dirname( __FILE__ ) ) ) . '/languages/' );
 
+	}
+
+	public function set_domain( $domain ) {
+		$this->domain = $domain;
 	}
 
 }
