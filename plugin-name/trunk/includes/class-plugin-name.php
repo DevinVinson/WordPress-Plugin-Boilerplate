@@ -37,6 +37,10 @@ class Plugin_Name {
 		$this->loader->run();
 	}
 
+	public function get_plugin_slug() {
+		return $this->plugin_slug;
+	}
+
 	/**
 	 * This class is used to define common functionality that exists between
 	 * both the dashboard and the public-facing side of the website. Think
