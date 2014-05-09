@@ -1,3 +1,7 @@
+## 2.6.2 (9 May 2014)
+
+* Moving `$wpdb` outside of the conditional so both cases work
+
 ## 2.6.1 (20 November 2013)
 
 * Updating the localization functions to that `load_textdomain` is called.
