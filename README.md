@@ -1,6 +1,6 @@
 # WordPress Plugin Boilerplate
 
-* **Last Updated:** 3 May 2014
+* **Last Updated:** 8 May 2014
 
 This branch is currently for a rewrite of the WordPress Plugin Boilerplate.
 
