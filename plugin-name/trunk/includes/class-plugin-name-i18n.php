@@ -40,6 +40,9 @@ class Plugin_Name_i18n {
 
 	}
 
+	/**
+	 * TODO
+	 */
 	public function set_domain( $domain ) {
 		$this->domain = $domain;
 	}
