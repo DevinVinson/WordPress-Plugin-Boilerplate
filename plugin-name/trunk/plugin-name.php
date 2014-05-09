@@ -46,47 +46,19 @@ register_activation_hook( __FILE__, array( 'Plugin_Name_Activator', 'activate' )
 register_activation_hook( __FILE__, array( 'Plugin_Name_Deactivator', 'deactivate' ) );
 
 /**
- * The class responsible for orchestrating the actions and filters of the
- * core plugin.
- */
-require_once plugin_dir_path( __FILE__ ) . 'includes/class-plugin-name-loader.php';
-
-/**
- * The class responsible for defining internationalization functionality
- * of the plugin.
- */
-require_once plugin_dir_path( __FILE__ ) . 'includes/class-plugin-name-i18n.php';
-
-/**
  * The base class used to define certain functionality and attributes used among
  * the dashboard-specific and public-facing functionality.
  */
 require_once plugin_dir_path( __FILE__ ) . 'includes/class-plugin-name.php';
 
 /**
- * The class responsible for defining all actions that occur in the Dashboard.
+ * TODO
  */
-require_once plugin_dir_path( __FILE__ ) . 'admin/class-plugin-name-admin.php';
+function run_plugin_name() {
 
-/**
- * The class responsible for defining all actions that occur in the public-facing
- * side of the site.
- */
-require_once plugin_dir_path( __FILE__ ) . 'public/class-plugin-name-public.php';
+	$plugin = new Plugin_Name();
+	$plugin->run();
 
-$loader = new Plugin_Name_Loader();
-$plugin = new Plugin_Name( $loader );
+}
 
-$plugin_i18n = new Plugin_Name_i18n();
-$plugin_i18n->set_domain( $plugin->get_slug() );
-$loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
-
-$plugin_admin = new Plugin_Name_Admin( $plugin->get_version() );
-$loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
-$loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
-
-$plugin_public = new Plugin_Name_Public( $plugin->get_version() );
-$loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
-$loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
-
-$plugin->run();
+run_plugin_name();
