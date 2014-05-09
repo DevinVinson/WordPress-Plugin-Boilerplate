@@ -13,13 +13,16 @@
 if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 	exit;
 }
-if (is_multisite()) {
-	global $wpdb;
-	$blogs = $wpdb->get_results("SELECT blog_id FROM {$wpdb->blogs}", ARRAY_A);
-		/* @TODO: delete all transient, options and files you may have added 
+
+global $wpdb;
+
+if ( is_multisite() ) {
+
+	$blogs = $wpdb->get_results( "SELECT blog_id FROM {$wpdb->blogs}", ARRAY_A );
+		/* @TODO: delete all transient, options and files you may have added
 		delete_transient( 'TRANSIENT_NAME' );
 		delete_option('OPTION_NAME');
-		//info: remove custom file directory for main site 
+		//info: remove custom file directory for main site
 		$upload_dir = wp_upload_dir();
 		$directory = $upload_dir['basedir'] . DIRECTORY_SEPARATOR . "CUSTOM_DIRECTORY_NAME" . DIRECTORY_SEPARATOR;
 		if (is_dir($directory)) {
@@ -29,13 +32,14 @@ if (is_multisite()) {
 			rmdir($directory);
 		}
 		*/
-	if ($blogs) {
-		foreach($blogs as $blog) {
-			switch_to_blog($blog['blog_id']);
-			/* @TODO: delete all transient, options and files you may have added 
+	if ( $blogs ) {
+
+	 	foreach ( $blogs as $blog ) {
+			switch_to_blog( $blog['blog_id'] );
+			/* @TODO: delete all transient, options and files you may have added
 			delete_transient( 'TRANSIENT_NAME' );
 			delete_option('OPTION_NAME');
-			//info: remove custom file directory for main site 
+			//info: remove custom file directory for main site
 			$upload_dir = wp_upload_dir();
 			$directory = $upload_dir['basedir'] . DIRECTORY_SEPARATOR . "CUSTOM_DIRECTORY_NAME" . DIRECTORY_SEPARATOR;
 			if (is_dir($directory)) {
@@ -51,13 +55,12 @@ if (is_multisite()) {
 			restore_current_blog();
 		}
 	}
-}
-else
-{
-	/* @TODO: delete all transient, options and files you may have added 
+
+} else {
+	/* @TODO: delete all transient, options and files you may have added
 	delete_transient( 'TRANSIENT_NAME' );
 	delete_option('OPTION_NAME');
-	//info: remove custom file directory for main site 
+	//info: remove custom file directory for main site
 	$upload_dir = wp_upload_dir();
 	$directory = $upload_dir['basedir'] . DIRECTORY_SEPARATOR . "CUSTOM_DIRECTORY_NAME" . DIRECTORY_SEPARATOR;
 	if (is_dir($directory)) {
