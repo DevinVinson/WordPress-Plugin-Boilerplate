@@ -23,10 +23,19 @@
  */
 class Plugin_Name_Loader {
 
+	/**
+	 * TODO
+	 */
 	protected $actions;
 
+	/**
+	 * TODO
+	 */
 	protected $filters;
 
+	/**
+	 * TODO
+	 */
 	public function __construct() {
 
 		$this->actions = array();
@@ -34,14 +43,23 @@ class Plugin_Name_Loader {
 
 	}
 
+	/**
+	 * TODO
+	 */
 	public function add_action( $hook, $component, $callback ) {
 		$this->actions = $this->add( $this->actions, $hook, $component, $callback );
 	}
 
+	/**
+	 * TODO
+	 */
 	public function add_filter( $hook, $component, $callback ) {
 		$this->filters = $this->add( $this->filters, $hook, $component, $callback );
 	}
 
+	/**
+	 * TODO
+	 */
 	private function add( $hooks, $hook, $component, $callback ) {
 
 		$hooks[] = array(
