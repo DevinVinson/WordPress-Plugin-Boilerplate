@@ -134,9 +134,9 @@ class Plugin_Name {
 
 					switch_to_blog( $blog_id );
 					self::single_activate();
-				}
 
-				restore_current_blog();
+					restore_current_blog();
+				}
 
 			} else {
 				self::single_activate();
@@ -172,9 +172,9 @@ class Plugin_Name {
 					switch_to_blog( $blog_id );
 					self::single_deactivate();
 
-				}
+					restore_current_blog();
 
-				restore_current_blog();
+				}
 
 			} else {
 				self::single_deactivate();
