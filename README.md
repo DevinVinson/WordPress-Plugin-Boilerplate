@@ -38,6 +38,7 @@ there are tools that are recommended for providing correct, translatable files:
 * [Poedit](http://www.poedit.net/)
 * [makepot](http://i18n.svn.wordpress.org/tools/trunk/)
 * [i18n](https://github.com/grappler/i18n)
+* [grunt-wp-i18n](https://github.com/blazersix/grunt-wp-i18n)
 
 Any of the above tools should provide you with the proper tooling to localize the plugin.
 
