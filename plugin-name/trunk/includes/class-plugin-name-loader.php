@@ -46,26 +46,27 @@ class Plugin_Name_Loader {
 	/**
 	 * TODO
 	 */
-	public function add_action( $hook, $component, $callback ) {
-		$this->actions = $this->add( $this->actions, $hook, $component, $callback );
+	public function add_action( $hook, $component, $callback, $priority = 10 ) {
+		$this->actions = $this->add( $this->actions, $hook, $component, $callback, $priority );
 	}
 
 	/**
 	 * TODO
 	 */
-	public function add_filter( $hook, $component, $callback ) {
-		$this->filters = $this->add( $this->filters, $hook, $component, $callback );
+	public function add_filter( $hook, $component, $callback, $priority = 10 ) {
+		$this->filters = $this->add( $this->filters, $hook, $component, $callback $priority );
 	}
 
 	/**
 	 * TODO
 	 */
-	private function add( $hooks, $hook, $component, $callback ) {
+	private function add( $hooks, $hook, $component, $callback, $priority ) {
 
 		$hooks[] = array(
 			'hook'      => $hook,
 			'component' => $component,
-			'callback'  => $callback
+			'callback'  => $callback,
+			'priority'  => $priority
 		);
 
 		return $hooks;
@@ -91,11 +92,11 @@ class Plugin_Name_Loader {
 		 */
 
 		 foreach ( $this->filters as $hook ) {
-			 add_filter( $hook['hook'], array( $hook['component'], $hook['callback'] ) );
+			 add_filter( $hook['hook'], array( $hook['component'], $hook['callback'] ), $hook['priority'] );
 		 }
 
 		 foreach ( $this->actions as $hook ) {
-			 add_action( $hook['hook'], array( $hook['component'], $hook['callback'] ) );
+			 add_action( $hook['hook'], array( $hook['component'], $hook['callback'] ), $hook['priority'] );
 		 }
 
 	}
