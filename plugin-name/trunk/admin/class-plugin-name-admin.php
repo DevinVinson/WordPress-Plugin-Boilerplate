@@ -23,8 +23,22 @@
  */
 class Plugin_Name_Admin {
 
+	/**
+	 * Short description. (use period)
+	 *
+	 * @since    1.0.0
+	 * @access   private
+	 * @var      type    $var    Description.
+	 */
 	private $version;
 
+	/**
+	 * Short description. (use period)
+	 *
+	 * @since    1.0.0
+	 * @access   private
+	 * @var      type    $var    Description.
+	 */
 	public function __construct( $version ) {
 		$this->version = $version;
 	}

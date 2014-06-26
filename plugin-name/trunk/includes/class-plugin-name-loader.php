@@ -24,17 +24,28 @@
 class Plugin_Name_Loader {
 
 	/**
-	 * TODO
+	 * Short description. (use period)
+	 *
+	 * @since    1.0.0
+	 * @access   private
+	 * @var      type    $var    Description.
 	 */
 	protected $actions;
 
 	/**
-	 * TODO
+	 * Short description. (use period)
+	 *
+	 * @since    1.0.0
+	 * @access   private
+	 * @var      type    $var    Description.
 	 */
 	protected $filters;
 
 	/**
-	 * TODO
+	 * Short description. (use period)
+	 *
+	 * @since    1.0.0
+	 * @access   private
 	 */
 	public function __construct() {
 
@@ -44,21 +55,43 @@ class Plugin_Name_Loader {
 	}
 
 	/**
-	 * TODO
+	 * Short description. (use period)
+	 *
+	 * @since    1.0.0
+	 * @access   private
+	 * @var      type                $var    Description.
+	 * @var      type                $var    Description.
+	 * @var      type                $var    Description.
+	 * @var      type    Optional    $var    Description.
 	 */
 	public function add_action( $hook, $component, $callback, $priority = 10 ) {
 		$this->actions = $this->add( $this->actions, $hook, $component, $callback, $priority );
 	}
 
 	/**
-	 * TODO
+	 * Short description. (use period)
+	 *
+	 * @since    1.0.0
+	 * @access   private
+	 * @var      type                $var    Description.
+	 * @var      type                $var    Description.
+	 * @var      type                $var    Description.
+	 * @var      type    Optional    $var    Description.
 	 */
 	public function add_filter( $hook, $component, $callback, $priority = 10 ) {
 		$this->filters = $this->add( $this->filters, $hook, $component, $callback $priority );
 	}
 
 	/**
-	 * TODO
+	 * Short description. (use period)
+	 *
+	 * @since    1.0.0
+	 * @access   private
+	 * @var      type                $var    Description.
+	 * @var      type                $var    Description.
+	 * @var      type                $var    Description.
+	 * @var      type                $var    Description.
+	 * @var      type    Optional    $var    Description.
 	 */
 	private function add( $hooks, $hook, $component, $callback, $priority ) {
 
@@ -83,12 +116,11 @@ class Plugin_Name_Loader {
 	public function run() {
 
 		/**
+		 * TODO:
 		 * This function is used to define the various hooks that are shared in the
 		 * both the dashboard and the public-facing areas of the plugin. This is
 		 * achieved via dependency injection by passing an instance of Plugin_Name
 		 * into this class.
-		 *
-		 * TODO
 		 */
 
 		 foreach ( $this->filters as $hook ) {

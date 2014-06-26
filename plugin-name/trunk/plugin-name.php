@@ -52,7 +52,11 @@ register_activation_hook( __FILE__, array( 'Plugin_Name_Deactivator', 'deactivat
 require_once plugin_dir_path( __FILE__ ) . 'includes/class-plugin-name.php';
 
 /**
- * TODO
+ * Short description. (use period)
+ *
+ * Long description.
+ *
+ * @since    1.0.0
  */
 function run_plugin_name() {
 

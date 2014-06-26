@@ -23,8 +23,23 @@
  */
 class Plugin_Name_Public {
 
+	/**
+	 * Short description. (use period)
+	 *
+	 * @since    1.0.0
+	 * @access   private
+	 * @var      type    $var    Description.
+	 */
 	private $version;
 
+	/**
+	 * Short description. (use period)
+	 *
+	 * Long description.
+	 *
+	 * @since    1.0.0
+	 * @param    float    $version    TODO
+	 */
 	public function __construct( $version ) {
 		$this->version = $version;
 	}

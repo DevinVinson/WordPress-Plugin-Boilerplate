@@ -24,22 +24,36 @@
 class Plugin_Name {
 
 	/**
-	 * TODO
+	 * Short description. (use period)
+	 *
+	 * @since    1.0.0
+	 * @access   protected
+	 * @var      type    $var    Description.
 	 */
 	protected $loader;
 
 	/**
-	 * TODO
+	 * Short description. (use period)
+	 *
+	 * @since    1.0.0
+	 * @access   protected
+	 * @var      type    $var    Description.
 	 */
 	protected $plugin_slug;
 
 	/**
-	 * TODO
+	 * Short description. (use period)
+	 *
+	 * @since    1.0.0
+	 * @access   protected
+	 * @var      type    $var    Description.
 	 */
 	protected $version;
 
 	/**
-	 * TODO
+	 * Short description. (use period)
+	 *
+	 * @since    1.0.0
 	 */
 	public function __construct() {
 
@@ -54,7 +68,12 @@ class Plugin_Name {
 	}
 
 	/**
-	 * TODO
+	 * Short description. (use period)
+	 *
+	 * Long description.
+	 *
+	 * @since    1.0.0
+	 * @access   (for functions: only use if private)
 	 */
 	private function load_dependencies() {
 
@@ -86,7 +105,12 @@ class Plugin_Name {
 	}
 
 	/**
-	 * TODO
+	 * Short description. (use period)
+	 *
+	 * Long description.
+	 *
+	 * @since    1.0.0
+	 * @access   (for functions: only use if private)
 	 */
 	private function set_locale() {
 
@@ -97,7 +121,12 @@ class Plugin_Name {
 	}
 
 	/**
-	 * TODO
+	 * Short description. (use period)
+	 *
+	 * Long description.
+	 *
+	 * @since    1.0.0
+	 * @access   (for functions: only use if private)
 	 */
 	private function define_admin_hooks() {
 
@@ -108,7 +137,12 @@ class Plugin_Name {
 	}
 
 	/**
-	 * TODO
+	 * Short description. (use period)
+	 *
+	 * Long description.
+	 *
+	 * @since    1.0.0
+	 * @access   (for functions: only use if private)
 	 */
 	private function define_public_hooks() {
 
@@ -119,28 +153,47 @@ class Plugin_Name {
 	}
 
 	/**
-	 * TODO
+	 * Short description. (use period)
+	 *
+	 * Long description.
+	 *
+	 * @since    1.0.0
 	 */
 	public function run() {
 		$this->loader->run();
 	}
 
 	/**
-	 * TODO
+	 * Short description. (use period)
+	 *
+	 * Long description.
+	 *
+	 * @since     1.0.0
+	 * @return    type    Description
 	 */
 	public function get_slug() {
 		return $this->plugin_slug;
 	}
 
 	/**
-	 * TODO
+	 * Short description. (use period)
+	 *
+	 * Long description.
+	 *
+	 * @since     1.0.0
+	 * @return    type    Description
 	 */
 	public function get_loader() {
 		return $this->loader;
 	}
 
 	/**
-	 * TODO
+	 * Short description. (use period)
+	 *
+	 * Long description.
+	 *
+	 * @since     1.0.0
+	 * @return    type    Description
 	 */
 	public function get_version() {
 		return $this->version;

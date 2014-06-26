@@ -23,6 +23,13 @@
  */
 class Plugin_Name_i18n {
 
+	/**
+	 * Short description. (use period)
+	 *
+	 * @since    1.0.0
+	 * @access   private
+	 * @var      type    $domain    Description.
+	 */
 	private $domain;
 
 	/**
@@ -41,7 +48,12 @@ class Plugin_Name_i18n {
 	}
 
 	/**
-	 * TODO
+	 * Short description. (use period)
+	 *
+	 * Long description.
+	 *
+	 * @since    1.0.0
+	 * @param    float    $domain    TODO
 	 */
 	public function set_domain( $domain ) {
 		$this->domain = $domain;
