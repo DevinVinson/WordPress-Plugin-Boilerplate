@@ -79,7 +79,7 @@ class Plugin_Name_Loader {
 	 * @var      type    Optional    $var    Description.
 	 */
 	public function add_filter( $hook, $component, $callback, $priority = 10 ) {
-		$this->filters = $this->add( $this->filters, $hook, $component, $callback $priority );
+		$this->filters = $this->add( $this->filters, $hook, $component, $callback, $priority );
 	}
 
 	/**
