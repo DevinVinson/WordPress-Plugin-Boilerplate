@@ -1,22 +1,23 @@
 <?php
 
 /**
- * Define a short description for what this class does (no period)
+ * Short Description (no period)
+ *
+ * Long Description.
+ *
+ * @link       http://example.com/
+ * @since      1.0.0
  *
  * @package    Plugin_Name
  * @subpackage Plugin_Name/includes
- * @author     Your Name <email@example.com>
- * @license    GPL-2.0+
- * @link       http://example.com
- * @copyright  2014 Your Name or Company Name
- * @since      1.0.0
  */
 
 /**
- * Define a short description for what this class does.
+ * Short Description. (use period)
  *
- * Define a longer description for the purpose of this class.
+ * Long Description.
  *
+ * @since      1.0.0
  * @package    Plugin_Name
  * @subpackage Plugin_Name/includes
  * @author     Your Name <email@example.com>
@@ -24,34 +25,34 @@
 class Plugin_Name {
 
 	/**
-	 * Short description. (use period)
+	 * Short Description. (use period)
 	 *
 	 * @since    1.0.0
-	 * @access   protected
+	 * @access   (private, protected, or public)
 	 * @var      type    $var    Description.
 	 */
 	protected $loader;
 
 	/**
-	 * Short description. (use period)
+	 * Short Description. (use period)
 	 *
 	 * @since    1.0.0
-	 * @access   protected
+	 * @access   (private, protected, or public)
 	 * @var      type    $var    Description.
 	 */
 	protected $plugin_slug;
 
 	/**
-	 * Short description. (use period)
+	 * Short Description. (use period)
 	 *
 	 * @since    1.0.0
-	 * @access   protected
+	 * @access   (private, protected, or public)
 	 * @var      type    $var    Description.
 	 */
 	protected $version;
 
 	/**
-	 * Short description. (use period)
+	 * Short Description. (use period)
 	 *
 	 * @since    1.0.0
 	 */
@@ -68,9 +69,9 @@ class Plugin_Name {
 	}
 
 	/**
-	 * Short description. (use period)
+	 * Short Description. (use period)
 	 *
-	 * Long description.
+	 * Long Description.
 	 *
 	 * @since    1.0.0
 	 * @access   (for functions: only use if private)
@@ -105,9 +106,9 @@ class Plugin_Name {
 	}
 
 	/**
-	 * Short description. (use period)
+	 * Short Description. (use period)
 	 *
-	 * Long description.
+	 * Long Description.
 	 *
 	 * @since    1.0.0
 	 * @access   (for functions: only use if private)
@@ -115,15 +116,15 @@ class Plugin_Name {
 	private function set_locale() {
 
 		$plugin_i18n = new Plugin_Name_i18n();
-		$plugin_i18n->set_domain( $this->get_slug() );
+		$plugin_i18n->set_domain( $this->get_plugin_slug() );
 		$this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
 
 	}
 
 	/**
-	 * Short description. (use period)
+	 * Short Description. (use period)
 	 *
-	 * Long description.
+	 * Long Description.
 	 *
 	 * @since    1.0.0
 	 * @access   (for functions: only use if private)
@@ -137,9 +138,9 @@ class Plugin_Name {
 	}
 
 	/**
-	 * Short description. (use period)
+	 * Short Description. (use period)
 	 *
-	 * Long description.
+	 * Long Description.
 	 *
 	 * @since    1.0.0
 	 * @access   (for functions: only use if private)
@@ -153,9 +154,9 @@ class Plugin_Name {
 	}
 
 	/**
-	 * Short description. (use period)
+	 * Short Description. (use period)
 	 *
-	 * Long description.
+	 * Long Description.
 	 *
 	 * @since    1.0.0
 	 */
@@ -164,21 +165,21 @@ class Plugin_Name {
 	}
 
 	/**
-	 * Short description. (use period)
+	 * Short Description. (use period)
 	 *
-	 * Long description.
+	 * Long Description.
 	 *
 	 * @since     1.0.0
 	 * @return    type    Description
 	 */
-	public function get_slug() {
+	public function get_plugin_slug() {
 		return $this->plugin_slug;
 	}
 
 	/**
-	 * Short description. (use period)
+	 * Short Description. (use period)
 	 *
-	 * Long description.
+	 * Long Description.
 	 *
 	 * @since     1.0.0
 	 * @return    type    Description
@@ -188,9 +189,9 @@ class Plugin_Name {
 	}
 
 	/**
-	 * Short description. (use period)
+	 * Short Description. (use period)
 	 *
-	 * Long description.
+	 * Long Description.
 	 *
 	 * @since     1.0.0
 	 * @return    type    Description
