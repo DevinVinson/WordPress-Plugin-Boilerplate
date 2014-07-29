@@ -65,9 +65,9 @@ class Plugin_Name_Loader {
 	 * @var      object               $component        A reference to the instance of the object on which the action is defined.
 	 * @var      string               $callback         The name of the function definition on the $component.
 	 * @var      int      Optional    $priority         The priority at which the function should be fired.
-	 * @var      array    Optional    $accepted_args    The collection of arguments that should be passed to the $callback.
+	 * @var      int      Optional    $accepted_args    The number of arguments that should be passed to the $callback.
 	 */
-	public function add_action( $hook, $component, $callback, $priority = 10, $accepted_args = array() ) {
+	public function add_action( $hook, $component, $callback, $priority = 10, $accepted_args = 1 ) {
 		$this->actions = $this->add( $this->actions, $hook, $component, $callback, $priority, $accepted_args );
 	}
 
@@ -80,10 +80,10 @@ class Plugin_Name_Loader {
 	 * @var      object               $component        A reference to the instance of the object on which the filter is defined.
 	 * @var      string               $callback         The name of the function definition on the $component.
 	 * @var      int      Optional    $priority         The priority at which the function should be fired.
-	 * @var      array    Optional    $accepted_args    The collection of arguments that should be passed to the $callback.
+	 * @var      int      Optional    $accepted_args    The number of arguments that should be passed to the $callback.
 	 */
-	public function add_filter( $hook, $component, $callback, $priority = 10, $accepted_args = array() ) {
-		$this->filters = $this->add( $this->filters, $hook, $component, $callback, $priority, $accepted_args = array() );
+	public function add_filter( $hook, $component, $callback, $priority = 10, $accepted_args = 1 ) {
+		$this->filters = $this->add( $this->filters, $hook, $component, $callback, $priority, $accepted_args );
 	}
 
 	/**
@@ -97,7 +97,7 @@ class Plugin_Name_Loader {
 	 * @var      object               $component        A reference to the instance of the object on which the filter is defined.
 	 * @var      string               $callback         The name of the function definition on the $component.
 	 * @var      int      Optional    $priority         The priority at which the function should be fired.
-	 * @var      array    Optional    $accepted_args    The collection of arguments that should be passed to the $callback.
+	 * @var      int      Optional    $accepted_args    The number of arguments that should be passed to the $callback.
 	 * @return   type                                   The collection of actions and filters registered with WordPress.
 	 */
 	private function add( $hooks, $hook, $component, $callback, $priority, $accepted_args ) {
