@@ -1,22 +1,23 @@
 <?php
 
 /**
- * Define a short description for what this class does (no period)
+ * Short Description (no period)
+ *
+ * Long Description.
+ *
+ * @link       http://example.com/
+ * @since      1.0.0
  *
  * @package    Plugin_Name
  * @subpackage Plugin_Name/includes
- * @author     Your Name <email@example.com>
- * @license    GPL-2.0+
- * @link       http://example.com
- * @copyright  2014 Your Name or Company Name
- * @since      1.0.0
  */
 
 /**
- * Define a short description for what this class does.
+ * Short Description. (use period)
  *
- * Define a longer description for the purpose of this class.
+ * Long Description.
  *
+ * @since      1.0.0
  * @package    Plugin_Name
  * @subpackage Plugin_Name/includes
  * @author     Your Name <email@example.com>
@@ -24,9 +25,9 @@
 class Plugin_Name_Activator {
 
 	/**
-	 * Short description. (use period)
+	 * Short Description. (use period)
 	 *
-	 * Long description.
+	 * Long Description.
 	 *
 	 * @since    1.0.0
 	 */
