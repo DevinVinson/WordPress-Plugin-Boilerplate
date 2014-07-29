@@ -1,22 +1,25 @@
 <?php
 
 /**
- * Define a short description for what this class does (no period)
+ * Define the internationalization functionality.
+ *
+ * Loads and defines the internationalization files for this plugin
+ * so that its ready for translation.
+ *
+ * @link       http://example.com
+ * @since      1.0.0
  *
  * @package    Plugin_Name
  * @subpackage Plugin_Name/includes
- * @author     Your Name <email@example.com>
- * @license    GPL-2.0+
- * @link       http://example.com
- * @copyright  2014 Your Name or Company Name
- * @since      1.0.0
  */
 
 /**
- * Define a short description for what this class does.
+ * Define the internationalization functionality.
  *
- * Define a longer description for the purpose of this class.
+ * Loads and defines the internationalization files for this plugin
+ * so that its ready for translation.
  *
+ * @since      1.0.0
  * @package    Plugin_Name
  * @subpackage Plugin_Name/includes
  * @author     Your Name <email@example.com>
@@ -24,7 +27,7 @@
 class Plugin_Name_i18n {
 
 	/**
-	 * Short description. (use period)
+	 * Short Description. (use period)
 	 *
 	 * @since    1.0.0
 	 * @access   private
@@ -33,27 +36,25 @@ class Plugin_Name_i18n {
 	private $domain;
 
 	/**
-	 *
 	 * Load the plugin text domain for translation.
 	 *
 	 * @since    1.0.0
 	 */
 	public function load_plugin_textdomain() {
 
-		$locale = apply_filters( 'plugin_locale', get_locale(), $this->domain );
-
-		load_textdomain( $this->domain, trailingslashit( WP_LANG_DIR ) . $this->domain . '/' . $this->domain . '-' . $locale . '.mo' );
-		load_plugin_textdomain( $this->domain, FALSE, basename( plugin_dir_path( dirname( __FILE__ ) ) ) . '/languages/' );
+		load_plugin_textdomain(
+			$this->domain,
+			FALSE,
+			dirname( dirname( plugin_basename( __FILE__ ) ) ) . '/languages/'
+		);
 
 	}
 
 	/**
-	 * Short description. (use period)
-	 *
-	 * Long description.
+	 * Set the domain equal to that of the specified domain.
 	 *
 	 * @since    1.0.0
-	 * @param    float    $domain    TODO
+	 * @param    string    $domain    The domain that represents the locale of this plugin.
 	 */
 	public function set_domain( $domain ) {
 		$this->domain = $domain;

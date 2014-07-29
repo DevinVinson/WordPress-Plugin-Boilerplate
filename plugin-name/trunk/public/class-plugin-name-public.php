@@ -24,30 +24,27 @@
 class Plugin_Name_Public {
 
 	/**
-	 * Short description. (use period)
+	 * The version of this plugin.
 	 *
 	 * @since    1.0.0
 	 * @access   private
-	 * @var      type    $var    Description.
+	 * @var      string    $version    The current version of this plugin.
 	 */
 	private $version;
 
 	/**
-	 * Short description. (use period)
-	 *
-	 * Long description.
+	 * Initialize the class and set its properties.
 	 *
 	 * @since    1.0.0
-	 * @param    float    $version    TODO
+	 * @access   public
+	 * @var      string    $version    The version of this plugin.
 	 */
 	public function __construct( $version ) {
 		$this->version = $version;
 	}
 
 	/**
-	 * Short description. (use period)
-	 *
-	 * Long description.
+	 * Register the stylesheets for the public-facing side of the site.
 	 *
 	 * @since    1.0.0
 	 */
@@ -70,9 +67,7 @@ class Plugin_Name_Public {
 	}
 
 	/**
-	 * Short description. (use period)
-	 *
-	 * Long description.
+	 * Register the stylesheets for the public-facing side of the site.
 	 *
 	 * @since    1.0.0
 	 */
