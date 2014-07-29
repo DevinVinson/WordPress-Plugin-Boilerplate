@@ -24,6 +24,15 @@
 class Plugin_Name_Admin {
 
 	/**
+	 * The ID of this plugin.
+	 *
+	 * @since    1.0.0
+	 * @access   private
+	 * @var      string    $slug    The ID of this plugin.
+	 */
+	private $slug;
+
+	/**
 	 * The version of this plugin.
 	 *
 	 * @since    1.0.0
@@ -39,8 +48,11 @@ class Plugin_Name_Admin {
 	 * @access   public
 	 * @var      string    $version    The version of this plugin.
 	 */
-	public function __construct( $version ) {
+	public function __construct( $slug, $version ) {
+
+		$this->slug = $slug;
 		$this->version = $version;
+
 	}
 
 	/**
@@ -62,7 +74,7 @@ class Plugin_Name_Admin {
 		 * class.
 		 */
 
-		 wp_enqueue_style( 'plugin-name-admin', plugin_dir_url( __FILE__ ) . 'css/plugin-name-admin.css', array(), $this->version, 'all' );
+		 wp_enqueue_style( $this->slug, plugin_dir_url( __FILE__ ) . 'css/plugin-name-admin.css', array(), $this->version, 'all' );
 
 	}
 
@@ -85,7 +97,7 @@ class Plugin_Name_Admin {
 		 * class.
 		 */
 
-		wp_enqueue_script( 'plugin-name-admin', plugin_dir_url( __FILE__ ) . 'js/plugin-name-admin.js', array( 'jquery' ), $this->version, FALSE );
+		wp_enqueue_script( $this->slug, plugin_dir_url( __FILE__ ) . 'js/plugin-name-admin.js', array( 'jquery' ), $this->version, FALSE );
 
 	}
 
