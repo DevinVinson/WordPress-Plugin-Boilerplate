@@ -6,18 +6,14 @@
  * Long Description.
  *
  * @package   Plugin_Name
- * @author    Your Name or Company Name <email@domain.com>
- * @license   GPL-2.0+
- * @link      http://example.com/plugin-name
- * @copyright 2014 Your Name or Company Name
  *
  * @wordpress-plugin
  * Plugin Name:       WordPress Plugin Boilerplate
- * Plugin URI:        http://example.com/plugin-name-uri
+ * Plugin URI:        http://example.com/plugin-name-uri/
  * Description:       This is a short description of what the plugin does. It's displayed in the WordPress dashboard.
  * Version:           1.0.0
  * Author:            Your Name or Your Company
- * Author URI:        http://example.com
+ * Author URI:        http://example.com/
  * Text Domain:       plugin-name-locale
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
@@ -30,12 +26,12 @@ if ( ! defined( 'WPINC' ) ) {
 }
 
 /**
- * The plugin activation class that runs during plugin activation.
+ * The code that runs during plugin activation.
  */
 require_once plugin_dir_path( __FILE__ ) . 'includes/class-plugin-name-activator.php';
 
 /**
- * The plugin deactivation class that runs during plugin deactivation.
+ * The code that runs during plugin deactivation.
  */
 require_once plugin_dir_path( __FILE__ ) . 'includes/class-plugin-name-deactivator.php';
 
@@ -46,8 +42,8 @@ register_activation_hook( __FILE__, array( 'Plugin_Name_Activator', 'activate' )
 register_activation_hook( __FILE__, array( 'Plugin_Name_Deactivator', 'deactivate' ) );
 
 /**
- * The base class used to define certain functionality and attributes used among
- * the dashboard-specific and public-facing functionality.
+ * The base class used to define certain functionality and attributes used in both
+ * the the dashboard-specific and public-facing functionality.
  */
 require_once plugin_dir_path( __FILE__ ) . 'includes/class-plugin-name.php';
 
