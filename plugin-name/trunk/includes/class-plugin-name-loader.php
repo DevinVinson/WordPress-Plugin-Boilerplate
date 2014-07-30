@@ -121,13 +121,13 @@ class Plugin_Name_Loader {
 	 */
 	public function run() {
 
-		 foreach ( $this->filters as $hook ) {
-			 add_filter( $hook['hook'], array( $hook['component'], $hook['callback'] ), $hook['priority'], $hook['accepted_args'] );
-		 }
+		foreach ( $this->filters as $hook ) {
+			add_filter( $hook['hook'], array( $hook['component'], $hook['callback'] ), $hook['priority'], $hook['accepted_args'] );
+		}
 
-		 foreach ( $this->actions as $hook ) {
-			 add_action( $hook['hook'], array( $hook['component'], $hook['callback'] ), $hook['priority'], $hook['accepted_args'] );
-		 }
+		foreach ( $this->actions as $hook ) {
+			add_action( $hook['hook'], array( $hook['component'], $hook['callback'] ), $hook['priority'], $hook['accepted_args'] );
+		}
 
 	}
 
