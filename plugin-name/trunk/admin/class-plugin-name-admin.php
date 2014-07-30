@@ -1,21 +1,20 @@
 <?php
 
 /**
- * Define a short description for what this class does (no period)
+ * The dashboard-specific functionality of the plugin.
+ *
+ * @link       http://example.com
+ * @since      1.0.0
  *
  * @package    Plugin_Name
- * @subpackage Plugin_Name/admin
- * @author     Your Name <email@example.com>
- * @license    GPL-2.0+
- * @link       http://example.com
- * @copyright  2014 Your Name or Company Name
- * @since      1.0.0
+ * @subpackage Plugin_Name/includes
  */
 
 /**
- * Define a short description for what this class does.
+ * The dashboard-specific functionality of the plugin.
  *
- * Define a longer description for the purpose of this class.
+ * Defines the plugin name, version, and two examples hooks for how to
+ * enqueue the dashboard-specific stylesheet and JavaScript.
  *
  * @package    Plugin_Name
  * @subpackage Plugin_Name/admin
@@ -28,9 +27,9 @@ class Plugin_Name_Admin {
 	 *
 	 * @since    1.0.0
 	 * @access   private
-	 * @var      string    $slug    The ID of this plugin.
+	 * @var      string    $name    The ID of this plugin.
 	 */
-	private $slug;
+	private $name;
 
 	/**
 	 * The version of this plugin.
@@ -45,11 +44,12 @@ class Plugin_Name_Admin {
 	 * Initialize the class and set its properties.
 	 *
 	 * @since    1.0.0
+	 * @var      string    $name       The name of this plugin.
 	 * @var      string    $version    The version of this plugin.
 	 */
-	public function __construct( $slug, $version ) {
+	public function __construct( $name, $version ) {
 
-		$this->slug = $slug;
+		$this->name = $name;
 		$this->version = $version;
 
 	}
@@ -73,7 +73,7 @@ class Plugin_Name_Admin {
 		 * class.
 		 */
 
-		wp_enqueue_style( $this->slug, plugin_dir_url( __FILE__ ) . 'css/plugin-name-admin.css', array(), $this->version, 'all' );
+		wp_enqueue_style( $this->name, plugin_dir_url( __FILE__ ) . 'css/plugin-name-admin.css', array(), $this->version, 'all' );
 
 	}
 
@@ -96,7 +96,7 @@ class Plugin_Name_Admin {
 		 * class.
 		 */
 
-		wp_enqueue_script( $this->slug, plugin_dir_url( __FILE__ ) . 'js/plugin-name-admin.js', array( 'jquery' ), $this->version, FALSE );
+		wp_enqueue_script( $this->name, plugin_dir_url( __FILE__ ) . 'js/plugin-name-admin.js', array( 'jquery' ), $this->version, FALSE );
 
 	}
 

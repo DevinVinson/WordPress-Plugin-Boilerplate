@@ -1,21 +1,19 @@
 <?php
 
 /**
- * Define a short description for what this file does (no period)
+ * Provide a dashboard view for the plugin
+ *
+ * @link       http://example.com
+ * @since      1.0.0
  *
  * @package    Plugin_Name
  * @subpackage Plugin_Name/admin/partials
- * @author     Your Name <email@example.com>
- * @license    GPL-2.0+
- * @link       http://example.com
- * @copyright  2014 Your Name or Company Name
- * @since      1.0.0
  */
 
 /**
- * Define a short description for what this file does.
+ * Provide a dashboard view for the plugin.
  *
- * Define a longer description for the purpose of this file.
+ * This file is used to markup the public-facing aspects of the plugin.
  *
  * @package    Plugin_Name
  * @subpackage Plugin_Name/admin/partials
@@ -23,4 +21,4 @@
  */
 ?>
 
-<!-- This file is used to markup the dashboard-specific aspects of the plugin. -->
+<!-- This file should primarily consist of HTML with a little bit of PHP. -->

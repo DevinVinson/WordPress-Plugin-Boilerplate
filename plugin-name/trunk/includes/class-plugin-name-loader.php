@@ -1,15 +1,24 @@
 <?php
 
 /**
- * Register all actions and filters
+ * Register all actions and filters for the plugin
+ *
+ * @link       http://example.com
+ * @since      1.0.0
+ *
+ * @package    Plugin_Name
+ * @subpackage Plugin_Name/includes
+ */
+
+/**
+ * Register all actions and filters for the plugin.
+ *
+ * Maintains them in a list as defined in the core plugin file and then
+ * registers them with WordPress when the plugin begins execution.
  *
  * @package    Plugin_Name
  * @subpackage Plugin_Name/includes
  * @author     Your Name <email@example.com>
- * @license    GPL-2.0+
- * @link       http://example.com
- * @copyright  2014 Your Name or Company Name
- * @since      1.0.0
  */
 
 /**
