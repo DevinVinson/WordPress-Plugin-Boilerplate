@@ -1,11 +1,14 @@
 <?php
 
 /**
+/**
  * Short Description (no period for file headers)
  *
  * Long Description.
  *
- * @package   Plugin_Name
+ * @link              URL
+ * @since             1.0.0
+ * @package           Plugin_Name
  *
  * @wordpress-plugin
  * Plugin Name:       WordPress Plugin Boilerplate
