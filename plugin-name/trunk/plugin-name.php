@@ -51,9 +51,11 @@ register_activation_hook( __FILE__, array( 'Plugin_Name_Deactivator', 'deactivat
 require_once plugin_dir_path( __FILE__ ) . 'includes/class-plugin-name.php';
 
 /**
- * Short description. (use period)
+ * Begins execution of the plugin.
  *
- * Long description.
+ * Since everything within the plugin is registered via hooks,
+ * then kicking off the plugin from this point in the file does
+ * not affect the page life cycle.
  *
  * @since    1.0.0
  */
@@ -63,5 +65,4 @@ function run_plugin_name() {
 	$plugin->run();
 
 }
-
 run_plugin_name();
