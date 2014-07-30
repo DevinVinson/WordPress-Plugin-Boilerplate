@@ -17,9 +17,13 @@
  */
 
 /**
- * Short Description. (use period)
+ * The core plugin file.
  *
- * Long Description.
+ * This is the core plugin file that is used to define internationalization,
+ * dashboard-specific hooks, and public-facing site hooks.
+ *
+ * Also maintains the unique identifier of this plugin as well as the current
+ * version of the plugin.
  *
  * @since      1.0.0
  * @package    Plugin_Name

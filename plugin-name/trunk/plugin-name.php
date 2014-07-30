@@ -45,8 +45,8 @@ register_activation_hook( __FILE__, array( 'Plugin_Name_Activator', 'activate' )
 register_activation_hook( __FILE__, array( 'Plugin_Name_Deactivator', 'deactivate' ) );
 
 /**
- * The base class used to define certain functionality and attributes used in both
- * the the dashboard-specific and public-facing functionality.
+ * This is the core plugin file that is used to define internationalization,
+ * dashboard-specific hooks, and public-facing site hooks.
  */
 require_once plugin_dir_path( __FILE__ ) . 'includes/class-plugin-name.php';
 
