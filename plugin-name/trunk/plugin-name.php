@@ -14,7 +14,7 @@
  * Version:           1.0.0
  * Author:            Your Name or Your Company
  * Author URI:        http://example.com/
- * Text Domain:       plugin-name-locale
+ * Text Domain:       plugin-name
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Domain Path:       /languages

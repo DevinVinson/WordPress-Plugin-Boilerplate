@@ -43,9 +43,9 @@ class Plugin_Name {
 	 *
 	 * @since    1.0.0
 	 * @access   protected
-	 * @var      string    $plugin_slug    The slug used to uniquely identify this plugin.
+	 * @var      string    $plugin_name    The slug used to uniquely identify this plugin.
 	 */
-	protected $plugin_slug;
+	protected $plugin_name;
 
 	/**
 	 * The current version of the plugin.
@@ -67,7 +67,7 @@ class Plugin_Name {
 	 */
 	public function __construct() {
 
-		$this->plugin_slug = 'plugin-name-slug';
+		$this->plugin_name = 'plugin-name';
 		$this->version = '1.0.0';
 
 		$this->load_dependencies();
@@ -134,7 +134,7 @@ class Plugin_Name {
 	private function set_locale() {
 
 		$plugin_i18n = new Plugin_Name_i18n();
-		$plugin_i18n->set_domain( $this->get_plugin_slug() );
+		$plugin_i18n->set_domain( $this->get_plugin_name() );
 
 		$this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
 
@@ -149,7 +149,7 @@ class Plugin_Name {
 	 */
 	private function define_admin_hooks() {
 
-		$plugin_admin = new Plugin_Name_Admin( $this->get_plugin_slug(), $this->get_version() );
+		$plugin_admin = new Plugin_Name_Admin( $this->get_plugin_name(), $this->get_version() );
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
@@ -165,7 +165,7 @@ class Plugin_Name {
 	 */
 	private function define_public_hooks() {
 
-		$plugin_public = new Plugin_Name_Public( $this->get_plugin_slug(), $this->get_version() );
+		$plugin_public = new Plugin_Name_Public( $this->get_plugin_name(), $this->get_version() );
 
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
@@ -182,14 +182,14 @@ class Plugin_Name {
 	}
 
 	/**
-	 * The slug of the plugin used to uniquely identify it within the context of
+	 * The name of the plugin used to uniquely identify it within the context of
 	 * WordPress and to define internationalization functionality.
 	 *
 	 * @since     1.0.0
-	 * @return    string    The slug of the plugin.
+	 * @return    string    The name of the plugin.
 	 */
-	public function get_plugin_slug() {
-		return $this->plugin_slug;
+	public function get_plugin_name() {
+		return $this->plugin_name;
 	}
 
 	/**
