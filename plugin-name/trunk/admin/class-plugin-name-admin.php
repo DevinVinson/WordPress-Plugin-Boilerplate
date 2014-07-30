@@ -45,7 +45,6 @@ class Plugin_Name_Admin {
 	 * Initialize the class and set its properties.
 	 *
 	 * @since    1.0.0
-	 * @access   public
 	 * @var      string    $version    The version of this plugin.
 	 */
 	public function __construct( $slug, $version ) {
