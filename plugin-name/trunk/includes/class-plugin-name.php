@@ -1,10 +1,10 @@
 <?php
 
 /**
- * The core plugin file
+ * The core plugin class
  *
- * This is the core plugin file that is used to define internationalization,
- * dashboard-specific hooks, and public-facing site hooks.
+ * This is used to define internationalization, dashboard-specific hooks, and
+ * public-facing site hooks.
  *
  * Also maintains the unique identifier of this plugin as well as the current
  * version of the plugin.
@@ -17,10 +17,10 @@
  */
 
 /**
- * The core plugin file.
+ * The core plugin class
  *
- * This is the core plugin file that is used to define internationalization,
- * dashboard-specific hooks, and public-facing site hooks.
+ * This is used to define internationalization, dashboard-specific hooks, and
+ * public-facing site hooks.
  *
  * Also maintains the unique identifier of this plugin as well as the current
  * version of the plugin.

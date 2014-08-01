@@ -1,10 +1,12 @@
 <?php
 
 /**
-/**
- * Short Description (no period for file headers)
+ * The plugin bootstrap file
  *
- * Long Description.
+ * This file is read my WordPress to generate the plugin information in the plugin
+ * Dashboard. This file also includes all of the dependencies used by the plugin,
+ * registers the activation and deactivation functions, and defines a function
+ * this starts the plugin.
  *
  * @link              URL
  * @since             1.0.0
@@ -45,7 +47,7 @@ register_activation_hook( __FILE__, array( 'Plugin_Name_Activator', 'activate' )
 register_activation_hook( __FILE__, array( 'Plugin_Name_Deactivator', 'deactivate' ) );
 
 /**
- * This is the core plugin file that is used to define internationalization,
+ * The core plugin class that is used to define internationalization,
  * dashboard-specific hooks, and public-facing site hooks.
  */
 require_once plugin_dir_path( __FILE__ ) . 'includes/class-plugin-name.php';
