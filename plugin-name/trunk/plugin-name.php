@@ -8,7 +8,7 @@
  * registers the activation and deactivation functions, and defines a function
  * this starts the plugin.
  *
- * @link              URL
+ * @link              http://example.com
  * @since             1.0.0
  * @package           Plugin_Name
  *

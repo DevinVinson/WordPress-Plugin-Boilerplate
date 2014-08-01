@@ -1,13 +1,10 @@
 <?php
 
 /**
- * The core plugin class
+ * The file that defines the core plugin class
  *
- * This is used to define internationalization, dashboard-specific hooks, and
- * public-facing site hooks.
- *
- * Also maintains the unique identifier of this plugin as well as the current
- * version of the plugin.
+ * A class definition that includes attributes and functions used across both the
+ * public-facing side of the site and the dashboard.
  *
  * @link       http://example.com
  * @since      1.0.0
