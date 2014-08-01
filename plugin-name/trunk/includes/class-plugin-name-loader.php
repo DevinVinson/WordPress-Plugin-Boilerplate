@@ -11,17 +11,6 @@
  */
 
 /**
- * Register all actions and filters for the plugin.
- *
- * Maintains them in a list as defined in the core plugin file and then
- * registers them with WordPress when the plugin begins execution.
- *
- * @package    Plugin_Name
- * @subpackage Plugin_Name/includes
- * @author     Your Name <email@example.com>
- */
-
-/**
  * Register all actions and filters.
  *
  * Maintain a list of all hooks that are registered throughout
