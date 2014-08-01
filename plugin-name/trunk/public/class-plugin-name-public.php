@@ -49,7 +49,7 @@ class Plugin_Name_Public {
 	 */
 	public function __construct( $name, $version ) {
 
-		$this->name = $slug;
+		$this->name = $name;
 		$this->version = $version;
 
 	}
