@@ -47,7 +47,7 @@ class Plugin_Name {
 	 *
 	 * @since    1.0.0
 	 * @access   protected
-	 * @var      string    $plugin_name    The slug used to uniquely identify this plugin.
+	 * @var      string    $plugin_name    The string used to uniquely identify this plugin.
 	 */
 	protected $plugin_name;
 
@@ -63,7 +63,7 @@ class Plugin_Name {
 	/**
 	 * Define the core functionality of the plugin.
 	 *
-	 * Set the plugin slug and the plugin version that can be used throughout the plugin.
+	 * Set the plugin name and the plugin version that can be used throughout the plugin.
 	 * Load the dependencies, define the locale, and set the hooks for the Dashboard and
 	 * the public-facing side of the site.
 	 *
