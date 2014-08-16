@@ -6,7 +6,7 @@
  * When populating this file, consider the following flow
  * of control:
  *
- * - Here, onActivateNewSite() should break. I forgot that the method must be static... facepalm.
+ * - Here, onActivateNewSite() should break. This method should be static.
  * - Check if the $_REQUEST content actually is the plugin name.
  * - Check if it goes through the authentication (admin referrer checks).
  * - Check the output of $_GET and if it makes sense.
