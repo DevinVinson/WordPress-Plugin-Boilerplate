@@ -14,7 +14,7 @@
  */
 
 /**
- * The core plugin class
+ * The core plugin class.
  *
  * This is used to define internationalization, dashboard-specific hooks, and
  * public-facing site hooks.
@@ -35,7 +35,7 @@ class Plugin_Name {
 	 *
 	 * @since    1.0.0
 	 * @access   protected
-	 * @var      type    Plugin_Name_Loader    Maintains and registers all hooks for the plugin.
+	 * @var      Plugin_Name_Loader    $loader    Maintains and registers all hooks for the plugin.
 	 */
 	protected $loader;
 
@@ -174,7 +174,7 @@ class Plugin_Name {
 	}
 
 	/**
-	 * Execute the loader to execute all of the hooks with WordPress.
+	 * Run the loader to execute all of the hooks with WordPress.
 	 *
 	 * @since    1.0.0
 	 */

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Define the internationalization functionality.
+ * Define the internationalization functionality
  *
  * Loads and defines the internationalization files for this plugin
  * so that its ready for translation.
@@ -27,11 +27,11 @@
 class Plugin_Name_i18n {
 
 	/**
-	 * Short Description. (use period)
+	 * The domain specified for this plugin.
 	 *
 	 * @since    1.0.0
 	 * @access   private
-	 * @var      type    $domain    Description.
+	 * @var      string    $domain    The domain identifier for this plugin.
 	 */
 	private $domain;
 

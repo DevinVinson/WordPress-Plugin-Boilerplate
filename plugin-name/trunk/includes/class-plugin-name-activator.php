@@ -1,9 +1,7 @@
 <?php
 
 /**
- * Short Description (no period)
- *
- * Long Description.
+ * Fired during plugin activation
  *
  * @link       http://example.com
  * @since      1.0.0
@@ -13,9 +11,9 @@
  */
 
 /**
- * Short Description. (use period)
+ * Fired during plugin activation.
  *
- * Long Description.
+ * This class defines all code necessary to run during the plugin's activation.
  *
  * @since      1.0.0
  * @package    Plugin_Name

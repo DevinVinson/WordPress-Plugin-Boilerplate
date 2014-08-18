@@ -1,9 +1,7 @@
 <?php
 
 /**
- * Short Description (no period)
- *
- * Long Description.
+ * Fired during plugin deactivation
  *
  * @link       http://example.com
  * @since      1.0.0
@@ -13,9 +11,9 @@
  */
 
 /**
- * Short Description. (use period)
+ * Fired during plugin deactivation.
  *
- * Long Description.
+ * This class defines all code necessary to run during the plugin's deactivation.
  *
  * @since      1.0.0
  * @package    Plugin_Name
