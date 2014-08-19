@@ -1,14 +1,14 @@
 # ChangeLog
 
-* Last updated 7 July 2014
+* Last updated 19 August 2014
 
 ## About This Branch
 
 The WordPress Plugin Boilerplate is being rewritten from the ground up and will be officially released in the `master` branch as `3.0.0`.
 
-In order to prevent any interference with the latest stable version, the `develop` branch was created starting with `0.1.0` as per [semver](http://semver.org/).
+In order to prevent any interference with the latest stable version, the `develop` branch was created. Once `develop` reaches it's official stable state, it will be merged into `master` as `3.0.0`.
 
-Once `develop` reaches it's official stable state (that is, `1.0.0`), it will be merged into `master` as `3.0.0`.
+As of **August 19, 2014**, the project is currently in beta.
 
 ## 0.1.0 (18 March 2014)
 
