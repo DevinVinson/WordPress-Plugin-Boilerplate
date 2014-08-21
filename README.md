@@ -9,8 +9,8 @@ The WordPress Plugin Boilerplate serves as a foundation and aims to provide a cl
 * Example values are given, so you can see what needs to be changed.
 * Uses a strict file organization scheme to make sure the assets are easily maintainable.
 * Note that this boilerplate includes a `.pot` as a starting translation file.
-* Notes on managing assets prior to deployment are covered below
-* Tools used for translation are below
+* Notes on managing assets prior to deployment are covered below.
+* Tools used for translation are below.
 
 ## Contents
 
