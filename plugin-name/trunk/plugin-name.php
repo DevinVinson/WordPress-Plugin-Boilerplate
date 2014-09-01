@@ -3,7 +3,7 @@
 /**
  * The plugin bootstrap file
  *
- * This file is read my WordPress to generate the plugin information in the plugin
+ * This file is read by WordPress to generate the plugin information in the plugin
  * Dashboard. This file also includes all of the dependencies used by the plugin,
  * registers the activation and deactivation functions, and defines a function
  * this starts the plugin.
