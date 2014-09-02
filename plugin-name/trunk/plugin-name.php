@@ -6,7 +6,7 @@
  * This file is read by WordPress to generate the plugin information in the plugin
  * Dashboard. This file also includes all of the dependencies used by the plugin,
  * registers the activation and deactivation functions, and defines a function
- * this starts the plugin.
+ * that starts the plugin.
  *
  * @link              http://example.com
  * @since             1.0.0
