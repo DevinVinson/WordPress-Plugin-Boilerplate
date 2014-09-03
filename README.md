@@ -20,10 +20,24 @@ The WordPress Plugin Boilerplate includes the following files:
 
 ## Installation
 
-1. Copy the `plugin-name` directory into your `wp-content/plugins` directory.
+The Boilerplate can be installed in one of two ways both of which are documented below. Note that because of its directory structure, the Boilerplate cannot be installed “as-is.”
+
+Instead, the options are:
+
+### Copying a Directory
+
+1. Copy the `trunk` directory into your `wp-content/plugins` directory. You may wish to rename this to something else.
 2. In the WordPress dashboard, navigation to the *Plugins* page
 Locate the menu item that reads “The WordPress Plugin Boilerplate.”
 3. Click on *Activate.*
+
+### Create a Symbolic Link
+
+1. Copy the `WordPress-Plugin-Boilerplate` directory into your `wp-content/plugins` directory.
+2. Create a symbolic link between the `trunk` directory and the plugin. For example: `ln -s plugin-name/trunk /path/to/wordpress/wp-content/plugins/plugin-name`
+3. In the WordPress dashboard, navigation to the *Plugins* page
+Locate the menu item that reads “The WordPress Plugin Boilerplate.”
+4. Click on *Activate.*
 
 Note that this will activate the source code of the Boilerplate, but because the Boilerplate has no real functionality so no menu  items, meta boxes, or custom post types will be added.
 
