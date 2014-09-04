@@ -31,10 +31,20 @@ Instead, the options are:
 Locate the menu item that reads “The WordPress Plugin Boilerplate.”
 3. Click on *Activate.*
 
-### Create a Symbolic Link
+### Creating a Symbolic Link
+
+#### On Linux or OS X
 
 1. Copy the `WordPress-Plugin-Boilerplate` directory into your `wp-content/plugins` directory.
 2. Create a symbolic link between the `trunk` directory and the plugin. For example: `ln -s plugin-name/trunk /path/to/wordpress/wp-content/plugins/plugin-name`
+3. In the WordPress dashboard, navigation to the *Plugins* page
+Locate the menu item that reads “The WordPress Plugin Boilerplate.”
+4. Click on *Activate.*
+
+#### On Windows
+
+1. Copy the `WordPress-Plugin-Boilerplate` directory into your `wp-content/plugins` directory.
+2. Create a symbolic link between the `trunk` directory and the plugin. For example: `mklink /J path\to\wp-content\plugins \path\to\WordPress-Plugin-Boilerplate\trunk\plugin-name`
 3. In the WordPress dashboard, navigation to the *Plugins* page
 Locate the menu item that reads “The WordPress Plugin Boilerplate.”
 4. Click on *Activate.*
@@ -107,9 +117,9 @@ When committing code to the WordPress Plugin Repository, all of the banner, icon
 
 ### What About Other Features?
 
-The previous version of the WordPress Plugin Boilerplate included support for a number of different projects such as the [GitHub Updater](https://github.com/afragen/github-updater). 
+The previous version of the WordPress Plugin Boilerplate included support for a number of different projects such as the [GitHub Updater](https://github.com/afragen/github-updater).
 
-These tools are not part of the core of this Boilerplate, as I see them as being additions, forks, or other contributions to the Boilerplate. 
+These tools are not part of the core of this Boilerplate, as I see them as being additions, forks, or other contributions to the Boilerplate.
 
 The same is true of using tools like Grunt, Composer, etc. These are all fantastic tools, but not everyone uses them. In order to  keep the core Boilerplate as light as possible, this feature have been removed and will be introduced in other editions, and will be listed and maintained on the project homepage
 
@@ -117,10 +127,10 @@ The same is true of using tools like Grunt, Composer, etc. These are all fantast
 
 The WordPress Plugin Boilerplate was started in 2011 by [Tom McFarlin](http://twitter.com/tommcfarlin/) and his since included a number of great contributions.
 
-The current version of the Boilerplate was developed in conjunction with [Josh Eaton](https://twitter.com/jjeaton), [Ulrich Pogson](https://twitter.com/grapplerulrich), and [Brad Vincent](https://twitter.com/themergency). 
+The current version of the Boilerplate was developed in conjunction with [Josh Eaton](https://twitter.com/jjeaton), [Ulrich Pogson](https://twitter.com/grapplerulrich), and [Brad Vincent](https://twitter.com/themergency).
 
 The homepage is based on a design as provided by [HTML5Up](http://html5up.net), the Boilerplate logo was designed by  Rob McCaskill of [BungaWeb](http://bungaweb.com), and the site `favicon` was created by [Mickey Kay](https://twitter.com/McGuive7).
 
 ## Documentation, FAQs, and More
 
-Because this version is a major rewrite of the core plugin, we’re working to create an entire site around the Boilerplate. If you’re interested, please [let me know](http://tommcfarlin.com/contact) and we’ll see what we can do. 
+Because this version is a major rewrite of the core plugin, we’re working to create an entire site around the Boilerplate. If you’re interested, please [let me know](http://tommcfarlin.com/contact) and we’ll see what we can do.
