@@ -7,7 +7,7 @@
  * @since      1.0.0
  *
  * @package    Plugin_Name
- * @subpackage Plugin_Name/includes
+ * @subpackage Plugin_Name/public
  */
 
 /**
@@ -17,7 +17,7 @@
  * enqueue the dashboard-specific stylesheet and JavaScript.
  *
  * @package    Plugin_Name
- * @subpackage Plugin_Name/admin
+ * @subpackage Plugin_Name/public
  * @author     Your Name <email@example.com>
  */
 class Plugin_Name_Public {
