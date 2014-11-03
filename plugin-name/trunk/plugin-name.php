@@ -61,10 +61,4 @@ require_once plugin_dir_path( __FILE__ ) . 'includes/class-plugin-name.php';
  *
  * @since    1.0.0
  */
-function run_plugin_name() {
-
-	$plugin = new Plugin_Name();
-	$plugin->run();
-
-}
-run_plugin_name();
+new Plugin_Name();
