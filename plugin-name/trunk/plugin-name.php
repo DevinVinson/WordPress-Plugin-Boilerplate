@@ -50,7 +50,7 @@ register_deactivation_hook( __FILE__, array( 'Plugin_Name_Deactivator', 'deactiv
  * The core plugin class that is used to define internationalization,
  * dashboard-specific hooks, and public-facing site hooks.
  */
-require_once plugin_dir_path( __FILE__ ) . 'includes/class-plugin-name.php';
+require plugin_dir_path( __FILE__ ) . 'includes/class-plugin-name.php';
 
 /**
  * Begins execution of the plugin.
