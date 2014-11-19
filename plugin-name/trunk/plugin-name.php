@@ -35,7 +35,7 @@ if ( ! defined( 'WPINC' ) ) {
  * This action is documented in includes/class-plugin-name-activator.php
  */
 function activate_plugin_name() {
-	require_once __DIR__ . 'includes/class-plugin-name-activator.php';
+	require_once plugin_dir_path( __FILE__ ) . 'includes/class-plugin-name-activator.php';
 	Plugin_Name_Activator::activate();
 }
 
@@ -44,7 +44,7 @@ function activate_plugin_name() {
  * This action is documented in includes/class-plugin-name-deactivator.php
  */
 function deactivate_plugin_name() {
-	require_once __DIR__ . 'includes/class-plugin-name-deactivator.php';
+	require_once plugin_dir_path( __FILE__ ) . 'includes/class-plugin-name-deactivator.php';
 	Plugin_Name_Deactivator::deactivate();
 }
 
