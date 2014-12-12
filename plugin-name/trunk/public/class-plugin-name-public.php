@@ -39,18 +39,29 @@ class Plugin_Name_Public {
 	 * @var      string    $version    The current version of this plugin.
 	 */
 	private $version;
+	
+	/**
+	 * Get the class that will interact with the database.
+	 *
+	 * @since    1.0.0
+	 * @access   private
+	 * @var      object $models the class that will interact with the database..
+	 */
+	private $models;
 
 	/**
 	 * Initialize the class and set its properties.
 	 *
 	 * @since    1.0.0
-	 * @var      string    $plugin_name       The name of the plugin.
-	 * @var      string    $version    The version of this plugin.
+	 * @var      string $plugin_name The name of the plugin.
+	 * @var      string $version     The version of this plugin.
+	 * @var      object $models     Get database functions.
 	 */
-	public function __construct( $plugin_name, $version ) {
+	public function __construct ( $plugin_name , $version , $models ){
 
 		$this->plugin_name = $plugin_name;
-		$this->version = $version;
+		$this->version     = $version;
+		$this->models      = $models;
 
 	}
 
