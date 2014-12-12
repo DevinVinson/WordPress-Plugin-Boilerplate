@@ -12,7 +12,7 @@
  * @subpackage Wbb_Powerflower/includes
  * @author     Adrian <adrian@example.com>
  */
-class Wbb_Powerflower_Loader
+class Plugin_Name_Loader
 {
 
 	/**
