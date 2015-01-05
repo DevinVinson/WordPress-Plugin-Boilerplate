@@ -7,7 +7,7 @@ A standardized, organized, object-oriented foundation for building high-quality 
 The WordPress Plugin Boilerplate includes the following files:
 
 * `.gitignore`. Used to exclude certain files from the repository.
-* `ChangeLog.md`. The list of changes to the core project.
+* `CHANGELOG.md`. The list of changes to the core project.
 * `README.md`. The file that you’re currently reading.
 * A `plugin-name` subdirectory that contains the source code - a fully executable WordPress plugin.
 
