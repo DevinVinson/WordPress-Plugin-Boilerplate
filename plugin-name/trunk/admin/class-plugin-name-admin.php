@@ -65,10 +65,10 @@ class Plugin_Name_Admin {
 		 * This function is provided for demonstration purposes only.
 		 *
 		 * An instance of this class should be passed to the run() function
-		 * defined in Plugin_Name_Admin_Loader as all of the hooks are defined
+		 * defined in Plugin_Name_Loader as all of the hooks are defined
 		 * in that particular class.
 		 *
-		 * The Plugin_Name_Admin_Loader will then create the relationship
+		 * The Plugin_Name_Loader will then create the relationship
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
@@ -88,10 +88,10 @@ class Plugin_Name_Admin {
 		 * This function is provided for demonstration purposes only.
 		 *
 		 * An instance of this class should be passed to the run() function
-		 * defined in Plugin_Name_Admin_Loader as all of the hooks are defined
+		 * defined in Plugin_Name_Loader as all of the hooks are defined
 		 * in that particular class.
 		 *
-		 * The Plugin_Name_Admin_Loader will then create the relationship
+		 * The Plugin_Name_Loader will then create the relationship
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
