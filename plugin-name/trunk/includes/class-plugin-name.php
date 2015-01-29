@@ -46,7 +46,7 @@ class Plugin_Name {
 	 * @access   protected
 	 * @var      string    $plugin_name    The string used to uniquely identify this plugin.
 	 */
-	protected $plugin_name;
+	protected $plugin_slug;
 
 	/**
 	 * The current version of the plugin.
@@ -189,8 +189,8 @@ class Plugin_Name {
 	 * @since     1.0.0
 	 * @return    string    The name of the plugin.
 	 */
-	public function get_plugin_name() {
-		return $this->plugin_name;
+	public function get_plugin_slug() {
+		return $this->plugin_slug;
 	}
 
 	/**
