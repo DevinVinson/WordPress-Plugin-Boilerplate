@@ -125,7 +125,7 @@ The same is true of using tools like Grunt, Composer, etc. These are all fantast
 
 # Credits
 
-The WordPress Plugin Boilerplate was started in 2011 by [Tom McFarlin](http://twitter.com/tommcfarlin/) and has since included a number of great contributions.
+The WordPress Plugin Boilerplate was started in 2011 by [Tom McFarlin](http://twitter.com/tommcfarlin/) and has since included a number of great contributions. In March of 2015 the project was handed over by Tom to Devin Vinson.
 
 The current version of the Boilerplate was developed in conjunction with [Josh Eaton](https://twitter.com/jjeaton), [Ulrich Pogson](https://twitter.com/grapplerulrich), and [Brad Vincent](https://twitter.com/themergency).
 
@@ -133,4 +133,4 @@ The homepage is based on a design as provided by [HTML5Up](http://html5up.net), 
 
 ## Documentation, FAQs, and More
 
-Because this version is a major rewrite of the core plugin, we’re working to create an entire site around the Boilerplate. If you’re interested, please [let me know](http://tommcfarlin.com/contact) and we’ll see what we can do.
+Because this version is a major rewrite of the core plugin, we’re working to create an entire site around the Boilerplate. If you’re interested, please [let me know](http://devinvinson.com/contact/) and we’ll see what we can do.
