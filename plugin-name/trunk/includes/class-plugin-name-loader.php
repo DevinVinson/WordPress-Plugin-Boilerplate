@@ -58,7 +58,7 @@ class Plugin_Name_Loader {
 	 *
 	 * @since    1.0.0
 	 * @param      string               $hook             The name of the WordPress action that is being registered.
-	 * @param      object               $component        A reference to the instance of the object on which the action is defined.
+	 * @param      object   Optional    $component        A reference to the instance of the object on which the action is defined. Null if the $callback is a simple function.
 	 * @param      string               $callback         The name of the function definition on the $component.
 	 * @param      int      Optional    $priority         The priority at which the function should be fired.
 	 * @param      int      Optional    $accepted_args    The number of arguments that should be passed to the $callback.
@@ -72,7 +72,7 @@ class Plugin_Name_Loader {
 	 *
 	 * @since    1.0.0
 	 * @param      string               $hook             The name of the WordPress filter that is being registered.
-	 * @param      object               $component        A reference to the instance of the object on which the filter is defined.
+	 * @param      object   Optional    $component        A reference to the instance of the object on which the filter is defined. Null if the $callback is a simple function.
 	 * @param      string               $callback         The name of the function definition on the $component.
 	 * @param      int      Optional    $priority         The priority at which the function should be fired.
 	 * @param      int      Optional    $accepted_args    The number of arguments that should be passed to the $callback.
@@ -117,11 +117,13 @@ class Plugin_Name_Loader {
 	public function run() {
 
 		foreach ( $this->filters as $hook ) {
-			add_filter( $hook['hook'], array( $hook['component'], $hook['callback'] ), $hook['priority'], $hook['accepted_args'] );
+			$mixed_callback = !empty($hook['component']) ? array( $hook['component'], $hook['callback'] ) : $hook['callback'];
+			add_filter( $hook['hook'], $mixed_callback, $hook['priority'], $hook['accepted_args'] );
 		}
 
 		foreach ( $this->actions as $hook ) {
-			add_action( $hook['hook'], array( $hook['component'], $hook['callback'] ), $hook['priority'], $hook['accepted_args'] );
+			$mixed_callback = !empty($hook['component']) ? array( $hook['component'], $hook['callback'] ) : $hook['callback'];
+			add_action( $hook['hook'], $mixed_callback, $hook['priority'], $hook['accepted_args'] );
 		}
 
 	}
