@@ -2,7 +2,7 @@
 	'use strict';
 
 	/**
-	 * All of the code for your Dashboard-specific JavaScript source
+	 * All of the code for your admin-specific JavaScript source
 	 * should reside in this file.
 	 *
 	 * Note that this assume you're going to use jQuery, so it prepares

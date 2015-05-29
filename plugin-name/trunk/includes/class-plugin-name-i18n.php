@@ -4,7 +4,7 @@
  * Define the internationalization functionality
  *
  * Loads and defines the internationalization files for this plugin
- * so that its ready for translation.
+ * so that it is ready for translation.
  *
  * @link       http://example.com
  * @since      1.0.0
@@ -17,7 +17,7 @@
  * Define the internationalization functionality.
  *
  * Loads and defines the internationalization files for this plugin
- * so that its ready for translation.
+ * so that it is ready for translation.
  *
  * @since      1.0.0
  * @package    Plugin_Name
@@ -44,7 +44,7 @@ class Plugin_Name_i18n {
 
 		load_plugin_textdomain(
 			$this->domain,
-			FALSE,
+			false,
 			dirname( dirname( plugin_basename( __FILE__ ) ) ) . '/languages/'
 		);
 
