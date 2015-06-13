@@ -18,7 +18,6 @@
  *
  * @package    Plugin_Name
  * @subpackage Plugin_Name/admin
- * @author     Your Name <email@example.com>
  */
 class Plugin_Name_Admin {
 

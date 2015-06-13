@@ -19,7 +19,6 @@
  *
  * @package    Plugin_Name
  * @subpackage Plugin_Name/includes
- * @author     Your Name <email@example.com>
  */
 class Plugin_Name_Loader {
 
