@@ -9,7 +9,7 @@ The WordPress Plugin Boilerplate includes the following files:
 * `.gitignore`. Used to exclude certain files from the repository.
 * `CHANGELOG.md`. The list of changes to the core project.
 * `README.md`. The file that you’re currently reading.
-* A `plugin-name` subdirectory that contains the source code - a fully executable WordPress plugin.
+* A `plugin-name` directory that contains the source code - a fully executable WordPress plugin.
 
 ## Features
 
@@ -20,38 +20,13 @@ The WordPress Plugin Boilerplate includes the following files:
 
 ## Installation
 
-The Boilerplate can be installed in one of two ways both of which are documented below. Note that because of its directory structure, the Boilerplate cannot be installed “as-is.”
-
-Instead, the options are:
-
-### Copying a Directory
-
-1. Copy the `trunk` directory into your `wp-content/plugins` directory. You may wish to rename this to something else.
-2. In the WordPress admin area, navigation to the *Plugins* page
-Locate the menu item that reads “The WordPress Plugin Boilerplate.”
-3. Click on *Activate.*
-
-### Creating a Symbolic Link
-
-#### On Linux or OS X
-
-1. Copy the `WordPress-Plugin-Boilerplate` directory into your `wp-content/plugins` directory.
-2. Create a symbolic link between the `trunk` directory and the plugin. For example: `ln -s plugin-name/trunk /path/to/wordpress/wp-content/plugins/plugin-name`
-3. In the WordPress admin area, navigation to the *Plugins* page
-Locate the menu item that reads “The WordPress Plugin Boilerplate.”
-4. Click on *Activate.*
-
-#### On Windows
-
-1. Copy the `WordPress-Plugin-Boilerplate` directory into your `wp-content/plugins` directory.
-2. Create a symbolic link between the `trunk` directory and the plugin. For example: `mklink /J path\to\wp-content\plugins \path\to\WordPress-Plugin-Boilerplate\trunk\plugin-name`
-3. In the WordPress admin area, navigation to the *Plugins* page
-Locate the menu item that reads “The WordPress Plugin Boilerplate.”
-4. Click on *Activate.*
+The Boilerplate can be installed directly into your plugins folder "as-is". You will want to rename it and the classes inside of it to fit your needs.
 
 Note that this will activate the source code of the Boilerplate, but because the Boilerplate has no real functionality so no menu  items, meta boxes, or custom post types will be added.
 
-Examples are slated to be added to the [Boilerplate’s website](http://wppb.io) as the site continues to grow.
+## WordPress.org Preparation
+
+The original launch of this version of the boilerplate included the folder structure needed for using your plugin on the WordPress.org. That folder structure has been moved to its own repo here: https://github.com/DevinVinson/Plugin-Directory-Boilerplate
 
 ## Recommended Tools
 
@@ -95,25 +70,7 @@ Note that if you include your own classes, or third-party libraries, there are t
 
 Note that previous versions of the Boilerplate did not include `Plugin_Name_Loader` but this class is used to register all filters and actions with WordPress.
 
-The example code provided shows how to register your hooks with the Loader class. More information will be provided in the upcoming documentation on the website.
-
-### Assets
-
-The `assets` directory contains three files.
-
-1. `banner-772x250.png` is used to represent the plugin’s header image.
-2. `icon-256x256.png` is a used to represent the plugin’s icon image (which is new as of WordPress 4.0).
-3. `screenshot-1.png` is used to represent a single screenshot of the plugin that corresponds to the “Screenshots” heading in your plugin `README.txt`.
-
-The WordPress Plugin Repository directory structure contains three directories:
-
-1. `assets`
-2. `branches`
-3. `trunk`
-
-The Boilerplate offers support for `assets` and `trunk` as `branches` is something that isn’t often used and, when it is, is done so under advanced circumstances.
-
-When committing code to the WordPress Plugin Repository, all of the banner, icon, and screenshot should be placed in the `assets` directory of the Repository, and the core code should be placed in the `trunk` directory.
+The example code provided shows how to register your hooks with the Loader class.
 
 ### What About Other Features?
 
@@ -133,4 +90,4 @@ The homepage is based on a design as provided by [HTML5Up](http://html5up.net), 
 
 ## Documentation, FAQs, and More
 
-Because this version is a major rewrite of the core plugin, we’re working to create an entire site around the Boilerplate. If you’re interested, please [let me know](http://devinvinson.com/contact/) and we’ll see what we can do.
+If you’re interested in writing any documentation or creating tutorials please [let me know](http://devinvinson.com/contact/) .
