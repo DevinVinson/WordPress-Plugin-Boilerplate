@@ -30,13 +30,13 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-class Plugin_Name_Init {
+class Plugin_Name_Bootstrap {
 
 	/**
 	 * The code that runs during plugin activation.
 	 * This action is documented in includes/class-plugin-name-activator.php
 	 */
-	function activate_plugin_name() {
+	public static function activate_plugin_name() {
 		require_once plugin_dir_path( __FILE__ ) . 'includes/class-plugin-name-activator.php';
 		Plugin_Name_Activator::activate();
 	}
@@ -45,7 +45,7 @@ class Plugin_Name_Init {
 	 * The code that runs during plugin deactivation.
 	 * This action is documented in includes/class-plugin-name-deactivator.php
 	 */
-	function deactivate_plugin_name() {
+	public static function deactivate_plugin_name() {
 		require_once plugin_dir_path( __FILE__ ) . 'includes/class-plugin-name-deactivator.php';
 		Plugin_Name_Deactivator::deactivate();
 	}
@@ -53,10 +53,10 @@ class Plugin_Name_Init {
 	/**
 	 * Bootstrap.
 	 */
-	public static function init() {
+	public static function bootstrap() {
 
-		register_activation_hook( __FILE__, array('Plugin_Name_Init', 'activate_quiz_reports') );
-		register_deactivation_hook( __FILE__, array('Plugin_Name_Init', 'deactivate_quiz_reports') );
+		register_activation_hook( __FILE__, array('Plugin_Name_Bootstrap', 'activate_plugin_name') );
+		register_deactivation_hook( __FILE__, array('Plugin_Name_Bootstrap', 'deactivate_plugin_name') );
 
 		/**
 		 * The core plugin class that is used to define internationalization,
@@ -71,4 +71,4 @@ class Plugin_Name_Init {
 
 }
 
-add_action( 'init', array( 'Plugin_Name_Init', 'init' ) );
+add_action( 'plugins_loaded', array( 'Plugin_Name_Bootstrap', 'bootstrap' ) );
