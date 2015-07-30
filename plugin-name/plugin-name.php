@@ -53,7 +53,7 @@ class Plugin_Name_Bootstrap {
 	/**
 	 * Bootstrap.
 	 */
-	public static function bootstrap() {
+	public static function init() {
 
 		register_activation_hook( __FILE__, array('Plugin_Name_Bootstrap', 'activate_plugin_name') );
 		register_deactivation_hook( __FILE__, array('Plugin_Name_Bootstrap', 'deactivate_plugin_name') );
@@ -71,4 +71,4 @@ class Plugin_Name_Bootstrap {
 
 }
 
-add_action( 'plugins_loaded', array( 'Plugin_Name_Bootstrap', 'bootstrap' ) );
+Plugin_Name_Bootstrap::init();
