@@ -78,7 +78,7 @@ The previous version of the WordPress Plugin Boilerplate included support for a 
 
 These tools are not part of the core of this Boilerplate, as I see them as being additions, forks, or other contributions to the Boilerplate.
 
-The same is true of using tools like Grunt, Composer, etc. These are all fantastic tools, but not everyone uses them. In order to  keep the core Boilerplate as light as possible, this feature have been removed and will be introduced in other editions, and will be listed and maintained on the project homepage
+The same is true of using tools like Grunt, Composer, etc. These are all fantastic tools, but not everyone uses them. In order to  keep the core Boilerplate as light as possible, these features have been removed and will be introduced in other editions, and will be listed and maintained on the project homepage
 
 # Credits
 
