@@ -59,4 +59,4 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-plugin-name.php';
  *
  * @since    1.0.0
  */
-call_user_func(array(new Plugin_Name(), 'run'));
+call_user_func( array( new Plugin_Name(), 'run' ) );
