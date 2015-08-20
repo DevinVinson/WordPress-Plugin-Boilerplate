@@ -22,14 +22,7 @@ A limited number of extra photos are allowed to be uploaded, but this plugin doe
 1. Upload `wp-blipper.php` to the `/wp-content/plugins/` directory
 1. Activate the plugin through the 'Plugins' menu in WordPress
 1. Place `<?php do_action('plugin_name_hook'); ?>` in your templates
-
-== Screenshots ==
-
-1. This screen shot description corresponds to screenshot-1.(png|jpg|jpeg|gif). Note that the screenshot is taken from
-the /assets directory or the directory that contains the stable readme.txt (tags or trunk). Screenshots in the /assets
-directory take precedence. For example, `/assets/screenshot-1.png` would win over `/tags/4.3/screenshot-1.png`
-(or jpg, jpeg, gif).
-2. This is the second screen shot
+1. You'll need OAuth2 credentials from Polaroid|Blipfoto; you'll be told how to obtain these in the plugin settings once you've activated it.
 
 == Changelog ==
 
