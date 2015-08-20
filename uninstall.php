@@ -19,10 +19,10 @@
  * For more information, see the following discussion:
  * https://github.com/tommcfarlin/WordPress-Plugin-Boilerplate/pull/123#issuecomment-28541913
  *
- * @link       http://example.com
- * @since      1.0.0
+ * @link       http://pandammonium.org/dev/wp-blipper/
+ * @since      0.0.1
  *
- * @package    Plugin_Name
+ * @package    WP_Blipper
  */
 
 // If uninstall not called from WordPress, then exit.

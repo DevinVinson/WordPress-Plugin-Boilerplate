@@ -3,11 +3,11 @@
 /**
  * Fired during plugin deactivation
  *
- * @link       http://example.com
+ * @link       http://pandammonium.org/dev/wp-blipper/
  * @since      1.0.0
  *
- * @package    Plugin_Name
- * @subpackage Plugin_Name/includes
+ * @package    WP_Blipper
+ * @subpackage WP_Blipper/includes
  */
 
 /**
@@ -16,11 +16,11 @@
  * This class defines all code necessary to run during the plugin's deactivation.
  *
  * @since      1.0.0
- * @package    Plugin_Name
- * @subpackage Plugin_Name/includes
- * @author     Your Name <email@example.com>
- */
-class Plugin_Name_Deactivator {
+ * @package    WP_Blipper
+ * @subpackage WP_Blipper/includes
+ * @author     Caity Ross internet@pandammonium.org
+*/
+class WP_Blipper_Deactivator {
 
 	/**
 	 * Short Description. (use period)
