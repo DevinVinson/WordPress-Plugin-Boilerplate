@@ -5,11 +5,11 @@
  *
  * This file is used to markup the public-facing aspects of the plugin.
  *
- * @link       http://example.com
- * @since      1.0.0
+ * @link       http://pandammonium.org/dev/wp-blipper/
+ * @since      0.0.1
  *
- * @package    Plugin_Name
- * @subpackage Plugin_Name/public/partials
+ * @package    WP_Blipper
+ * @subpackage WP_Blipper/public/partials
  */
 ?>
 

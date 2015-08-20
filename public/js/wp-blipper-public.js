@@ -5,7 +5,7 @@
 	 * All of the code for your public-facing JavaScript source
 	 * should reside in this file.
 	 *
-	 * Note that this assume you're going to use jQuery, so it prepares
+	 * Note that this assumes you're going to use jQuery, so it prepares
 	 * the $ function reference to be used within the scope of this
 	 * function.
 	 *
