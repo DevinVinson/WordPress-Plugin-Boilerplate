@@ -140,7 +140,7 @@ function wp_blipper_oauth2_section_callback() {
   <h4>How to authorise your Polaroid|Blipfoto account</h4>
   <ol>
     <li>Enter your Polaroid|Blipfoto username in the username field below.  Your username is the name you use to sign in to Blipfoto.</li>
-    <li>Go to <a href="https://www.polaroidblipfoto.com/developer/apps" rel="nofollow">the Polaroid|Blipfoto apps page</a>.</li>
+    <li>Open the <a href="https://www.polaroidblipfoto.com/developer/apps" rel="nofollow">the Polaroid|Blipfoto apps page</a> in a new tab or window.</li>
     <li>Press the <i>Create new app</i> button.</li>
     <li>In the <i>Name</i> field, give your app any name you like, foe example, <i>My super-duper app</i>.</li>
     <li>The <i>Type</i> field should be set to <i>Web application</i>.</li>
@@ -151,7 +151,8 @@ function wp_blipper_oauth2_section_callback() {
     <li>Press the <i>Create a new app</i> button.</li>
     <li>You should now see your <i>Client ID</i>, <i>Client Secret</i> and <i>Access Token</i>.  Copy and paste these into the corresponding fields below.</li>
   </ol>
-  <p>You can revoke access to Blipfoto easily by following these instructions:</p>
+  <h4>How to revoke access to your Polaroid|Blipfoto account</h4>
+  <p>We hope you won't want or need to do this, but to revoke access to your Polaroid|Blipfoto account, perform the steps below.</p>
   <ol>
     <li>Go to <a href="https://www.polaroidblipfoto.com/settings/apps" rel="nofollow">your Polaroid|Blipfoto app settings</a>.</li>
     <li>Select the app whose access you want to revoke (the one you created above).</li>
