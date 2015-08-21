@@ -60,7 +60,7 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-wp-blipper.php';
 /**
  * The core plugin class that is used for the settings.
  */
-require plugin_dir_path( __FILE__ ) . 'includes/class-wp-blipper-settings.php';
+require plugin_dir_path( __FILE__ ) . 'includes/wp-blipper-settings.php';
 
 /**
  * Begins execution of the plugin.
