@@ -39,19 +39,23 @@ class wp_blipper_settings {
   function my_admin_init() {
     register_setting( 
       'wp-blipper-oauth-settings-group',  // the option group — used when rendering options page
-      'wp-blipper-oauth-username-setting' // option name — used with functions like get_option() and update_option()
+      'wp-blipper-oauth-username-setting', // option name — used with functions like get_option() and update_option()
+      array( &$this, 'wp_blipper_username_sanitise' )
     );
     register_setting( 
       'wp-blipper-oauth-settings-group',    // the option group — used when rendering options page
-      'wp-blipper-oauth-client-id-setting'  // option name — used with functions like get_option() and update_option()
+      'wp-blipper-oauth-client-id-setting',  // option name — used with functions like get_option() and update_option()
+      array( &$this, 'wp_blipper_oauth_sanitise' )
     );
     register_setting( 
       'wp-blipper-oauth-settings-group',        // the option group — used when rendering options page
-      'wp-blipper-oauth-client-secret-setting'  // option name — used with functions like get_option() and update_option()
+      'wp-blipper-oauth-client-secret-setting',  // option name — used with functions like get_option() and update_option()
+      array( &$this, 'wp_blipper_oauth_sanitise' )
     );
     register_setting( 
       'wp-blipper-oauth-settings-group',      // the option group — used when rendering options page
-      'wp-blipper-oauth-access-token-setting' // option name — used with functions like get_option() and update_option()
+      'wp-blipper-oauth-access-token-setting', // option name — used with functions like get_option() and update_option()
+      array( &$this, 'wp_blipper_oauth_sanitise' )
     );
     add_settings_section( 
       'wp-blipper-oauth2-id',               // section ID — used to add fields to this section
@@ -148,5 +152,23 @@ class wp_blipper_settings {
       </form>
     </div>
     <?php
+  }
+  function wp_blipper_username_sanitise( $input ) {
+    $output = get_option( $input );
+    if ( true == ctype_print( $input ) ) {
+      $output = $input;
+    } else {
+      add_settings_error( 'wp-blipper-oauth-client-id-setting', 'invalid-username', 'Polaroid|Blipfoto must not contain unprintable characters.' );
+    }
+    return $output;
+  }
+  function wp_blipper_oauth_sanitise( $input ) {
+    $output = get_option( $input );
+    if ( true == ctype_alnum( $input ) ) {
+      $output = $input;
+    } else {
+      add_settings_error( 'wp-blipper-oauth-client-id-setting', 'invalid-oauth-credential', 'OAuth credentials must be alphanumeric.' );
+    }
+    return $output;
   }
 }
