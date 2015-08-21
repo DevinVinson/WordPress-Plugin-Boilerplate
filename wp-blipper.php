@@ -57,10 +57,6 @@ register_deactivation_hook( __FILE__, 'deactivate_wp_blipper' );
  */
 require plugin_dir_path( __FILE__ ) . 'includes/class-wp-blipper.php';
 
-/**
- * The core plugin class that is used for the settings.
- */
-require plugin_dir_path( __FILE__ ) . 'includes/class-wp-blipper-settings.php';
 
 /**
  * Begins execution of the plugin.

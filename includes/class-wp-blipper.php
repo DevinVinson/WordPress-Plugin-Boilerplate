@@ -114,6 +114,11 @@ class WP_Blipper {
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-wp-blipper-admin.php';
 
 		/**
+		 * The core plugin class that is used for the settings.
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-wp-blipper-settings.php';
+
+		/**
 		 * The class responsible for defining all actions that occur in the public-facing
 		 * side of the site.
 		 */

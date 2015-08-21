@@ -1,5 +1,17 @@
 <?php
 
+/**
+ * The file that defines the plugin settings
+ *
+ * A class definition that defines the settings and the settings page in the admin area.
+ *
+ * @link       http://pandammonium.org/dev/wp-blipper/
+ * @since      0.0.1
+ *
+ * @package    WP_Blipper
+ * @subpackage WP_Blipper/admin
+ */
+
 defined( 'ABSPATH' ) or die();
 if ( ! defined( 'WPINC' ) ) {
   die;
@@ -7,10 +19,17 @@ if ( ! defined( 'WPINC' ) ) {
 
 
 global $wp_blipper_settings;
-$wp_blipper_settings = new wp_blipper_settings;
+$wp_blipper_settings = new WP_Blipper_Settings;
 
-class wp_blipper_settings {
-
+class WP_Blipper_Settings {
+/*
+  private $oauth_options = array(
+    'username' => '',
+    'client-id' => '',
+    'client-secret' => '',
+    'access-token' => ''
+  );
+*/
   public function __construct() {
     add_action( 'admin_menu', array( &$this, 'wp_blipper_admin_menu' ) );
     add_action( 'admin_init', array( &$this, 'my_admin_init' ) );
