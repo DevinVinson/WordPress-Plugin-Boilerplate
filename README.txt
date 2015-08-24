@@ -7,7 +7,7 @@ Stable tag:
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Displays the latest entry on Polaroid|Blipfoto by a given user in a widge.
+Displays the latest entry on Polaroid|Blipfoto by a given user in a widget.
 
 == Description ==
 
@@ -21,7 +21,7 @@ A limited number of extra photos are allowed to be uploaded, but this plugin doe
 
 1. Upload `wp-blipper.php` to the `/wp-content/plugins/` directory
 1. Activate the plugin through the 'Plugins' menu in WordPress
-1. Place `<?php do_action('plugin_name_hook'); ?>` in your templates
+1. Place `<?php do_action('plugin_name_hook'); ?>` in your templates ???
 1. You'll need OAuth2 credentials from Polaroid|Blipfoto; you'll be told how to obtain these in the plugin settings once you've activated it.
 
 == Changelog ==

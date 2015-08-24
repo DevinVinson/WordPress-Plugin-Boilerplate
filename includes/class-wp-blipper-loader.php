@@ -3,7 +3,7 @@
 /**
  * Register all actions and filters for the plugin
  *
- * @link       http://example.com
+ * @link       http://pandammonium.org/dev/wp-blipper/
  * @since      0.0.1
  *
  * @package    WP_Blipper
