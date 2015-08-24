@@ -122,7 +122,7 @@ class WP_Blipper_Settings {
       <li>Enter your Polaroid|Blipfoto username in the username field below.  Your username is the name you use to sign in to Blipfoto.</li>
       <li>Open the <a href="https://www.polaroidblipfoto.com/developer/apps" rel="nofollow">the Polaroid|Blipfoto apps page</a> in a new tab or window.</li>
       <li>Press the <i>Create new app</i> button.</li>
-      <li>In the <i>Name</i> field, give your app any name you like, foe example, <i>My super-duper app</i>.</li>
+      <li>In the <i>Name</i> field, give your app any name you like, for example, <i>My super-duper app</i>.</li>
       <li>The <i>Type</i> field should be set to <i>Web application</i>.</li>
       <li>Optionally, describe your app in the <i>Description</i> field, so you know what it does.</li>
       <li>In the <i>Website</i> field, enter the URL of your website (probably <code><?php echo home_url(); ?></code>).</li>
