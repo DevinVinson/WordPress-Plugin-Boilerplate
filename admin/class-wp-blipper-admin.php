@@ -41,6 +41,16 @@ class WP_Blipper_Admin {
 	private $version;
 
 	/**
+	 * The loader that's responsible for maintaining and registering all hooks that power
+	 * the plugin.
+	 *
+	 * @since    0.0.1
+	 * @access   protected
+	 * @var      WP_Blipper_Settings    $settings    Registers the plugin's settings and options.
+	 */
+	protected $settings;
+
+	/**
 	 * Initialize the class and set its properties.
 	 *
 	 * @since    0.0.1
@@ -55,24 +65,28 @@ class WP_Blipper_Admin {
 		$this->load_dependencies();
 
 	}
+
 	/**
 	 * Load the required dependencies for the admin area.
 	 *
 	 * Include the following files that make up the admin area:
 	 *
-	 * - WP_Blipper_Settings. Contains the plugin settings and options.
+	 * - WP_Blipper_Settings. Defines the plugin settings and options.
 	 *
-	 * Create an instance of the loader which will be used to register the hooks
-	 * with WordPress.
+	 * Create an instance of the settings which will be used to set up the plugin ready for use.
 	 *
 	 * @since    0.0.1
 	 * @access   private
 	 */
 	private function load_dependencies() {
-			/**
+
+		/**
 		 * The plugin class that is used for the settings.
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-wp-blipper-settings.php';
+
+		$this->settings = new WP_Blipper_Settings( $this->wp_blipper, $this->version );
+
 	}
 
 	/**
