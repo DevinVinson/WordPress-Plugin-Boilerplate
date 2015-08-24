@@ -15,10 +15,6 @@
 defined( 'ABSPATH' ) or die();
 defined( 'WPINC' ) or die();
 
-
-//global $wp_blipper_settings;
-//$wp_blipper_settings = new WP_Blipper_Settings;
-
 class WP_Blipper_Settings {
 
   /**

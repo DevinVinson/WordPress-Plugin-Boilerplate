@@ -41,6 +41,15 @@ class Wp_Blipper_Public {
 	private $version;
 
 	/**
+	 * The widget
+	 *
+	 * @since    0.0.1
+	 * @access   private
+	 * @var      string    $wp_blipper    The ID of this plugin.
+	 */
+	private $wp_blipper_widget;
+
+	/**
 	 * Initialize the class and set its properties.
 	 *
 	 * @since    0.0.1
@@ -53,6 +62,7 @@ class Wp_Blipper_Public {
 		$this->version = $version;
 
 	}
+
 
 	/**
 	 * Register the stylesheets for the public-facing side of the site.

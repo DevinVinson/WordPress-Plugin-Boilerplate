@@ -46,9 +46,9 @@ class WP_Blipper_Admin {
 	 *
 	 * @since    0.0.1
 	 * @access   protected
-	 * @var      WP_Blipper_Settings    $settings    Registers the plugin's settings and options.
+	 * @var      WP_Blipper_Settings    $wp_blipper_settings    Registers the plugin's settings and options.
 	 */
-	protected $settings;
+	protected $wp_blipper_settings;
 
 	/**
 	 * Initialize the class and set its properties.
@@ -85,7 +85,7 @@ class WP_Blipper_Admin {
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-wp-blipper-settings.php';
 
-		$this->settings = new WP_Blipper_Settings( $this->wp_blipper, $this->version );
+		$this->wp_blipper_settings = new WP_Blipper_Settings( $this->wp_blipper, $this->version );
 
 	}
 
