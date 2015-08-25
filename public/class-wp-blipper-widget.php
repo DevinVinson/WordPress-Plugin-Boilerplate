@@ -59,6 +59,11 @@ class WP_Blipper_Widget extends WP_Widget {
    *
    * Create an instance of the Polaroid|Blipfoto interface.  The interface will do the work; the widget will display it.
    *
+   * - WP_Blipper_Settings.   Defines the plugin settings and options.
+   * - WP_Blipper_Interface.  The interface to the Polaroid|Blipfoto API.
+   *
+   * Create an instance of the settings which will be used to set up the plugin ready for use.
+   *
    * @since    0.0.1
    * @access   private
    */

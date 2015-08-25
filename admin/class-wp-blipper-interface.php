@@ -68,16 +68,11 @@ class WP_Blipper_Interface {
 
     $path = plugin_dir_path( dirname( __FILE__ ) ) . 'blipfoto-sdk/src/Blipfoto/';
 
-//    echo '<ol>';
     foreach ( $folders as $folder => $files ) {
-//      echo '<li>' . $folder . '<ol>';
       foreach ( $files as $file ) {
-//        echo '<li>' . $file . '</li>';
         require( $path . $folder . '/' . $file . '.php' );
       }
-//      echo '</ol></li>';
     }
-//    echo '</ol>';
   }
 
 }
