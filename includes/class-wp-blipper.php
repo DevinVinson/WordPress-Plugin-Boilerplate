@@ -65,6 +65,7 @@ class WP_Blipper {
 	 * the public-facing side of the site.
 	 *
 	 * @since    0.0.1
+	 * @access   public
 	 */
 	public function __construct() {
 

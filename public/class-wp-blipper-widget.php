@@ -17,25 +17,28 @@ defined( 'ABSPATH' ) or die();
 class WP_Blipper_Widget extends WP_Widget {
 
   /**
-   * The ID of this plugin.
+   * The plugin's settings.
    *
    * @since    0.0.1
    * @access   private
-   * @var      string    $wp_blipper    The ID of this plugin.
+   * @var      WP_Blipper_Settings    $wp_blipper_settings    Registers the plugin's settings and options.
    */
-  private $wp_blipper;
+  private $wp_blipper_settings;
 
   /**
-   * The version of this plugin.
+   * The Polaroid|Blipfoto interface.
    *
    * @since    0.0.1
    * @access   private
-   * @var      string    $version    The current version of this plugin.
+   * @var      WP_Blipper_Interface   $wp_blipper_interface   The Polaroid|Blipfoto interface
    */
-  private $version;
+  private $wp_blipper_interface;
 
   /**
    * Sets up the widget's name etc
+   *
+   * @since    0.0.1
+   * @access   public
    */
   public function __construct() {
 
@@ -45,6 +48,34 @@ class WP_Blipper_Widget extends WP_Widget {
       array( 'description' => __( 'Displays your latest blip', 'text_domain'), ) // args
     );
 
+    $this->load_dependencies();
+
+  }
+
+  /**
+   * Load the required dependencies for the widget.
+   *
+   * - WP_Blipper_Interface.  The interface to the Polaroid|Blipfoto API.
+   *
+   * Create an instance of the Polaroid|Blipfoto interface.  The interface will do the work; the widget will display it.
+   *
+   * @since    0.0.1
+   * @access   private
+   */
+  private function load_dependencies() {
+
+    /**
+     * The plugin class that contains the settings.
+     */
+    require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-wp-blipper-settings.php';
+    $this->wp_blipper_settings = new WP_Blipper_Settings();
+
+    /**
+     * The plugin class that contains the Polaroid|Blipfoto data.
+     */
+    require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-wp-blipper-interface.php';
+    $this->wp_blipper_interface = new WP_Blipper_Interface();
+
   }
 
   /**
@@ -52,6 +83,9 @@ class WP_Blipper_Widget extends WP_Widget {
    * Front-end display of widget.
    *
    * @see WP_Widget::widget()
+   *
+   * @since    0.0.1
+   * @access   public
    *
    * @param array $args     Widget arguments.
    * @param array $instance Saved values from database.
@@ -62,6 +96,9 @@ class WP_Blipper_Widget extends WP_Widget {
     if ( ! empty( $instance['title'] ) ) {
       echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ) . $args['after_title'];
     }
+
+    //$this->wp_blipper_interface->do_stuff();
+
     echo __( 'Hello, world!', 'text_domain' );
     echo $args['after_widget'];
 
@@ -72,6 +109,9 @@ class WP_Blipper_Widget extends WP_Widget {
    * Back-end widget form.
    *
    * @see WP_Widget::form()
+   *
+   * @since    0.0.1
+   * @access   public
    *
    * @param array $instance The widget options. Previously saved values from database.
    */
@@ -92,6 +132,9 @@ class WP_Blipper_Widget extends WP_Widget {
    * Sanitize widget form values as they are saved.
    *
    * @see WP_Widget::update()
+   *
+   * @since    0.0.1
+   * @access   public
    *
    * @param array $new_instance Values just sent to be saved.
    * @param array $old_instance Previously saved values from database.
