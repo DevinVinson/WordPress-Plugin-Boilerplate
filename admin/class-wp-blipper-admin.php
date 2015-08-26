@@ -3,23 +3,17 @@
 /**
  * The admin-specific functionality of the plugin.
  *
+ * Defines the plugin name, version, and two examples hooks for how to
+ * enqueue the admin-specific stylesheet and JavaScript.
+ *
  * @link       http://pandammonium.org/dev/wp-blipper/
  * @since      0.0.1
  *
  * @package    WP_Blipper
  * @subpackage WP_Blipper/admin
- */
-
-/**
- * The admin-specific functionality of the plugin.
- *
- * Defines the plugin name, version, and two examples hooks for how to
- * enqueue the admin-specific stylesheet and JavaScript.
- *
- * @package    WP_Blipper
- * @subpackage WP_Blipper/admin
  * @author     Caity Ross internet@pandammonium.org
  */
+
 class WP_Blipper_Admin {
 
 	/**
@@ -36,56 +30,22 @@ class WP_Blipper_Admin {
 	 *
 	 * @since    0.0.1
 	 * @access   private
-	 * @var      string    $version    The current version of this plugin.
+	 * @var      string    $version   	The current version of this plugin.
 	 */
 	private $version;
-
-	/**
-	 * The loader that's responsible for maintaining and registering all hooks that power
-	 * the plugin.
-	 *
-	 * @since    0.0.1
-	 * @access   protected
-	 * @var      WP_Blipper_Settings    $settings    Registers the plugin's settings and options.
-	 */
-	protected $settings;
 
 	/**
 	 * Initialize the class and set its properties.
 	 *
 	 * @since    0.0.1
-	 * @param      string    $wp_blipper       The name of this plugin.
-	 * @param      string    $version    The version of this plugin.
+	 * @access   public
+	 * @param    string    $wp_blipper  The name of this plugin.
+	 * @param    string    $version     The version of this plugin.
 	 */
 	public function __construct( $wp_blipper, $version ) {
 
 		$this->wp_blipper = $wp_blipper;
 		$this->version = $version;
-
-		$this->load_dependencies();
-
-	}
-
-	/**
-	 * Load the required dependencies for the admin area.
-	 *
-	 * Include the following files that make up the admin area:
-	 *
-	 * - WP_Blipper_Settings. Defines the plugin settings and options.
-	 *
-	 * Create an instance of the settings which will be used to set up the plugin ready for use.
-	 *
-	 * @since    0.0.1
-	 * @access   private
-	 */
-	private function load_dependencies() {
-
-		/**
-		 * The plugin class that is used for the settings.
-		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-wp-blipper-settings.php';
-
-		$this->settings = new WP_Blipper_Settings( $this->wp_blipper, $this->version );
 
 	}
 
@@ -93,6 +53,7 @@ class WP_Blipper_Admin {
 	 * Register the stylesheets for the admin area.
 	 *
 	 * @since    0.0.1
+	 * @access   public
 	 */
 	public function enqueue_styles() {
 
@@ -116,6 +77,7 @@ class WP_Blipper_Admin {
 	 * Register the JavaScript for the admin area.
 	 *
 	 * @since    0.0.1
+	 * @access   private
 	 */
 	public function enqueue_scripts() {
 

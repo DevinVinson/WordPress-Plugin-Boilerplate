@@ -59,6 +59,15 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-wp-blipper.php';
 
 
 /**
+ * The plugin widget, where the latest blip will be shown
+ */
+function register_wp_blipper_widget() {
+  require_once plugin_dir_path( __FILE__ ) . 'public/class-wp-blipper-widget.php';
+  register_widget( 'WP_Blipper_Widget' );
+}
+add_action( 'widgets_init', 'register_wp_blipper_widget' );
+
+/**
  * Begins execution of the plugin.
  *
  * Since everything within the plugin is registered via hooks,
