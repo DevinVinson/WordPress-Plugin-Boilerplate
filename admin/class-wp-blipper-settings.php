@@ -199,9 +199,6 @@ class WP_Blipper_Settings {
       <p>You need to provide your Polaroid|Blipfoto username.  This is the name you use to log in to Polaroid|Blipfoto.</p>
       <p>If you don't have a Polaroid|Blipfoto account, then you can't use this plugin.</p>
     <?php
-    echo '<pre>';
-    var_dump($this);
-    echo '</pre>';
   }
 
   /**
@@ -237,9 +234,6 @@ class WP_Blipper_Settings {
         <li>Press the <i>Save changes</i> button.</li>
       </ol>
     <?php
-    echo '<pre>';
-    var_dump($this);
-    echo '</pre>';
   }
 
   /**
@@ -250,10 +244,6 @@ class WP_Blipper_Settings {
    * @access    public
    */
   public function wp_blipper_username_field_render( $args ) {
-
-    echo '<pre>';
-    var_dump($args);
-    echo '</pre>';
 
     printf( "<input type=%s name=%s value=%s>",
       $args['type'],
@@ -272,10 +262,6 @@ class WP_Blipper_Settings {
    */
   public function wp_blipper_client_id_field_render( $args ) {
 
-    echo '<pre>';
-    var_dump($args);
-    echo '</pre>';
-
     printf( "<input type=%s name=%s value=%s>",
       $args['type'],
       $args['name'],
@@ -293,10 +279,6 @@ class WP_Blipper_Settings {
    */
   public function wp_blipper_client_secret_field_render( $args ) {
 
-    echo '<pre>';
-    var_dump($args);
-    echo '</pre>';
-
     printf( "<input type=%s name=%s value=%s>",
       $args['type'],
       $args['name'],
@@ -313,10 +295,6 @@ class WP_Blipper_Settings {
    * @access    public
    */
   public function wp_blipper_access_token_field_render( $args ) {
-
-    echo '<pre>';
-    var_dump($args);
-    echo '</pre>';
 
     printf( "<input type=%s name=%s value=%s>",
       $args['type'],
