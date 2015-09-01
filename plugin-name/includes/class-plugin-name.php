@@ -43,19 +43,17 @@ class Plugin_Name {
 	 * The unique identifier of this plugin.
 	 *
 	 * @since    1.0.0
-	 * @access   protected
-	 * @var      string    $plugin_name    The string used to uniquely identify this plugin.
+	 * @const    PLUGIN_NAME    The string used to uniquely identify this plugin.
 	 */
-	protected $plugin_name;
+	const PLUGIN_NAME = 'plugin-name';
 
 	/**
 	 * The current version of the plugin.
 	 *
 	 * @since    1.0.0
-	 * @access   protected
-	 * @var      string    $version    The current version of the plugin.
+	 * @const    VERSION    The current version of the plugin.
 	 */
-	protected $version;
+	const VERSION = '1.0.0';
 
 	/**
 	 * Define the core functionality of the plugin.
@@ -67,9 +65,6 @@ class Plugin_Name {
 	 * @since    1.0.0
 	 */
 	public function __construct() {
-
-		$this->plugin_name = 'plugin-name';
-		$this->version = '1.0.0';
 
 		$this->load_dependencies();
 		$this->set_locale();
@@ -190,7 +185,7 @@ class Plugin_Name {
 	 * @return    string    The name of the plugin.
 	 */
 	public function get_plugin_name() {
-		return $this->plugin_name;
+		return self::PLUGIN_NAME;
 	}
 
 	/**
@@ -210,7 +205,7 @@ class Plugin_Name {
 	 * @return    string    The version number of the plugin.
 	 */
 	public function get_version() {
-		return $this->version;
+		return self::VERSION;
 	}
 
 }
