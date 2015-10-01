@@ -118,8 +118,11 @@ class Plugin_Name {
 		 * side of the site.
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-plugin-name-public.php';
-
-		$this->loader = new Plugin_Name_Loader();
+		
+		/**
+		 * Get loader using its singleton
+		 */ 
+		$this->loader = Plugin_Name_Loader::get_instance();
 
 	}
 
