@@ -100,4 +100,37 @@ class Plugin_Name_Admin {
 
 	}
 
+	public function add_options_page()
+	{
+		add_menu_page(
+			__('Pluging Settings', 'outdated-notice'),
+			__('Pluging', 'outdated-notice'),
+			'manage_options',
+			$this->plugin_name,
+			[$this, 'display_options_page']
+		);
+	}
+
+	public function add_submenu_page()
+	{
+		add_submenu_page(
+			$this->plugin_name,
+			__('Subpage', 'outdated-notice'),
+			__('Subpage', 'outdated-notice'),
+			'manage_options',
+			'plans',
+			[$this, 'display_subpage_page']
+		);
+	}
+
+	public function display_options_page()
+	{
+		include_once 'partials/plugin-name-admin-display.php';
+	}
+
+	public function display_subpage_page()
+	{
+		include_once 'partials/plugin-name-subpage-name-display.php';
+	}
+
 }
