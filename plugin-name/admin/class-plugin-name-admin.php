@@ -103,8 +103,8 @@ class Plugin_Name_Admin {
 	public function add_options_page()
 	{
 		add_menu_page(
-			__('Pluging Settings', 'outdated-notice'),
-			__('Pluging', 'outdated-notice'),
+			__('Plugin Settings', 'outdated-notice'),
+			__('Plugin', 'outdated-notice'),
 			'manage_options',
 			$this->plugin_name,
 			[$this, 'display_options_page']
