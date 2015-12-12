@@ -55,16 +55,6 @@ Examples are slated to be added to the [Boilerplate’s website](http://wppb.io)
 
 ## Recommended Tools
 
-### i18n Tools
-
-The WordPress Plugin Boilerplate uses a variable to store the text domain used when internationalizing strings throughout the Boilerplate. To take advantage of this method, there are tools that are recommended for providing correct, translatable files:
-
-* [Poedit](http://www.poedit.net/)
-* [makepot](http://i18n.svn.wordpress.org/tools/trunk/)
-* [i18n](https://github.com/grappler/i18n)
-
-Any of the above tools should provide you with the proper tooling to internationalize the plugin.
-
 ## License
 
 The WordPress Plugin Boilerplate is licensed under the GPL v2 or later.
