@@ -72,7 +72,7 @@ class Plugin_Name {
 		$this->version = '1.0.0';
 
 		$this->load_dependencies();
-		$this->set_locale();
+		add_action("plugins_loaded", array( $this, "set_locale" ) );
 		$plugin_admin = new Plugin_Name_Admin( $this->get_plugin_name(), $this->get_version() );
 		$plugin_public = new Plugin_Name_Public( $this->get_plugin_name(), $this->get_version() );
 
@@ -103,12 +103,6 @@ class Plugin_Name {
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-plugin-name-loader.php';
 
 		/**
-		 * The class responsible for defining internationalization functionality
-		 * of the plugin.
-		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-plugin-name-i18n.php';
-
-		/**
 		 * The class responsible for defining all actions that occur in the admin area.
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-plugin-name-admin.php';
@@ -134,9 +128,11 @@ class Plugin_Name {
 	 */
 	private function set_locale() {
 
-		$plugin_i18n = new Plugin_Name_i18n();
-
-		$this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
+		load_plugin_textdomain(
+			'plugin-name',
+			false,
+			dirname( dirname( plugin_basename( __FILE__ ) ) ) . '/languages/'
+		);
 
 	}
 
