@@ -52,6 +52,9 @@ class Plugin_Name_Public {
 		$this->plugin_name = $plugin_name;
 		$this->version = $version;
 
+		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_styles' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
+
 	}
 
 	/**

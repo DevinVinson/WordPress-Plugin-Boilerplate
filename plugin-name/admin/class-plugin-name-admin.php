@@ -52,6 +52,9 @@ class Plugin_Name_Admin {
 		$this->plugin_name = $plugin_name;
 		$this->version = $version;
 
+		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_styles' ) );
+		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
+		
 	}
 
 	/**
