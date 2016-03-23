@@ -139,18 +139,18 @@ sed -i '' -e "$replacestring" ./plugin-name/plugin-name.php
 replacestring="s/This is a short description of what the plugin does. It's displayed in the WordPress admin area./$plugin_description/g"
 sed -i '' -e "$replacestring" ./plugin-name/plugin-name.php
 
-#
-# if [ "$confirmation" == "y" ]; then
-#
-#   #Rename top level directory
-#   mv "plugin-name" "$plugin_css"
-#
-#   for file in `find . -name "*plugin-name*" -type f`; do
-#     DIR=$(dirname "${VAR}")
-#     mkdir -p $DIR
-#     mv "$file" "${file/plugin-name/$plugin_css}"
-#   done
-#
-# else
-#   echo "Cancelled."
-# fi
+
+if [ "$confirmation" == "y" ]; then
+
+  #Rename top level directory
+  mv "plugin-name" "$plugin_css"
+
+  for file in `find . -name "*plugin-name*" -type f`; do
+    DIR=$(dirname "${VAR}")
+    mkdir -p $DIR
+    mv "$file" "${file/plugin-name/$plugin_css}"
+  done
+
+else
+  echo "Cancelled."
+fi
