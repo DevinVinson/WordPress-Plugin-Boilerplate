@@ -78,7 +78,7 @@ echo "Suggestion: $plugin_suggested (Hit enter to accept)"
 read plugin_desired
 
 if [ -z "$plugin_desired" ]; then
-  plugin_desired=$plugin_suggested
+	plugin_desired=$plugin_suggested
 fi
 
 echo "Please enter your plugin description:"
@@ -113,44 +113,43 @@ echo "Plugin Classes: $plugin_classes"
 echo "Confirm? (y/n)"
 read confirmation
 
-# Replace "plugin-name"
-replacestring="s/plugin-name/$plugin_css/g"
-find ./plugin-name -type f -exec sed -i '' -e "$replacestring" '{}' \;
-
-# Replace "plugin_name"
-replacestring="s/plugin_name/$plugin_functions/g"
-find ./plugin-name -type f -exec sed -i '' -e "$replacestring" '{}' \;
-
-# Replace "Plugin_Name"
-replacestring="s/Plugin_Name/$plugin_classes/g"
-find ./plugin-name -type f -exec sed -i '' -e "$replacestring" '{}' \;
-
-# Replace author
-replacestring="s/Your Name or Your Company/$plugin_author <$plugin_email>/g"
-find ./plugin-name -type f -exec sed -i '' -e "$replacestring" '{}' \;
-
-replacestring="s/Your Name <email@example.com>/$plugin_author <$plugin_email>/g"
-find ./plugin-name -type f -exec sed -i '' -e "$replacestring" '{}' \;
-
-# Cleanup core file
-replacestring="s/WordPress Plugin Boilerplate/$plugin_name/g"
-sed -i '' -e "$replacestring" ./plugin-name/plugin-name.php
-
-replacestring="s/This is a short description of what the plugin does. It's displayed in the WordPress admin area./$plugin_description/g"
-sed -i '' -e "$replacestring" ./plugin-name/plugin-name.php
-
-
 if [ "$confirmation" == "y" ]; then
 
-  #Rename top level directory
-  mv "plugin-name" "$plugin_css"
+	# Replace "plugin-name"
+	replacestring="s/plugin-name/$plugin_css/g"
+	find ./plugin-name -type f -exec sed -i '' -e "$replacestring" '{}' \;
 
-  for file in `find . -name "*plugin-name*" -type f`; do
-    DIR=$(dirname "${VAR}")
-    mkdir -p $DIR
-    mv "$file" "${file/plugin-name/$plugin_css}"
-  done
+	# Replace "plugin_name"
+	replacestring="s/plugin_name/$plugin_functions/g"
+	find ./plugin-name -type f -exec sed -i '' -e "$replacestring" '{}' \;
+
+	# Replace "Plugin_Name"
+	replacestring="s/Plugin_Name/$plugin_classes/g"
+	find ./plugin-name -type f -exec sed -i '' -e "$replacestring" '{}' \;
+
+	# Replace author
+	replacestring="s/Your Name or Your Company/$plugin_author <$plugin_email>/g"
+	find ./plugin-name -type f -exec sed -i '' -e "$replacestring" '{}' \;
+
+	replacestring="s/Your Name <email@example.com>/$plugin_author <$plugin_email>/g"
+	find ./plugin-name -type f -exec sed -i '' -e "$replacestring" '{}' \;
+
+	# Cleanup core file
+	replacestring="s/WordPress Plugin Boilerplate/$plugin_name/g"
+	sed -i '' -e "$replacestring" ./plugin-name/plugin-name.php
+
+	replacestring="s/This is a short description of what the plugin does. It's displayed in the WordPress admin area./$plugin_description/g"
+	sed -i '' -e "$replacestring" ./plugin-name/plugin-name.php
+
+	#Rename top level directory
+	mv "plugin-name" "$plugin_css"
+
+	for file in `find . -name "*plugin-name*" -type f`; do
+		DIR=$(dirname "${VAR}")
+		mkdir -p $DIR
+		mv "$file" "${file/plugin-name/$plugin_css}"
+	done
 
 else
-  echo "Cancelled."
+	echo "Cancelled."
 fi
