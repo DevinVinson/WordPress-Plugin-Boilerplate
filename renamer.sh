@@ -87,6 +87,9 @@ read plugin_description
 echo "Please enter your name:"
 read plugin_author
 
+echo "Please enter your email:"
+read plugin_email
+
 plugin_functions="${plugin_desired// /_}"
 plugin_functions="${plugin_desired//-/_}"
 plugin_css="${plugin_desired// /-}"
@@ -102,6 +105,7 @@ echo ""
 echo "Plugin Name: $plugin_name"
 echo "Plugin Description: $plugin_description"
 echo "Plugin Author: $plugin_author"
+echo "Plugin Author Email: $plugin_email"
 echo "Functions: $plugin_functions"
 echo "Files: $plugin_css"
 echo "Plugin Classes: $plugin_classes"
@@ -109,9 +113,31 @@ echo "Plugin Classes: $plugin_classes"
 echo "Confirm? (y/n)"
 read confirmation
 
-replacestring = 's/plugin-name/$plugin_css/g'
+# Replace "plugin-name"
+replacestring="s/plugin-name/$plugin_css/g"
+find ./plugin-name -type f -exec sed -i '' -e "$replacestring" '{}' \;
 
-find . -type f -exec sed -i '' -e "$replacestring" '{}' \;
+# Replace "plugin_name"
+replacestring="s/plugin_name/$plugin_functions/g"
+find ./plugin-name -type f -exec sed -i '' -e "$replacestring" '{}' \;
+
+# Replace "Plugin_Name"
+replacestring="s/Plugin_Name/$plugin_classes/g"
+find ./plugin-name -type f -exec sed -i '' -e "$replacestring" '{}' \;
+
+# Replace author
+replacestring="s/Your Name or Your Company/$plugin_author <$plugin_email>/g"
+find ./plugin-name -type f -exec sed -i '' -e "$replacestring" '{}' \;
+
+replacestring="s/Your Name <email@example.com>/$plugin_author <$plugin_email>/g"
+find ./plugin-name -type f -exec sed -i '' -e "$replacestring" '{}' \;
+
+# Cleanup core file
+replacestring="s/WordPress Plugin Boilerplate/$plugin_name/g"
+sed -i '' -e "$replacestring" ./plugin-name/plugin-name.php
+
+replacestring="s/This is a short description of what the plugin does. It's displayed in the WordPress admin area./$plugin_description/g"
+sed -i '' -e "$replacestring" ./plugin-name/plugin-name.php
 
 #
 # if [ "$confirmation" == "y" ]; then
