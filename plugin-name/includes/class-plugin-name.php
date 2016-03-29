@@ -106,9 +106,9 @@ class Plugin_Name {
 	 * with WordPress.
 	 *
 	 * @since    1.0.0
-	 * @access   private
+	 * @access   public
 	 */
-	private function set_locale() {
+	public function set_locale() {
 
 		load_plugin_textdomain(
 			'plugin-name',
