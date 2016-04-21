@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Register all actions and filters for the plugin
+ * Register all actions, filters and shortcodes for the plugin
  *
  * @link       http://example.com
  * @since      1.0.0
@@ -11,11 +11,11 @@
  */
 
 /**
- * Register all actions and filters for the plugin.
+ * Register all actions, filters and shortcodes for the plugin.
  *
  * Maintain a list of all hooks that are registered throughout
  * the plugin, and register them with the WordPress API. Call the
- * run function to execute the list of actions and filters.
+ * run function to execute the list of actions, filters and shortcodes.
  *
  * @package    Plugin_Name
  * @subpackage Plugin_Name/includes
@@ -46,7 +46,7 @@ class Plugin_Name_Loader {
 	 *
 	 * @since    1.0.0
 	 * @access   protected
-	 * @var      array    $filters    The shortcodes registered with WordPress to fire when the plugin loads.
+	 * @var      array    $shortcodes    The shortcodes registered with WordPress to fire when the plugin loads.
 	 */
 	protected $shortcodes;
 
