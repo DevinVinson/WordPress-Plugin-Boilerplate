@@ -120,33 +120,33 @@ if [ "$confirmation" == "y" ]; then
 
 	# Replace "plugin-name"
 	replacestring="s/plugin-name/$plugin_css/g"
-	echo find ./plugin-name -type f -exec sed -i -e "$replacestring" '{}' \;
+	find ./plugin-name -type f -exec sed -i -e "$replacestring" '{}' \;
 
 	# Replace "plugin_name"
 	replacestring="s/plugin_name/$plugin_functions/g"
-	echo find ./plugin-name -type f -exec sed -i -e "$replacestring" '{}' \;
+	find ./plugin-name -type f -exec sed -i -e "$replacestring" '{}' \;
 
 	# Replace "Plugin_Name"
 	replacestring="s/Plugin_Name/$plugin_classes/g"
-	echo find ./plugin-name -type f -exec sed -i -e "$replacestring" '{}' \;
+	find ./plugin-name -type f -exec sed -i -e "$replacestring" '{}' \;
 
 	# Replace "PLUGIN_NAME"
 	replacestring="s/PLUGIN_NAME/$plugin_constants/g"
-	echo find ./plugin-name -type f -exec sed -i -e "$replacestring" '{}' \;
+	find ./plugin-name -type f -exec sed -i -e "$replacestring" '{}' \;
 
 	# Replace author
 	replacestring="s/Your Name or Your Company/$plugin_author <$plugin_email>/g"
-	echo find ./plugin-name -type f -exec sed -i -e "$replacestring" '{}' \;
+	find ./plugin-name -type f -exec sed -i -e "$replacestring" '{}' \;
 
 	replacestring="s/Your Name <email@example.com>/$plugin_author <$plugin_email>/g"
-	echo find ./plugin-name -type f -exec sed -i -e "$replacestring" '{}' \;
+	find ./plugin-name -type f -exec sed -i -e "$replacestring" '{}' \;
 
 	# Cleanup core file
 	replacestring="s/WordPress Plugin Boilerplate/$plugin_name/g"
-	echo sed -i -e "$replacestring" ./plugin-name/plugin-name.php
+	sed -i -e "$replacestring" ./plugin-name/plugin-name.php
 
 	replacestring="s/This is a short description of what the plugin does. It's displayed in the WordPress admin area./$plugin_description/g"
-	echo sed -i -e "$replacestring" ./plugin-name/plugin-name.php
+	sed -i -e "$replacestring" ./plugin-name/plugin-name.php
 
 	#Rename top level directory
 	mv "plugin-name" "$plugin_css"
