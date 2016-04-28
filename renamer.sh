@@ -99,6 +99,9 @@ plugin_classes="${plugin_classes//_/ }"
 plugin_classes=$(ucwords "$plugin_classes")
 plugin_classes="${plugin_classes// /_}"
 
+plugin_constants="${plugin_desired//-/_}"
+plugin_constants=$(strtoupper "$plugin_constants")
+
 echo ""
 echo "Your details will be:"
 echo ""
@@ -109,6 +112,7 @@ echo "Plugin Author Email: $plugin_email"
 echo "Functions: $plugin_functions"
 echo "Files: $plugin_css"
 echo "Plugin Classes: $plugin_classes"
+echo "Plugin Constants: $plugin_constants"
 
 echo "Confirm? (y/n)"
 read confirmation
@@ -124,6 +128,10 @@ if [ "$confirmation" == "y" ]; then
 	find ./plugin-name -type f -exec sed -i '' -e "$replacestring" '{}' \;
 
 	# Replace "Plugin_Name"
+	replacestring="s/Plugin_Name/$plugin_classes/g"
+	find ./plugin-name -type f -exec sed -i '' -e "$replacestring" '{}' \;
+
+	# Replace "PLUGIN_NAME"
 	replacestring="s/Plugin_Name/$plugin_classes/g"
 	find ./plugin-name -type f -exec sed -i '' -e "$replacestring" '{}' \;
 
