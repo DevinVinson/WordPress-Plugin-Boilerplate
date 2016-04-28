@@ -29,6 +29,9 @@
 if ( ! defined( 'WPINC' ) ) {
 	die;
 }
+/**
+ * Define constants
+ */
 define( 'PLUGIN_NAME_VERSION', '1.0.0' );
 define( 'PLUGIN_NAME_SLUG', 'plugin-name' );
 /**
