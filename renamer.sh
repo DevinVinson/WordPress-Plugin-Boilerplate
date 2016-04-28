@@ -133,7 +133,7 @@ if [ "$confirmation" == "y" ]; then
 	find ./plugin-name -type f -exec sed -i '' -e "$replacestring" '{}' \;
 
 	# Replace "PLUGIN_NAME"
-	replacestring="s/PLUGIN_NAME/$plugin_classes/g"
+	replacestring="s/PLUGIN_NAME/$plugin_constants/g"
 	find ./plugin-name -type f -exec sed -i '' -e "$replacestring" '{}' \;
 
 	# Replace author
