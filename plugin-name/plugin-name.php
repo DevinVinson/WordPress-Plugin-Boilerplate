@@ -31,46 +31,63 @@ if ( ! defined( 'WPINC' ) ) {
 }
 
 /**
- * The code that runs during plugin activation.
- * This action is documented in includes/class-plugin-name-activator.php
+ * Activation hooks
  */
-function activate_plugin_name() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-plugin-name-activator.php';
-	Plugin_Name_Activator::activate();
-}
+register_activation_hook( __FILE__, array( 'Plugin_Name_Activator', 'activate' ) );
+register_deactivation_hook( __FILE__, array( 'Plugin_Name_Deactivator', 'deactivate' ) );
 
 /**
- * The code that runs during plugin deactivation.
- * This action is documented in includes/class-plugin-name-deactivator.php
- */
-function deactivate_plugin_name() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-plugin-name-deactivator.php';
-	Plugin_Name_Deactivator::deactivate();
-}
-
-register_activation_hook( __FILE__, 'activate_plugin_name' );
-register_deactivation_hook( __FILE__, 'deactivate_plugin_name' );
-
-/**
- * The core plugin class that is used to define internationalization,
- * admin-specific hooks, and public-facing site hooks.
- */
-require plugin_dir_path( __FILE__ ) . 'includes/class-plugin-name.php';
-
-/**
- * Begins execution of the plugin.
+ * Autoloader function
  *
- * Since everything within the plugin is registered via hooks,
- * then kicking off the plugin from this point in the file does
- * not affect the page life cycle.
+ * Will search both plugin root and includes folder for class
  *
- * @since    1.0.0
+ * @param string $class_name
  */
-function run_plugin_name() {
+if ( ! function_exists( 'plugin_name_autoloader' ) ):
+	function plugin_name_autoloader( $class_name ) {
+		$file      = 'class-' . str_replace( '_', '-', strtolower( $class_name ) ) . '.php';
+		$base_path = plugin_dir_path( __FILE__ );
 
-	$plugin = new Plugin_Name();
-	$plugin->run();
+		$paths = apply_filters( 'plugin_name_autoloader_paths', array(
+			$base_path . $file,
+			$base_path . 'includes/' . $file,
+			$base_path . 'public/' . $file,
+		) );
+		foreach ( $paths as $path ) {
 
-}
+			if ( is_readable( $path ) ) {
+				include_once( $path );
 
-run_plugin_name();
+				return;
+			}
+		}
+	}
+
+	spl_autoload_register( 'plugin_name_autoloader' );
+endif;
+
+if ( ! function_exists( 'plugin_name_init' ) ):
+
+	/**
+	 * Function to initialize plugin
+	 */
+	function plugin_name_init() {
+		plugin_name()->run();
+	}
+
+	add_action( 'plugins_loaded', 'plugin_name_init' );
+
+endif;
+if ( ! function_exists( 'plugin_name' ) ):
+
+	/**
+	 * Function wrapper to get instance of plugin
+	 *
+	 * @return Plugin_Name
+	 */
+	function plugin_name() {
+		return Plugin_Name::get_instance();
+	}
+
+endif;
+

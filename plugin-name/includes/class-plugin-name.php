@@ -30,6 +30,14 @@
 class Plugin_Name {
 
 	/**
+	 * The current version of the plugin.
+	 *
+	 * @since    1.0.0
+	 * @access   protected
+	 * @var      Plugin_Name $_instance Instance singleton.
+	 */
+	protected static $_instance;
+	/**
 	 * The loader that's responsible for maintaining and registering all hooks that power
 	 * the plugin.
 	 *
@@ -191,6 +199,20 @@ class Plugin_Name {
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
 
+	}
+
+	/**
+	 * Get instance of main class
+	 *
+	 * @since     1.0.0
+	 * @return Plugin_Name
+	 */
+	public static function get_instance() {
+		if ( empty( self::$_instance ) ) {
+			self::$_instance = new self;
+		}
+
+		return self::$_instance;
 	}
 
 	/**
