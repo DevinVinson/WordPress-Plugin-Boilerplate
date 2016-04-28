@@ -39,7 +39,7 @@ register_deactivation_hook( __FILE__, array( 'Plugin_Name_Deactivator', 'deactiv
 /**
  * Autoloader function
  *
- * Will search both plugin root and includes folder for class
+ * Will search both plugin root and includes folder for class. Provides a filter for additional paths
  *
  * @param string $class_name
  */
