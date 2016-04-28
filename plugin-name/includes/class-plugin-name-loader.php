@@ -125,6 +125,7 @@ class Plugin_Name_Loader {
 				$hook['component'],
 				$hook['callback']
 			), $hook['priority'], $hook['accepted_args'] );
+			unset( $hook );
 		}
 
 		foreach ( $this->actions as $hook ) {
@@ -132,8 +133,10 @@ class Plugin_Name_Loader {
 				$hook['component'],
 				$hook['callback']
 			), $hook['priority'], $hook['accepted_args'] );
+			unset( $hook );
 		}
-
+		$this->filters = array_values( $this->filters );
+		$this->actions = array_values( $this->actions );
 	}
 
 }
