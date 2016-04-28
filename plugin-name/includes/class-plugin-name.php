@@ -76,8 +76,8 @@ class Plugin_Name {
 	 */
 	public function __construct() {
 
-		$this->plugin_name = 'plugin-name';
-		$this->version     = '1.0.0';
+		$this->plugin_name = PLUGIN_NAME_VERSION;
+		$this->version     = PLUGIN_NAME_SLUG;
 
 		$this->load_dependencies();
 		$this->set_locale();
