@@ -100,6 +100,7 @@ plugin_classes=$(ucwords "$plugin_classes")
 plugin_classes="${plugin_classes// /_}"
 
 plugin_constants="${plugin_desired//-/_}"
+plugin_constants="${plugin_desired// /_}"
 plugin_constants=$(strtoupper "$plugin_constants")
 
 echo ""
@@ -132,7 +133,7 @@ if [ "$confirmation" == "y" ]; then
 	find ./plugin-name -type f -exec sed -i '' -e "$replacestring" '{}' \;
 
 	# Replace "PLUGIN_NAME"
-	replacestring="s/Plugin_Name/$plugin_classes/g"
+	replacestring="s/PLUGIN_NAME/$plugin_classes/g"
 	find ./plugin-name -type f -exec sed -i '' -e "$replacestring" '{}' \;
 
 	# Replace author
