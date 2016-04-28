@@ -99,9 +99,7 @@ plugin_classes="${plugin_classes//_/ }"
 plugin_classes=$(ucwords "$plugin_classes")
 plugin_classes="${plugin_classes// /_}"
 
-plugin_constants="${plugin_desired//-/_}"
-plugin_constants="${plugin_desired// /_}"
-plugin_constants=$(strtoupper "$plugin_constants")
+plugin_constants=$(strtoupper "$plugin_classes")
 
 echo ""
 echo "Your details will be:"
