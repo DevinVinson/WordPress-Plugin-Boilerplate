@@ -75,6 +75,28 @@ class Plugin_Name {
 	public $public;
 
 	/**
+	 * The singleton instance of the plugin.
+	 *
+	 * @since    1.0.0
+	 * @access   private
+	 * @var      object    $_instance    The singleton instance of the plugin.
+	 */
+	private static $_instance = NULL;
+
+	/**
+	 * Retrieves or initialize an instance of this plugin's class.
+	 *
+	 * @since    1.0.0
+	 * @access   public
+	 */
+	public static function instance() {
+		if ( is_null( self::$_instance ) ) {
+			self::$_instance = new self();
+		}
+		return self::$_instance;
+	}
+
+	/**
 	 * Define the core functionality of the plugin.
 	 *
 	 * Set the plugin name and the plugin version that can be used throughout the plugin.
