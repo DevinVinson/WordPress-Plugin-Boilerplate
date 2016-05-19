@@ -58,6 +58,13 @@ register_deactivation_hook( __FILE__, 'deactivate_plugin_name' );
 require plugin_dir_path( __FILE__ ) . 'includes/class-plugin-name.php';
 
 /**
+ * This simple function is globally available to get the plugin's object.
+ */
+function PName() {
+	return Plugin_Name::instance();
+}
+
+/**
  * Begins execution of the plugin.
  *
  * Since everything within the plugin is registered via hooks,
@@ -67,4 +74,4 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-plugin-name.php';
  * @since    1.0.0
  */
 
-$plugin = new Plugin_Name();
+PName();

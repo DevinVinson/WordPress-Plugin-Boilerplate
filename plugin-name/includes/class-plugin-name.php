@@ -48,6 +48,55 @@ class Plugin_Name {
 	protected $version;
 
 	/**
+	 * The core object of the plugin.
+	 *
+	 * @since    1.0.0
+	 * @access   public
+	 * @var      object    $core    The core object of the plugin.
+	 */
+	public $core;
+
+	/**
+	 * The admin object of the plugin.
+	 *
+	 * @since    1.0.0
+	 * @access   public
+	 * @var      object    $admin    The admin object of the plugin.
+	 */
+	public $admin;
+
+	/**
+	 * The public object of the plugin.
+	 *
+	 * @since    1.0.0
+	 * @access   public
+	 * @var      object    $public    The public object of the plugin.
+	 */
+	public $public;
+
+	/**
+	 * The singleton instance of the plugin.
+	 *
+	 * @since    1.0.0
+	 * @access   private
+	 * @var      object    $_instance    The singleton instance of the plugin.
+	 */
+	private static $_instance = NULL;
+
+	/**
+	 * Retrieves or initialize an instance of this plugin's class.
+	 *
+	 * @since    1.0.0
+	 * @access   public
+	 */
+	public static function instance() {
+		if ( is_null( self::$_instance ) ) {
+			self::$_instance = new self();
+		}
+		return self::$_instance;
+	}
+
+	/**
 	 * Define the core functionality of the plugin.
 	 *
 	 * Set the plugin name and the plugin version that can be used throughout the plugin.
@@ -63,8 +112,9 @@ class Plugin_Name {
 
 		$this->load_dependencies();
 		add_action("plugins_loaded", array( $this, "set_locale" ) );
-		$plugin_admin = new Plugin_Name_Admin( $this->get_plugin_name(), $this->get_version() );
-		$plugin_public = new Plugin_Name_Public( $this->get_plugin_name(), $this->get_version() );
+		$this->core = new Plugin_Name_Core( $this->get_plugin_name(), $this->get_version() );
+		$this->admin = new Plugin_Name_Admin( $this->get_plugin_name(), $this->get_version() );
+		$this->public = new Plugin_Name_Public( $this->get_plugin_name(), $this->get_version() );
 
 	}
 
@@ -85,6 +135,12 @@ class Plugin_Name {
 	 * @access   private
 	 */
 	private function load_dependencies() {
+
+		/**
+		 * The class responsible for defining all the entities and structure that affect 
+		 * both admin and public
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'core/class-plugin-name-core.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the admin area.
