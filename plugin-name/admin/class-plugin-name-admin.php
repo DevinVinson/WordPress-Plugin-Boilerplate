@@ -53,7 +53,7 @@ class Plugin_Name_Admin {
 		 * class.
 		 */
 
-		wp_enqueue_style( PName()->get_plugin_name(), plugin_dir_url( __FILE__ ) . 'css/plugin-name-admin.css', array(), PName()->get_version(), 'all' );
+		wp_enqueue_style( PName()->get_plugin_name(), plugin_dir_url( __FILE__ ) . 'css/admin.css', array(), PName()->get_version(), 'all' );
 
 	}
 
@@ -76,7 +76,7 @@ class Plugin_Name_Admin {
 		 * class.
 		 */
 
-		wp_enqueue_script( PName()->get_plugin_name(), plugin_dir_url( __FILE__ ) . 'js/plugin-name-admin.js', array( 'jquery' ), PName()->get_version(), false );
+		wp_enqueue_script( PName()->get_plugin_name(), plugin_dir_url( __FILE__ ) . 'js/admin.js', array( 'jquery' ), PName()->get_version(), false );
 
 	}
 
