@@ -30,16 +30,6 @@
 class Plugin_Name {
 
 	/**
-	 *
-	 * The class that stores and registers all of the hooks of the plugin
-	 *
-	 * @since    1.0.0
-	 * @access   protected
-	 * @var      Plugin_Name_Hooks    $hooks
-	 */
-	protected $hooks;
-
-	/**
 	 * The unique identifier of this plugin.
 	 *
 	 * @since    1.0.0
@@ -58,6 +48,36 @@ class Plugin_Name {
 	protected $version;
 
 	/**
+	 * The class responsible for defining internationalization functionality
+	 * of the plugin.
+	 *
+	 * @since   1.0.0
+	 * @access  protected
+	 * @var     Plugin_Name_i18n
+	 */
+	protected $i18n;
+
+	/**
+	 * The class responsible for defining all actions that occur in the admin area.
+	 *
+	 * @since   1.0.0
+	 * @access  protected
+	 * @var     Plugin_Name_Admin
+	 */
+	protected $admin;
+
+	/**
+	 * The class responsible for defining all actions that occur in the public-facing
+	 * side of the site.
+	 *
+	 * @since   1.0.0
+	 * @access  protected
+	 * @var     Plugin_Name_Public
+	 */
+	protected $public;
+
+
+	/**
 	 * Define the core functionality of the plugin.
 	 *
 	 * Set the plugin name and the plugin version that can be used throughout the plugin.
@@ -71,62 +91,45 @@ class Plugin_Name {
 		$this->plugin_name = 'plugin-name';
 		$this->version = '1.0.0';
 
-		$this->load_dependencies();
-
-		// Register hooks
-		$this->hooks = new Plugin_Name_Hooks($this->get_plugin_name(), $this->get_version());
 	}
 
 	/**
-	 * Load the required dependencies for this plugin.
-	 *
-	 * Include the following files that make up the plugin:
-	 *
-	 * - Plugin_Name_Loader. Orchestrates the hooks of the plugin.
-	 * - Plugin_Name_i18n. Defines internationalization functionality.
-	 * - Plugin_Name_Admin. Defines all hooks for the admin area.
-	 * - Plugin_Name_Public. Defines all hooks for the public side of the site.
-	 *
-	 * Create an instance of the loader which will be used to register the hooks
-	 * with WordPress.
+	 * Load the required dependencies for this plugin.	 *
 	 *
 	 * @since    1.0.0
 	 * @access   private
 	 */
 	private function load_dependencies() {
 
-		/**
-		 * The class responsible for orchestrating the actions and filters of the
-		 * core plugin.
-		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-plugin-name-hooks.php';
-
-		/**
-		 * The class responsible for defining internationalization functionality
-		 * of the plugin.
-		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-plugin-name-i18n.php';
-
-		/**
-		 * The class responsible for defining all actions that occur in the admin area.
-		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-plugin-name-admin.php';
-
-		/**
-		 * The class responsible for defining all actions that occur in the public-facing
-		 * side of the site.
-		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-plugin-name-public.php';
+	}
+
+	/**
+	 * Load class instances and register hooks
+	 *
+	 * @since   1.0.0
+	 * @access  private
+	 */
+	private function load_classes(){
+
+		$this->i18n = Plugin_Name_i18n::create($this->get_plugin_name(), $this->get_version());
+		$this->public = Plugin_Name_Public::create($this->get_plugin_name(), $this->get_version());
+		$this->admin = Plugin_Name_Admin::create($this->get_plugin_name(), $this->get_version());
 
 	}
 
 	/**
 	 * Run the loader to execute all of the hooks with WordPress.
 	 *
-	 * @since    1.0.0
+	 * @since   1.0.0
 	 */
 	public function run() {
-		$this->hooks->load();
+
+		$this->load_dependencies();
+		$this->load_classes();
+
 	}
 
 	/**
@@ -137,7 +140,9 @@ class Plugin_Name {
 	 * @return    string    The name of the plugin.
 	 */
 	public function get_plugin_name() {
+
 		return $this->plugin_name;
+
 	}
 
 	/**
@@ -147,7 +152,9 @@ class Plugin_Name {
 	 * @return    string    The version number of the plugin.
 	 */
 	public function get_version() {
+
 		return $this->version;
+
 	}
 
 }
