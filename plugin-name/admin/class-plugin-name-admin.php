@@ -58,8 +58,9 @@ class Plugin_Name_Admin {
 	 * Register the stylesheets for the admin area.
 	 *
 	 * @since    1.0.0
+   * @param   String  $hook    A screen id to filter the current admin page
 	 */
-	public function enqueue_styles() {
+	public function enqueue_styles($hook) {
 
 		/**
 		 * This function is provided for demonstration purposes only.
@@ -71,7 +72,11 @@ class Plugin_Name_Admin {
 		 * The Plugin_Name_Loader will then create the relationship
 		 * between the defined hooks and the functions defined in this
 		 * class.
-		 */
+     *
+     * You can use the $hook parameter to filter for a particular page,
+     * for more information see the codex,
+     * https://codex.wordpress.org/Plugin_API/Action_Reference/admin_enqueue_scripts
+     */
 
 		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/plugin-name-admin.css', array(), $this->version, 'all' );
 
@@ -81,8 +86,9 @@ class Plugin_Name_Admin {
 	 * Register the JavaScript for the admin area.
 	 *
 	 * @since    1.0.0
+   * @param   String  $hook    A screen id to filter the current admin page
 	 */
-	public function enqueue_scripts() {
+	public function enqueue_scripts($hook) {
 
 		/**
 		 * This function is provided for demonstration purposes only.
@@ -94,8 +100,11 @@ class Plugin_Name_Admin {
 		 * The Plugin_Name_Loader will then create the relationship
 		 * between the defined hooks and the functions defined in this
 		 * class.
-		 */
-
+		 *
+     * You can use the $hook parameter to filter for a particular page,
+     * for more information see the codex,
+     * https://codex.wordpress.org/Plugin_API/Action_Reference/admin_enqueue_scripts
+     */
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/plugin-name-admin.js', array( 'jquery' ), $this->version, false );
 
 	}
