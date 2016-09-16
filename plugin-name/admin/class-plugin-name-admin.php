@@ -51,7 +51,29 @@ class Plugin_Name_Admin {
 
 		$this->plugin_name = $plugin_name;
 		$this->version = $version;
+	}
 
+	/**
+	 * Register class hooks
+	 *
+	 * @since 1.0.0	 *
+	 */
+	public function register_hooks(){
+		add_action( 'admin_enqueue_scripts', array($this, 'enqueue_styles') );
+		add_action( 'admin_enqueue_scripts', array($this, 'enqueue_scripts') );
+	}
+
+	/**
+	 * Create a new instance of this class and register hooks
+	 * @param $plugin_name
+	 * @param $version
+	 *
+	 * @return Plugin_Name_Admin
+	 */
+	public static function create($plugin_name, $version){
+		$instance = new self($plugin_name, $version);
+		$instance->register_hooks();
+		return $instance;
 	}
 
 	/**

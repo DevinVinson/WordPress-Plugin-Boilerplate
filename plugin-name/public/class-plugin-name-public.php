@@ -55,6 +55,29 @@ class Plugin_Name_Public {
 	}
 
 	/**
+	 * Register class hooks
+	 *
+	 * @since 1.0.0	 *
+	 */
+	public function register_hooks(){
+		add_action( 'wp_enqueue_scripts', array($this, 'enqueue_styles') );
+		add_action( 'wp_enqueue_scripts', array($this, 'enqueue_scripts') );
+	}
+
+	/**
+	 * Create a new instance of this class and register hooks
+	 * @param $plugin_name
+	 * @param $version
+	 *
+	 * @return Plugin_Name_Public
+	 */
+	public static function create($plugin_name, $version){
+		$instance = new self($plugin_name, $version);
+		$instance->register_hooks();
+		return $instance;
+	}
+
+	/**
 	 * Register the stylesheets for the public-facing side of the site.
 	 *
 	 * @since    1.0.0
