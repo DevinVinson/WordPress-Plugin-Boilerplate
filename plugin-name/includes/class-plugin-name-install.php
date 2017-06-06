@@ -27,5 +27,3 @@ class PName_Install {
 		do_action( 'plugin_name_installed' );
 	}
 }
-
-PName_Install::init();

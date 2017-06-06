@@ -179,7 +179,13 @@ if ( ! class_exists( 'Plugin_Name' ) ) :
 	 * Include required customizations files.
 	 */
 		public function customizations_includes() {
-			include_once( 'includes/customizations/class-plugin-name-template-loader.php' );  // Template Loader
+			$customizations = array(
+				'acf',
+			);
+
+			foreach ( $customizations as $customization ) {
+				include_once( 'includes/customizations/class-plugin-name-' . $customization . '-hooks.php' );
+			}
 		}
 
 		/**
