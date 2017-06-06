@@ -170,7 +170,6 @@ if ( ! class_exists( 'Plugin_Name' ) ) :
 	 * Include required frontend files.
 	 */
 		public function frontend_includes() {
-			include_once( 'includes/class-plugin-name-template-loader.php' );  // Template Loader
 			include_once( 'includes/class-plugin-name-frontend-scripts.php' ); // Frontend Scripts
 			include_once( 'includes/class-plugin-name-form-handler.php' );     // Form Handlers
 		}
