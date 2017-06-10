@@ -1,4 +1,4 @@
-<?php
+<?php namespace PluginName\Includes;
 
 /**
  * Define the internationalization functionality

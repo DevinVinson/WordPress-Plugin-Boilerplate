@@ -1,10 +1,10 @@
-<?php
+<?php namespace PluginName\Includes;
 
 /**
  * The file that defines the core plugin class
  *
  * A class definition that includes attributes and functions used across both the
- * public-facing side of the site and the admin area.
+ * frontend-facing side of the site and the admin area.
  *
  * @link       http://example.com
  * @since      1.0.0
@@ -12,12 +12,14 @@
  * @package    Plugin_Name
  * @subpackage Plugin_Name/includes
  */
+use PluginName\Admin\Plugin_Name_Admin;
+use PluginName\Frontend\Plugin_Name_Public;
 
 /**
  * The core plugin class.
  *
  * This is used to define internationalization, admin-specific hooks, and
- * public-facing site hooks.
+ * frontend-facing site hooks.
  *
  * Also maintains the unique identifier of this plugin as well as the current
  * version of the plugin.
@@ -62,7 +64,7 @@ class Plugin_Name {
 	 *
 	 * Set the plugin name and the plugin version that can be used throughout the plugin.
 	 * Load the dependencies, define the locale, and set the hooks for the admin area and
-	 * the public-facing side of the site.
+	 * the frontend-facing side of the site.
 	 *
 	 * @since    1.0.0
 	 */
@@ -86,7 +88,7 @@ class Plugin_Name {
 	 * - Plugin_Name_Loader. Orchestrates the hooks of the plugin.
 	 * - Plugin_Name_i18n. Defines internationalization functionality.
 	 * - Plugin_Name_Admin. Defines all hooks for the admin area.
-	 * - Plugin_Name_Public. Defines all hooks for the public side of the site.
+	 * - Plugin_Name_Public. Defines all hooks for the frontend side of the site.
 	 *
 	 * Create an instance of the loader which will be used to register the hooks
 	 * with WordPress.
@@ -95,29 +97,6 @@ class Plugin_Name {
 	 * @access   private
 	 */
 	private function load_dependencies() {
-
-		/**
-		 * The class responsible for orchestrating the actions and filters of the
-		 * core plugin.
-		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-plugin-name-loader.php';
-
-		/**
-		 * The class responsible for defining internationalization functionality
-		 * of the plugin.
-		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-plugin-name-i18n.php';
-
-		/**
-		 * The class responsible for defining all actions that occur in the admin area.
-		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-plugin-name-admin.php';
-
-		/**
-		 * The class responsible for defining all actions that occur in the public-facing
-		 * side of the site.
-		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-plugin-name-public.php';
 
 		$this->loader = new Plugin_Name_Loader();
 
@@ -157,7 +136,7 @@ class Plugin_Name {
 	}
 
 	/**
-	 * Register all of the hooks related to the public-facing functionality
+	 * Register all of the hooks related to the frontend-facing functionality
 	 * of the plugin.
 	 *
 	 * @since    1.0.0

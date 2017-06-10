@@ -1,0 +1,17 @@
+{
+    "name": "erayalakese/plugin-name",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Eray Alakese",
+            "email": "erayalakese@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+      "psr-4": {
+        "PluginName\\": "src/"
+      }
+    }
+}

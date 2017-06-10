@@ -1,4 +1,4 @@
-<?php
+<?php namespace PluginName\Includes;
 
 /**
  * Fired during plugin deactivation

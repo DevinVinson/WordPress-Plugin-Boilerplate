@@ -1,4 +1,4 @@
-<?php
+<?php namespace PluginName\Admin;
 
 /**
  * Provide a admin area view for the plugin

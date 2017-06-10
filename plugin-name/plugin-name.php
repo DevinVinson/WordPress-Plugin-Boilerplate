@@ -1,4 +1,9 @@
-<?php
+<?php namespace PluginName;
+require_once __DIR__ . '/vendor/autoload.php';
+
+
+use PluginName\Includes\Plugin_Name;
+
 
 /**
  * The plugin bootstrap file
@@ -30,6 +35,8 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
+error_reporting(E_ALL);
+
 /**
  * The code that runs during plugin activation.
  * This action is documented in includes/class-plugin-name-activator.php
@@ -53,9 +60,9 @@ register_deactivation_hook( __FILE__, 'deactivate_plugin_name' );
 
 /**
  * The core plugin class that is used to define internationalization,
- * admin-specific hooks, and public-facing site hooks.
+ * admin-specific hooks, and frontend-facing site hooks.
  */
-require plugin_dir_path( __FILE__ ) . 'includes/class-plugin-name.php';
+//require plugin_dir_path( __FILE__ ) . 'includes/class-plugin-name.php';
 
 /**
  * Begins execution of the plugin.
