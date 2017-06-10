@@ -18,9 +18,19 @@ The WordPress Plugin Boilerplate includes the following files:
 * The Boilerplate uses a strict file organization scheme that correspond both to the WordPress Plugin Repository structure, and that make it easy to organize the files that compose the plugin.
 * The project includes a `.pot` file as a starting point for internationalization.
 
+## About This Fork
+
+This project originally started by Tom McFarlin and continued it's development by some cool guys like, Devin Vinson and others. You can check Credits section of this file.
+
+As developer of this fork, I've targeted to made big changes on the project. Like using composer autoloading.
+
 ## Installation
 
-The Boilerplate can be installed directly into your plugins folder "as-is". You will want to rename it and the classes inside of it to fit your needs.
+The Boilerplate can be installed directly into your plugins folder "as-is". You will want to rename it and the classes inside of it to fit your needs. After renaming (especially namespaces of files and composer.json file) you need to run this command :
+
+```
+composer dumpautoload -o
+```
 
 Note that this will activate the source code of the Boilerplate, but because the Boilerplate has no real functionality so no menu  items, meta boxes, or custom post types will be added.
 
