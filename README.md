@@ -20,7 +20,7 @@ The WordPress Plugin Boilerplate includes the following files:
 
 ## About This Fork
 
-This project originally started by Tom McFarlin and continued it's development by some cool guys like, Devin Vinson and others. You can check Credits section of this file.
+This project originally started by [Tom McFarlin](http://twitter.com/tommcfarlin/) and continued it's development by some cool guys like, [Devin Vinson](https://github.com/DevinVinson) and [others](https://github.com/DevinVinson/WordPress-Plugin-Boilerplate/graphs/contributors). You can check Credits section of this file.
 
 As developer of this fork, I've targeted to made big changes on the project. Like using composer autoloading.
 
