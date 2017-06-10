@@ -13,9 +13,9 @@ use PluginName\Includes\Plugin_Name;
  * registers the activation and deactivation functions, and defines a function
  * that starts the plugin.
  *
- * @link              http://example.com
- * @since             1.0.0
- * @package           Plugin_Name
+ * @link    http://example.com
+ * @since   1.0.0
+ * @package Plugin_Name
  *
  * @wordpress-plugin
  * Plugin Name:       WordPress Plugin Boilerplate
@@ -31,8 +31,8 @@ use PluginName\Includes\Plugin_Name;
  */
 
 // If this file is called directly, abort.
-if ( ! defined( 'WPINC' ) ) {
-	die;
+if (! defined('WPINC') ) {
+    die;
 }
 
 error_reporting(E_ALL);
@@ -41,22 +41,24 @@ error_reporting(E_ALL);
  * The code that runs during plugin activation.
  * This action is documented in includes/class-plugin-name-activator.php
  */
-function activate_plugin_name() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-plugin-name-activator.php';
-	Plugin_Name_Activator::activate();
+function activate_plugin_name() 
+{
+    include_once plugin_dir_path(__FILE__) . 'includes/class-plugin-name-activator.php';
+    Plugin_Name_Activator::activate();
 }
 
 /**
  * The code that runs during plugin deactivation.
  * This action is documented in includes/class-plugin-name-deactivator.php
  */
-function deactivate_plugin_name() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-plugin-name-deactivator.php';
-	Plugin_Name_Deactivator::deactivate();
+function deactivate_plugin_name() 
+{
+    include_once plugin_dir_path(__FILE__) . 'includes/class-plugin-name-deactivator.php';
+    Plugin_Name_Deactivator::deactivate();
 }
 
-register_activation_hook( __FILE__, 'activate_plugin_name' );
-register_deactivation_hook( __FILE__, 'deactivate_plugin_name' );
+register_activation_hook(__FILE__, 'activate_plugin_name');
+register_deactivation_hook(__FILE__, 'deactivate_plugin_name');
 
 /**
  * The core plugin class that is used to define internationalization,
@@ -71,12 +73,13 @@ register_deactivation_hook( __FILE__, 'deactivate_plugin_name' );
  * then kicking off the plugin from this point in the file does
  * not affect the page life cycle.
  *
- * @since    1.0.0
+ * @since 1.0.0
  */
-function run_plugin_name() {
+function run_plugin_name() 
+{
 
-	$plugin = new Plugin_Name();
-	$plugin->run();
+    $plugin = new Plugin_Name();
+    $plugin->run();
 
 }
 run_plugin_name();
