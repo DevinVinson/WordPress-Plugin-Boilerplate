@@ -1,5 +1,4 @@
 <?php
-
 /**
  * The file that defines the core plugin class
  *
@@ -84,7 +83,7 @@ class Plugin_Name {
 	 * Include the following files that make up the plugin:
 	 *
 	 * - Plugin_Name_Loader. Orchestrates the hooks of the plugin.
-	 * - Plugin_Name_i18n. Defines internationalization functionality.
+	 * - Plugin_Name_I18n. Defines internationalization functionality.
 	 * - Plugin_Name_Admin. Defines all hooks for the admin area.
 	 * - Plugin_Name_Public. Defines all hooks for the public side of the site.
 	 *
@@ -126,7 +125,7 @@ class Plugin_Name {
 	/**
 	 * Define the locale for this plugin for internationalization.
 	 *
-	 * Uses the Plugin_Name_i18n class in order to set the domain and to register the hook
+	 * Uses the Plugin_Name_I18n class in order to set the domain and to register the hook
 	 * with WordPress.
 	 *
 	 * @since    1.0.0
@@ -134,7 +133,7 @@ class Plugin_Name {
 	 */
 	private function set_locale() {
 
-		$plugin_i18n = new Plugin_Name_i18n();
+		$plugin_i18n = new Plugin_Name_I18n();
 
 		$this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
 
