@@ -67,9 +67,12 @@ class Plugin_Name {
 	 * @since    1.0.0
 	 */
 	public function __construct() {
-
+		if ( defined( 'PLUGIN_VERSION' ) ) {
+			$this->version = PLUGIN_VERSION;
+		} else {
+			$this->version = '1.0.0';
+		}
 		$this->plugin_name = 'plugin-name';
-		$this->version = '1.0.0';
 
 		$this->load_dependencies();
 		$this->set_locale();
