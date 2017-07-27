@@ -53,7 +53,7 @@ class PName_Frontend_Scripts {
 	public static function get_styles() {
 		return apply_filters( 'woocommerce_enqueue_styles', array(
 			'plugin_name-general' => array(
-				'src'     => str_replace( array( 'http:', 'https:' ), '', PName()->plugin_url() ) . '/assets/css/plugin_name.css',
+				'src'     => str_replace( array( 'http:', 'https:' ), '', PNameSingleton()->plugin_url() ) . '/assets/css/plugin_name.css',
 				'deps'    => '',
 				'version' => PNAME_VERSION,
 				'media'   => 'all',
@@ -140,7 +140,7 @@ class PName_Frontend_Scripts {
 		}
 
 		$suffix               = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
-		$assets_path          = str_replace( array( 'http:', 'https:' ), '', PName()->plugin_url() ) . '/assets/';
+		$assets_path          = str_replace( array( 'http:', 'https:' ), '', PNameSingleton()->plugin_url() ) . '/assets/';
 		$frontend_script_path = $assets_path . 'js/frontend/';
 
 		// Global frontend scripts
@@ -180,7 +180,7 @@ class PName_Frontend_Scripts {
 		switch ( $handle ) {
 			case 'plugin_name' :
 				return array(
-					'ajax_url' => PName()->ajax_url(),
+					'ajax_url' => PNameSingleton()->ajax_url(),
 				);
 			break;
 		}

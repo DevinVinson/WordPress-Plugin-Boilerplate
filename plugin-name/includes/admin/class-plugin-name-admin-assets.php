@@ -37,7 +37,7 @@ if ( ! class_exists( 'PName_Admin_Assets' ) ) :
 			$screen_id      = $screen ? $screen->id : '';
 
 			// Register admin styles
-			wp_register_style( 'plugin_name_admin_styles', PName()->plugin_url() . '/assets/css/admin.css', array(), PNAME_VERSION );
+			wp_register_style( 'plugin_name_admin_styles', PNameSingleton()->plugin_url() . '/assets/css/admin.css', array(), PNAME_VERSION );
 		}
 
 
@@ -53,7 +53,7 @@ if ( ! class_exists( 'PName_Admin_Assets' ) ) :
 			$suffix       = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
 			// Register scripts
-			wp_register_script( 'plugin_name_admin', PName()->plugin_url() . '/assets/js/admin/plugin_name_admin' . $suffix . '.js', array( 'jquery' ), PNAME_VERSION );
+			wp_register_script( 'plugin_name_admin', PNameSingleton()->plugin_url() . '/assets/js/admin/plugin_name_admin' . $suffix . '.js', array( 'jquery' ), PNAME_VERSION );
 		}
 	}
 

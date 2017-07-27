@@ -56,7 +56,7 @@ if ( ! class_exists( 'Plugin_Name' ) ) :
 	 *
 	 * @since 1.0.0
 	 * @static
-	 * @see PName()
+	 * @see PNameSingleton()
 	 * @return Plugin_Name - Main instance.
 	 */
 		public static function instance() {
@@ -260,9 +260,9 @@ endif;
  * @since  1.0.0
  * @return Plugin_Name
  */
-function PName() {
+function PNameSingleton() {
 	return Plugin_Name::instance();
 }
 
 // Global for backwards compatibility.
-$GLOBALS['plugin_name'] = PName();
+$GLOBALS['plugin_name'] = PNameSingleton();
