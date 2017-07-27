@@ -5,11 +5,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Plugin_name Autoloader.
+ * Plugin_Name Autoloader.
  *
  * @class 		PName_Autoloader
  * @version		1.0.0
- * @package		Plugin_name/Classes
+ * @package		Plugin_Name/Classes
  * @category	Class
  * @author 		Saucal Inc.
  */
