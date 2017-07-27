@@ -51,9 +51,10 @@ class PName_Frontend_Scripts {
 	 * @return array
 	 */
 	public static function get_styles() {
-		return apply_filters( 'woocommerce_enqueue_styles', array(
-			'plugin_name-general' => array(
-				'src'     => str_replace( array( 'http:', 'https:' ), '', PNameSingleton()->plugin_url() ) . '/assets/css/plugin_name.css',
+		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
+		return apply_filters( 'plugin_name_enqueue_styles', array(
+			'plugin-name-general' => array(
+				'src'     => str_replace( array( 'http:', 'https:' ), '', PNameSingleton()->plugin_url() ) . '/assets/css/plugin-name' . $suffix . '.css',
 				'deps'    => '',
 				'version' => PNAME_VERSION,
 				'media'   => 'all',
@@ -144,7 +145,7 @@ class PName_Frontend_Scripts {
 		$frontend_script_path = $assets_path . 'js/frontend/';
 
 		// Global frontend scripts
-		self::enqueue_script( 'plugin_name', $frontend_script_path . 'plugin_name' . $suffix . '.js', array( 'jquery', 'jquery-blockui' ) );
+		self::enqueue_script( 'plugin-name', $frontend_script_path . 'plugin-name' . $suffix . '.js', array( 'jquery', 'jquery-blockui' ) );
 
 		// CSS Styles
 		if ( $enqueue_styles = self::get_styles() ) {
@@ -178,7 +179,7 @@ class PName_Frontend_Scripts {
 		global $wp;
 
 		switch ( $handle ) {
-			case 'plugin_name' :
+			case 'plugin-name' :
 				return array(
 					'ajax_url' => PNameSingleton()->ajax_url(),
 				);
