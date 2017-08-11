@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-include_once( PNameSingleton()->plugin_path().'/includes/class-pname-assets.php' );
+include_once( PNameSingleton()->plugin_path() . '/includes/class-pname-assets.php' );
 
 /**
  * PName_Frontend_Scripts Class.
@@ -37,7 +37,7 @@ class PName_Frontend_Assets extends PName_Assets {
 	public function get_styles() {
 		return apply_filters( 'plugin_name_enqueue_styles', array(
 			'plugin-name-general' => array(
-				'src'     => $this->localize_asset('css/frontend/plugin-name.css'),
+				'src'     => $this->localize_asset( 'css/frontend/plugin-name.css' ),
 			),
 		) );
 	}
@@ -50,14 +50,14 @@ class PName_Frontend_Assets extends PName_Assets {
 	public function get_scripts() {
 		return apply_filters( 'plugin_name_enqueue_scripts', array(
 			'plugin-name-general' => array(
-				'src'  => $this->localize_asset('js/frontend/plugin-name.js'),
+				'src'  => $this->localize_asset( 'js/frontend/plugin-name.js' ),
 				'data' => array(
 					'ajax_url' => PNameSingleton()->ajax_url(),
-				),   
+				),
 			),
 		) );
 	}
-	
+
 }
 
 new PName_Frontend_Assets();

@@ -46,18 +46,18 @@ abstract class PName_Assets {
 		$assets_path = PNameSingleton()->plugin_path() . '/assets/';
 		$assets_path_url = str_replace( array( 'http:', 'https:' ), '', PNameSingleton()->plugin_url() ) . '/assets/';
 
-		if(!(defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG)) {
-			$ext_pos = strrpos($path, ".");
-			$clean_path = substr($path, 0, $ext_pos);
-			$ext = substr($path, $ext_pos);
+		if ( ! (defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG) ) {
+			$ext_pos = strrpos( $path, '.' );
+			$clean_path = substr( $path, 0, $ext_pos );
+			$ext = substr( $path, $ext_pos );
 			$min_path = $clean_path . '.min' . $ext;
-			if(file_exists($assets_path . $min_path)) {
+			if ( file_exists( $assets_path . $min_path ) ) {
 				$path = $min_path;
 			}
 		}
-		
+
 		return $assets_path_url . $path;
-	} 
+	}
 
 	/**
 	 * Get styles for the frontend.
@@ -210,10 +210,10 @@ abstract class PName_Assets {
 		global $wp;
 
 		$scripts = $this->get_scripts();
-		if(isset($scripts[$handle]) && isset($scripts[$handle]["data"])) {
-			$data = $scripts[$handle]["data"];
-			if(is_callable($data)) {
-				$data = call_user_func($data);
+		if ( isset( $scripts[ $handle ] ) && isset( $scripts[ $handle ]['data'] ) ) {
+			$data = $scripts[ $handle ]['data'];
+			if ( is_callable( $data ) ) {
+				$data = call_user_func( $data );
 			}
 			return $data;
 		}
