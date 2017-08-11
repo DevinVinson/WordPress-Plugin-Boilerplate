@@ -94,14 +94,6 @@ if ( ! class_exists( 'Plugin_Name' ) ) :
 		}
 
 		/**
-		 * Hook into actions and filters.
-		 * @since  1.0.0
-		 */
-		private function init_hooks() {
-			add_action( 'init', array( $this, 'init' ), 0 );
-		}
-
-		/**
 		 * Define PName Constants.
 		 */
 		private function define_constants() {
@@ -174,6 +166,14 @@ if ( ! class_exists( 'Plugin_Name' ) ) :
 			foreach ( $customizations as $customization ) {
 				include_once( 'includes/customizations/class-plugin-name-' . $customization . '-hooks.php' );
 			}
+		}
+
+		/**
+		 * Hook into actions and filters.
+		 * @since  1.0.0
+		 */
+		private function init_hooks() {
+			add_action( 'init', array( $this, 'init' ), 0 );
 		}
 
 		/**
