@@ -161,8 +161,6 @@ if ( ! class_exists( 'Plugin_Name' ) ) :
 				$this->frontend_includes();
 			}
 
-			include_once( 'includes/class-plugin-name-post-types.php' ); // Registers post types
-
 			$this->customizations_includes();
 		}
 
