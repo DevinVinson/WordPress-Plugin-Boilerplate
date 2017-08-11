@@ -31,7 +31,7 @@ class PName_Admin {
 	 */
 	public function includes() {
 		include_once( 'plugin-name-admin-functions.php' );
-		include_once( 'class-plugin-name-admin-assets.php' );
+		include_once( 'class-pname-admin-assets.php' );
 	}
 
 	/**

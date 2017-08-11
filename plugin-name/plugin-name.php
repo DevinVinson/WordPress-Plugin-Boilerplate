@@ -139,17 +139,17 @@ if ( ! class_exists( 'Plugin_Name' ) ) :
 		 * Include required core files used in admin and on the frontend.
 		 */
 		public function includes() {
-			include_once( 'includes/class-plugin-name-autoloader.php' );
+			include_once( 'includes/class-pname-autoloader.php' );
 			include_once( 'includes/plugin-name-core-functions.php' );
-			include_once( 'includes/class-plugin-name-install.php' );
-			include_once( 'includes/class-plugin-name-ajax.php' );
+			include_once( 'includes/class-pname-install.php' );
+			include_once( 'includes/class-pname-ajax.php' );
 
 			if ( $this->is_request( 'admin' ) ) {
-				include_once( 'includes/admin/class-plugin-name-admin.php' );
+				include_once( 'includes/admin/class-pname-admin.php' );
 			}
 
 			if ( $this->is_request( 'frontend' ) ) {
-				include_once( 'includes/class-plugin-name-frontend-assets.php' ); // Frontend Scripts
+				include_once( 'includes/class-pname-frontend-assets.php' ); // Frontend Scripts
 			}
 
 			$this->customizations_includes();
@@ -164,7 +164,7 @@ if ( ! class_exists( 'Plugin_Name' ) ) :
 			);
 
 			foreach ( $customizations as $customization ) {
-				include_once( 'includes/customizations/class-plugin-name-' . $customization . '-hooks.php' );
+				include_once( 'includes/customizations/class-pname-' . $customization . '-hooks.php' );
 			}
 		}
 

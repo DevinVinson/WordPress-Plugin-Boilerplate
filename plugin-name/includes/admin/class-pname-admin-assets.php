@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-include_once PNameSingleton()->plugin_path().'/includes/class-plugin-name-assets.php';
+include_once( PNameSingleton()->plugin_path().'/includes/class-pname-assets.php' );
 
 /**
  * PName_Admin_Assets Class.
