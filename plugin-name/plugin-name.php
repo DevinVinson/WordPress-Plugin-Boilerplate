@@ -158,17 +158,10 @@ if ( ! class_exists( 'Plugin_Name' ) ) :
 			}
 
 			if ( $this->is_request( 'frontend' ) ) {
-				$this->frontend_includes();
+				include_once( 'includes/class-plugin-name-frontend-assets.php' ); // Frontend Scripts
 			}
 
 			$this->customizations_includes();
-		}
-
-		/**
-		 * Include required frontend files.
-		 */
-		public function frontend_includes() {
-			include_once( 'includes/class-plugin-name-frontend-assets.php' ); // Frontend Scripts
 		}
 
 		/**
