@@ -12,51 +12,51 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! class_exists( 'PName_Admin_Assets' ) ) :
+include_once PNameSingleton()->plugin_path().'/includes/class-plugin-name-assets.php';
 
-	/**
+/**
  * PName_Admin_Assets Class.
  */
-	class PName_Admin_Assets {
+class PName_Admin_Assets extends PName_Assets {
 
-		/**
-	 * Hook in tabs.
+	/**
+	 * Hook in methods.
 	 */
-		public function __construct() {
-			add_action( 'admin_enqueue_scripts', array( $this, 'admin_styles' ) );
-			add_action( 'admin_enqueue_scripts', array( $this, 'admin_scripts' ) );
-		}
-
-		/**
-	 * Enqueue styles.
-	 */
-		public function admin_styles() {
-			global $wp_scripts;
-
-			$screen         = get_current_screen();
-			$screen_id      = $screen ? $screen->id : '';
-
-			// Register admin styles
-			wp_register_style( 'plugin_name_admin_styles', PNameSingleton()->plugin_url() . '/assets/css/admin.css', array(), PNAME_VERSION );
-		}
-
-
-		/**
-	 * Enqueue scripts.
-	 */
-		public function admin_scripts() {
-			global $wp_query, $post;
-
-			$screen       = get_current_screen();
-			$screen_id    = $screen ? $screen->id : '';
-			$plugin_name_screen_id = sanitize_title( __( 'Plugin_Name', 'plugin-name' ) );
-			$suffix       = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
-
-			// Register scripts
-			wp_register_script( 'plugin_name_admin', PNameSingleton()->plugin_url() . '/assets/js/admin/plugin_name_admin' . $suffix . '.js', array( 'jquery' ), PNAME_VERSION );
-		}
+	public function __construct() {
+		add_action( 'admin_enqueue_scripts', array( $this, 'load_scripts' ) );
+		add_action( 'admin_print_scripts', array( $this, 'localize_printed_scripts' ), 5 );
+		add_action( 'admin_print_footer_scripts', array( $this, 'localize_printed_scripts' ), 5 );
 	}
 
-endif;
+	/**
+	 * Get styles for the frontend.
+	 * @access private
+	 * @return array
+	 */
+	public function get_styles() {
+		return apply_filters( 'plugin_name_enqueue_admin_styles', array(
+			'plugin-name-admin' => array(
+				'src'     => $this->localize_asset('css/admin/plugin-name-admin.css'),
+			),
+		) );
+	}
+
+	/**
+	 * Get styles for the frontend.
+	 * @access private
+	 * @return array
+	 */
+	public function get_scripts() {
+		return apply_filters( 'plugin_name_enqueue_admin_scripts', array(
+			'plugin-name-admin' => array(
+				'src'  => $this->localize_asset('js/admin/plugin-name-admin.js'),
+				'data' => array(
+					'ajax_url' => PNameSingleton()->ajax_url(),
+				),   
+			),
+		) );
+	}
+
+}
 
 return new PName_Admin_Assets();
