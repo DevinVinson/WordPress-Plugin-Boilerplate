@@ -142,7 +142,6 @@ if ( ! class_exists( 'Plugin_Name' ) ) :
 			include_once( 'includes/class-pname-autoloader.php' );
 			include_once( 'includes/plugin-name-core-functions.php' );
 			include_once( 'includes/class-pname-install.php' );
-			include_once( 'includes/class-pname-ajax.php' );
 
 			if ( $this->is_request( 'admin' ) ) {
 				include_once( 'includes/admin/class-pname-admin.php' );
