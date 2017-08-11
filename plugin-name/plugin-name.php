@@ -98,7 +98,6 @@ if ( ! class_exists( 'Plugin_Name' ) ) :
 		 * @since  1.0.0
 		 */
 		private function init_hooks() {
-			register_activation_hook( __FILE__, array( 'PName_Install', 'install' ) );
 			add_action( 'init', array( $this, 'init' ), 0 );
 		}
 

@@ -27,3 +27,5 @@ class PName_Install {
 		do_action( 'plugin_name_installed' );
 	}
 }
+
+register_activation_hook( __FILE__, array( 'PName_Install', 'install' ) );
