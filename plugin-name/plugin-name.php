@@ -169,7 +169,6 @@ if ( ! class_exists( 'Plugin_Name' ) ) :
 		 */
 		public function frontend_includes() {
 			include_once( 'includes/class-plugin-name-frontend-assets.php' ); // Frontend Scripts
-			include_once( 'includes/class-plugin-name-form-handler.php' );     // Form Handlers
 		}
 
 		/**
