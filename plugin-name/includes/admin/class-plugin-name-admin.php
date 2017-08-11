@@ -22,7 +22,7 @@ class PName_Admin {
 	 * Constructor.
 	 */
 	public function __construct() {
-		add_action( 'init', array( $this, 'includes' ) );
+		$this->includes();
 		add_action( 'current_screen', array( $this, 'conditional_includes' ) );
 	}
 
