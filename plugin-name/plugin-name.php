@@ -35,30 +35,30 @@ if ( ! class_exists( 'Plugin_Name' ) ) :
 	final class Plugin_Name {
 
 		/**
-	 * Plugin_Name version.
-	 *
-	 * @var string
-	 */
+		 * Plugin_Name version.
+		 *
+		 * @var string
+		 */
 		public $version = '1.0.0';
 
 		/**
-	 * The single instance of the class.
-	 *
-	 * @var Plugin_Name
-	 * @since 1.0.0
-	 */
+		 * The single instance of the class.
+		 *
+		 * @var Plugin_Name
+		 * @since 1.0.0
+		 */
 		protected static $_instance = null;
 
 		/**
-	 * Main Plugin_Name Instance.
-	 *
-	 * Ensures only one instance of Plugin_Name is loaded or can be loaded.
-	 *
-	 * @since 1.0.0
-	 * @static
-	 * @see PNameSingleton()
-	 * @return Plugin_Name - Main instance.
-	 */
+		 * Main Plugin_Name Instance.
+		 *
+		 * Ensures only one instance of Plugin_Name is loaded or can be loaded.
+		 *
+		 * @since 1.0.0
+		 * @static
+		 * @see PNameSingleton()
+		 * @return Plugin_Name - Main instance.
+		 */
 		public static function instance() {
 			if ( is_null( self::$_instance ) ) {
 				self::$_instance = new self();
@@ -67,24 +67,24 @@ if ( ! class_exists( 'Plugin_Name' ) ) :
 		}
 
 		/**
-	 * Cloning is forbidden.
-	 * @since 1.0.0
-	 */
+		 * Cloning is forbidden.
+		 * @since 1.0.0
+		 */
 		public function __clone() {
 			_doing_it_wrong( __FUNCTION__, __( 'Cheatin&#8217; huh?', 'plugin-name' ), '1.0.0' );
 		}
 
 		/**
-	 * Unserializing instances of this class is forbidden.
-	 * @since 1.0.0
-	 */
+		 * Unserializing instances of this class is forbidden.
+		 * @since 1.0.0
+		 */
 		public function __wakeup() {
 			_doing_it_wrong( __FUNCTION__, __( 'Cheatin&#8217; huh?', 'plugin-name' ), '1.0.0' );
 		}
 
 		/**
-	 * Plugin_Name Constructor.
-	 */
+		 * Plugin_Name Constructor.
+		 */
 		public function __construct() {
 			$this->define_constants();
 			$this->includes();
@@ -94,17 +94,8 @@ if ( ! class_exists( 'Plugin_Name' ) ) :
 		}
 
 		/**
-	 * Hook into actions and filters.
-	 * @since  1.0.0
-	 */
-		private function init_hooks() {
-			register_activation_hook( __FILE__, array( 'PName_Install', 'install' ) );
-			add_action( 'init', array( $this, 'init' ), 0 );
-		}
-
-		/**
-	 * Define PName Constants.
-	 */
+		 * Define PName Constants.
+		 */
 		private function define_constants() {
 			$upload_dir = wp_upload_dir();
 
@@ -114,11 +105,11 @@ if ( ! class_exists( 'Plugin_Name' ) ) :
 		}
 
 		/**
-	 * Define constant if not already set.
-	 *
-	 * @param  string $name
-	 * @param  string|bool $value
-	 */
+		 * Define constant if not already set.
+		 *
+		 * @param  string $name
+		 * @param  string|bool $value
+		 */
 		private function define( $name, $value ) {
 			if ( ! defined( $name ) ) {
 				define( $name, $value );
@@ -126,11 +117,11 @@ if ( ! class_exists( 'Plugin_Name' ) ) :
 		}
 
 		/**
-	 * What type of request is this?
-	 *
-	 * @param  string $type admin, ajax, cron or frontend.
-	 * @return bool
-	 */
+		 * What type of request is this?
+		 *
+		 * @param  string $type admin, ajax, cron or frontend.
+		 * @return bool
+		 */
 		private function is_request( $type ) {
 			switch ( $type ) {
 				case 'admin' :
@@ -145,51 +136,48 @@ if ( ! class_exists( 'Plugin_Name' ) ) :
 		}
 
 		/**
-	 * Include required core files used in admin and on the frontend.
-	 */
+		 * Include required core files used in admin and on the frontend.
+		 */
 		public function includes() {
-			include_once( 'includes/class-plugin-name-autoloader.php' );
+			include_once( 'includes/class-pname-autoloader.php' );
 			include_once( 'includes/plugin-name-core-functions.php' );
-			include_once( 'includes/class-plugin-name-install.php' );
-			include_once( 'includes/class-plugin-name-ajax.php' );
+			include_once( 'includes/class-pname-install.php' );
 
 			if ( $this->is_request( 'admin' ) ) {
-				include_once( 'includes/admin/class-plugin-name-admin.php' );
+				include_once( 'includes/admin/class-pname-admin.php' );
 			}
 
 			if ( $this->is_request( 'frontend' ) ) {
-				$this->frontend_includes();
+				include_once( 'includes/class-pname-frontend-assets.php' ); // Frontend Scripts
 			}
-
-			include_once( 'includes/class-plugin-name-post-types.php' ); // Registers post types
 
 			$this->customizations_includes();
 		}
 
 		/**
-	 * Include required frontend files.
-	 */
-		public function frontend_includes() {
-			include_once( 'includes/class-plugin-name-frontend-scripts.php' ); // Frontend Scripts
-			include_once( 'includes/class-plugin-name-form-handler.php' );     // Form Handlers
-		}
-
-		/**
-	 * Include required customizations files.
-	 */
+		 * Include required customizations files.
+		 */
 		public function customizations_includes() {
 			$customizations = array(
 				'acf',
 			);
 
 			foreach ( $customizations as $customization ) {
-				include_once( 'includes/customizations/class-plugin-name-' . $customization . '-hooks.php' );
+				include_once( 'includes/customizations/class-pname-' . $customization . '-hooks.php' );
 			}
 		}
 
 		/**
-	 * Init Plugin_Name when WordPress Initialises.
-	 */
+		 * Hook into actions and filters.
+		 * @since  1.0.0
+		 */
+		private function init_hooks() {
+			add_action( 'init', array( $this, 'init' ), 0 );
+		}
+
+		/**
+		 * Init Plugin_Name when WordPress Initialises.
+		 */
 		public function init() {
 			// Before init action.
 			do_action( 'before_plugin_name_init' );
@@ -202,14 +190,14 @@ if ( ! class_exists( 'Plugin_Name' ) ) :
 		}
 
 		/**
-	 * Load Localisation files.
-	 *
-	 * Note: the first-loaded translation file overrides any following ones if the same translation is present.
-	 *
-	 * Locales found in:
-	 *      - WP_LANG_DIR/plugin-name/plugin-name-LOCALE.mo
-	 *      - WP_LANG_DIR/plugins/plugin-name-LOCALE.mo
-	 */
+		 * Load Localisation files.
+		 *
+		 * Note: the first-loaded translation file overrides any following ones if the same translation is present.
+		 *
+		 * Locales found in:
+		 *      - WP_LANG_DIR/plugin-name/plugin-name-LOCALE.mo
+		 *      - WP_LANG_DIR/plugins/plugin-name-LOCALE.mo
+		 */
 		public function load_plugin_textdomain() {
 			$locale = apply_filters( 'plugin_locale', get_locale(), 'plugin-name' );
 
@@ -218,33 +206,33 @@ if ( ! class_exists( 'Plugin_Name' ) ) :
 		}
 
 		/**
-	 * Get the plugin url.
-	 * @return string
-	 */
+		 * Get the plugin url.
+		 * @return string
+		 */
 		public function plugin_url() {
 			return untrailingslashit( plugins_url( '/', __FILE__ ) );
 		}
 
 		/**
-	 * Get the plugin path.
-	 * @return string
-	 */
+		 * Get the plugin path.
+		 * @return string
+		 */
 		public function plugin_path() {
 			return untrailingslashit( plugin_dir_path( __FILE__ ) );
 		}
 
 		/**
-	 * Get the template path.
-	 * @return string
-	 */
+		 * Get the template path.
+		 * @return string
+		 */
 		public function template_path() {
 			return apply_filters( 'plugin_name_template_path', 'plugin-name/' );
 		}
 
 		/**
-	 * Get Ajax URL.
-	 * @return string
-	 */
+		 * Get Ajax URL.
+		 * @return string
+		 */
 		public function ajax_url() {
 			return admin_url( 'admin-ajax.php', 'relative' );
 		}
