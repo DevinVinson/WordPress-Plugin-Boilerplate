@@ -28,4 +28,4 @@ class PName_Install {
 	}
 }
 
-register_activation_hook( __FILE__, array( 'PName_Install', 'install' ) );
+register_activation_hook( PNAME_PLUGIN_FILE, array( 'PName_Install', 'install' ) );
