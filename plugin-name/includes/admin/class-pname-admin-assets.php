@@ -34,11 +34,13 @@ class PName_Admin_Assets extends PName_Assets {
 	 * @return array
 	 */
 	public function get_styles() {
-		return apply_filters( 'plugin_name_enqueue_admin_styles', array(
-			'plugin-name-admin' => array(
-				'src'     => $this->localize_asset( 'css/admin/plugin-name-admin.css' ),
-			),
-		) );
+		return apply_filters(
+			'plugin_name_enqueue_admin_styles', array(
+				'plugin-name-admin' => array(
+					'src'     => $this->localize_asset( 'css/admin/plugin-name-admin.css' ),
+				),
+			)
+		);
 	}
 
 	/**
@@ -47,14 +49,16 @@ class PName_Admin_Assets extends PName_Assets {
 	 * @return array
 	 */
 	public function get_scripts() {
-		return apply_filters( 'plugin_name_enqueue_admin_scripts', array(
-			'plugin-name-admin' => array(
-				'src'  => $this->localize_asset( 'js/admin/plugin-name-admin.js' ),
-				'data' => array(
-					'ajax_url' => PNameSingleton()->ajax_url(),
+		return apply_filters(
+			'plugin_name_enqueue_admin_scripts', array(
+				'plugin-name-admin' => array(
+					'src'  => $this->localize_asset( 'js/admin/plugin-name-admin.js' ),
+					'data' => array(
+						'ajax_url' => PNameSingleton()->ajax_url(),
+					),
 				),
-			),
-		) );
+			)
+		);
 	}
 
 }

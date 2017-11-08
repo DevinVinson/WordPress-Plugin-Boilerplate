@@ -95,9 +95,9 @@ function plugin_name_get_template_html( $template_name, $args = array(), $templa
  *
  * This is the load order:
  *
- *		yourtheme		/	$template_path	/	$template_name
- *		yourtheme		/	$template_name
- *		$default_path	/	$template_name
+ *      yourtheme       /   $template_path  /   $template_name
+ *      yourtheme       /   $template_name
+ *      $default_path   /   $template_name
  *
  * @access public
  * @param string $template_name

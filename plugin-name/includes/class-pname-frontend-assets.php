@@ -35,11 +35,13 @@ class PName_Frontend_Assets extends PName_Assets {
 	 * @return array
 	 */
 	public function get_styles() {
-		return apply_filters( 'plugin_name_enqueue_styles', array(
-			'plugin-name-general' => array(
-				'src'     => $this->localize_asset( 'css/frontend/plugin-name.css' ),
-			),
-		) );
+		return apply_filters(
+			'plugin_name_enqueue_styles', array(
+				'plugin-name-general' => array(
+					'src'     => $this->localize_asset( 'css/frontend/plugin-name.css' ),
+				),
+			)
+		);
 	}
 
 	/**
@@ -48,14 +50,16 @@ class PName_Frontend_Assets extends PName_Assets {
 	 * @return array
 	 */
 	public function get_scripts() {
-		return apply_filters( 'plugin_name_enqueue_scripts', array(
-			'plugin-name-general' => array(
-				'src'  => $this->localize_asset( 'js/frontend/plugin-name.js' ),
-				'data' => array(
-					'ajax_url' => PNameSingleton()->ajax_url(),
+		return apply_filters(
+			'plugin_name_enqueue_scripts', array(
+				'plugin-name-general' => array(
+					'src'  => $this->localize_asset( 'js/frontend/plugin-name.js' ),
+					'data' => array(
+						'ajax_url' => PNameSingleton()->ajax_url(),
+					),
 				),
-			),
-		) );
+			)
+		);
 	}
 
 }

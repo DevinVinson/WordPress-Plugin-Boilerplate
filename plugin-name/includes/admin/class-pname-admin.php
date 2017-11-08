@@ -43,12 +43,12 @@ class PName_Admin {
 		}
 
 		switch ( $screen->id ) {
-			case 'dashboard' :
-			case 'options-permalink' :
-			case 'users' :
-			case 'user' :
-			case 'profile' :
-			case 'user-edit' :
+			case 'dashboard':
+			case 'options-permalink':
+			case 'users':
+			case 'user':
+			case 'profile':
+			case 'user-edit':
 		}
 	}
 }

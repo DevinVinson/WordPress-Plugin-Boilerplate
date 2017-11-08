@@ -162,12 +162,14 @@ abstract class PName_Assets {
 		// JS Scripts
 		if ( $enqueue_scripts = $this->get_scripts() ) {
 			foreach ( $enqueue_scripts as $handle => $args ) {
-				$args = wp_parse_args( $args, array(
-					'src'       => '',
-					'deps'      => array( 'jquery' ),
-					'version'   => PNAME_VERSION,
-					'in_footer' => true,
-				) );
+				$args = wp_parse_args(
+					$args, array(
+						'src'       => '',
+						'deps'      => array( 'jquery' ),
+						'version'   => PNAME_VERSION,
+						'in_footer' => true,
+					)
+				);
 				$this->enqueue_script( $handle, $args['src'], $args['deps'], $args['version'], $args['in_footer'] );
 			}
 		}
@@ -175,12 +177,14 @@ abstract class PName_Assets {
 		// CSS Styles
 		if ( $enqueue_styles = $this->get_styles() ) {
 			foreach ( $enqueue_styles as $handle => $args ) {
-				$args = wp_parse_args( $args, array(
-					'src'     => '',
-					'deps'    => '',
-					'version' => PNAME_VERSION,
-					'media'   => 'all',
-				) );
+				$args = wp_parse_args(
+					$args, array(
+						'src'     => '',
+						'deps'    => '',
+						'version' => PNAME_VERSION,
+						'media'   => 'all',
+					)
+				);
 				$this->enqueue_style( $handle, $args['src'], $args['deps'], $args['version'], $args['media'] );
 			}
 		}
