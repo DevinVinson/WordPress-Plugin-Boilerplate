@@ -38,7 +38,8 @@ class PName_Admin {
 	 * Include admin files conditionally.
 	 */
 	public function conditional_includes() {
-		if ( ! $screen = get_current_screen() ) {
+		$screen = get_current_screen();
+		if ( ! $screen ) {
 			return;
 		}
 

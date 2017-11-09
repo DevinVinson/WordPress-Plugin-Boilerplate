@@ -160,7 +160,8 @@ abstract class PName_Assets {
 		$frontend_script_path = $assets_path . 'js/frontend/';
 
 		// JS Scripts
-		if ( $enqueue_scripts = $this->get_scripts() ) {
+		$enqueue_scripts = $this->get_scripts();
+		if ( $enqueue_scripts ) {
 			foreach ( $enqueue_scripts as $handle => $args ) {
 				$args = wp_parse_args(
 					$args, array(
@@ -175,7 +176,8 @@ abstract class PName_Assets {
 		}
 
 		// CSS Styles
-		if ( $enqueue_styles = $this->get_styles() ) {
+		$enqueue_styles = $this->get_styles();
+		if ( $enqueue_styles ) {
 			foreach ( $enqueue_styles as $handle => $args ) {
 				$args = wp_parse_args(
 					$args, array(
@@ -197,10 +199,13 @@ abstract class PName_Assets {
 	 * @param  string $handle
 	 */
 	private function localize_script( $handle ) {
-		if ( ! in_array( $handle, $this->wp_localize_scripts ) && wp_script_is( $handle ) && ( $data = $this->get_script_data( $handle ) ) ) {
-			$name                        = str_replace( '-', '_', $handle ) . '_params';
-			$this->wp_localize_scripts[] = $handle;
-			wp_localize_script( $handle, $name, apply_filters( $name, $data ) );
+		if ( ! in_array( $handle, $this->wp_localize_scripts ) && wp_script_is( $handle ) ) {
+			$data = $this->get_script_data( $handle );
+			if ( $data ) {
+				$name                        = str_replace( '-', '_', $handle ) . '_params';
+				$this->wp_localize_scripts[] = $handle;
+				wp_localize_script( $handle, $name, apply_filters( $name, $data ) );
+			}
 		}
 	}
 
