@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-include_once( PNameSingleton()->plugin_path() . '/includes/class-pname-assets.php' );
+require_once PNameSingleton()->plugin_path() . '/includes/class-pname-assets.php';
 
 /**
  * PName_Frontend_Scripts Class.
@@ -38,7 +38,7 @@ class PName_Frontend_Assets extends PName_Assets {
 		return apply_filters(
 			'plugin_name_enqueue_styles', array(
 				'plugin-name-general' => array(
-					'src'     => $this->localize_asset( 'css/frontend/plugin-name.css' ),
+					'src' => $this->localize_asset( 'css/frontend/plugin-name.css' ),
 				),
 			)
 		);

@@ -73,7 +73,7 @@ function plugin_name_get_template( $template_name, $args = array(), $template_pa
 
 	do_action( 'plugin_name_before_template_part', $template_name, $template_path, $located, $args );
 
-	include( $located );
+	include $located;
 
 	do_action( 'plugin_name_after_template_part', $template_name, $template_path, $located, $args );
 }

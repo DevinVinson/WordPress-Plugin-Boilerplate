@@ -53,7 +53,7 @@ class PName_Autoloader {
 	 */
 	private function load_file( $path ) {
 		if ( $path && is_readable( $path ) ) {
-			include_once( $path );
+			include_once $path;
 			return true;
 		}
 		return false;

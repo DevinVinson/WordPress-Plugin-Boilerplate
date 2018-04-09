@@ -43,14 +43,14 @@ abstract class PName_Assets {
 	 * @return string
 	 */
 	protected function localize_asset( $path ) {
-		$assets_path = PNameSingleton()->plugin_path() . '/assets/';
+		$assets_path     = PNameSingleton()->plugin_path() . '/assets/';
 		$assets_path_url = str_replace( array( 'http:', 'https:' ), '', PNameSingleton()->plugin_url() ) . '/assets/';
 
-		if ( ! (defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG) ) {
-			$ext_pos = strrpos( $path, '.' );
+		if ( ! ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ) {
+			$ext_pos    = strrpos( $path, '.' );
 			$clean_path = substr( $path, 0, $ext_pos );
-			$ext = substr( $path, $ext_pos );
-			$min_path = $clean_path . '.min' . $ext;
+			$ext        = substr( $path, $ext_pos );
+			$min_path   = $clean_path . '.min' . $ext;
 			if ( file_exists( $assets_path . $min_path ) ) {
 				$path = $min_path;
 			}

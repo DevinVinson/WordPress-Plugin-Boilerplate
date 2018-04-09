@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-include_once( PNameSingleton()->plugin_path() . '/includes/class-pname-assets.php' );
+require_once PNameSingleton()->plugin_path() . '/includes/class-pname-assets.php';
 
 /**
  * PName_Admin_Assets Class.
@@ -37,7 +37,7 @@ class PName_Admin_Assets extends PName_Assets {
 		return apply_filters(
 			'plugin_name_enqueue_admin_styles', array(
 				'plugin-name-admin' => array(
-					'src'     => $this->localize_asset( 'css/admin/plugin-name-admin.css' ),
+					'src' => $this->localize_asset( 'css/admin/plugin-name-admin.css' ),
 				),
 			)
 		);

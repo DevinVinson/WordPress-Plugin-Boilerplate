@@ -30,8 +30,8 @@ class PName_Admin {
 	 * Include any classes we need within admin.
 	 */
 	public function includes() {
-		include_once( 'plugin-name-admin-functions.php' );
-		include_once( 'class-pname-admin-assets.php' );
+		include_once 'plugin-name-admin-functions.php';
+		include_once 'class-pname-admin-assets.php';
 	}
 
 	/**
