@@ -40,6 +40,8 @@ require_once 'class-plugin-name.php';
  * @since  1.0.0
  * @return Plugin_Name
  */
+
+// phpcs:ignore WordPress.NamingConventions.ValidFunctionName
 function PNameSingleton() {
 	return Plugin_Name::instance();
 }

@@ -105,7 +105,7 @@ abstract class PName_Assets {
 	 * @param  boolean  $in_footer
 	 */
 	private function enqueue_script( $handle, $path = '', $deps = array( 'jquery' ), $version = PNAME_VERSION, $in_footer = true ) {
-		if ( ! in_array( $handle, $this->scripts ) && $path ) {
+		if ( ! in_array( $handle, $this->scripts, true ) && $path ) {
 			$this->register_script( $handle, $path, $deps, $version, $in_footer );
 		}
 		wp_enqueue_script( $handle );
@@ -139,7 +139,7 @@ abstract class PName_Assets {
 	 * @param  string   $media
 	 */
 	private function enqueue_style( $handle, $path = '', $deps = array(), $version = PNAME_VERSION, $media = 'all' ) {
-		if ( ! in_array( $handle, $this->styles ) && $path ) {
+		if ( ! in_array( $handle, $this->styles, true ) && $path ) {
 			$this->register_style( $handle, $path, $deps, $version, $media );
 		}
 		wp_enqueue_style( $handle );
@@ -199,7 +199,7 @@ abstract class PName_Assets {
 	 * @param  string $handle
 	 */
 	private function localize_script( $handle ) {
-		if ( ! in_array( $handle, $this->wp_localize_scripts ) && wp_script_is( $handle ) ) {
+		if ( ! in_array( $handle, $this->wp_localize_scripts, true ) && wp_script_is( $handle ) ) {
 			$data = $this->get_script_data( $handle );
 			if ( $data ) {
 				$name                        = str_replace( '-', '_', $handle ) . '_params';

@@ -58,13 +58,14 @@ function plugin_name_get_template_part( $slug, $name = '' ) {
  */
 function plugin_name_get_template( $template_name, $args = array(), $template_path = '', $default_path = '' ) {
 	if ( ! empty( $args ) && is_array( $args ) ) {
+		// phpcs:ignore WordPress.Functions.DontExtract
 		extract( $args );
 	}
 
 	$located = plugin_name_locate_template( $template_name, $template_path, $default_path );
 
 	if ( ! file_exists( $located ) ) {
-		_doing_it_wrong( __FUNCTION__, sprintf( '<code>%s</code> does not exist.', $located ), '1.0.0' );
+		_doing_it_wrong( __FUNCTION__, sprintf( '<code>%s</code> does not exist.', $located ), '1.0.0' ); // WPCS: XSS ok.
 		return;
 	}
 
