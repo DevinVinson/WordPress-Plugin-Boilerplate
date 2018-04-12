@@ -77,8 +77,7 @@ if ( ! class_exists( 'Plugin_Name' ) ) :
 		private function define_constants() {
 			$upload_dir = wp_upload_dir();
 
-			$this->define( 'PNAME_PLUGIN_FILE', __FILE__ );
-			$this->define( 'PNAME_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
+			$this->define( 'PNAME_PLUGIN_BASENAME', plugin_basename( PNAME_PLUGIN_FILE ) );
 			$this->define( 'PNAME_VERSION', $this->version );
 		}
 

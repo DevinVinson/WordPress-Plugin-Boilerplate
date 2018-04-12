@@ -30,6 +30,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
+define( 'PNAME_PLUGIN_FILE', __FILE__ );
 require_once 'class-plugin-name.php';
 
 /**
