@@ -33,7 +33,7 @@ class Plugin_Name_Widget extends WP_Widget {
             'customize_selective_refresh' => true,
         );
 
-        parent::__construct( 'plugin_name_widget', __( 'WordPress Plugin Boilerplate' ), $widget_ops );
+        parent::__construct( 'plugin_name', __( 'WordPress Plugin Boilerplate' ), $widget_ops );
     }
 
     /**
