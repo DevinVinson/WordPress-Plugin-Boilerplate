@@ -29,3 +29,8 @@
 if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 	exit;
 }
+
+global $wpdb;
+
+// Removes the widget's options from the database
+$wpdb->query("DELETE FROM {$wpdb->prefix}options WHERE option_name='widget_plugin_name'");

@@ -67,13 +67,17 @@ class Plugin_Name {
 	 * @since    1.0.0
 	 */
 	public function __construct() {
-
+		if ( defined( 'PLUGIN_NAME_VERSION' ) ) {
+			$this->version = PLUGIN_NAME_VERSION;
+		} else {
+			$this->version = '1.0.0';
+		}
 		$this->plugin_name = 'plugin-name';
-		$this->version = '1.0.0';
 
 		$this->load_dependencies();
 		$this->set_locale();
 		$this->define_admin_hooks();
+		$this->define_includes_hooks();
 		$this->define_public_hooks();
 
 	}
@@ -97,6 +101,11 @@ class Plugin_Name {
 	private function load_dependencies() {
 
 		/**
+		 * The class responsible for defining all actions related to the includes functionality.
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-plugin-name-includes.php';
+
+		/**
 		 * The class responsible for orchestrating the actions and filters of the
 		 * core plugin.
 		 */
@@ -107,6 +116,11 @@ class Plugin_Name {
 		 * of the plugin.
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-plugin-name-i18n.php';
+
+		/**
+		 * This is a sample custom widget.
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/widgets/class-plugin-name-widget.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the admin area.
@@ -135,7 +149,6 @@ class Plugin_Name {
 	private function set_locale() {
 
 		$plugin_i18n = new Plugin_Name_i18n();
-		$plugin_i18n->set_domain( $this->get_plugin_name() );
 
 		$this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
 
@@ -154,6 +167,20 @@ class Plugin_Name {
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
+
+	}
+
+	/**
+	 * Register all of the hooks related to the includes functionality of the plugin.
+	 *
+	 * @since    1.0.0
+	 * @access   private
+	 */
+	private function define_includes_hooks() {
+
+		$plugin_includes = new Plugin_Name_Includes( $this->get_plugin_name(), $this->get_version() );
+
+		$this->loader->add_action( 'widgets_init', $plugin_includes, 'register_widgets');
 
 	}
 
