@@ -27,6 +27,8 @@ if ( ! class_exists( 'Plugin_Name' ) ) :
 		 */
 		protected static $_instance = null;
 
+		protected static $_initialized = false;
+
 		/**
 		 * Main Plugin_Name Instance.
 		 *
@@ -40,6 +42,7 @@ if ( ! class_exists( 'Plugin_Name' ) ) :
 		public static function instance() {
 			if ( is_null( self::$_instance ) ) {
 				self::$_instance = new self();
+				self::$_instance->initalize_plugin();
 			}
 			return self::$_instance;
 		}
@@ -61,9 +64,16 @@ if ( ! class_exists( 'Plugin_Name' ) ) :
 		}
 
 		/**
-		 * Plugin_Name Constructor.
+		 * Plugin_Name Initializer.
 		 */
-		public function __construct() {
+		public function initalize_plugin() {
+			if( self::$_initialized ) {
+				_doing_it_wrong( __FUNCTION__, esc_html__( 'Only a single instance of this class is allowed. Use singleton.', 'plugin-name' ), '1.0.0' );
+				return;
+			}
+
+			self::$_initialized = true;
+
 			$this->define_constants();
 			$this->includes();
 			$this->init_hooks();
@@ -115,7 +125,7 @@ if ( ! class_exists( 'Plugin_Name' ) ) :
 		/**
 		 * Include required core files used in admin and on the frontend.
 		 */
-		public function includes() {
+		private function includes() {
 			include_once 'includes/class-pname-autoloader.php';
 			include_once 'includes/plugin-name-core-functions.php';
 			include_once 'includes/class-pname-install.php';
@@ -134,7 +144,7 @@ if ( ! class_exists( 'Plugin_Name' ) ) :
 		/**
 		 * Include required customizations files.
 		 */
-		public function customizations_includes() {
+		private function customizations_includes() {
 			$customizations = array(
 				'acf',
 			);
@@ -175,7 +185,7 @@ if ( ! class_exists( 'Plugin_Name' ) ) :
 		 *      - WP_LANG_DIR/plugin-name/plugin-name-LOCALE.mo
 		 *      - WP_LANG_DIR/plugins/plugin-name-LOCALE.mo
 		 */
-		public function load_plugin_textdomain() {
+		private function load_plugin_textdomain() {
 			$locale = apply_filters( 'plugin_locale', get_locale(), 'plugin-name' );
 
 			load_textdomain( 'plugin-name', WP_LANG_DIR . '/plugin-name/plugin-name-' . $locale . '.mo' );
