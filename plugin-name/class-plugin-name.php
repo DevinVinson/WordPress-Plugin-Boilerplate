@@ -125,7 +125,7 @@ if ( ! class_exists( 'Plugin_Name' ) ) :
 		/**
 		 * Include required core files used in admin and on the frontend.
 		 */
-		public function includes() {
+		private function includes() {
 			include_once 'includes/class-pname-autoloader.php';
 			include_once 'includes/plugin-name-core-functions.php';
 			include_once 'includes/class-pname-install.php';
@@ -144,7 +144,7 @@ if ( ! class_exists( 'Plugin_Name' ) ) :
 		/**
 		 * Include required customizations files.
 		 */
-		public function customizations_includes() {
+		private function customizations_includes() {
 			$customizations = array(
 				'acf',
 			);
@@ -185,7 +185,7 @@ if ( ! class_exists( 'Plugin_Name' ) ) :
 		 *      - WP_LANG_DIR/plugin-name/plugin-name-LOCALE.mo
 		 *      - WP_LANG_DIR/plugins/plugin-name-LOCALE.mo
 		 */
-		public function load_plugin_textdomain() {
+		private function load_plugin_textdomain() {
 			$locale = apply_filters( 'plugin_locale', get_locale(), 'plugin-name' );
 
 			load_textdomain( 'plugin-name', WP_LANG_DIR . '/plugin-name/plugin-name-' . $locale . '.mo' );
