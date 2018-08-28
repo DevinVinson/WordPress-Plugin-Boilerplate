@@ -27,6 +27,8 @@ if ( ! class_exists( 'Plugin_Name' ) ) :
 		 */
 		protected static $_instance = null;
 
+		protected static $_initialized = false;
+
 		/**
 		 * Main Plugin_Name Instance.
 		 *
@@ -40,6 +42,7 @@ if ( ! class_exists( 'Plugin_Name' ) ) :
 		public static function instance() {
 			if ( is_null( self::$_instance ) ) {
 				self::$_instance = new self();
+				self::$_instance->initalize_plugin();
 			}
 			return self::$_instance;
 		}
@@ -61,9 +64,16 @@ if ( ! class_exists( 'Plugin_Name' ) ) :
 		}
 
 		/**
-		 * Plugin_Name Constructor.
+		 * Plugin_Name Initializer.
 		 */
-		public function __construct() {
+		public function initalize_plugin() {
+			if( self::$_initialized ) {
+				_doing_it_wrong( __FUNCTION__, esc_html__( 'Only a single instance of this class is allowed. Use singleton.', 'plugin-name' ), '1.0.0' );
+				return;
+			}
+
+			self::$_initialized = true;
+
 			$this->define_constants();
 			$this->includes();
 			$this->init_hooks();
