@@ -90,6 +90,7 @@ class Plugin_Name {
 	 * - Plugin_Name_i18n. Defines internationalization functionality.
 	 * - Plugin_Name_Admin. Defines all hooks for the admin area.
 	 * - Plugin_Name_Public. Defines all hooks for the public side of the site.
+	 * - Plugin_Name_Cron. Orchestrates scheduling and un-scheduling cron jobs.
 	 *
 	 * Create an instance of the loader which will be used to register the hooks
 	 * with WordPress.
@@ -124,6 +125,10 @@ class Plugin_Name {
 
 		$this->loader = new Plugin_Name_Loader();
 
+		/**
+		 * The class responsible for scheduling and un-scheduling events (cron jobs).
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-plugin-name-cron.php';
 	}
 
 	/**
@@ -157,6 +162,7 @@ class Plugin_Name {
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 
+		$this->loader->add_action( Plugin_Name_Cron::PLUGIN_NAME_EVENT_DAILY_HOOK, $plugin_admin, 'run_daily_event' );
 	}
 
 	/**
