@@ -164,7 +164,8 @@ abstract class PName_Assets {
 		if ( $enqueue_scripts ) {
 			foreach ( $enqueue_scripts as $handle => $args ) {
 				$args = wp_parse_args(
-					$args, array(
+					$args,
+					array(
 						'src'       => '',
 						'deps'      => array( 'jquery' ),
 						'version'   => PNAME_VERSION,
@@ -180,7 +181,8 @@ abstract class PName_Assets {
 		if ( $enqueue_styles ) {
 			foreach ( $enqueue_styles as $handle => $args ) {
 				$args = wp_parse_args(
-					$args, array(
+					$args,
+					array(
 						'src'     => '',
 						'deps'    => '',
 						'version' => PNAME_VERSION,

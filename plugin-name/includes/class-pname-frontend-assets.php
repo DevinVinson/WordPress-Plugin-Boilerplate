@@ -36,7 +36,8 @@ class PName_Frontend_Assets extends PName_Assets {
 	 */
 	public function get_styles() {
 		return apply_filters(
-			'plugin_name_enqueue_styles', array(
+			'plugin_name_enqueue_styles',
+			array(
 				'plugin-name-general' => array(
 					'src' => $this->localize_asset( 'css/frontend/plugin-name.css' ),
 				),
@@ -51,7 +52,8 @@ class PName_Frontend_Assets extends PName_Assets {
 	 */
 	public function get_scripts() {
 		return apply_filters(
-			'plugin_name_enqueue_scripts', array(
+			'plugin_name_enqueue_scripts',
+			array(
 				'plugin-name-general' => array(
 					'src'  => $this->localize_asset( 'js/frontend/plugin-name.js' ),
 					'data' => array(

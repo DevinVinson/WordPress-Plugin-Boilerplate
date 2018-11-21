@@ -67,7 +67,7 @@ if ( ! class_exists( 'Plugin_Name' ) ) :
 		 * Plugin_Name Initializer.
 		 */
 		public function initalize_plugin() {
-			if( self::$_initialized ) {
+			if ( self::$_initialized ) {
 				_doing_it_wrong( __FUNCTION__, esc_html__( 'Only a single instance of this class is allowed. Use singleton.', 'plugin-name' ), '1.0.0' );
 				return;
 			}
