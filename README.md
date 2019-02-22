@@ -22,7 +22,7 @@ The WordPress Plugin Boilerplate includes the following files:
 
 The Boilerplate can be installed directly into your plugins folder "as-is". You will want to rename it and the classes inside of it to fit your needs. For example, if your plugin is named 'example-me' then:
 
-* rename files from `plugin_name` to `example_me`
+* rename files from `plugin-name` to `example-me`
 * change `plugin_name` to `example_me`
 * change `PLUGIN_NAME_` to `EXAMPLE_ME_`
 
