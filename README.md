@@ -24,6 +24,8 @@ The Boilerplate can be installed directly into your plugins folder "as-is". You 
 
 * rename files from `plugin-name` to `example-me`
 * change `plugin_name` to `example_me`
+* change `plugin-name` to `example-me`
+* change `Plugin_Name` to `Example_Me`
 * change `PLUGIN_NAME_` to `EXAMPLE_ME_`
 
 It's safe to activate the plugin at this point. Because the Boilerplate has no real functionality there will be no menu items, meta boxes, or custom post types added until you write the code.
