@@ -42,11 +42,20 @@ class Plugin_Name_Loader {
 	protected $filters;
 
 	/**
+	 *
+	 * @since 1.0.0
+	 * @access private
+	 * @var object|Plugin_Name_Loader
+	 */
+	private static $instance;
+
+	/**
 	 * Initialize the collections used to maintain the actions and filters.
 	 *
 	 * @since    1.0.0
+	 * @access private
 	 */
-	public function __construct() {
+	private function __construct() {
 
 		$this->actions = array();
 		$this->filters = array();
@@ -96,8 +105,7 @@ class Plugin_Name_Loader {
 	 * @return   array                                  The collection of actions and filters registered with WordPress.
 	 */
 	private function add( $hooks, $hook, $component, $callback, $priority, $accepted_args ) {
-
-		$hooks[] = array(
+		$hooks[ $this->hook_index( $hook, $component, $callback ) ] = array(
 			'hook'          => $hook,
 			'component'     => $component,
 			'callback'      => $callback,
@@ -108,6 +116,45 @@ class Plugin_Name_Loader {
 		return $hooks;
 
 	}
+
+	/**
+	 * Remove a hook.
+	 *
+	 * Hook must have been added by this class for this remover to work.
+	 *
+	 * Usage Plugin_Name_Loader::get_instance()->remove( $hook, $component, $callback );
+	 *
+	 * @since      1.0.0
+	 * @param      string               $hook             The name of the WordPress filter that is being registered.
+	 * @param      object               $component        A reference to the instance of the object on which the filter is defined.
+	 * @param      string               $callback         The name of the function definition on the $component.
+	 */
+	public function remove( $hook, $component, $callback ) {
+		$index = $this->hook_index( $hook, $component, $callback );
+		if( isset( $this->filters[ $index ]  ) ) {
+			remove_filter( $this->filters[ $index ][ 'hook' ],  array( $this->filters[ $index ][ 'component' ], $this->filters[ $index ][ 'callback' ] ) );
+		}
+
+		if( isset( $this->actions[ $index ] ) ) {
+			remove_action( $this->filters[ $index ][ 'hook' ],  array( $this->filters[ $index ][ 'component' ], $this->filters[ $index ][ 'callback' ] ) );
+		}
+	}
+
+	/**
+	 * Utility function for indexing $this->hooks
+	 *
+	 * @since       1.0.0
+	 * @access      protected
+	 * @param      string               $hook             The name of the WordPress filter that is being registered.
+	 * @param      object               $component        A reference to the instance of the object on which the filter is defined.
+	 * @param      string               $callback         The name of the function definition on the $component.
+	 *
+	 * @return string
+	 */
+	protected function hook_index( $hook, $component, $callback ) {
+		return md5( $hook . get_class( $component ) . $callback );
+	}
+
 
 	/**
 	 * Register the filters and actions with WordPress.
@@ -123,6 +170,22 @@ class Plugin_Name_Loader {
 		foreach ( $this->actions as $hook ) {
 			add_action( $hook['hook'], array( $hook['component'], $hook['callback'] ), $hook['priority'], $hook['accepted_args'] );
 		}
+
+
+	}
+
+	/**
+	 * Get an instance of this class
+	 *
+	 * @since 1.0.0
+	 * @return object|\Plugin_Name_Loader
+	 */
+	public static function get_instance() {
+		if( is_null( self::$instance ) ) {
+			self::$instance = new Plugin_Name_Loader();
+		}
+
+		return self::$instance;
 
 	}
 
