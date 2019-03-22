@@ -6,29 +6,64 @@
 # You agree that you use this software at your own risk.
 
 if [ $# -lt 1 ]; then
-	echo "Usage: prepare PLUGIN-NAME [ARGS]"
+	echo "Usage: prepare plugin-name"
 	echo "Please specify a plugin name all lower case with hyphens between words"
-	exit 1
+	read main
+else
+	main=$1
 fi
 
 # rename plugin directory
-mkdir $1
-mv plugin-name/* $1/
-rmdir plugin-name
+# mkdir $main
+# mv plugin-name/* $main/
+# rmdir plugin-name
 
 # rename core plugin files
-mv $1/plugin-name.php $1/$1.php
-mv $1/includes/class-plugin-name.php $1/includes/class-$1.php
-mv $1/includes/class-plugin-name-activator.php $1/includes/class-$1-activator.php
-mv $1/includes/class-plugin-name-deactivator.php $1/includes/class-$1-deactivator.php
-mv $1/includes/class-plugin-name-loader.php $1/includes/class-$1-loader.php
-mv $1/includes/class-plugin-name-i18n.php $1/includes/class-$1-i18n.php
-mv $1/admin/class-plugin-name-admin.php $1/admin/class-$1-admin.php
-mv $1/admin/css/plugin-name-admin.css $1/admin/css/$1-admin.css
-mv $1/admin/js/plugin-name-admin.js $1/admin/js/$1-admin.js
-mv $1/admin/partials/plugin-name-admin-display.php $1/admin/partials/$1-admin-display.php
-mv $1/public/class-plugin-name-public.php $1/public/class-$1-public.php
-mv $1/public/css/plugin-name-public.css $1/public/css/$1-public.css
-mv $1/public/js/plugin-name-public.js $1/public/js/$1-public.js
-mv $1/public/partials/plugin-name-public-display.php $1/public/partials/$1-public-display.php
-mv $1/languages/plugin-name.pot $1/languages/$1.pot
+echo 'Renaming filenames to reflect the plugin name provided'
+# mv $main/plugin-name.php $main/$main.php
+# mv $main/includes/class-plugin-name.php $main/includes/class-$main.php
+# mv $main/includes/class-plugin-name-activator.php $main/includes/class-$main-activator.php
+# mv $main/includes/class-plugin-name-deactivator.php $main/includes/class-$main-deactivator.php
+# mv $main/includes/class-plugin-name-loader.php $main/includes/class-$main-loader.php
+# mv $main/includes/class-plugin-name-i18n.php $main/includes/class-$main-i18n.php
+# mv $main/admin/class-plugin-name-admin.php $main/admin/class-$main-admin.php
+# mv $main/admin/css/plugin-name-admin.css $main/admin/css/$main-admin.css
+# mv $main/admin/js/plugin-name-admin.js $main/admin/js/$main-admin.js
+# mv $main/admin/partials/plugin-name-admin-display.php $main/admin/partials/$main-admin-display.php
+# mv $main/public/class-plugin-name-public.php $main/public/class-$main-public.php
+# mv $main/public/css/plugin-name-public.css $main/public/css/$main-public.css
+# mv $main/public/js/plugin-name-public.js $main/public/js/$main-public.js
+# mv $main/public/partials/plugin-name-public-display.php $main/public/partials/$main-public-display.php
+# mv $main/languages/plugin-name.pot $main/languages/$main.pot
+
+# create different versions of the plugin name variable
+echo 'Performing substitutions throughout the boilerplate using the following naming formats:'
+echo $main
+under=$(echo $main | tr '-' '_')
+space=$(echo $main | tr '-' ' ')
+upper=$(echo $main | tr '[:lower:]' '[:upper:]' | tr '-' '_')
+capitalspace=$(echo $space | awk '{for(i=1;i<=NF;i++){ $i=toupper(substr($i,1,1)) substr($i,2) }}1')
+capital=$(echo $space | awk '{for(i=1;i<=NF;i++){ $i=toupper(substr($i,1,1)) substr($i,2) }}1' | tr ' ' '_')
+echo $under
+echo $upper
+echo $space
+echo $capital
+
+# find replace within files
+find ./$main -type f -name "*" -print0 | xargs -0 sed -i '' -e 's/PLUGIN_NAME_/'"$upper"'_/g'
+find ./$main -type f -name "*" -print0 | xargs -0 sed -i '' -e 's/-plugin-name-/-'"$main"'-/g'
+find ./$main -type f -name "*" -print0 | xargs -0 sed -i '' -e 's/-plugin-name/-'"$main"'/g'
+find ./$main -type f -name "*" -print0 | xargs -0 sed -i '' -e 's/plugin-name-/'"$main"'-/g'
+find ./$main -type f -name "*" -print0 | xargs -0 sed -i '' -e "s/'plugin-name'/'$main'/g"
+find ./$main -type f -name "*" -print0 | xargs -0 sed -i '' -e 's/_plugin_name/_'"$under"'/g'
+find ./$main -type f -name "*" -print0 | xargs -0 sed -i '' -e 's/Plugin_Name/'"$capital"'/g'
+
+# make some other changes
+find ./$main -type f -name "*" -print0 | xargs -0 sed -i '' -e 's/WordPress Plugin Boilerplate/'"$capitalspace"'/g'
+
+echo "Please specify the company name or author:"
+read author
+find ./$main -type f -name "*" -print0 | xargs -0 sed -i '' -e 's/Your Name or Your Company/'"$author"'/g'
+
+echo "Please edit the main plugin file to change the remaining plugin information in the comments at the top."
+
