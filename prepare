@@ -1,0 +1,34 @@
+
+#!/bin/bash -i
+
+# Copyright 2019 Orpheus, Inc. <hello@orpheusincorporated.com>
+# Orpheus, Inc. is not responsible for misuse or for any damage that you may cause!
+# You agree that you use this software at your own risk.
+
+if [ $# -lt 1 ]; then
+	echo "Usage: prepare PLUGIN-NAME [ARGS]"
+	echo "Please specify a plugin name all lower case with hyphens between words"
+	exit 1
+fi
+
+# rename plugin directory
+mkdir $1
+mv plugin-name/* $1/
+rmdir plugin-name
+
+# rename core plugin files
+mv $1/plugin-name.php $1/$1.php
+mv $1/includes/class-plugin-name.php $1/includes/class-$1.php
+mv $1/includes/class-plugin-name-activator.php $1/includes/class-$1-activator.php
+mv $1/includes/class-plugin-name-deactivator.php $1/includes/class-$1-deactivator.php
+mv $1/includes/class-plugin-name-loader.php $1/includes/class-$1-loader.php
+mv $1/includes/class-plugin-name-i18n.php $1/includes/class-$1-i18n.php
+mv $1/admin/class-plugin-name-admin.php $1/admin/class-$1-admin.php
+mv $1/admin/css/plugin-name-admin.css $1/admin/css/$1-admin.css
+mv $1/admin/js/plugin-name-admin.js $1/admin/js/$1-admin.js
+mv $1/admin/partials/plugin-name-admin-display.php $1/admin/partials/$1-admin-display.php
+mv $1/public/class-plugin-name-public.php $1/public/class-$1-public.php
+mv $1/public/css/plugin-name-public.css $1/public/css/$1-public.css
+mv $1/public/js/plugin-name-public.js $1/public/js/$1-public.js
+mv $1/public/partials/plugin-name-public-display.php $1/public/partials/$1-public-display.php
+mv $1/languages/plugin-name.pot $1/languages/$1.pot
