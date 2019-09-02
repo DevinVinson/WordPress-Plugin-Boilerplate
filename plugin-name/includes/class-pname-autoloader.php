@@ -42,7 +42,6 @@ class PName_Autoloader {
 	 * @return string
 	 */
 	private function get_file_name_from_class( $class ) {
-		$class = strtolower( $class );
 		return 'class-' . str_replace( '_', '-', $class ) . '.php';
 	}
 
@@ -66,14 +65,20 @@ class PName_Autoloader {
 	 * @param string $class
 	 */
 	public function autoload( $class ) {
+		$class = strtolower( $class );
+
+		if ( 0 !== strpos( $class, 'pname_' ) ) {
+			return;
+		}
+
 		$file = $this->get_file_name_from_class( $class );
 		$path = '';
 
-		if ( strpos( $class, 'PName_Admin' ) === 0 ) {
+		if ( 0 === strpos( $class, 'pname_admin' ) ) {
 			$path = $this->include_path . 'admin/';
 		}
 
-		if ( empty( $path ) || ( ! $this->load_file( $path . $file ) && strpos( $class, 'PName_' ) === 0 ) ) {
+		if ( empty( $path ) || ! $this->load_file( $path . $file ) ) {
 			$this->load_file( $this->include_path . $file );
 		}
 	}
