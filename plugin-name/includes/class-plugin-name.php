@@ -78,7 +78,7 @@ class Plugin_Name {
 		$this->set_locale();
 		$this->define_admin_hooks();
 		$this->define_public_hooks();
-
+		$this->define_wp_cli_commands();
 	}
 
 	/**
@@ -173,6 +173,24 @@ class Plugin_Name {
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
 
+	}
+
+	/**
+	 * Register the WP CLI commands.
+	 *
+	 * @since 1.0.0
+	 * @access private
+	 */
+	private function define_wp_cli_commands() {
+		if ( ! class_exists( 'WP_CLI' ) ) {
+			return;
+		}
+
+		/**
+		 * The class responsible for executing any WP CLI commands.
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-plugin-name-admin-cli.php';
+		WP_CLI::add_command( 'plugin-name', 'Plugin_Name_Admin_CLI' );
 	}
 
 	/**
