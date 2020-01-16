@@ -20,7 +20,9 @@
     },
     "require-dev": {
         "cweagans/composer-patches": "~1.0",
-        "coenjacobs/mozart": "^0.4.0"
+        "coenjacobs/mozart": "^0.4.0",
+        "dealerdirect/phpcodesniffer-composer-installer": "*",
+        "wp-coding-standards/wpcs": "*"
     },
     "extra": {
         "patches": {
