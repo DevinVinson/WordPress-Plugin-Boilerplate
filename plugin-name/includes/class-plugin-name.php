@@ -171,7 +171,7 @@ class Plugin_Name {
 	 * @since    1.0.0
 	 * @access   private
 	 */
-	private function define_public_hooks() {
+	private function define_frontend_hooks() {
 
 		$plugin_frontend = new Frontend( $this->get_plugin_name(), $this->get_version() );
 
