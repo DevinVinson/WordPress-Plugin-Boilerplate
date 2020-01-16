@@ -22,7 +22,7 @@ namespace Plugin_Name\frontend;
  * @subpackage Plugin_Name/frontend
  * @author     Your Name <email@example.com>
  */
-class Plugin_Name_Frontend {
+class Frontend {
 
 	/**
 	 * The ID of this plugin.

@@ -22,7 +22,7 @@ namespace Plugin_Name\includes;
  * @subpackage Plugin_Name/includes
  * @author     Your Name <email@example.com>
  */
-class Plugin_Name_Activator {
+class Activator {
 
 	/**
 	 * Short Description. (use period)
