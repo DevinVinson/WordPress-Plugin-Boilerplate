@@ -19,6 +19,20 @@
             "coenjacobs/mozart": {
                 "Allow default packages": "https://github.com/coenjacobs/mozart/pull/34.patch"
             }
+        },
+        "mozart": {
+            "dep_namespace": "Plugin_Name\\",
+            "dep_directory": "/plugin-name/vendor/",
+            "classmap_directory": "/classes/dependencies/",
+            "classmap_prefix": "Plugin_Name_"
         }
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "\"vendor/bin/mozart\" compose"
+        ],
+        "post-update-cmd": [
+            "\"vendor/bin/mozart\" compose"
+        ]
     }
 }
