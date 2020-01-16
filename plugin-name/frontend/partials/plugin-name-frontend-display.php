@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Provide a frontend-facing view for the plugin
  *

@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Fired during plugin activation
  *
