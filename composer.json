@@ -9,6 +9,12 @@
             "email": "email@example.com"
         }
     ],
+    "repositories": [
+        {
+            "url": "https://github.com/pablo-sg-pacheco/wp-namespace-autoloader",
+            "type": "git"
+        }
+    ],
     "require": {
         "pablo-sg-pacheco/wp-namespace-autoloader": "dev-master"
     },

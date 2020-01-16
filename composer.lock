@@ -4,21 +4,15 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3501f14d576035a86d64e34c8a3204e8",
+    "content-hash": "054998d37e12acfac73ba2bf04a10770",
     "packages": [
         {
             "name": "pablo-sg-pacheco/wp-namespace-autoloader",
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/pablo-sg-pacheco/wp-namespace-autoloader.git",
-                "reference": "3979e0beb15634c647fad71e7f9dba567bacbc6e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/pablo-sg-pacheco/wp-namespace-autoloader/zipball/3979e0beb15634c647fad71e7f9dba567bacbc6e",
-                "reference": "3979e0beb15634c647fad71e7f9dba567bacbc6e",
-                "shasum": ""
+                "url": "https://github.com/pablo-sg-pacheco/wp-namespace-autoloader",
+                "reference": "1f7bc55a5a14f23d5b184169b9b82d9be2fc4bae"
             },
             "require": {
                 "php": ">=5.3.0"
@@ -32,7 +26,11 @@
                     "Pablo_Pacheco\\WP_Namespace_Autoloader\\": "src"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "psr-4": {
+                    "Pablo_Pacheco\\WP_Namespace_Autoloader\\Tests\\": "tests"
+                }
+            },
             "license": [
                 "GPLv2"
             ],
@@ -50,7 +48,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2019-06-25T01:30:01+00:00"
+            "time": "2020-01-16T22:51:23+00:00"
         }
     ],
     "packages-dev": [
