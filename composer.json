@@ -9,5 +9,16 @@
             "email": "email@example.com"
         }
     ],
-    "require": {}
+    "require": {},
+    "require-dev": {
+        "cweagans/composer-patches": "~1.0",
+        "coenjacobs/mozart": "^0.4.0"
+    },
+    "extra": {
+        "patches": {
+            "coenjacobs/mozart": {
+                "Allow default packages": "https://github.com/coenjacobs/mozart/pull/34.patch"
+            }
+        }
+    }
 }
