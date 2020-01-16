@@ -9,7 +9,9 @@
             "email": "email@example.com"
         }
     ],
-    "require": {},
+    "require": {
+        "pablo-sg-pacheco/wp-namespace-autoloader": "dev-master"
+    },
     "require-dev": {
         "cweagans/composer-patches": "~1.0",
         "coenjacobs/mozart": "^0.4.0"
