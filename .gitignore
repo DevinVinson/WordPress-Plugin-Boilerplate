@@ -37,3 +37,5 @@ dwsync.xml
 intermediate
 .idea
 cache
+
+/vendor/

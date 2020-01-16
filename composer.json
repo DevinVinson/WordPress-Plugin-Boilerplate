@@ -1,0 +1,13 @@
+{
+    "name": "your-domain/plugin-name",
+    "description": "This is a short description of what the plugin does.",
+    "type": "wordpress-plugin",
+    "license": "GPL-2.0+-or-later",
+    "authors": [
+        {
+            "name": "Your Name",
+            "email": "email@example.com"
+        }
+    ],
+    "require": {}
+}
