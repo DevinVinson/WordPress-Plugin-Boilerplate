@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Fired during plugin deactivation
+ * Fired during plugin activation
  *
  * @link       http://example.com
  * @since      1.0.0
@@ -10,17 +10,19 @@
  * @subpackage Plugin_Name/includes
  */
 
+namespace Plugin_Name\includes;
+
 /**
- * Fired during plugin deactivation.
+ * Fired during plugin activation.
  *
- * This class defines all code necessary to run during the plugin's deactivation.
+ * This class defines all code necessary to run during the plugin's activation.
  *
  * @since      1.0.0
  * @package    Plugin_Name
  * @subpackage Plugin_Name/includes
  * @author     Your Name <email@example.com>
  */
-class Plugin_Name_Deactivator {
+class Activator {
 
 	/**
 	 * Short Description. (use period)
@@ -29,7 +31,7 @@ class Plugin_Name_Deactivator {
 	 *
 	 * @since    1.0.0
 	 */
-	public static function deactivate() {
+	public static function activate() {
 
 	}
 

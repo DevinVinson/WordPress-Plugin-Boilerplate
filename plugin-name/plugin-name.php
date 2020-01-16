@@ -25,6 +25,12 @@
  * Domain Path:       /languages
  */
 
+namespace Plugin_Name;
+
+use Plugin_Name\includes\Activator;
+use Plugin_Name\includes\Deactivator;
+use Plugin_Name\includes\Plugin_Name;
+
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
 	die;
@@ -41,28 +47,28 @@ define( 'PLUGIN_NAME_VERSION', '1.0.0' );
 
 /**
  * The code that runs during plugin activation.
- * This action is documented in includes/class-plugin-name-activator.php
+ * This action is documented in includes/class-activator.php
  */
 function activate_plugin_name() {
 
-	Plugin_Name_Activator::activate();
+	Activator::activate();
 }
 
 /**
  * The code that runs during plugin deactivation.
- * This action is documented in includes/class-plugin-name-deactivator.php
+ * This action is documented in includes/class-deactivator.php
  */
 function deactivate_plugin_name() {
 
-	Plugin_Name_Deactivator::deactivate();
+	Deactivator::deactivate();
 }
 
-register_activation_hook( __FILE__, 'activate_plugin_name' );
-register_deactivation_hook( __FILE__, 'deactivate_plugin_name' );
+register_activation_hook( __FILE__, 'Plugin_Name\activate_plugin_name' );
+register_deactivation_hook( __FILE__, 'Plugin_Name\deactivate_plugin_name' );
 
 /**
  * The core plugin class that is used to define internationalization,
- * admin-specific hooks, and public-facing site hooks.
+ * admin-specific hooks, and frontend-facing site hooks.
  */
 
 

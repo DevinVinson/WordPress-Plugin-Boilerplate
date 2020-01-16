@@ -1,15 +1,15 @@
 <?php
 
 /**
- * Provide a public-facing view for the plugin
+ * Provide a frontend-facing view for the plugin
  *
- * This file is used to markup the public-facing aspects of the plugin.
+ * This file is used to markup the frontend-facing aspects of the plugin.
  *
  * @link       http://example.com
  * @since      1.0.0
  *
  * @package    Plugin_Name
- * @subpackage Plugin_Name/public/partials
+ * @subpackage Plugin_Name/frontend/partials
  */
 ?>
 

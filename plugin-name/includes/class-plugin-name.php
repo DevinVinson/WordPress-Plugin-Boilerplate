@@ -4,7 +4,7 @@
  * The file that defines the core plugin class
  *
  * A class definition that includes attributes and functions used across both the
- * public-facing side of the site and the admin area.
+ * frontend-facing side of the site and the admin area.
  *
  * @link       http://example.com
  * @since      1.0.0
@@ -13,11 +13,16 @@
  * @subpackage Plugin_Name/includes
  */
 
+namespace Plugin_Name\includes;
+
+use Plugin_Name\admin\Admin;
+use Plugin_Name\frontend\Frontend;
+
 /**
  * The core plugin class.
  *
  * This is used to define internationalization, admin-specific hooks, and
- * public-facing site hooks.
+ * frontend-facing site hooks.
  *
  * Also maintains the unique identifier of this plugin as well as the current
  * version of the plugin.
@@ -35,7 +40,7 @@ class Plugin_Name {
 	 *
 	 * @since    1.0.0
 	 * @access   protected
-	 * @var      Plugin_Name_Loader    $loader    Maintains and registers all hooks for the plugin.
+	 * @var      Loader    $loader    Maintains and registers all hooks for the plugin.
 	 */
 	protected $loader;
 
@@ -62,7 +67,7 @@ class Plugin_Name {
 	 *
 	 * Set the plugin name and the plugin version that can be used throughout the plugin.
 	 * Load the dependencies, define the locale, and set the hooks for the admin area and
-	 * the public-facing side of the site.
+	 * the frontend-facing side of the site.
 	 *
 	 * @since    1.0.0
 	 */
@@ -74,16 +79,18 @@ class Plugin_Name {
 		}
 		$this->plugin_name = 'plugin-name';
 
+		$this->loader = new Loader();
+
 		$this->set_locale();
 		$this->define_admin_hooks();
-		$this->define_public_hooks();
+		$this->define_frontend_hooks();
 
 	}
-	
+
 	/**
 	 * Define the locale for this plugin for internationalization.
 	 *
-	 * Uses the Plugin_Name_i18n class in order to set the domain and to register the hook
+	 * Uses the i18n class in order to set the domain and to register the hook
 	 * with WordPress.
 	 *
 	 * @since    1.0.0
@@ -91,7 +98,7 @@ class Plugin_Name {
 	 */
 	private function set_locale() {
 
-		$plugin_i18n = new Plugin_Name_i18n();
+		$plugin_i18n = new i18n();
 
 		$this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
 
@@ -106,7 +113,7 @@ class Plugin_Name {
 	 */
 	private function define_admin_hooks() {
 
-		$plugin_admin = new Plugin_Name_Admin( $this->get_plugin_name(), $this->get_version() );
+		$plugin_admin = new Admin( $this->get_plugin_name(), $this->get_version() );
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
@@ -120,12 +127,12 @@ class Plugin_Name {
 	 * @since    1.0.0
 	 * @access   private
 	 */
-	private function define_public_hooks() {
+	private function define_frontend_hooks() {
 
-		$plugin_public = new Plugin_Name_Public( $this->get_plugin_name(), $this->get_version() );
+		$plugin_frontend = new Frontend( $this->get_plugin_name(), $this->get_version() );
 
-		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
-		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
+		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_frontend, 'enqueue_styles' );
+		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_frontend, 'enqueue_scripts' );
 
 	}
 
@@ -153,7 +160,7 @@ class Plugin_Name {
 	 * The reference to the class that orchestrates the hooks with the plugin.
 	 *
 	 * @since     1.0.0
-	 * @return    Plugin_Name_Loader    Orchestrates the hooks of the plugin.
+	 * @return    Loader    Orchestrates the hooks of the plugin.
 	 */
 	public function get_loader() {
 		return $this->loader;

@@ -10,6 +10,8 @@
  * @subpackage Plugin_Name/includes
  */
 
+namespace Plugin_Name\includes;
+
 /**
  * Register all actions and filters for the plugin.
  *
@@ -21,7 +23,7 @@
  * @subpackage Plugin_Name/includes
  * @author     Your Name <email@example.com>
  */
-class Plugin_Name_Loader {
+class Loader {
 
 	/**
 	 * The array of actions registered with WordPress.
