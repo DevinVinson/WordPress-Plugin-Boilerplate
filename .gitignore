@@ -39,3 +39,4 @@ intermediate
 cache
 
 /vendor/
+/plugin-name/vendor/
