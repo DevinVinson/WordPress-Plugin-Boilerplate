@@ -10,6 +10,8 @@
  * @subpackage Plugin_Name/frontend
  */
 
+namespace Plugin_Name\frontend;
+
 /**
  * The public-facing functionality of the plugin.
  *

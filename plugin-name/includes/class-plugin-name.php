@@ -13,6 +13,8 @@
  * @subpackage Plugin_Name/includes
  */
 
+namespace Plugin_Name\includes;
+
 /**
  * The core plugin class.
  *

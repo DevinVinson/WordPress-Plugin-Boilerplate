@@ -10,6 +10,8 @@
  * @subpackage Plugin_Name/includes
  */
 
+namespace Plugin_Name\includes;
+
 /**
  * Fired during plugin deactivation.
  *

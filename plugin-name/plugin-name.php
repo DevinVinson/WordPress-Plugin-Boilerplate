@@ -25,6 +25,8 @@
  * Domain Path:       /languages
  */
 
+namespace Plugin_Name;
+
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
 	die;
