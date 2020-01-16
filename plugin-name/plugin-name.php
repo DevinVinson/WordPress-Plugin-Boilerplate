@@ -30,6 +30,7 @@ namespace Plugin_Name;
 // If this file is called directly, abort.
 use Plugin_Name\includes\Activator;
 use Plugin_Name\includes\Deactivator;
+use Plugin_Name\includes\Plugin_Name;
 
 if ( ! defined( 'WPINC' ) ) {
 	die;
@@ -60,8 +61,8 @@ function deactivate_plugin_name() {
 	Deactivator::deactivate();
 }
 
-register_activation_hook( __FILE__, 'activate_plugin_name' );
-register_deactivation_hook( __FILE__, 'deactivate_plugin_name' );
+register_activation_hook( __FILE__, 'Plugin_Name\activate_plugin_name' );
+register_deactivation_hook( __FILE__, 'Plugin_Name\deactivate_plugin_name' );
 
 /**
  * The core plugin class that is used to define internationalization,
