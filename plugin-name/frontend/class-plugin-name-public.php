@@ -7,20 +7,20 @@
  * @since      1.0.0
  *
  * @package    Plugin_Name
- * @subpackage Plugin_Name/public
+ * @subpackage Plugin_Name/frontend
  */
 
 /**
  * The public-facing functionality of the plugin.
  *
  * Defines the plugin name, version, and two examples hooks for how to
- * enqueue the public-facing stylesheet and JavaScript.
+ * enqueue the frontend-facing stylesheet and JavaScript.
  *
  * @package    Plugin_Name
- * @subpackage Plugin_Name/public
+ * @subpackage Plugin_Name/frontend
  * @author     Your Name <email@example.com>
  */
-class Plugin_Name_Public {
+class Plugin_Name_Frontend {
 
 	/**
 	 * The ID of this plugin.
@@ -55,7 +55,7 @@ class Plugin_Name_Public {
 	}
 
 	/**
-	 * Register the stylesheets for the public-facing side of the site.
+	 * Register the stylesheets for the frontend-facing side of the site.
 	 *
 	 * @since    1.0.0
 	 */
@@ -73,12 +73,12 @@ class Plugin_Name_Public {
 		 * class.
 		 */
 
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/plugin-name-public.css', array(), $this->version, 'all' );
+		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/plugin-name-frontend.css', array(), $this->version, 'all' );
 
 	}
 
 	/**
-	 * Register the JavaScript for the public-facing side of the site.
+	 * Register the JavaScript for the frontend-facing side of the site.
 	 *
 	 * @since    1.0.0
 	 */
@@ -96,7 +96,7 @@ class Plugin_Name_Public {
 		 * class.
 		 */
 
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/plugin-name-public.js', array( 'jquery' ), $this->version, false );
+		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/plugin-name-frontend.js', array( 'jquery' ), $this->version, false );
 
 	}
 
