@@ -15,6 +15,9 @@
 
 namespace Plugin_Name\includes;
 
+use Plugin_Name\admin\Admin;
+use Plugin_Name\frontend\Frontend;
+
 /**
  * The core plugin class.
  *

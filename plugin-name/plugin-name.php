@@ -28,6 +28,9 @@
 namespace Plugin_Name;
 
 // If this file is called directly, abort.
+use Plugin_Name\includes\Activator;
+use Plugin_Name\includes\Deactivator;
+
 if ( ! defined( 'WPINC' ) ) {
 	die;
 }
