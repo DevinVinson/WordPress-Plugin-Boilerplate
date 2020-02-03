@@ -78,6 +78,7 @@ class Plugin_Name {
 		$this->set_locale();
 		$this->define_admin_hooks();
 		$this->define_public_hooks();
+		$this->define_rest_hooks();
 
 	}
 
@@ -121,6 +122,12 @@ class Plugin_Name {
 		 * side of the site.
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-plugin-name-public.php';
+
+		/**
+		 * The class responsible for defining all actions that occur in the rest api
+		 * of the site.
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'rest/class-plugin-name-rest.php';
 
 		$this->loader = new Plugin_Name_Loader();
 
@@ -172,6 +179,20 @@ class Plugin_Name {
 
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
+
+	}
+
+	/**
+	 * Register all of the hooks related to the REST functionality
+	 * of the plugin.
+	 *
+	 * @since    1.0.0
+	 * @access   private
+	 */
+	private function define_rest_hooks() {
+
+		$plugin_rest = new Plugin_Name_Rest( $this->get_plugin_name(), $this->get_version());
+		$this->loader->add_action( 'rest_api_init', $plugin_rest, 'register_routes');
 
 	}
 
