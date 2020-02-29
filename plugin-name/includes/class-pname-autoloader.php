@@ -78,6 +78,10 @@ class PName_Autoloader {
 			$path = $this->include_path . 'admin/';
 		}
 
+		if ( substr( $class, - 6 ) === '_hooks' ) {
+			$path = $this->include_path . 'customizations/';
+		}
+
 		if ( empty( $path ) || ! $this->load_file( $path . $file ) ) {
 			$this->load_file( $this->include_path . $file );
 		}

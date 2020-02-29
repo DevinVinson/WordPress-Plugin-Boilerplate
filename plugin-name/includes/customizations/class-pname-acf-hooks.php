@@ -22,9 +22,9 @@ if ( ! class_exists( 'PName_ACF_Hooks' ) ) :
 		/**
 		 * Hook in methods.
 		 */
-		public function __construct() {
-			// add_filter( 'acf/settings/load_json', array( $this, 'acf_json_load_point' ) );
-			// add_filter( 'acf/settings/save_json', array( $this, 'acf_json_save_point' ) );
+		public static function init() {
+			// add_filter( 'acf/settings/load_json', array( __CLASS__, 'acf_json_load_point' ) );
+			// add_filter( 'acf/settings/save_json', array( __CLASS__, 'acf_json_save_point' ) );
 		}
 
 		/**
@@ -32,7 +32,7 @@ if ( ! class_exists( 'PName_ACF_Hooks' ) ) :
 		 * @param  [array] $paths
 		 * @return [array]
 		 */
-		public function acf_json_load_point( $paths ) {
+		public static function acf_json_load_point( $paths ) {
 			unset( $paths[0] );
 
 			$paths[] = dirname( __FILE__ ) . '/acf-json';
@@ -45,7 +45,7 @@ if ( ! class_exists( 'PName_ACF_Hooks' ) ) :
 		 * @param  [string] $path
 		 * @return [string]
 		 */
-		public function acf_json_save_point( $path ) {
+		public static function acf_json_save_point( $path ) {
 			$path = dirname( __FILE__ ) . '/acf-json';
 
 			return $path;
