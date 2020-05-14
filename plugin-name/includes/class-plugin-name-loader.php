@@ -22,8 +22,7 @@
  * @author     Your Name <email@example.com>
  */
 class Plugin_Name_Loader {
-
-	/**
+/**
 	 * The array of actions registered with WordPress.
 	 *
 	 * @since    1.0.0
@@ -42,6 +41,15 @@ class Plugin_Name_Loader {
 	protected $filters;
 
 	/**
+	 * The array of shortcode registered with WordPress.
+	 *
+	 * @since    1.0.0
+	 * @access   protected
+	 * @var      array    $shortcodes    The shortcode registered with WordPress to fire when the plugin loads.
+	 */
+	protected $shortcodes;
+
+	/**
 	 * Initialize the collections used to maintain the actions and filters.
 	 *
 	 * @since    1.0.0
@@ -50,6 +58,7 @@ class Plugin_Name_Loader {
 
 		$this->actions = array();
 		$this->filters = array();
+		$this->shortcodes = array();
 
 	}
 
@@ -79,6 +88,18 @@ class Plugin_Name_Loader {
 	 */
 	public function add_filter( $hook, $component, $callback, $priority = 10, $accepted_args = 1 ) {
 		$this->filters = $this->add( $this->filters, $hook, $component, $callback, $priority, $accepted_args );
+	}
+
+	/**
+	 * Add a new shortcode to the collection to be registered with WordPress.
+	 *
+	 * @since    1.0.0
+	 * @param    string               $hook             The name of the WordPress shortcode that is being registered.
+	 * @param    object               $component        A reference to the instance of the object on which the shortcode handler.
+	 */
+	public function add_shortcode( $name, $component ) {
+		$this->shortcodes[] = [ 'name' => $name, 
+					'component'=>$component ];
 	}
 
 	/**
@@ -124,6 +145,9 @@ class Plugin_Name_Loader {
 			add_action( $hook['hook'], array( $hook['component'], $hook['callback'] ), $hook['priority'], $hook['accepted_args'] );
 		}
 
-	}
+		foreach ( $this->shortcodes as $shortcode ) {
+			add_shortcode( $shortcode['name'], $shortcode['component'] );
+		}
 
+	}
 }
