@@ -38,31 +38,166 @@ if ( ! defined( 'WPINC' ) ) {
 define( 'PLUGIN_NAME_VERSION', '1.0.0' );
 
 /**
- * The code that runs during plugin activation.
- * This action is documented in includes/class-plugin-name-activator.php
- */
-function activate_plugin_name() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-plugin-name-activator.php';
-	Plugin_Name_Activator::activate();
-}
-
-/**
- * The code that runs during plugin deactivation.
- * This action is documented in includes/class-plugin-name-deactivator.php
- */
-function deactivate_plugin_name() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-plugin-name-deactivator.php';
-	Plugin_Name_Deactivator::deactivate();
-}
-
-register_activation_hook( __FILE__, 'activate_plugin_name' );
-register_deactivation_hook( __FILE__, 'deactivate_plugin_name' );
-
-/**
  * The core plugin class that is used to define internationalization,
  * admin-specific hooks, and public-facing site hooks.
  */
-require plugin_dir_path( __FILE__ ) . 'includes/class-plugin-name.php';
+
+class Plugin_Name_Init {
+
+	/**
+	 * The unique identifier of this plugin.
+	 *
+	 * @since    1.0.0
+	 * @access   protected
+	 * @var      string    $plugin_name    The string used to uniquely identify this plugin.
+	 */
+	protected $plugin_name;
+
+	/**
+	 * The current version of the plugin.
+	 *
+	 * @since    1.0.0
+	 * @access   protected
+	 * @var      string    $version    The current version of the plugin.
+	 */
+	protected $version;
+
+	/**
+	 * Define the core functionality of the plugin.
+	 *
+	 * Set the plugin name and the plugin version that can be used throughout the plugin.
+	 * Load the dependencies, define the locale, and set the hooks for the admin area and
+	 * the public-facing side of the site.
+	 *
+	 * @since    1.0.0
+	 */
+	public function __construct() {
+		if ( defined( 'PLUGIN_NAME_VERSION' ) ) {
+			$version = PLUGIN_NAME_VERSION;
+		} else {
+			$version = '1.0.0';
+		}
+		$plugin_name = 'plugin-name';
+
+		register_activation_hook( __FILE__, array($this, 'activate_plugin_name') );
+		register_deactivation_hook( __FILE__, array($this, 'deactivate_plugin_name') );
+
+		$this->load_dependencies();
+		$this->set_locale();
+		$this->define_hooks();
+	}
+
+	/**
+	 * Load the required dependencies for this plugin.
+	 *
+	 * Include the following files that make up the plugin:
+	 *
+	 * - Plugin_Name_i18n. Defines internationalization functionality.
+	 *  
+	 * @since    1.0.0
+	 * @access   private
+	 */
+	private function load_dependencies() {
+		
+		/**
+		 * The class responsible for defining internationalization functionality
+		 * of the plugin.
+		 */
+		require_once plugin_dir_path( __FILE__ ) . 'includes/class-plugin-name-i18n.php';
+
+		/**
+		 * The class responsible for defining all actions that occur.
+		 */
+		require_once plugin_dir_path( __FILE__ ) . 'class-plugin-name.php';
+
+	}
+
+	/**
+	 * Define the locale for this plugin for internationalization.
+	 *
+	 * Uses the Plugin_Name_i18n class in order to set the domain and to register the hook
+	 * with WordPress.
+	 *
+	 * @since    1.0.0
+	 * @access   private
+	 */
+	private function set_locale() {
+
+		$plugin_i18n = new Plugin_Name_i18n();
+
+		add_action( 'plugins_loaded', array($plugin_i18n, 'load_plugin_textdomain'));
+
+	}
+
+	/**
+	 * Register the hooks of the plugin.
+	 *
+	 * @since    1.0.0
+	 * @access   private
+	 */
+	private function define_hooks() {
+
+		$plugin = new Plugin_Name( $this->get_plugin_name(), $this->get_version() );
+
+		add_action( 'admin_enqueue_scripts', array($plugin, 'enqueue_styles') );
+		add_action( 'admin_enqueue_scripts', array($plugin, 'enqueue_scripts') );
+		
+		/**
+		 * The following lines will load public Front-end CSS/JS.
+		 * In case of use, files should be created and methods should be implemented,
+		 * Methods defined for 'admin_enqueue_scripts' hook could be used as templates.
+		 */
+		// add_action( 'wp_enqueue_scripts', array($plugin, 'enqueue_public_styles') );
+		// add_action( 'wp_enqueue_scripts', array($plugin, 'enqueue_public_scripts') );
+
+	}
+
+	/**
+	 * The name of the plugin used to uniquely identify it within the context of
+	 * WordPress and to define internationalization functionality.
+	 *
+	 * @since     1.0.0
+	 * @return    string    The name of the plugin.
+	 */
+	public function get_plugin_name() {
+		return $this->plugin_name;
+	}
+
+	/**
+	 * Retrieve the version number of the plugin.
+	 *
+	 * @since     1.0.0
+	 * @return    string    The version number of the plugin.
+	 */
+	public function get_version() {
+		return $this->version;
+	}
+
+	/**
+	 * The code that runs during plugin activation.
+	 */
+	function activate_plugin_name() {
+		/**
+		 * Fired during plugin activation.
+		 *
+		 * This class defines all code necessary to run during the plugin's activation.
+		 *
+		 *
+		 */
+	}
+
+	/**
+	 * The code that runs during plugin deactivation.
+	 */
+	function deactivate_plugin_name() {
+		/**
+		 * Fired during plugin deactivation.
+		 *
+		 * This class defines all code necessary to run during the plugin's deactivation.
+		 */
+	}
+
+}
 
 /**
  * Begins execution of the plugin.
@@ -73,10 +208,4 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-plugin-name.php';
  *
  * @since    1.0.0
  */
-function run_plugin_name() {
-
-	$plugin = new Plugin_Name();
-	$plugin->run();
-
-}
-run_plugin_name();
+$plugin = new Plugin_Name_Init();
