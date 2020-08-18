@@ -138,17 +138,14 @@ class Plugin_Name_Init {
 	private function define_hooks() {
 
 		$plugin = new Plugin_Name( $this->get_plugin_name(), $this->get_version() );
-
-		add_action( 'admin_enqueue_scripts', array($plugin, 'enqueue_styles') );
-		add_action( 'admin_enqueue_scripts', array($plugin, 'enqueue_scripts') );
 		
 		/**
 		 * The following lines will load public Front-end CSS/JS.
 		 * In case of use, files should be created and methods should be implemented,
 		 * Methods defined for 'admin_enqueue_scripts' hook could be used as templates.
 		 */
-		// add_action( 'wp_enqueue_scripts', array($plugin, 'enqueue_public_styles') );
-		// add_action( 'wp_enqueue_scripts', array($plugin, 'enqueue_public_scripts') );
+		add_action( 'admin_enqueue_scripts', array($plugin, 'enqueue_styles') );
+		add_action( 'admin_enqueue_scripts', array($plugin, 'enqueue_scripts') );
 
 	}
 
