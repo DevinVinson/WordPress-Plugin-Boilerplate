@@ -50,20 +50,19 @@ echo $space
 echo $capital
 
 # find replace within files
-find ./$main -type f -name "*" -print0 | xargs -0 sed -i '' -e 's/PLUGIN_NAME_/'"$upper"'_/g'
-find ./$main -type f -name "*" -print0 | xargs -0 sed -i '' -e 's/-plugin-name-/-'"$main"'-/g'
-find ./$main -type f -name "*" -print0 | xargs -0 sed -i '' -e 's/-plugin-name/-'"$main"'/g'
-find ./$main -type f -name "*" -print0 | xargs -0 sed -i '' -e 's/plugin-name-/'"$main"'-/g'
-find ./$main -type f -name "*" -print0 | xargs -0 sed -i '' -e "s/'plugin-name'/'$main'/g"
-find ./$main -type f -name "*" -print0 | xargs -0 sed -i '' -e 's/_plugin_name/_'"$under"'/g'
-find ./$main -type f -name "*" -print0 | xargs -0 sed -i '' -e 's/Plugin_Name/'"$capital"'/g'
+find ./$main -type f -name "*" -print0 | xargs -0 perl -pi -e 's/PLUGIN_NAME_/'"$upper"'_/g'
+find ./$main -type f -name "*" -print0 | xargs -0 perl -pi -e 's/-plugin-name-/-'"$main"'-/g'
+find ./$main -type f -name "*" -print0 | xargs -0 perl -pi -e 's/-plugin-name/-'"$main"'/g'
+find ./$main -type f -name "*" -print0 | xargs -0 perl -pi -e 's/plugin-name-/'"$main"'-/g'
+find ./$main -type f -name "*" -print0 | xargs -0 perl -pi -e "s/'plugin-name'/'$main'/g"
+find ./$main -type f -name "*" -print0 | xargs -0 perl -pi -e 's/_plugin_name/_'"$under"'/g'
+find ./$main -type f -name "*" -print0 | xargs -0 perl -pi -e 's/Plugin_Name/'"$capital"'/g'
 
 # make some other changes
-find ./$main -type f -name "*" -print0 | xargs -0 sed -i '' -e 's/WordPress Plugin Boilerplate/'"$capitalspace"'/g'
+find ./$main -type f -name "*" -print0 | xargs -0 perl -pi -e 's/WordP:wress Plugin Boilerplate/'"$capitalspace"'/g'
 
 echo "Please specify the company name or author:"
 read author
-find ./$main -type f -name "*" -print0 | xargs -0 sed -i '' -e 's/Your Name or Your Company/'"$author"'/g'
+find ./$main -type f -name "*" -print0 | xargs -0 perl -pi -e 's/Your Name or Your Company/'"$author"'/g'
 
 echo "Please edit the main plugin file to change the remaining plugin information in the comments at the top."
-
