@@ -55,7 +55,7 @@ find ./$main -type f -name "*" -print0 | xargs -0 perl -pi -e 's/-plugin-name-/-
 find ./$main -type f -name "*" -print0 | xargs -0 perl -pi -e 's/-plugin-name/-'"$main"'/g'
 find ./$main -type f -name "*" -print0 | xargs -0 perl -pi -e 's/plugin-name-/'"$main"'-/g'
 find ./$main -type f -name "*" -print0 | xargs -0 perl -pi -e "s/'plugin-name'/'$main'/g"
-find ./$main -type f -name "*" -print0 | xargs -0 perl -pi -e 's/_plugin_name/_'"$under"'/g'
+find ./$main -type f -name "*" -print0 | xargs -0 perl -pi -e 's/(?<!get)_plugin_name/_'"$under"'/g'
 find ./$main -type f -name "*" -print0 | xargs -0 perl -pi -e 's/Plugin_Name/'"$capital"'/g'
 
 # make some other changes
