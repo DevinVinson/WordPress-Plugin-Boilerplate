@@ -1,0 +1,68 @@
+
+#!/bin/bash -i
+
+# Copyright 2019 Orpheus, Inc. <hello@orpheusincorporated.com>
+# Orpheus, Inc. is not responsible for misuse or for any damage that you may cause!
+# You agree that you use this software at your own risk.
+
+if [ $# -lt 1 ]; then
+	echo "Usage: prepare plugin-name"
+	echo "Please specify a plugin name all lower case with hyphens between words"
+	read main
+else
+	main=$1
+fi
+
+# rename plugin directory
+mkdir $main
+mv plugin-name/* $main/
+rmdir plugin-name
+
+# rename core plugin files
+echo 'Renaming filenames to reflect the plugin name provided'
+mv $main/plugin-name.php $main/$main.php
+mv $main/includes/class-plugin-name.php $main/includes/class-$main.php
+mv $main/includes/class-plugin-name-activator.php $main/includes/class-$main-activator.php
+mv $main/includes/class-plugin-name-deactivator.php $main/includes/class-$main-deactivator.php
+mv $main/includes/class-plugin-name-loader.php $main/includes/class-$main-loader.php
+mv $main/includes/class-plugin-name-i18n.php $main/includes/class-$main-i18n.php
+mv $main/admin/class-plugin-name-admin.php $main/admin/class-$main-admin.php
+mv $main/admin/css/plugin-name-admin.css $main/admin/css/$main-admin.css
+mv $main/admin/js/plugin-name-admin.js $main/admin/js/$main-admin.js
+mv $main/admin/partials/plugin-name-admin-display.php $main/admin/partials/$main-admin-display.php
+mv $main/public/class-plugin-name-public.php $main/public/class-$main-public.php
+mv $main/public/css/plugin-name-public.css $main/public/css/$main-public.css
+mv $main/public/js/plugin-name-public.js $main/public/js/$main-public.js
+mv $main/public/partials/plugin-name-public-display.php $main/public/partials/$main-public-display.php
+mv $main/languages/plugin-name.pot $main/languages/$main.pot
+
+# create different versions of the plugin name variable
+echo 'Performing substitutions throughout the boilerplate using the following naming formats:'
+echo $main
+under=$(echo $main | tr '-' '_')
+space=$(echo $main | tr '-' ' ')
+upper=$(echo $main | tr '[:lower:]' '[:upper:]' | tr '-' '_')
+capitalspace=$(echo $space | awk '{for(i=1;i<=NF;i++){ $i=toupper(substr($i,1,1)) substr($i,2) }}1')
+capital=$(echo $space | awk '{for(i=1;i<=NF;i++){ $i=toupper(substr($i,1,1)) substr($i,2) }}1' | tr ' ' '_')
+echo $under
+echo $upper
+echo $space
+echo $capital
+
+# find replace within files
+find ./$main -type f -name "*" -print0 | xargs -0 perl -pi -e 's/PLUGIN_NAME_/'"$upper"'_/g'
+find ./$main -type f -name "*" -print0 | xargs -0 perl -pi -e 's/-plugin-name-/-'"$main"'-/g'
+find ./$main -type f -name "*" -print0 | xargs -0 perl -pi -e 's/-plugin-name/-'"$main"'/g'
+find ./$main -type f -name "*" -print0 | xargs -0 perl -pi -e 's/plugin-name-/'"$main"'-/g'
+find ./$main -type f -name "*" -print0 | xargs -0 perl -pi -e "s/'plugin-name'/'$main'/g"
+find ./$main -type f -name "*" -print0 | xargs -0 perl -pi -e 's/(?<!get)_plugin_name/_'"$under"'/g'
+find ./$main -type f -name "*" -print0 | xargs -0 perl -pi -e 's/Plugin_Name/'"$capital"'/g'
+
+# make some other changes
+find ./$main -type f -name "*" -print0 | xargs -0 perl -pi -e 's/WordP:wress Plugin Boilerplate/'"$capitalspace"'/g'
+
+echo "Please specify the company name or author:"
+read author
+find ./$main -type f -name "*" -print0 | xargs -0 perl -pi -e 's/Your Name or Your Company/'"$author"'/g'
+
+echo "Please edit the main plugin file to change the remaining plugin information in the comments at the top."
