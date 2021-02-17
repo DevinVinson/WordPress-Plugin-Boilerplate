@@ -25,9 +25,9 @@ if ( ! class_exists( 'Plugin_Name' ) ) :
 		 * @var Plugin_Name
 		 * @since 1.0.0
 		 */
-		protected static $_instance = null;
+		protected static $instance = null;
 
-		protected static $_initialized = false;
+		protected static $initialized = false;
 
 		/**
 		 * Main Plugin_Name Instance.
@@ -40,11 +40,11 @@ if ( ! class_exists( 'Plugin_Name' ) ) :
 		 * @return Plugin_Name - Main instance.
 		 */
 		public static function instance() {
-			if ( is_null( self::$_instance ) ) {
-				self::$_instance = new self();
-				self::$_instance->initalize_plugin();
+			if ( is_null( self::$instance ) ) {
+				self::$instance = new self();
+				self::$instance->initalize_plugin();
 			}
-			return self::$_instance;
+			return self::$instance;
 		}
 
 		/**
@@ -67,12 +67,12 @@ if ( ! class_exists( 'Plugin_Name' ) ) :
 		 * Plugin_Name Initializer.
 		 */
 		public function initalize_plugin() {
-			if ( self::$_initialized ) {
+			if ( self::$initialized ) {
 				_doing_it_wrong( __FUNCTION__, esc_html__( 'Only a single instance of this class is allowed. Use singleton.', 'plugin-name' ), '1.0.0' );
 				return;
 			}
 
-			self::$_initialized = true;
+			self::$initialized = true;
 
 			$this->define_constants();
 			$this->includes();
