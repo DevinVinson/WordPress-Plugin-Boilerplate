@@ -1,0 +1,19 @@
+parameters:
+	level: 3
+	treatPhpDocTypesAsCertain: false
+	bootstrapFiles:
+		- %currentWorkingDirectory%/vendor/php-stubs/wordpress-stubs/wordpress-stubs.php
+		- %currentWorkingDirectory%/vendor/php-stubs/woocommerce-stubs/woocommerce-stubs.php
+	paths:
+		- plugin-name/plugin-name.php
+		- plugin-name/class-plugin-name.php
+		- plugin-name/uninstall.php
+		- plugin-name/includes/
+		- plugin-name/templates/
+	ignoreErrors:
+		# Stub causes errors
+		- '#Function apply_filters invoked with#'
+		- '#Constant WP_LANG_DIR not found#'
+		# Non standard constant definition
+		- '#Constant PNAME_VERSION not found#'
+		
