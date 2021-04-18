@@ -31,6 +31,7 @@ class PName_Frontend_Assets extends PName_Assets {
 
 	/**
 	 * Get styles for the frontend.
+	 *
 	 * @access private
 	 * @return array
 	 */
@@ -47,6 +48,7 @@ class PName_Frontend_Assets extends PName_Assets {
 
 	/**
 	 * Get styles for the frontend.
+	 *
 	 * @access private
 	 * @return array
 	 */

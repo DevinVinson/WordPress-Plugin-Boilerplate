@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Get template part.
  *
  * @access public
- * @param mixed $slug
+ * @param mixed  $slug
  * @param string $name (default: '')
  */
 function plugin_name_get_template_part( $slug, $name = '' ) {
@@ -52,7 +52,7 @@ function plugin_name_get_template_part( $slug, $name = '' ) {
  *
  * @access public
  * @param string $template_name
- * @param array $args (default: array())
+ * @param array  $args (default: array())
  * @param string $template_path (default: '')
  * @param string $default_path (default: '')
  */
@@ -81,6 +81,7 @@ function plugin_name_get_template( $template_name, $args = array(), $template_pa
 
 /**
  * Like plugin_name_get_template, but returns the HTML instead of outputting.
+ *
  * @see plugin_name_get_template
  * @since 2.5.0
  * @param string $template_name

@@ -20,26 +20,30 @@ abstract class PName_Assets {
 
 	/**
 	 * Contains an array of script handles registered by WC.
+	 *
 	 * @var array
 	 */
 	private $scripts = array();
 
 	/**
 	 * Contains an array of script handles registered by WC.
+	 *
 	 * @var array
 	 */
 	private $styles = array();
 
 	/**
 	 * Contains an array of script handles localized by WC.
+	 *
 	 * @var array
 	 */
 	private $wp_localize_scripts = array();
 
 	/**
 	 * Tryies to localize the minified version if required and exists, otherwise load the unminified version
+	 *
 	 * @access protected
-	 * @param  string   $path
+	 * @param  string $path
 	 * @return string
 	 */
 	protected function localize_asset( $path ) {
@@ -61,6 +65,7 @@ abstract class PName_Assets {
 
 	/**
 	 * Get styles for the frontend.
+	 *
 	 * @access private
 	 * @return array
 	 */
@@ -70,6 +75,7 @@ abstract class PName_Assets {
 
 	/**
 	 * Get styles for the frontend.
+	 *
 	 * @access private
 	 * @return array
 	 */
@@ -196,6 +202,7 @@ abstract class PName_Assets {
 
 	/**
 	 * Localize a WC script once.
+	 *
 	 * @access private
 	 * @since  1.0.0 this needs less wp_script_is() calls due to https://core.trac.wordpress.org/ticket/28404 being added in WP 4.0.
 	 * @param  string $handle
@@ -213,6 +220,7 @@ abstract class PName_Assets {
 
 	/**
 	 * Return data for script handles.
+	 *
 	 * @access private
 	 * @param  string $handle
 	 * @return array|bool

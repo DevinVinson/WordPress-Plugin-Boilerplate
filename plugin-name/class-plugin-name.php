@@ -49,6 +49,7 @@ if ( ! class_exists( 'Plugin_Name' ) ) :
 
 		/**
 		 * Cloning is forbidden.
+		 *
 		 * @since 1.0.0
 		 */
 		public function __clone() {
@@ -57,6 +58,7 @@ if ( ! class_exists( 'Plugin_Name' ) ) :
 
 		/**
 		 * Unserializing instances of this class is forbidden.
+		 *
 		 * @since 1.0.0
 		 */
 		public function __wakeup() {
@@ -94,7 +96,7 @@ if ( ! class_exists( 'Plugin_Name' ) ) :
 		/**
 		 * Define constant if not already set.
 		 *
-		 * @param  string $name
+		 * @param  string      $name
 		 * @param  string|bool $value
 		 */
 		private function define( $name, $value ) {
@@ -150,6 +152,7 @@ if ( ! class_exists( 'Plugin_Name' ) ) :
 
 		/**
 		 * Hook into actions and filters.
+		 *
 		 * @since  1.0.0
 		 */
 		private function init_hooks() {
@@ -188,6 +191,7 @@ if ( ! class_exists( 'Plugin_Name' ) ) :
 
 		/**
 		 * Get the plugin url.
+		 *
 		 * @return string
 		 */
 		public function plugin_url() {
@@ -196,6 +200,7 @@ if ( ! class_exists( 'Plugin_Name' ) ) :
 
 		/**
 		 * Get the plugin path.
+		 *
 		 * @return string
 		 */
 		public function plugin_path() {
@@ -204,6 +209,7 @@ if ( ! class_exists( 'Plugin_Name' ) ) :
 
 		/**
 		 * Get the template path.
+		 *
 		 * @return string
 		 */
 		public function template_path() {
@@ -212,6 +218,7 @@ if ( ! class_exists( 'Plugin_Name' ) ) :
 
 		/**
 		 * Get Ajax URL.
+		 *
 		 * @return string
 		 */
 		public function ajax_url() {

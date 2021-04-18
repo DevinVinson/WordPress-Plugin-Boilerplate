@@ -29,6 +29,7 @@ if ( ! class_exists( 'PName_ACF_Hooks' ) ) :
 
 		/**
 		 * Set from where ACF must load JSON files
+		 *
 		 * @param  [array] $paths
 		 * @return [array]
 		 */
@@ -42,6 +43,7 @@ if ( ! class_exists( 'PName_ACF_Hooks' ) ) :
 
 		/**
 		 * Set to where ACF must save JSON files
+		 *
 		 * @param  [string] $path
 		 * @return [string]
 		 */
