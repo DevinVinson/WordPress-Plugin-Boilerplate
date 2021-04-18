@@ -17,4 +17,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 // Include core functions (available in both admin and frontend).
 require 'plugin-name-template-functions.php';
 
-// IMPLEMENT YOUR HELPER FUNCTIONS HERE
+// IMPLEMENT YOUR HELPER FUNCTIONS HERE.

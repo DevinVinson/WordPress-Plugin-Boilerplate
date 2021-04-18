@@ -11,7 +11,7 @@
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly
+	exit; // Exit if accessed directly.
 }
 
 /**
@@ -24,17 +24,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 function plugin_name_get_template_part( $slug, $name = '' ) {
 	$template = '';
 
-	// Look in yourtheme/slug-name.php and yourtheme/plugin-name/slug-name.php
+	// Look in yourtheme/slug-name.php and yourtheme/plugin-name/slug-name.php .
 	if ( $name ) {
 		$template = locate_template( array( "{$slug}-{$name}.php", PNameSingleton()->template_path() . "{$slug}-{$name}.php" ) );
 	}
 
-	// Get default slug-name.php
+	// Get default slug-name.php .
 	if ( ! $template && $name && file_exists( PNameSingleton()->plugin_path() . "/templates/{$slug}-{$name}.php" ) ) {
 		$template = PNameSingleton()->plugin_path() . "/templates/{$slug}-{$name}.php";
 	}
 
-	// If template file doesn't exist, look in yourtheme/slug.php and yourtheme/plugin-name/slug.php
+	// If template file doesn't exist, look in yourtheme/slug.php and yourtheme/plugin-name/slug.php .
 	if ( ! $template ) {
 		$template = locate_template( array( "{$slug}.php", PNameSingleton()->template_path() . "{$slug}.php" ) );
 	}
@@ -124,7 +124,7 @@ function plugin_name_locate_template( $template_name, $template_path = '', $defa
 		)
 	);
 
-	// Get default template/
+	// Get default template.
 	if ( ! $template ) {
 		$template = $default_path . $template_name;
 	}

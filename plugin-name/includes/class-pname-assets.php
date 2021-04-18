@@ -165,7 +165,7 @@ abstract class PName_Assets {
 		$assets_path          = str_replace( array( 'http:', 'https:' ), '', PNameSingleton()->plugin_url() ) . '/assets/';
 		$frontend_script_path = $assets_path . 'js/frontend/';
 
-		// JS Scripts
+		// JS Scripts.
 		$enqueue_scripts = $this->get_scripts();
 		if ( $enqueue_scripts ) {
 			foreach ( $enqueue_scripts as $handle => $args ) {
@@ -182,7 +182,7 @@ abstract class PName_Assets {
 			}
 		}
 
-		// CSS Styles
+		// CSS Styles.
 		$enqueue_styles = $this->get_styles();
 		if ( $enqueue_styles ) {
 			foreach ( $enqueue_styles as $handle => $args ) {

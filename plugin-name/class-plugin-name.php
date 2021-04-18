@@ -137,7 +137,7 @@ if ( ! class_exists( 'Plugin_Name' ) ) :
 			}
 
 			if ( $this->is_request( 'frontend' ) ) {
-				include_once 'includes/class-pname-frontend-assets.php'; // Frontend Scripts
+				include_once 'includes/class-pname-frontend-assets.php'; // Frontend Scripts.
 			}
 
 			$this->load_customizations();

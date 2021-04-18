@@ -21,9 +21,9 @@ class PName_Install {
 	 * Install PName.
 	 */
 	public static function install() {
-		// PERFORM INSTALL ACTIONS HERE
+		// PERFORM INSTALL ACTIONS HERE.
 
-		// Trigger action
+		// Trigger action.
 		do_action( 'plugin_name_installed' );
 	}
 }
