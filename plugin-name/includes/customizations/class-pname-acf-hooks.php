@@ -28,8 +28,8 @@ if ( ! class_exists( 'PName_ACF_Hooks' ) ) :
 		/**
 		 * Set from where ACF must load JSON files
 		 *
-		 * @param  [array] $paths
-		 * @return [array]
+		 * @param  array $paths Paths that ACF will read JSON from.
+		 * @return array
 		 */
 		public static function acf_json_load_point( $paths ) {
 			unset( $paths[0] );
@@ -42,8 +42,8 @@ if ( ! class_exists( 'PName_ACF_Hooks' ) ) :
 		/**
 		 * Set to where ACF must save JSON files
 		 *
-		 * @param  [string] $path
-		 * @return [string]
+		 * @param  string $path Path that ACF will save JSON to.
+		 * @return string
 		 */
 		public static function acf_json_save_point( $path ) {
 			$path = dirname( __FILE__ ) . '/acf-json';

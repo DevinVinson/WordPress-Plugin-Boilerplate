@@ -40,7 +40,7 @@ abstract class PName_Assets {
 	/**
 	 * Tryies to localize the minified version if required and exists, otherwise load the unminified version
 	 *
-	 * @param  string $path
+	 * @param  string $path Path of the asset to locate.
 	 * @return string
 	 */
 	protected function localize_asset( $path ) {
@@ -82,11 +82,16 @@ abstract class PName_Assets {
 	 * Register a script for use.
 	 *
 	 * @uses   wp_register_script()
-	 * @param  string   $handle
-	 * @param  string   $path
-	 * @param  string[] $deps
-	 * @param  string   $version
-	 * @param  boolean  $in_footer
+	 * @param string           $handle    Name of the script. Should be unique.
+	 * @param string|bool      $path      Full URL of the script, or path of the script relative to the WordPress root directory.
+	 *                                    If source is set to false, script is an alias of other scripts it depends on.
+	 * @param string[]         $deps      Optional. An array of registered script handles this script depends on. Default empty array.
+	 * @param string|bool|null $version   Optional. String specifying script version number, if it has one, which is added to the URL
+	 *                                    as a query string for cache busting purposes. If version is set to false, a version
+	 *                                    number is automatically added equal to current installed WordPress version.
+	 *                                    If set to null, no version is added.
+	 * @param bool             $in_footer Optional. Whether to enqueue the script before </body> instead of in the <head>.
+	 *                                    Default 'false'.
 	 */
 	private function register_script( $handle, $path, $deps = array( 'jquery' ), $version = PNAME_VERSION, $in_footer = true ) {
 		$this->scripts[] = $handle;
@@ -97,11 +102,16 @@ abstract class PName_Assets {
 	 * Register and enqueue a script for use.
 	 *
 	 * @uses   wp_enqueue_script()
-	 * @param  string   $handle
-	 * @param  string   $path
-	 * @param  string[] $deps
-	 * @param  string   $version
-	 * @param  boolean  $in_footer
+	 * @param string           $handle    Name of the script. Should be unique.
+	 * @param string|bool      $path      Full URL of the script, or path of the script relative to the WordPress root directory.
+	 *                                    If source is set to false, script is an alias of other scripts it depends on.
+	 * @param string[]         $deps      Optional. An array of registered script handles this script depends on. Default empty array.
+	 * @param string|bool|null $version   Optional. String specifying script version number, if it has one, which is added to the URL
+	 *                                    as a query string for cache busting purposes. If version is set to false, a version
+	 *                                    number is automatically added equal to current installed WordPress version.
+	 *                                    If set to null, no version is added.
+	 * @param bool             $in_footer Optional. Whether to enqueue the script before </body> instead of in the <head>.
+	 *                                    Default 'false'.
 	 */
 	private function enqueue_script( $handle, $path = '', $deps = array( 'jquery' ), $version = PNAME_VERSION, $in_footer = true ) {
 		if ( ! in_array( $handle, $this->scripts, true ) && $path ) {
@@ -114,11 +124,17 @@ abstract class PName_Assets {
 	 * Register a style for use.
 	 *
 	 * @uses   wp_register_style()
-	 * @param  string   $handle
-	 * @param  string   $path
-	 * @param  string[] $deps
-	 * @param  string   $version
-	 * @param  string   $media
+	 * @param string           $handle  Name of the stylesheet. Should be unique.
+	 * @param string|bool      $path    Full URL of the stylesheet, or path of the stylesheet relative to the WordPress root directory.
+	 *                                  If source is set to false, stylesheet is an alias of other stylesheets it depends on.
+	 * @param string[]         $deps    Optional. An array of registered stylesheet handles this stylesheet depends on. Default empty array.
+	 * @param string|bool|null $version Optional. String specifying stylesheet version number, if it has one, which is added to the URL
+	 *                                  as a query string for cache busting purposes. If version is set to false, a version
+	 *                                  number is automatically added equal to current installed WordPress version.
+	 *                                  If set to null, no version is added.
+	 * @param string           $media   Optional. The media for which this stylesheet has been defined.
+	 *                                  Default 'all'. Accepts media types like 'all', 'print' and 'screen', or media queries like
+	 *                                  '(orientation: portrait)' and '(max-width: 640px)'.
 	 */
 	private function register_style( $handle, $path, $deps = array(), $version = PNAME_VERSION, $media = 'all' ) {
 		$this->styles[] = $handle;
@@ -129,11 +145,17 @@ abstract class PName_Assets {
 	 * Register and enqueue a styles for use.
 	 *
 	 * @uses   wp_enqueue_style()
-	 * @param  string   $handle
-	 * @param  string   $path
-	 * @param  string[] $deps
-	 * @param  string   $version
-	 * @param  string   $media
+	 * @param string           $handle  Name of the stylesheet. Should be unique.
+	 * @param string|bool      $path    Full URL of the stylesheet, or path of the stylesheet relative to the WordPress root directory.
+	 *                                  If source is set to false, stylesheet is an alias of other stylesheets it depends on.
+	 * @param string[]         $deps    Optional. An array of registered stylesheet handles this stylesheet depends on. Default empty array.
+	 * @param string|bool|null $version Optional. String specifying stylesheet version number, if it has one, which is added to the URL
+	 *                                  as a query string for cache busting purposes. If version is set to false, a version
+	 *                                  number is automatically added equal to current installed WordPress version.
+	 *                                  If set to null, no version is added.
+	 * @param string           $media   Optional. The media for which this stylesheet has been defined.
+	 *                                  Default 'all'. Accepts media types like 'all', 'print' and 'screen', or media queries like
+	 *                                  '(orientation: portrait)' and '(max-width: 640px)'.
 	 */
 	private function enqueue_style( $handle, $path = '', $deps = array(), $version = PNAME_VERSION, $media = 'all' ) {
 		if ( ! in_array( $handle, $this->styles, true ) && $path ) {
@@ -195,7 +217,7 @@ abstract class PName_Assets {
 	 * Localize a WC script once.
 	 *
 	 * @since  1.0.0 this needs less wp_script_is() calls due to https://core.trac.wordpress.org/ticket/28404 being added in WP 4.0.
-	 * @param  string $handle
+	 * @param  string $handle Handle of the script to localize.
 	 */
 	private function localize_script( $handle ) {
 		if ( ! in_array( $handle, $this->wp_localize_scripts, true ) && wp_script_is( $handle ) ) {
@@ -211,7 +233,7 @@ abstract class PName_Assets {
 	/**
 	 * Return data for script handles.
 	 *
-	 * @param  string $handle
+	 * @param  string $handle Handle of the script to add data for.
 	 * @return array|bool
 	 */
 	private function get_script_data( $handle ) {

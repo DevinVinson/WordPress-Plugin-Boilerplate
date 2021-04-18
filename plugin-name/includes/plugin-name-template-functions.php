@@ -15,8 +15,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Get template part.
  *
- * @param mixed  $slug
- * @param string $name (default: '')
+ * @param mixed  $slug Slug of the template to get.
+ * @param string $name (default: '') Template name (sub-slug if you will).
  */
 function plugin_name_get_template_part( $slug, $name = '' ) {
 	$template = '';
@@ -47,10 +47,10 @@ function plugin_name_get_template_part( $slug, $name = '' ) {
 /**
  * Get other templates passing attributes and including the file.
  *
- * @param string $template_name
- * @param array  $args (default: array())
- * @param string $template_path (default: '')
- * @param string $default_path (default: '')
+ * @param string $template_name Filename to locate.
+ * @param array  $args (default: array()) Args to send to template.
+ * @param string $template_path (default: '') Path to look the template into.
+ * @param string $default_path (default: '') Default path to fallback to.
  */
 function plugin_name_get_template( $template_name, $args = array(), $template_path = '', $default_path = '' ) {
 	if ( ! empty( $args ) && is_array( $args ) ) {
@@ -80,7 +80,11 @@ function plugin_name_get_template( $template_name, $args = array(), $template_pa
  *
  * @see plugin_name_get_template
  * @since 2.5.0
- * @param string $template_name
+ * @param string $template_name Filename to locate.
+ * @param array  $args (default: array()) Args to send to template.
+ * @param string $template_path (default: '') Path to look the template into.
+ * @param string $default_path (default: '') Default path to fallback to.
+ * @return string
  */
 function plugin_name_get_template_html( $template_name, $args = array(), $template_path = '', $default_path = '' ) {
 	ob_start();
@@ -97,9 +101,9 @@ function plugin_name_get_template_html( $template_name, $args = array(), $templa
  *      yourtheme       /   $template_name
  *      $default_path   /   $template_name
  *
- * @param string $template_name
- * @param string $template_path (default: '')
- * @param string $default_path (default: '')
+ * @param string $template_name Filename to locate.
+ * @param string $template_path (default: '') Path to look the template into.
+ * @param string $default_path (default: '') Default path to fallback to.
  * @return string
  */
 function plugin_name_locate_template( $template_name, $template_path = '', $default_path = '' ) {

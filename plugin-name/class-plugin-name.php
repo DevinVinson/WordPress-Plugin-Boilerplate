@@ -8,6 +8,9 @@
 
 if ( ! class_exists( 'Plugin_Name' ) ) :
 
+	/**
+	 * Main Plugin Class. This will be the singleton instance
+	 */
 	final class Plugin_Name {
 
 		/**
@@ -25,6 +28,12 @@ if ( ! class_exists( 'Plugin_Name' ) ) :
 		 */
 		protected static $instance = null;
 
+		/**
+		 * If the class was initialized already.
+		 *
+		 * @var bool
+		 * @since 1.0.0
+		 */
 		protected static $initialized = false;
 
 		/**
@@ -94,8 +103,8 @@ if ( ! class_exists( 'Plugin_Name' ) ) :
 		/**
 		 * Define constant if not already set.
 		 *
-		 * @param  string      $name
-		 * @param  string|bool $value
+		 * @param  string $name Variable to define.
+		 * @param  mixed  $value Value to define the variable with.
 		 */
 		private function define( $name, $value ) {
 			if ( ! defined( $name ) ) {
