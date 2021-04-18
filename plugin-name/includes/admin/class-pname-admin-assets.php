@@ -2,8 +2,6 @@
 /**
  * Load assets
  *
- * @author      Your Name or Your Company
- * @category    Admin
  * @package     PName/Admin
  * @version     1.0.0
  */
@@ -31,7 +29,6 @@ class PName_Admin_Assets extends PName_Assets {
 	/**
 	 * Get styles for the frontend.
 	 *
-	 * @access private
 	 * @return array
 	 */
 	public function get_styles() {
@@ -48,7 +45,6 @@ class PName_Admin_Assets extends PName_Assets {
 	/**
 	 * Get styles for the frontend.
 	 *
-	 * @access private
 	 * @return array
 	 */
 	public function get_scripts() {

@@ -5,8 +5,6 @@
  * @class       PName_Frontend_Scripts
  * @version     1.0.0
  * @package     Plugin_Name/Classes/
- * @category    Class
- * @author      Your Name or Your Company
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -32,7 +30,6 @@ class PName_Frontend_Assets extends PName_Assets {
 	/**
 	 * Get styles for the frontend.
 	 *
-	 * @access private
 	 * @return array
 	 */
 	public function get_styles() {
@@ -49,7 +46,6 @@ class PName_Frontend_Assets extends PName_Assets {
 	/**
 	 * Get styles for the frontend.
 	 *
-	 * @access private
 	 * @return array
 	 */
 	public function get_scripts() {

@@ -4,8 +4,6 @@
  *
  * General core functions available on both the front-end and admin.
  *
- * @author      Your Name or Your Company
- * @category    Core
  * @package     Plugin_Name/Functions
  * @version     1.0.0
  */

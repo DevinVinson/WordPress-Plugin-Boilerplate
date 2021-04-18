@@ -10,8 +10,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @class       PName_Autoloader
  * @version     1.0.0
  * @package     Plugin_Name/Classes
- * @category    Class
- * @author      Saucal Inc.
  */
 class PName_Autoloader {
 

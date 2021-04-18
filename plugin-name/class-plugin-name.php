@@ -2,8 +2,6 @@
 /**
  * Installation related functions and actions.
  *
- * @author   Your Name or Your Company
- * @category Core
  * @package  Plugin_Name
  * @version  1.0.0
  */

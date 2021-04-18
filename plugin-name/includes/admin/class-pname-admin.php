@@ -3,8 +3,6 @@
  * WordPress Plugin Boilerplate Admin
  *
  * @class    PName_Admin
- * @author   Your Name or Your Company
- * @category Admin
  * @package  Plugin_Name/Admin
  * @version  2.6.0
  */

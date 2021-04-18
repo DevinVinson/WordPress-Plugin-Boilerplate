@@ -2,8 +2,6 @@
 /**
  * ACF Hooks
  *
- * @author      Your Name or Your Company
- * @category    Customizations
  * @package     PName/Customizations
  * @version     1.0.0
  */

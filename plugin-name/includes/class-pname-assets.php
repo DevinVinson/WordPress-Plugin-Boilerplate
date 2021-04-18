@@ -5,8 +5,6 @@
  * @class       PName_Frontend_Scripts
  * @version     1.0.0
  * @package     Plugin_Name/Classes/
- * @category    Class
- * @author      Your Name or Your Company
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -42,7 +40,6 @@ abstract class PName_Assets {
 	/**
 	 * Tryies to localize the minified version if required and exists, otherwise load the unminified version
 	 *
-	 * @access protected
 	 * @param  string $path
 	 * @return string
 	 */
@@ -66,7 +63,6 @@ abstract class PName_Assets {
 	/**
 	 * Get styles for the frontend.
 	 *
-	 * @access private
 	 * @return array
 	 */
 	public function get_styles() {
@@ -76,7 +72,6 @@ abstract class PName_Assets {
 	/**
 	 * Get styles for the frontend.
 	 *
-	 * @access private
 	 * @return array
 	 */
 	public function get_scripts() {
@@ -87,7 +82,6 @@ abstract class PName_Assets {
 	 * Register a script for use.
 	 *
 	 * @uses   wp_register_script()
-	 * @access private
 	 * @param  string   $handle
 	 * @param  string   $path
 	 * @param  string[] $deps
@@ -103,7 +97,6 @@ abstract class PName_Assets {
 	 * Register and enqueue a script for use.
 	 *
 	 * @uses   wp_enqueue_script()
-	 * @access private
 	 * @param  string   $handle
 	 * @param  string   $path
 	 * @param  string[] $deps
@@ -121,7 +114,6 @@ abstract class PName_Assets {
 	 * Register a style for use.
 	 *
 	 * @uses   wp_register_style()
-	 * @access private
 	 * @param  string   $handle
 	 * @param  string   $path
 	 * @param  string[] $deps
@@ -137,7 +129,6 @@ abstract class PName_Assets {
 	 * Register and enqueue a styles for use.
 	 *
 	 * @uses   wp_enqueue_style()
-	 * @access private
 	 * @param  string   $handle
 	 * @param  string   $path
 	 * @param  string[] $deps
@@ -203,7 +194,6 @@ abstract class PName_Assets {
 	/**
 	 * Localize a WC script once.
 	 *
-	 * @access private
 	 * @since  1.0.0 this needs less wp_script_is() calls due to https://core.trac.wordpress.org/ticket/28404 being added in WP 4.0.
 	 * @param  string $handle
 	 */
@@ -221,7 +211,6 @@ abstract class PName_Assets {
 	/**
 	 * Return data for script handles.
 	 *
-	 * @access private
 	 * @param  string $handle
 	 * @return array|bool
 	 */

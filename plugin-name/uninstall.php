@@ -4,8 +4,6 @@
  *
  * Uninstalling WordPress Plugin Boilerplate.
  *
- * @author      Your Name or Your Company
- * @category    Core
  * @package     Plugin_Name/Uninstaller
  * @version     1.0.0
  */

@@ -4,8 +4,6 @@
  *
  * Functions related to templates.
  *
- * @author   Your Name or Your Company
- * @category Core
  * @package  Plugin_Name/Functions
  * @version  1.0.0
  */
@@ -17,7 +15,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Get template part.
  *
- * @access public
  * @param mixed  $slug
  * @param string $name (default: '')
  */
@@ -50,7 +47,6 @@ function plugin_name_get_template_part( $slug, $name = '' ) {
 /**
  * Get other templates passing attributes and including the file.
  *
- * @access public
  * @param string $template_name
  * @param array  $args (default: array())
  * @param string $template_path (default: '')
@@ -101,7 +97,6 @@ function plugin_name_get_template_html( $template_name, $args = array(), $templa
  *      yourtheme       /   $template_name
  *      $default_path   /   $template_name
  *
- * @access public
  * @param string $template_name
  * @param string $template_path (default: '')
  * @param string $default_path (default: '')
