@@ -2,8 +2,6 @@
 /**
  * Installation related functions and actions.
  *
- * @author   Your Name or Your Company
- * @category Admin
  * @package  Plugin_Name/Classes
  * @version  1.0.0
  */
@@ -21,9 +19,9 @@ class PName_Install {
 	 * Install PName.
 	 */
 	public static function install() {
-		// PERFORM INSTALL ACTIONS HERE
+		// PERFORM INSTALL ACTIONS HERE.
 
-		// Trigger action
+		// Trigger action.
 		do_action( 'plugin_name_installed' );
 	}
 }

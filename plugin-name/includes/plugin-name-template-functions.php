@@ -4,37 +4,34 @@
  *
  * Functions related to templates.
  *
- * @author   Your Name or Your Company
- * @category Core
  * @package  Plugin_Name/Functions
  * @version  1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly
+	exit; // Exit if accessed directly.
 }
 
 /**
  * Get template part.
  *
- * @access public
- * @param mixed $slug
- * @param string $name (default: '')
+ * @param mixed  $slug Slug of the template to get.
+ * @param string $name (default: '') Template name (sub-slug if you will).
  */
 function plugin_name_get_template_part( $slug, $name = '' ) {
 	$template = '';
 
-	// Look in yourtheme/slug-name.php and yourtheme/plugin-name/slug-name.php
+	// Look in yourtheme/slug-name.php and yourtheme/plugin-name/slug-name.php .
 	if ( $name ) {
 		$template = locate_template( array( "{$slug}-{$name}.php", PNameSingleton()->template_path() . "{$slug}-{$name}.php" ) );
 	}
 
-	// Get default slug-name.php
+	// Get default slug-name.php .
 	if ( ! $template && $name && file_exists( PNameSingleton()->plugin_path() . "/templates/{$slug}-{$name}.php" ) ) {
 		$template = PNameSingleton()->plugin_path() . "/templates/{$slug}-{$name}.php";
 	}
 
-	// If template file doesn't exist, look in yourtheme/slug.php and yourtheme/plugin-name/slug.php
+	// If template file doesn't exist, look in yourtheme/slug.php and yourtheme/plugin-name/slug.php .
 	if ( ! $template ) {
 		$template = locate_template( array( "{$slug}.php", PNameSingleton()->template_path() . "{$slug}.php" ) );
 	}
@@ -50,11 +47,10 @@ function plugin_name_get_template_part( $slug, $name = '' ) {
 /**
  * Get other templates passing attributes and including the file.
  *
- * @access public
- * @param string $template_name
- * @param array $args (default: array())
- * @param string $template_path (default: '')
- * @param string $default_path (default: '')
+ * @param string $template_name Filename to locate.
+ * @param array  $args (default: array()) Args to send to template.
+ * @param string $template_path (default: '') Path to look the template into.
+ * @param string $default_path (default: '') Default path to fallback to.
  */
 function plugin_name_get_template( $template_name, $args = array(), $template_path = '', $default_path = '' ) {
 	if ( ! empty( $args ) && is_array( $args ) ) {
@@ -81,9 +77,14 @@ function plugin_name_get_template( $template_name, $args = array(), $template_pa
 
 /**
  * Like plugin_name_get_template, but returns the HTML instead of outputting.
+ *
  * @see plugin_name_get_template
  * @since 2.5.0
- * @param string $template_name
+ * @param string $template_name Filename to locate.
+ * @param array  $args (default: array()) Args to send to template.
+ * @param string $template_path (default: '') Path to look the template into.
+ * @param string $default_path (default: '') Default path to fallback to.
+ * @return string
  */
 function plugin_name_get_template_html( $template_name, $args = array(), $template_path = '', $default_path = '' ) {
 	ob_start();
@@ -100,10 +101,9 @@ function plugin_name_get_template_html( $template_name, $args = array(), $templa
  *      yourtheme       /   $template_name
  *      $default_path   /   $template_name
  *
- * @access public
- * @param string $template_name
- * @param string $template_path (default: '')
- * @param string $default_path (default: '')
+ * @param string $template_name Filename to locate.
+ * @param string $template_path (default: '') Path to look the template into.
+ * @param string $default_path (default: '') Default path to fallback to.
  * @return string
  */
 function plugin_name_locate_template( $template_name, $template_path = '', $default_path = '' ) {
@@ -123,7 +123,7 @@ function plugin_name_locate_template( $template_name, $template_path = '', $defa
 		)
 	);
 
-	// Get default template/
+	// Get default template.
 	if ( ! $template ) {
 		$template = $default_path . $template_name;
 	}

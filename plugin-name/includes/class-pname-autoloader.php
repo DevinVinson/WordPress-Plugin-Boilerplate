@@ -1,4 +1,11 @@
 <?php
+/**
+ * Autoloader class.
+ *
+ * @class       PName_Autoloader
+ * @version     1.0.0
+ * @package     Plugin_Name/Classes/
+ */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -10,8 +17,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @class       PName_Autoloader
  * @version     1.0.0
  * @package     Plugin_Name/Classes
- * @category    Class
- * @author      Saucal Inc.
  */
 class PName_Autoloader {
 
@@ -38,7 +43,7 @@ class PName_Autoloader {
 	/**
 	 * Take a class name and turn it into a file name.
 	 *
-	 * @param  string $class
+	 * @param  string $class Class to get filename for.
 	 * @return string
 	 */
 	private function get_file_name_from_class( $class ) {
@@ -48,7 +53,7 @@ class PName_Autoloader {
 	/**
 	 * Include a class file.
 	 *
-	 * @param  string $path
+	 * @param  string $path Path to load.
 	 * @return bool successful or not
 	 */
 	private function load_file( $path ) {
@@ -62,7 +67,7 @@ class PName_Autoloader {
 	/**
 	 * Auto-load PNAME classes on demand to reduce memory consumption.
 	 *
-	 * @param string $class
+	 * @param string $class Class to attempt autoloading.
 	 */
 	public function autoload( $class ) {
 		$class = strtolower( $class );

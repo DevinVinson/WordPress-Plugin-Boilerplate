@@ -2,14 +2,15 @@
 /**
  * Installation related functions and actions.
  *
- * @author   Your Name or Your Company
- * @category Core
  * @package  Plugin_Name
  * @version  1.0.0
  */
 
 if ( ! class_exists( 'Plugin_Name' ) ) :
 
+	/**
+	 * Main Plugin Class. This will be the singleton instance
+	 */
 	final class Plugin_Name {
 
 		/**
@@ -27,6 +28,12 @@ if ( ! class_exists( 'Plugin_Name' ) ) :
 		 */
 		protected static $instance = null;
 
+		/**
+		 * If the class was initialized already.
+		 *
+		 * @var bool
+		 * @since 1.0.0
+		 */
 		protected static $initialized = false;
 
 		/**
@@ -49,6 +56,7 @@ if ( ! class_exists( 'Plugin_Name' ) ) :
 
 		/**
 		 * Cloning is forbidden.
+		 *
 		 * @since 1.0.0
 		 */
 		public function __clone() {
@@ -57,6 +65,7 @@ if ( ! class_exists( 'Plugin_Name' ) ) :
 
 		/**
 		 * Unserializing instances of this class is forbidden.
+		 *
 		 * @since 1.0.0
 		 */
 		public function __wakeup() {
@@ -94,8 +103,8 @@ if ( ! class_exists( 'Plugin_Name' ) ) :
 		/**
 		 * Define constant if not already set.
 		 *
-		 * @param  string $name
-		 * @param  string|bool $value
+		 * @param  string $name Variable to define.
+		 * @param  mixed  $value Value to define the variable with.
 		 */
 		private function define( $name, $value ) {
 			if ( ! defined( $name ) ) {
@@ -135,7 +144,7 @@ if ( ! class_exists( 'Plugin_Name' ) ) :
 			}
 
 			if ( $this->is_request( 'frontend' ) ) {
-				include_once 'includes/class-pname-frontend-assets.php'; // Frontend Scripts
+				include_once 'includes/class-pname-frontend-assets.php'; // Frontend Scripts.
 			}
 
 			$this->load_customizations();
@@ -150,6 +159,7 @@ if ( ! class_exists( 'Plugin_Name' ) ) :
 
 		/**
 		 * Hook into actions and filters.
+		 *
 		 * @since  1.0.0
 		 */
 		private function init_hooks() {
@@ -188,6 +198,7 @@ if ( ! class_exists( 'Plugin_Name' ) ) :
 
 		/**
 		 * Get the plugin url.
+		 *
 		 * @return string
 		 */
 		public function plugin_url() {
@@ -196,6 +207,7 @@ if ( ! class_exists( 'Plugin_Name' ) ) :
 
 		/**
 		 * Get the plugin path.
+		 *
 		 * @return string
 		 */
 		public function plugin_path() {
@@ -204,6 +216,7 @@ if ( ! class_exists( 'Plugin_Name' ) ) :
 
 		/**
 		 * Get the template path.
+		 *
 		 * @return string
 		 */
 		public function template_path() {
@@ -212,6 +225,7 @@ if ( ! class_exists( 'Plugin_Name' ) ) :
 
 		/**
 		 * Get Ajax URL.
+		 *
 		 * @return string
 		 */
 		public function ajax_url() {
