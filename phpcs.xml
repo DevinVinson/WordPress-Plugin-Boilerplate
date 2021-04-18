@@ -28,4 +28,10 @@
 	<rule ref="WordPress.Files.FileName.InvalidClassFileName">
 		<exclude-pattern>**/abstract-*.php</exclude-pattern>
 	</rule>
+	<rule ref="Squiz.Commenting.FileComment.WrongStyle">
+		<exclude-pattern>plugin-name/index.php</exclude-pattern>
+		<exclude-pattern>plugin-name/includes/index.php</exclude-pattern>
+		<exclude-pattern>plugin-name/includes/admin/index.php</exclude-pattern>
+		<exclude-pattern>plugin-name/assets/index.php</exclude-pattern>
+	</rule>
 </ruleset>
