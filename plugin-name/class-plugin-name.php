@@ -138,20 +138,14 @@ if ( ! class_exists( 'Plugin_Name' ) ) :
 				include_once 'includes/class-pname-frontend-assets.php'; // Frontend Scripts
 			}
 
-			$this->customizations_includes();
+			$this->load_customizations();
 		}
 
 		/**
 		 * Include required customizations files.
 		 */
-		private function customizations_includes() {
-			$customizations = array(
-				'acf',
-			);
-
-			foreach ( $customizations as $customization ) {
-				include_once 'includes/customizations/class-pname-' . $customization . '-hooks.php';
-			}
+		private function load_customizations() {
+			PName_ACF_Hooks::init();
 		}
 
 		/**
