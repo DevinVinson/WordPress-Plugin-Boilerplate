@@ -129,6 +129,7 @@ if ( ! class_exists( 'Plugin_Name' ) ) :
 				case 'frontend':
 					return ( ! is_admin() || defined( 'DOING_AJAX' ) ) && ! defined( 'DOING_CRON' );
 			}
+			return false;
 		}
 
 		/**
