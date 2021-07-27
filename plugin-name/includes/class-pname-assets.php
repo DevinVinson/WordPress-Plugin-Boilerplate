@@ -189,9 +189,14 @@ abstract class PName_Assets {
 						'deps'      => array( 'jquery' ),
 						'version'   => PNAME_VERSION,
 						'in_footer' => true,
+						'enqueue'   => true,
 					)
 				);
-				$this->enqueue_script( $handle, $args['src'], $args['deps'], $args['version'], $args['in_footer'] );
+				if ( $args['enqueue'] ) {
+					$this->enqueue_script( $handle, $args['src'], $args['deps'], $args['version'], $args['in_footer'] );
+				} else {
+					$this->register_script( $handle, $args['src'], $args['deps'], $args['version'], $args['in_footer'] );
+				}
 			}
 		}
 
@@ -206,9 +211,14 @@ abstract class PName_Assets {
 						'deps'    => '',
 						'version' => PNAME_VERSION,
 						'media'   => 'all',
+						'enqueue' => true,
 					)
 				);
-				$this->enqueue_style( $handle, $args['src'], $args['deps'], $args['version'], $args['media'] );
+				if ( $args['enqueue'] ) {
+					$this->enqueue_style( $handle, $args['src'], $args['deps'], $args['version'], $args['media'] );
+				} else {
+					$this->register_style( $handle, $args['src'], $args['deps'], $args['version'], $args['media'] );
+				}
 			}
 		}
 	}
