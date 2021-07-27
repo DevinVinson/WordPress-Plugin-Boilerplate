@@ -8,6 +8,9 @@ assets/js*
 # Ignore node_modules everywhere
 node_modules
 
+# Ignore composer everywhere
+vendor
+
 # Editors
 *.esproj
 *.tmproj
