@@ -83,17 +83,178 @@ run_plugin_name();
 
 function register_progress_bar() {
     register_post_type(
-        'progress_bars',
+        'progress_bar',
         [
             'labels' => [
                 'name' => __('Progress Bars'),
                 'singular_name' => __('Progress Bar'),
             ],
-            'public' => true,
-            'show_in_rest' => false,
+            'public' => false,
+            'publicly_queryable' => true,
+            'show_ui' => true,
             'show_in_menu' => true,
             'show_in_admin_bar' => 5,
+            'supports' => [
+                'title',
+            ]
         ]
     );
 }
 add_action('init', 'register_progress_bar');
+
+function register_progress_bar_meta_boxes() {
+
+    add_meta_box(
+    'bar_color',
+        __('Bar Colour', 'suqld-campaign-progress'),
+        'render_bar_meta_fields',
+        'progress_bar'
+    );
+}
+add_action('add_meta_boxes', 'register_progress_bar_meta_boxes');
+
+function render_bar_meta_fields($post) {
+    $meta_boxes = [
+        'bar' => [
+            'background_color' => [
+                'title' => 'Bar Colour',
+                'input' => [
+                    'type' => 'color',
+                ]
+            ],
+            'progress_color' => [
+                'title' => 'Progress Colour',
+                'input' => [
+                    'type' => 'color',
+                ]
+            ],
+            'complete_color' => [
+                'title' => 'Complete Colour',
+                'input' => [
+                    'type' => 'color',
+                ]
+            ],
+            'class' => [
+                'title' => 'Progress Bar Class',
+                'input' => [
+                    'type' => 'text',
+                ]
+            ]
+        ],
+        'bar_text' => [
+            'text' => [
+                'title' => 'Bar Text',
+                'input' => [
+                    'type' => 'text',
+                ]
+            ],
+            'color' => [
+                'title' => 'Text Colour',
+                'input' => [
+                    'type' => 'color',
+                ]
+            ],
+            'size' => [
+                'title' => 'Text Size',
+                'input' => [
+                    'type' => 'text',
+                ]
+            ],
+            'position' => [
+                'title' => 'Text Position',
+                'input' => [
+                    'type' => 'select',
+                    'options' => [
+                        'left' => 'Left',
+                        'center' => 'Center',
+                        'right' => 'Right',
+                    ]
+                ]
+            ],
+            'weight' => [
+                'title' => 'Text Weight',
+                'input' => [
+                    'type' => 'text',
+                ]
+            ],
+            'family' => [
+                'title' => 'Text Family',
+                'input' => [
+                    'type' => 'select',
+                    'options' => [
+                        'arial' => 'Arial',
+                    ]
+                ]
+            ],
+            'class' => [
+                'title' => 'Bar Text Class',
+                'input' => [
+                    'type' => 'text',
+                ]
+            ]
+        ],
+        'bar_value' => [
+            'color' => [
+                'title' => 'Text Colour',
+                'input' => [
+                    'type' => 'color',
+                ]
+            ],
+            'size' => [
+                'title' => 'Text Size',
+                'input' => [
+                    'type' => 'text',
+                ]
+            ],
+            'position' => [
+                'title' => 'Text Position',
+                'input' => [
+                    'type' => 'select',
+                    'options' => [
+                        'left' => 'Left',
+                        'center' => 'Center',
+                        'right' => 'Right',
+                    ]
+                ]
+            ],
+            'weight' => [
+                'title' => 'Text Weight',
+                'input' => [
+                    'type' => 'text',
+                ]
+            ],
+            'family' => [
+                'title' => 'Text Family',
+                'input' => [
+                    'type' => 'select',
+                    'options' => [
+                        'arial' => 'Arial',
+                    ]
+                ]
+            ],
+            'class' => [
+                'title' => 'Bar Text Class',
+                'input' => [
+                    'type' => 'text',
+                ]
+            ]
+        ],
+    ];
+
+    $value = get_post_meta($post->ID, '_bar_color', true);
+    ?>
+    <label for="bar_color">Bar Colour</label>
+    <input name="bar_color" id="bar_color" type="color" value="<?= $value ?>">
+    <?php
+}
+
+function save_bar_meta_fields($post_id) {
+    if(array_key_exists('bar_color', $_POST)) {
+        update_post_meta(
+            $post_id,
+            '_bar_color',
+            $_POST['bar_color']
+        );
+    }
+}
+add_action('save_post', 'save_bar_meta_fields');
