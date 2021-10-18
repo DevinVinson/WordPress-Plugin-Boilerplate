@@ -1,4 +1,33 @@
-/**
- * All of the CSS for your admin-specific functionality should be
- * included in this file.
- */
+.input_column {
+    border-left: 1px lightgrey solid;
+    border-top: 1px lightgrey solid;
+    padding: 10px 20px;
+    margin-left: -1px;
+    margin-top: -1px;
+}
+.input_column h3 {
+    flex-basis: 100%;
+    margin-block-start: 0;
+}
+.input_group_title {
+    padding: 0 20px;
+    border: 1px lightgrey solid;
+}
+.input_group {
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+    border: 1px lightgrey solid;
+}
+.input_group:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+.input_field {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.input_field:not(:last-child) {
+    margin-bottom: 10px;
+}
