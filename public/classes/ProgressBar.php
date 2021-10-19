@@ -129,7 +129,7 @@ class ProgressBar extends stdClass {
             <div class="progress-bar__target-title">
                 <span class="progress-bar__target-title__text {$config['target_text']['css_classes']}">{$config['target_text']['text']}</span>
                 <span class="progress-bar__target-title__separator">&nbsp</span>
-                <span class="progress-bar__target-title__value {$config['target_value']['css_classes']}">$411,000.00</span>
+                <span class="progress-bar__target-title__value {$config['target_value']['css_classes']}">$ 411,000.00</span>
             </div>
         </div>
     </div>
@@ -150,31 +150,31 @@ HTML;
 			".progress-bar__wrapper" => [
 				$config['bar_block']['height'] ? "--bar_height: {$config['bar_block']['height']}px;" : null,
                 $config['bar_block']['width'] ? "--block_width: {$config['bar_block']['width']}%;" : null,
-                $config['bar_block']['background_color'] ? "background-color: {$config['bar_block']['background_color']};" : null,
+                $config['bar_block']['background_color'] ? "background-color: #{$config['bar_block']['background_color']};" : null,
 				$config['bar_block']['position'] === "left" ? "margin-right: auto; margin-left: 0;" : null,
 				$config['bar_block']['position'] === "right" ? "margin-right: 0; margin-left: auto;" : null,
 				$config['bar_block']['position'] === "center" ? "margin-right: auto; margin-left: auto;" : null,
 			],
 			" .progress-bar__bar" => [
-				$config['bar']['background_color'] ? "background-color: {$config['bar']['background_color']};" : null,
+				$config['bar']['background_color'] ? "background-color: #{$config['bar']['background_color']};" : null,
                 $config['bar_value']['position'] ? "justify-content: {$config['bar_value']['position']};" : null,
 	        ],
 	        " .progress-bar__bar-progress" => [
-				$config['bar']['progress_color'] ? "background-color: {$config['bar']['progress_color']};" : null,
+				$config['bar']['progress_color'] ? "background-color: #{$config['bar']['progress_color']};" : null,
 	        ],
 	        " .progress-bar__bar-progress.complete" => [
-				$config['bar']['complete_color'] ? "background-color: {$config['bar']['complete_color']};" : null,
+				$config['bar']['complete_color'] ? "background-color: #{$config['bar']['complete_color']};" : null,
 	        ],
 	        " .progress-bar__value" => [
 				$config['bar_value']['font_size'] ? "font-size: {$config['bar_value']['font_size']};" : null,
 	            $config['bar_value']['font_weight'] ? "font-weight: {$config['bar_value']['font_weight']};" : null,
-	            $config['bar_value']['color'] ? "color: {$config['bar_value']['color']};" : null,
+	            $config['bar_value']['color'] ? "color: #{$config['bar_value']['color']};" : null,
 	            $config['bar_value']['font_family'] ? "font-family: {$config['bar_value']['font_family']};" : null,
 	        ],
 	        " .progress-bar__title" => [
 				$config['bar_title']['font_size'] ? "font-size: {$config['bar_title']['font_size']};" : null,
 	            $config['bar_title']['font_weight'] ? "font-weight: {$config['bar_title']['font_weight']};" : null,
-	            $config['bar_title']['color'] ? "color: {$config['bar_title']['color']};" : null,
+	            $config['bar_title']['color'] ? "color: #{$config['bar_title']['color']};" : null,
 	            $config['bar_title']['font_family'] ? "font-family: {$config['bar_title']['font_family']};" : null,
 	            $config['bar_title']['position'] === "left" ? "justify-content: start;" : null,
 	            $config['bar_title']['position'] === "right" ? "justify-content: end;" : null,
@@ -199,25 +199,25 @@ HTML;
 	        " .progress-bar__progress-title__text" => [
 				$config['progress_text']['font_size'] ? "font-size: {$config['progress_text']['font_size']};" : null,
 	            $config['progress_text']['font_weight'] ? "font-weight: {$config['progress_text']['font_weight']};" : null,
-	            $config['progress_text']['color'] ? "color: {$config['progress_text']['color']};" : null,
+	            $config['progress_text']['color'] ? "color: #{$config['progress_text']['color']};" : null,
 	            $config['progress_text']['font_family'] ? "font-family: {$config['progress_text']['font_family']};" : null,
 	        ],
 	        " .progress-bar__progress-value__text" => [
 				$config['progress_value']['font_size'] ? "font-size: {$config['progress_value']['font_size']};" : null,
 	            $config['progress_value']['font_weight'] ? "font-weight: {$config['progress_value']['font_weight']};" : null,
-	            $config['progress_value']['color'] ? "color: {$config['progress_value']['color']};" : null,
+	            $config['progress_value']['color'] ? "color: #{$config['progress_value']['color']};" : null,
 	            $config['progress_value']['font_family'] ? "font-family: {$config['progress_value']['font_family']};" : null,
 	        ],
 	        " .progress-bar__target-title__text" => [
 				$config['target_text']['font_size'] ? "font-size: {$config['target_text']['font_size']};" : null,
 	            $config['target_text']['font_weight'] ? "font-weight: {$config['target_text']['font_weight']};" : null,
-	            $config['target_text']['color'] ? "color: {$config['target_text']['color']};" : null,
+	            $config['target_text']['color'] ? "color: #{$config['target_text']['color']};" : null,
 	            $config['target_text']['font_family'] ? "font-family: {$config['target_text']['font_family']};" : null,
 	        ],
 	        " .progress-bar__target-value__text" => [
 				$config['target_value']['font_size'] ? "font-size: {$config['target_value']['font_size']};" : null,
 	            $config['target_value']['font_weight'] ? "font-weight: {$config['target_value']['font_weight']};" : null,
-	            $config['target_value']['color'] ? "color: {$config['target_value']['color']};" : null,
+	            $config['target_value']['color'] ? "color: #{$config['target_value']['color']};" : null,
 	            $config['target_value']['font_family'] ? "font-family: {$config['target_value']['font_family']};" : null,
 	        ]
 		];

@@ -33,7 +33,7 @@
 .css_classes, .text {
     width: 150px;
 }
-.font_family, .font_size, .font_weight, .position, .height, .width {
+.input_row select, .input_field:not(.text, .css_classes) {
     width: 100px;
 }
 .input_field {
@@ -43,13 +43,17 @@
     min-width: 0;
     width: auto;
 }
-.input_field.has_input_unit input[type="text"] {
+.input_field.has_input_unit input {
     margin: 0;
     border-radius: 4px 0 0 4px;
     position: relative;
     z-index: 1;
 }
-.has_input_unit input {
+.input_field.has_input_unit.input_unit_prepend input {
+    border-radius: 0 4px 4px 0;
+    font-family: monospace;
+}
+.has_input_unit:not(.input_unit_prepend) input {
     text-align: right;
 }
 .input_unit {
@@ -61,6 +65,11 @@
     justify-content: center;
     align-items: center;
     background-color: #f0f0f1;
+}
+.input_unit_prepend .input_unit {
+    border: 1px solid #8c8f94;
+    border-right: none;
+    border-radius: 4px 0 0 4px;
 }
 .input_row:not(:last-child) {
     margin-bottom: 10px;

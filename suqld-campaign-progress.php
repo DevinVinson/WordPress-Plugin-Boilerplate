@@ -105,7 +105,9 @@ $text_group_inputs = [
 	],
 	'color'    => [
 		'title'      => 'Colour',
-		'input_type' => 'color'
+		'input_type' => 'color',
+		'input_unit' => '#',
+		'input_unit_prepend' => true,
 	],
 	'font_family'   => [
 		'title'          => 'Font Family',
@@ -137,14 +139,20 @@ $progress_bar_metas = [
 			    'background_color' => [
 				    'title'      => 'Bar',
 				    'input_type' => 'color',
+				    'input_unit' => '#',
+				    'input_unit_prepend' => true,
 			    ],
 			    'progress_color'   => [
 				    'title'      => 'Progress',
 				    'input_type' => 'color',
+				    'input_unit' => '#',
+				    'input_unit_prepend' => true,
 			    ],
 			    'complete_color'   => [
 				    'title'      => 'Complete',
 				    'input_type' => 'color',
+				    'input_unit' => '#',
+				    'input_unit_prepend' => true,
 			    ],
 			    'css_classes'            => [
 				    'title' => 'CSS Classes',
@@ -176,6 +184,8 @@ $progress_bar_metas = [
 			    'color'    => [
 				    'title'      => 'Colour',
 				    'input_type' => 'color',
+				    'input_unit' => '#',
+				    'input_unit_prepend' => true,
 			    ],
 			    'font_family'   => [
 				    'title'          => 'Font Family',
@@ -224,7 +234,9 @@ $progress_bar_metas = [
 			    ],
                 'background_color' => [
 				    'title'      => 'Block Colour',
-				    'input_type' => 'color'
+				    'input_type' => 'color',
+                    'input_unit' => '#',
+                    'input_unit_prepend' => true,
 			    ],
 			    'css_classes'            => [
 				    'title' => 'CSS Classes',
@@ -262,13 +274,12 @@ $progress_bar_metas = [
 			    'color'    => [
 				    'title'      => 'Colour',
 				    'input_type' => 'color',
+				    'input_unit' => '#',
+				    'input_unit_prepend' => true,
 			    ],
 			    'font_family'   => [
 				    'title'          => 'Font Family',
-				    'input_type'     => 'select',
-				    'select_options' => [
-					    'arial' => 'Arial',
-				    ]
+				    'input_type'     => 'text',
 			    ],
 			    'css_classes'    => [
 				    'title' => 'CSS Classes',
@@ -306,13 +317,12 @@ $progress_bar_metas = [
 			    'color'    => [
 				    'title'      => 'Colour',
 				    'input_type' => 'color',
+                    'input_unit' => '#',
+                    'input_unit_prepend' => true,
 			    ],
 			    'font_family'   => [
 				    'title'          => 'Font Family',
-				    'input_type'     => 'select',
-				    'select_options' => [
-					    'arial' => 'Arial',
-				    ]
+				    'input_type'     => 'text',
 			    ],
 			    'css_classes'    => [
 				    'title' => 'CSS Classes',
@@ -372,19 +382,14 @@ function render_progress_bar_meta( $post ) {
                     <h3><?= $meta_section['title'] ?? 'placeholder' ?></h3>
 				    <?php foreach ( $meta_section['inputs'] as $input_key => $input_config ) {
 					    $input_meta = "{$section_key}_{$input_key}";
-					    if ($input_config['input_type'] !== 'disabled') {
-						    $value = get_post_meta( $post->ID, "_{$input_meta}", true );
-					    }
+
+					    $value = $input_config['input_type'] !== 'disabled' ? get_post_meta( $post->ID, "_{$input_meta}", true ) : '';
 
 					    display_meta_input(
 						    $input_meta,
 						    $value,
-						    $input_config['input_type'],
-						    $input_config['title'] ?? '',
-						    $input_config['placeholder'] ?? '',
-						    $input_config['input_type'] === 'select' ? $input_config['select_options'] : [],
 						    $input_key,
-						    $input_config['input_unit'] ?? ''
+						    $input_config
 					    );
 				    } ?>
                 </div>
@@ -407,44 +412,46 @@ function render_progress_bar_meta( $post ) {
 function display_meta_input(
 	string $key,
 	string $value,
-	string $type,
-	string $title = '',
-	string $placeholder = '',
-	array $options = [],
-    string $input_classes = '',
-    string $unit = ''
+	string $classes,
+	array $input = []
 ): void {
 	?>
     <div class="input_row">
-		<?php if ( $type === 'text' || $type === 'color' ) { ?>
-			<?php if ( $title ) { ?>
-                <label for="<?= $key ?>"><?= $title ?></label>
+		<?php if ( $input['input_type'] === 'text' || $input['input_type'] === 'color' ) { ?>
+			<?php if ( $input['title'] ) { ?>
+                <label for="<?= $key ?>"><?= $input['title'] ?></label>
 			<?php } ?>
-            <div class="input_field <?= $input_classes ?> <?= $unit ? "has_input_unit" : "" ?>">
+            <div class="input_field <?= $classes ?> <?= $input['input_unit'] ? "has_input_unit" : "" ?> <?= $input['input_unit_prepend'] ? 'input_unit_prepend' : '' ?>">
+	            <?php if ($input['input_unit'] && $input['input_unit_prepend']) { ?>
+                    <div class="input_unit prepend"><?= $input['input_unit'] ?></div>
+	            <?php } ?>
                 <input
                         name="<?= $key ?>"
-                        id="<?= $key ?>" type="<?= $type ?>"
+                        id="<?= $key ?>"
+                        type="text"
+                        maxlength="<?= $input['input_type'] === 'color' ? "6" : "" ?>"
+                        spellcheck="<?= $input['input_type'] === 'color' ? "false" : "" ?>"
                         value="<?= $value ?>"
-                    <?= $placeholder ? "placeholder=\"$placeholder\"" : '' ?>
+                    <?= $input['placeholder'] ? "placeholder=\"{$input['placeholder']}\"" : '' ?>
                 >
-                <?php if ($unit) { ?>
-                    <div class="input_unit"><?= $unit ?></div>
+                <?php if ($input['input_unit'] && !$input['input_unit_prepend']) { ?>
+                    <div class="input_unit"><?= $input['input_unit'] ?></div>
                 <?php } ?>
             </div>
-		<?php } elseif ( $type === 'select' ) { ?>
-			<?php if ( $title ) { ?>
-                <label for="<?= $key ?>"><?= $title ?></label>
+		<?php } elseif ( $input['input_type'] === 'select' ) { ?>
+			<?php if ( $input['title'] ) { ?>
+                <label for="<?= $key ?>"><?= $input['title'] ?></label>
 			<?php } ?>
-            <select name="<?= $key ?>" id="<?= $key ?>" class="<?= $input_classes ?>">
-				<?php foreach ( $options as $option_value => $option_title ) { ?>
+            <select name="<?= $key ?>" id="<?= $key ?>" class="<?= $classes ?>">
+				<?php foreach ( $input['select_options'] as $option_value => $option_title ) { ?>
                     <option value="<?= $option_value ?>"<?= $value === $option_value ? 'selected' : '' ?>><?= $option_title ?></option>
                 <?php } ?>
             </select>
-		<?php } elseif ($type === 'disabled') {?>
-			<?php if ( $title ) { ?>
-                <label for="<?= $key ?>"><?= $title ?></label>
+		<?php } elseif ($input['input_type'] === 'disabled') {?>
+			<?php if ( $input['title'] ) { ?>
+                <label for="<?= $key ?>"><?= $input['title'] ?></label>
 			<?php } ?>
-            <input type="text" name="<?= $key ?>" id="<?= $key ?>" value="<?= $placeholder ?>" class="<?= $input_classes ?>" disabled>
+            <input type="text" name="<?= $key ?>" id="<?= $key ?>" value="<?= $input['placeholder'] ?>" class="<?= $input['input_classes'] ?>" disabled>
         <?php } ?>
     </div>
 	<?php
@@ -459,17 +466,19 @@ function save_bar_meta( $post_id ) {
 				if ($input_config['input_type'] === 'disabled') {
 					continue;
 				}
-
 				$input_key = "{$section_key}_{$input_key}";
 				$meta_key  = "_$input_key";
 
-				if ( array_key_exists( $input_key, $_POST ) ) {
+				if ( array_key_exists( $input_key, $_POST ) && $_POST[ $input_key ] !== '') {
 					update_post_meta(
 						$post_id,
 						$meta_key,
 						$_POST[ $input_key ]
 					);
+				} else {
+					delete_post_meta($post_id, $meta_key);
 				}
+
 			}
 		}
     }
