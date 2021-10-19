@@ -2,6 +2,7 @@
     padding: 0;
     margin: 0;
 }
+
 .input_column {
     border-left: 1px lightgrey dashed;
     border-top: 1px lightgrey dashed;
@@ -10,14 +11,17 @@
     margin-top: -1px;
     min-width: 250px;
 }
+
 .input_column h3 {
     flex-basis: 100%;
     margin-block-start: 0;
 }
+
 .input_group_title {
     padding: 0 20px;
     background-color: #f0f0f1;
 }
+
 .input_group {
     display: flex;
     flex-wrap: wrap;
@@ -30,32 +34,40 @@
     justify-content: space-between;
     align-items: center;
 }
+
 .css_classes, .text {
     width: 150px;
 }
+
 .input_row select, .input_field:not(.text, .css_classes) {
     width: 100px;
 }
+
 .input_field {
     display: flex;
 }
+
 .input_field input[type="text"] {
     min-width: 0;
     width: auto;
 }
+
 .input_field.has_input_unit input {
     margin: 0;
     border-radius: 4px 0 0 4px;
     position: relative;
     z-index: 1;
 }
+
 .input_field.has_input_unit.input_unit_prepend input {
     border-radius: 0 4px 4px 0;
     font-family: monospace;
 }
+
 .has_input_unit:not(.input_unit_prepend) input {
     text-align: right;
 }
+
 .input_unit {
     border: 1px solid #8c8f94;
     border-left: none;
@@ -66,11 +78,13 @@
     align-items: center;
     background-color: #f0f0f1;
 }
+
 .input_unit_prepend .input_unit {
     border: 1px solid #8c8f94;
     border-right: none;
     border-radius: 4px 0 0 4px;
 }
+
 .input_row:not(:last-child) {
     margin-bottom: 10px;
 }

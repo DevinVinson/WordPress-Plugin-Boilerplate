@@ -1,6 +1,6 @@
 <?php
 
-require_once(plugin_dir_path(__FILE__).'/public/classes/ProgressBar.php');
+require_once( plugin_dir_path( __FILE__ ) . '/public/classes/ProgressBar.php' );
 
 /**
  * The plugin bootstrap file
@@ -86,34 +86,34 @@ run_plugin_name();
  * Define repeat field groups
  */
 $text_group_inputs = [
-	'text'     => [
-		'title' => 'Text',
-		'input_type'  => 'text'
+	'text'        => [
+		'title'      => 'Text',
+		'input_type' => 'text'
 	],
-	'font_size'     => [
-		'title' => 'Font Size',
-		'input_type'  => 'text',
-        'input_unit' => 'px'
+	'font_size'   => [
+		'title'      => 'Font Size',
+		'input_type' => 'text',
+		'input_unit' => 'px'
 	],
-	'font_weight'   => [
-		'title' => 'Font Weight',
-		'input_type'  => 'select',
+	'font_weight' => [
+		'title'          => 'Font Weight',
+		'input_type'     => 'select',
 		'select_options' => [
-			'400'   => 'Normal',
+			'400' => 'Normal',
 			'700' => 'Bold',
 		]
 	],
-	'color'    => [
-		'title'      => 'Colour',
-		'input_type' => 'color',
-		'input_unit' => '#',
+	'color'       => [
+		'title'              => 'Colour',
+		'input_type'         => 'color',
+		'input_unit'         => '#',
 		'input_unit_prepend' => true,
 	],
-	'font_family'   => [
-		'title'          => 'Font Family',
-		'input_type'     => 'text',
+	'font_family' => [
+		'title'      => 'Font Family',
+		'input_type' => 'text',
 	],
-	'position' => [
+	'position'    => [
 		'title'          => 'Position',
 		'input_type'     => 'select',
 		'select_options' => [
@@ -122,9 +122,9 @@ $text_group_inputs = [
 			'right'  => 'Right',
 		]
 	],
-	'css_classes'    => [
-		'title' => 'CSS Classes',
-		'input_type'  => 'text'
+	'css_classes' => [
+		'title'      => 'CSS Classes',
+		'input_type' => 'text'
 	]
 ];
 
@@ -132,210 +132,210 @@ $text_group_inputs = [
  * Define Meta Box Fields
  */
 $progress_bar_metas = [
-    'Progress Bar' => [
-	    'bar'       => [
-		    'title'  => 'Bar Styling',
-		    'inputs' => [
-			    'background_color' => [
-				    'title'      => 'Bar',
-				    'input_type' => 'color',
-				    'input_unit' => '#',
-				    'input_unit_prepend' => true,
-			    ],
-			    'progress_color'   => [
-				    'title'      => 'Progress',
-				    'input_type' => 'color',
-				    'input_unit' => '#',
-				    'input_unit_prepend' => true,
-			    ],
-			    'complete_color'   => [
-				    'title'      => 'Complete',
-				    'input_type' => 'color',
-				    'input_unit' => '#',
-				    'input_unit_prepend' => true,
-			    ],
-			    'css_classes'            => [
-				    'title' => 'CSS Classes',
-				    'input_type'  => 'text',
-			    ]
-		    ]
-	    ],
-	    'bar_value' => [
-		    'title'  => 'Bar Value',
-		    'inputs' => [
-			    'text'   => [
-				    'title'      => 'Text',
-				    'placeholder' => 'Dynamic',
-				    'input_type' => 'disabled',
-			    ],
-			    'font_size'     => [
-				    'title' => 'Font Size',
-				    'input_type'  => 'text',
-				    'input_unit' => 'px',
-			    ],
-			    'font_weight'   => [
-				    'title' => 'Font Weight',
-				    'input_type'  => 'select',
-				    'select_options' => [
-					    '400'   => 'Normal',
-					    '700' => 'Bold',
-				    ]
-			    ],
-			    'color'    => [
-				    'title'      => 'Colour',
-				    'input_type' => 'color',
-				    'input_unit' => '#',
-				    'input_unit_prepend' => true,
-			    ],
-			    'font_family'   => [
-				    'title'          => 'Font Family',
-				    'input_type'     => 'text',
-			    ],
-			    'position' => [
-				    'title'          => 'Position',
-				    'input_type'     => 'select',
-				    'select_options' => [
-					    'center' => 'Center',
-					    'left'   => 'Left',
-					    'right'  => 'Right',
-				    ]
-			    ],
-			    'css_classes'    => [
-				    'title' => 'CSS Classes',
-				    'input_type'  => 'text'
-			    ]
-		    ],
-	    ],
-	    'bar_title' => [
-		    'title'  => 'Display Title (Opt.)',
-		    'inputs' => $text_group_inputs
-	    ],
-	    'bar_block' => [
-		    'title'  => 'Positioning/Block',
-		    'inputs' => [
-			    'height'           => [
-				    'title' => 'Bar Height',
-				    'input_type'  => 'text',
-                    'input_unit' => 'px',
-			    ],
-			    'position' => [
-				    'title'          => 'Block Position',
-				    'input_type'     => 'select',
-				    'select_options' => [
-					    'center' => 'Center',
-					    'left'   => 'Left',
-					    'right'  => 'Right',
-				    ]
-			    ],
-			    'width'            => [
-				    'title' => 'Block Width',
-				    'input_type'  => 'text',
-                    'input_unit' => '%'
-			    ],
-                'background_color' => [
-				    'title'      => 'Block Colour',
-				    'input_type' => 'color',
-                    'input_unit' => '#',
-                    'input_unit_prepend' => true,
-			    ],
-			    'css_classes'            => [
-				    'title' => 'CSS Classes',
-				    'input_type'  => 'text'
-			    ],
-		    ]
-	    ],
-    ],
-    'Progress Text' => [
-	    'progress_text'  => [
-		    'title'  => 'Text',
-		    'inputs' => $text_group_inputs
-	    ],
-	    'progress_value' => [
-		    'title'  => 'Value',
-		    'inputs' => [
-			    'text'   => [
-				    'title'      => 'Text',
-				    'placeholder' => 'Dynamic',
-				    'input_type' => 'disabled',
-			    ],
-			    'font_size'     => [
-				    'title' => 'Font Size',
-				    'input_type'  => 'text',
-                    'input_unit' => 'px',
-			    ],
-			    'font_weight'   => [
-				    'title' => 'Font Weight',
-				    'input_type'  => 'select',
-				    'select_options' => [
-					    '400'   => 'Normal',
-					    '700' => 'Bold',
-				    ]
-			    ],
-			    'color'    => [
-				    'title'      => 'Colour',
-				    'input_type' => 'color',
-				    'input_unit' => '#',
-				    'input_unit_prepend' => true,
-			    ],
-			    'font_family'   => [
-				    'title'          => 'Font Family',
-				    'input_type'     => 'text',
-			    ],
-			    'css_classes'    => [
-				    'title' => 'CSS Classes',
-				    'input_type'  => 'text'
-			    ]
-		    ]
-	    ],
-    ],
-    'Target Text' => [
-	    'target_text'  => [
-		    'title'  => 'Text',
-		    'inputs' => $text_group_inputs,
-	    ],
-	    'target_value' => [
-		    'title'  => 'Value',
-		    'inputs' => [
-			    'text'   => [
-				    'title'      => 'Text',
-				    'placeholder' => 'Dynamic',
-				    'input_type' => 'disabled',
-			    ],
-			    'font_size'     => [
-				    'title' => 'Font Size',
-				    'input_type'  => 'text',
-                    'input_unit' => 'px',
-			    ],
-			    'font_weight'   => [
-				    'title' => 'Font Weight',
-				    'input_type'  => 'select',
-				    'select_options' => [
-					    '400'   => 'Normal',
-					    '700' => 'Bold',
-				    ]
-			    ],
-			    'color'    => [
-				    'title'      => 'Colour',
-				    'input_type' => 'color',
-                    'input_unit' => '#',
-                    'input_unit_prepend' => true,
-			    ],
-			    'font_family'   => [
-				    'title'          => 'Font Family',
-				    'input_type'     => 'text',
-			    ],
-			    'css_classes'    => [
-				    'title' => 'CSS Classes',
-				    'input_type'  => 'text'
-			    ]
-		    ],
-	    ],
-    ],
+	'Progress Bar'  => [
+		'bar'       => [
+			'title'  => 'Bar Styling',
+			'inputs' => [
+				'background_color' => [
+					'title'              => 'Bar',
+					'input_type'         => 'color',
+					'input_unit'         => '#',
+					'input_unit_prepend' => true,
+				],
+				'progress_color'   => [
+					'title'              => 'Progress',
+					'input_type'         => 'color',
+					'input_unit'         => '#',
+					'input_unit_prepend' => true,
+				],
+				'complete_color'   => [
+					'title'              => 'Complete',
+					'input_type'         => 'color',
+					'input_unit'         => '#',
+					'input_unit_prepend' => true,
+				],
+				'css_classes'      => [
+					'title'      => 'CSS Classes',
+					'input_type' => 'text',
+				]
+			]
+		],
+		'bar_value' => [
+			'title'  => 'Bar Value',
+			'inputs' => [
+				'text'        => [
+					'title'       => 'Text',
+					'placeholder' => 'Dynamic',
+					'input_type'  => 'disabled',
+				],
+				'font_size'   => [
+					'title'      => 'Font Size',
+					'input_type' => 'text',
+					'input_unit' => 'px',
+				],
+				'font_weight' => [
+					'title'          => 'Font Weight',
+					'input_type'     => 'select',
+					'select_options' => [
+						'400' => 'Normal',
+						'700' => 'Bold',
+					]
+				],
+				'color'       => [
+					'title'              => 'Colour',
+					'input_type'         => 'color',
+					'input_unit'         => '#',
+					'input_unit_prepend' => true,
+				],
+				'font_family' => [
+					'title'      => 'Font Family',
+					'input_type' => 'text',
+				],
+				'position'    => [
+					'title'          => 'Position',
+					'input_type'     => 'select',
+					'select_options' => [
+						'center' => 'Center',
+						'left'   => 'Left',
+						'right'  => 'Right',
+					]
+				],
+				'css_classes' => [
+					'title'      => 'CSS Classes',
+					'input_type' => 'text'
+				]
+			],
+		],
+		'bar_title' => [
+			'title'  => 'Display Title (Opt.)',
+			'inputs' => $text_group_inputs
+		],
+		'bar_block' => [
+			'title'  => 'Positioning/Block',
+			'inputs' => [
+				'height'           => [
+					'title'      => 'Bar Height',
+					'input_type' => 'text',
+					'input_unit' => 'px',
+				],
+				'position'         => [
+					'title'          => 'Block Position',
+					'input_type'     => 'select',
+					'select_options' => [
+						'center' => 'Center',
+						'left'   => 'Left',
+						'right'  => 'Right',
+					]
+				],
+				'width'            => [
+					'title'      => 'Block Width',
+					'input_type' => 'text',
+					'input_unit' => '%'
+				],
+				'background_color' => [
+					'title'              => 'Block Colour',
+					'input_type'         => 'color',
+					'input_unit'         => '#',
+					'input_unit_prepend' => true,
+				],
+				'css_classes'      => [
+					'title'      => 'CSS Classes',
+					'input_type' => 'text'
+				],
+			]
+		],
+	],
+	'Progress Text' => [
+		'progress_text'  => [
+			'title'  => 'Text',
+			'inputs' => $text_group_inputs
+		],
+		'progress_value' => [
+			'title'  => 'Value',
+			'inputs' => [
+				'text'        => [
+					'title'       => 'Text',
+					'placeholder' => 'Dynamic',
+					'input_type'  => 'disabled',
+				],
+				'font_size'   => [
+					'title'      => 'Font Size',
+					'input_type' => 'text',
+					'input_unit' => 'px',
+				],
+				'font_weight' => [
+					'title'          => 'Font Weight',
+					'input_type'     => 'select',
+					'select_options' => [
+						'400' => 'Normal',
+						'700' => 'Bold',
+					]
+				],
+				'color'       => [
+					'title'              => 'Colour',
+					'input_type'         => 'color',
+					'input_unit'         => '#',
+					'input_unit_prepend' => true,
+				],
+				'font_family' => [
+					'title'      => 'Font Family',
+					'input_type' => 'text',
+				],
+				'css_classes' => [
+					'title'      => 'CSS Classes',
+					'input_type' => 'text'
+				]
+			]
+		],
+	],
+	'Target Text'   => [
+		'target_text'  => [
+			'title'  => 'Text',
+			'inputs' => $text_group_inputs,
+		],
+		'target_value' => [
+			'title'  => 'Value',
+			'inputs' => [
+				'text'        => [
+					'title'       => 'Text',
+					'placeholder' => 'Dynamic',
+					'input_type'  => 'disabled',
+				],
+				'font_size'   => [
+					'title'      => 'Font Size',
+					'input_type' => 'text',
+					'input_unit' => 'px',
+				],
+				'font_weight' => [
+					'title'          => 'Font Weight',
+					'input_type'     => 'select',
+					'select_options' => [
+						'400' => 'Normal',
+						'700' => 'Bold',
+					]
+				],
+				'color'       => [
+					'title'              => 'Colour',
+					'input_type'         => 'color',
+					'input_unit'         => '#',
+					'input_unit_prepend' => true,
+				],
+				'font_family' => [
+					'title'      => 'Font Family',
+					'input_type' => 'text',
+				],
+				'css_classes' => [
+					'title'      => 'CSS Classes',
+					'input_type' => 'text'
+				]
+			],
+		],
+	],
 ];
 
 /*
  * Register custom post type and relevant meta boxes
- * These act as the bar interface
+ * These act as the bar interface for editing and saving Progress Bar configurations.
  */
 function register_progress_bar() {
 	register_post_type(
@@ -367,47 +367,71 @@ function register_progress_bar_meta() {
 		'progress_bar'
 	);
 }
+
 add_action( 'add_meta_boxes', 'register_progress_bar_meta' );
 
+/**
+ * Function used for input field rendering in WP Admin interface. Directly echos output, as expected by add_meta_box().
+ *
+ * Utilises the global $progress_bar_metas as a data source.
+ *
+ * @param $post
+ */
 function render_progress_bar_meta( $post ) {
-    global $progress_bar_metas;
+	global $progress_bar_metas;
 
-    foreach ($progress_bar_metas as $meta_group_label => $meta_groups) { ?>
+	foreach ( $progress_bar_metas as $meta_group_label => $meta_groups ) { ?>
         <div class="input_group_title">
             <h1><?= $meta_group_label ?></h1>
         </div>
         <div class="input_group">
-		    <?php foreach ( $meta_groups as $section_key => $meta_section ) { ?>
+			<?php
+			foreach ( $meta_groups as $section_key => $meta_section ) { ?>
                 <div id="<?= $section_key ?>" class="input_column">
                     <h3><?= $meta_section['title'] ?? 'placeholder' ?></h3>
-				    <?php foreach ( $meta_section['inputs'] as $input_key => $input_config ) {
-					    $input_meta = "{$section_key}_{$input_key}";
+					<?php
+					/*
+					 * Prepare and render input rows.
+					 */
+					foreach ( $meta_section['inputs'] as $input_key => $input_config ) {
+						$input_meta = "{$section_key}_{$input_key}";
 
-					    $value = $input_config['input_type'] !== 'disabled' ? get_post_meta( $post->ID, "_{$input_meta}", true ) : '';
+						$value = $input_config['input_type'] !== 'disabled'
+							? get_post_meta( $post->ID, "_{$input_meta}", true )
+							: '';
 
-					    display_meta_input(
-						    $input_meta,
-						    $value,
-						    $input_key,
-						    $input_config
-					    );
-				    } ?>
+						display_meta_input(
+							$input_meta,
+							$value,
+							$input_key,
+							$input_config
+						);
+					} ?>
                 </div>
-            <?php } ?>
+				<?php
+			} ?>
         </div>
-    <?php }
+		<?php
+	}
 }
 
 /**
- * Assemble and display HTML defined by passed parameters
+ * Assemble and display HTML defined by passed parameters.
  *
  * @param string $key
  * @param string $value
- * @param string $type
- * @param string $title
- * @param string $placeholder
- * @param array $options
- * @param string $input_classes
+ * @param string $classes
+ * @param array $input Complex input, strictly based on input array
+ *              $input = [
+ *                  'title' => string,
+ *                  'input_type' =>         string {text, color, select, disabled},
+ *                  'select_options' => array {[
+ *                       'value' => 'Label',
+ *                  ]},
+ *                  'input_unit' => string,
+ *                  'input_unit_prepend' => bool,
+ *                  'placeholder' => string,
+ *              ]
  */
 function display_meta_input(
 	string $key,
@@ -415,16 +439,28 @@ function display_meta_input(
 	string $classes,
 	array $input = []
 ): void {
+	/*
+	 * Input field wrapper
+	 */
 	?>
     <div class="input_row">
-		<?php if ( $input['input_type'] === 'text' || $input['input_type'] === 'color' ) { ?>
-			<?php if ( $input['title'] ) { ?>
+		<?php
+		/*
+		 * Text (And Colour) Input fields
+		 */
+		if ( $input['input_type'] === 'text' || $input['input_type'] === 'color' ) { ?>
+			<?php
+			if ( $input['title'] ) { ?>
                 <label for="<?= $key ?>"><?= $input['title'] ?></label>
-			<?php } ?>
+				<?php
+			} ?>
             <div class="input_field <?= $classes ?> <?= $input['input_unit'] ? "has_input_unit" : "" ?> <?= $input['input_unit_prepend'] ? 'input_unit_prepend' : '' ?>">
-	            <?php if ($input['input_unit'] && $input['input_unit_prepend']) { ?>
+				<?php
+				// Unit type (prepend)
+				if ( $input['input_unit'] && $input['input_unit_prepend'] ) { ?>
                     <div class="input_unit prepend"><?= $input['input_unit'] ?></div>
-	            <?php } ?>
+					<?php
+				} ?>
                 <input
                         name="<?= $key ?>"
                         id="<?= $key ?>"
@@ -432,77 +468,110 @@ function display_meta_input(
                         maxlength="<?= $input['input_type'] === 'color' ? "6" : "" ?>"
                         spellcheck="<?= $input['input_type'] === 'color' ? "false" : "" ?>"
                         value="<?= $value ?>"
-                    <?= $input['placeholder'] ? "placeholder=\"{$input['placeholder']}\"" : '' ?>
+					<?= $input['placeholder'] ? "placeholder=\"{$input['placeholder']}\"" : '' ?>
                 >
-                <?php if ($input['input_unit'] && !$input['input_unit_prepend']) { ?>
+				<?php
+				// Unit type (default/append)
+				if ( $input['input_unit'] && ! $input['input_unit_prepend'] ) { ?>
                     <div class="input_unit"><?= $input['input_unit'] ?></div>
-                <?php } ?>
+					<?php
+				} ?>
             </div>
-		<?php } elseif ( $input['input_type'] === 'select' ) { ?>
-			<?php if ( $input['title'] ) { ?>
+			<?php
+			/*
+			 * Dropdown/Select Input
+			 */
+		} elseif ( $input['input_type'] === 'select' ) { ?>
+			<?php
+			if ( $input['title'] ) { ?>
                 <label for="<?= $key ?>"><?= $input['title'] ?></label>
-			<?php } ?>
+				<?php
+			} ?>
             <select name="<?= $key ?>" id="<?= $key ?>" class="<?= $classes ?>">
-				<?php foreach ( $input['select_options'] as $option_value => $option_title ) { ?>
+				<?php
+				foreach ( $input['select_options'] as $option_value => $option_title ) { ?>
                     <option value="<?= $option_value ?>"<?= $value === $option_value ? 'selected' : '' ?>><?= $option_title ?></option>
-                <?php } ?>
+					<?php
+				} ?>
             </select>
-		<?php } elseif ($input['input_type'] === 'disabled') {?>
-			<?php if ( $input['title'] ) { ?>
+			<?php
+			/*
+			 * "Disabled" Fields (For Dynamic Values)
+			 */
+		} elseif ( $input['input_type'] === 'disabled' ) { ?>
+			<?php
+			if ( $input['title'] ) { ?>
                 <label for="<?= $key ?>"><?= $input['title'] ?></label>
-			<?php } ?>
-            <input type="text" name="<?= $key ?>" id="<?= $key ?>" value="<?= $input['placeholder'] ?>" class="<?= $input['input_classes'] ?>" disabled>
-        <?php } ?>
+				<?php
+			} ?>
+            <input type="text" name="<?= $key ?>" id="<?= $key ?>" value="<?= $input['placeholder'] ?>"
+                   class="<?= $classes ?>" disabled>
+			<?php
+		} ?>
     </div>
 	<?php
 }
 
+/**
+ * Programmatically saves meta for Progress Bar page submission based on global $progress_bar_metas.
+ *
+ * @param $post_id
+ */
 function save_bar_meta( $post_id ) {
 	global $progress_bar_metas;
 
-	foreach ($progress_bar_metas as $meta_groups) {
+	foreach ( $progress_bar_metas as $meta_groups ) {
 		foreach ( $meta_groups as $section_key => $meta_section ) {
 			foreach ( $meta_section['inputs'] as $input_key => $input_config ) {
-				if ($input_config['input_type'] === 'disabled') {
+				if ( $input_config['input_type'] === 'disabled' ) {
 					continue;
 				}
 				$input_key = "{$section_key}_{$input_key}";
 				$meta_key  = "_$input_key";
 
-				if ( array_key_exists( $input_key, $_POST ) && $_POST[ $input_key ] !== '') {
+				if ( array_key_exists( $input_key, $_POST ) && $_POST[ $input_key ] !== '' ) {
 					update_post_meta(
 						$post_id,
 						$meta_key,
 						$_POST[ $input_key ]
 					);
 				} else {
-					delete_post_meta($post_id, $meta_key);
+					delete_post_meta( $post_id, $meta_key );
 				}
-
 			}
 		}
-    }
+	}
 }
 
 add_action( 'save_post', 'save_bar_meta' );
 
-function progress_bar_shortcode($shortcode_args = []) {
-    $args = shortcode_atts(
-        ['id' => null],
-        $shortcode_args
-    );
+/**
+ * Shortcode interface to render the specified Progress Bar.
+ *
+ * @param array $shortcode_args WP Shortcode arguments (from shortcode usage)
+ *
+ * @return string HTML that will be rendered by WordPress
+ */
+function progress_bar_shortcode( $shortcode_args = [] ) {
+	$args = shortcode_atts(
+		[ 'id' => null ],
+		$shortcode_args
+	);
 
-    /*
-     * Return early if ID provided does not correspond to a valid Progress Bar
-     */
-    if (!isset($args['id']) || get_post_type($args['id']) !== "progress_bar") {
-        return "<pre>The ID provided to this shortcode does not correspond to a valid Progress Bar post type ID.</pre>";
-    }
+	/*
+	 * Return early if ID provided does not correspond to a valid Progress Bar
+	 */
+	if ( ! isset( $args['id'] ) || get_post_type( $args['id'] ) !== "progress_bar" ) {
+		return "<pre>The ID provided to this shortcode does not correspond to a valid Progress Bar post type ID.
+Usage example: [progress_bar id=\"1\"]</pre>";
+	}
 
-    /*
-     * Render the Progress Bar with provided helper functions
-     */
-	$progress_bar = new ProgressBar($args['id']);
-    return $progress_bar->get_html();
+	/*
+	 * Render the Progress Bar with provided helper functions
+	 */
+	$progress_bar = new ProgressBar( $args['id'] );
+
+	return $progress_bar->get_html();
 }
-add_shortcode('progress_bar', 'progress_bar_shortcode');
+
+add_shortcode( 'progress_bar', 'progress_bar_shortcode' );
