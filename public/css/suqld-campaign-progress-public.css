@@ -1,4 +1,87 @@
-/**
- * All of the CSS for your public-facing functionality should be
- * included in this file.
- */
+.progress-bar__shortcode {
+    --bar_height: 60px;
+    --block_width: 100%;
+}
+@media (max-width: 680px) {
+    .progress-bar__shortcode div.progress-bar__wrapper {
+        --block_width: 100%;
+    }
+}
+.progress-bar__wrapper {
+    width: var(--block_width);
+    border-radius: calc(var(--bar_height) / 2);
+    background-color: lightgrey;
+    padding: calc(var(--bar_height) / 2) var(--bar_height);
+}
+@media (max-width: 680px) {
+    .progress-bar__wrapper {
+        padding: 20px;
+    }
+}
+.progress-bar__title {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+    padding: 0 calc(var(--bar_height) / 2);
+    font-size: 25pt;
+}
+
+.progress-bar__bar {
+    width: 100%;
+    height: var(--bar_height);
+    background-color: white;
+    border-radius: calc(var(--bar_height) / 2);
+    padding: 0 calc(var(--bar_height) / 2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.progress-bar__bar-progress {
+    background-color: moccasin;
+    position: absolute;
+    inset: 0;
+    right: 30%;
+    height: 100%;
+    border-radius: calc(var(--bar_height) / 2);
+}
+
+.progress-bar__value {
+    position: relative;
+    font-size: 25pt;
+    font-weight: 700;
+}
+
+.progress-bar__sub-text {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.progress-bar__progress-title, .progress-bar__target-title {
+    display: flex;
+    align-items: flex-end;
+    margin-top: 15px;
+    justify-content: center;
+}
+.progress-bar__progress-title {
+    margin-left: calc(var(--bar_height) / 2);
+}
+.progress-bar__target-title {
+    margin-right: calc(var(--bar_height) / 2);
+}
+@media (max-width: 680px) {
+    .progress-bar__progress-title, .progress-bar__target-title {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+.progress-bar__progress-title__text, .progress-bar__target-title__text {
+     font-size: 14px;
+ }
+.progress-bar__progress-title__value, .progress-bar__target-title__value {
+    font-size: 16px;
+    font-weight: 700;
+}

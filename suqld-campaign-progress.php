@@ -1,5 +1,7 @@
 <?php
 
+require_once(plugin_dir_path(__FILE__).'/public/classes/ProgressBar.php');
+
 /**
  * The plugin bootstrap file
  *
@@ -85,27 +87,29 @@ run_plugin_name();
  */
 $text_group_inputs = [
 	'text'     => [
-		'placeholder' => 'Text',
+		'title' => 'Text',
 		'input_type'  => 'text'
 	],
-	'size'     => [
-		'placeholder' => 'Font Size',
-		'input_type'  => 'text'
+	'font_size'     => [
+		'title' => 'Font Size',
+		'input_type'  => 'text',
+        'input_unit' => 'px'
 	],
-	'weight'   => [
-		'placeholder' => 'Font Weight',
-		'input_type'  => 'text'
+	'font_weight'   => [
+		'title' => 'Font Weight',
+		'input_type'  => 'select',
+		'select_options' => [
+			'400'   => 'Normal',
+			'700' => 'Bold',
+		]
 	],
 	'color'    => [
 		'title'      => 'Colour',
 		'input_type' => 'color'
 	],
-	'family'   => [
+	'font_family'   => [
 		'title'          => 'Font Family',
-		'input_type'     => 'select',
-		'select_options' => [
-			'arial' => 'Arial',
-		],
+		'input_type'     => 'text',
 	],
 	'position' => [
 		'title'          => 'Position',
@@ -116,46 +120,8 @@ $text_group_inputs = [
 			'right'  => 'Right',
 		]
 	],
-	'class'    => [
-		'placeholder' => 'CSS Class(es)',
-		'input_type'  => 'text'
-	]
-];
-$dynamic_group_inputs = [
-	'text'   => [
-		'title'      => 'Dynamic Value',
-		'input_type' => 'disabled',
-	],
-	'size'     => [
-		'placeholder' => 'Font Size',
-		'input_type'  => 'text'
-	],
-	'weight'   => [
-		'placeholder' => 'Font Weight',
-		'input_type'  => 'text'
-	],
-	'color'    => [
-		'title'      => 'Colour',
-		'input_type' => 'color',
-	],
-	'family'   => [
-		'title'          => 'Font Family',
-		'input_type'     => 'select',
-		'select_options' => [
-			'arial' => 'Arial',
-		]
-	],
-	'position' => [
-		'title'          => 'Text Position',
-		'input_type'     => 'select',
-		'select_options' => [
-			'left'   => 'Left',
-			'center' => 'Center',
-			'right'  => 'Right',
-		]
-	],
-	'class'    => [
-		'placeholder' => 'CSS Class(es)',
+	'css_classes'    => [
+		'title' => 'CSS Classes',
 		'input_type'  => 'text'
 	]
 ];
@@ -164,7 +130,7 @@ $dynamic_group_inputs = [
  * Define Meta Box Fields
  */
 $progress_bar_metas = [
-    'Bar Styling' => [
+    'Progress Bar' => [
 	    'bar'       => [
 		    'title'  => 'Bar Styling',
 		    'inputs' => [
@@ -180,46 +146,88 @@ $progress_bar_metas = [
 				    'title'      => 'Complete',
 				    'input_type' => 'color',
 			    ],
-			    'class'            => [
-				    'placeholder' => 'CSS Class(es)',
+			    'css_classes'            => [
+				    'title' => 'CSS Classes',
 				    'input_type'  => 'text',
 			    ]
 		    ]
 	    ],
 	    'bar_value' => [
-		    'title'  => 'Bar Text',
-		    'inputs' => $dynamic_group_inputs,
+		    'title'  => 'Bar Value',
+		    'inputs' => [
+			    'text'   => [
+				    'title'      => 'Text',
+				    'placeholder' => 'Dynamic',
+				    'input_type' => 'disabled',
+			    ],
+			    'font_size'     => [
+				    'title' => 'Font Size',
+				    'input_type'  => 'text',
+				    'input_unit' => 'px',
+			    ],
+			    'font_weight'   => [
+				    'title' => 'Font Weight',
+				    'input_type'  => 'select',
+				    'select_options' => [
+					    '400'   => 'Normal',
+					    '700' => 'Bold',
+				    ]
+			    ],
+			    'color'    => [
+				    'title'      => 'Colour',
+				    'input_type' => 'color',
+			    ],
+			    'font_family'   => [
+				    'title'          => 'Font Family',
+				    'input_type'     => 'text',
+			    ],
+			    'position' => [
+				    'title'          => 'Position',
+				    'input_type'     => 'select',
+				    'select_options' => [
+					    'center' => 'Center',
+					    'left'   => 'Left',
+					    'right'  => 'Right',
+				    ]
+			    ],
+			    'css_classes'    => [
+				    'title' => 'CSS Classes',
+				    'input_type'  => 'text'
+			    ]
+		    ],
 	    ],
 	    'bar_title' => [
-		    'title'  => 'Title (Optional)',
+		    'title'  => 'Display Title (Opt.)',
 		    'inputs' => $text_group_inputs
 	    ],
 	    'bar_block' => [
 		    'title'  => 'Positioning/Block',
 		    'inputs' => [
-			    'background_color' => [
-				    'title'      => 'Block Colour',
-				    'input_type' => 'color'
-			    ],
-			    'width'            => [
-				    'placeholder' => 'Bar Width',
-				    'input_type'  => 'text',
-			    ],
 			    'height'           => [
-				    'placeholder' => 'Bar Height',
+				    'title' => 'Bar Height',
 				    'input_type'  => 'text',
+                    'input_unit' => 'px',
 			    ],
-			    'position'         => [
-				    'title'          => 'Bar Position',
+			    'position' => [
+				    'title'          => 'Block Position',
 				    'input_type'     => 'select',
 				    'select_options' => [
-					    'left'   => 'Left',
 					    'center' => 'Center',
+					    'left'   => 'Left',
 					    'right'  => 'Right',
 				    ]
 			    ],
-			    'class'            => [
-				    'placeholder' => 'Block CSS Class(es)',
+			    'width'            => [
+				    'title' => 'Block Width',
+				    'input_type'  => 'text',
+                    'input_unit' => '%'
+			    ],
+                'background_color' => [
+				    'title'      => 'Block Colour',
+				    'input_type' => 'color'
+			    ],
+			    'css_classes'            => [
+				    'title' => 'CSS Classes',
 				    'input_type'  => 'text'
 			    ],
 		    ]
@@ -227,22 +235,90 @@ $progress_bar_metas = [
     ],
     'Progress Text' => [
 	    'progress_text'  => [
-		    'title'  => 'Title',
+		    'title'  => 'Text',
 		    'inputs' => $text_group_inputs
 	    ],
 	    'progress_value' => [
 		    'title'  => 'Value',
-		    'inputs' => $dynamic_group_inputs
+		    'inputs' => [
+			    'text'   => [
+				    'title'      => 'Text',
+				    'placeholder' => 'Dynamic',
+				    'input_type' => 'disabled',
+			    ],
+			    'font_size'     => [
+				    'title' => 'Font Size',
+				    'input_type'  => 'text',
+                    'input_unit' => 'px',
+			    ],
+			    'font_weight'   => [
+				    'title' => 'Font Weight',
+				    'input_type'  => 'select',
+				    'select_options' => [
+					    '400'   => 'Normal',
+					    '700' => 'Bold',
+				    ]
+			    ],
+			    'color'    => [
+				    'title'      => 'Colour',
+				    'input_type' => 'color',
+			    ],
+			    'font_family'   => [
+				    'title'          => 'Font Family',
+				    'input_type'     => 'select',
+				    'select_options' => [
+					    'arial' => 'Arial',
+				    ]
+			    ],
+			    'css_classes'    => [
+				    'title' => 'CSS Classes',
+				    'input_type'  => 'text'
+			    ]
+		    ]
 	    ],
     ],
     'Target Text' => [
-	    'progress_text'  => [
-		    'title'  => 'Title',
+	    'target_text'  => [
+		    'title'  => 'Text',
 		    'inputs' => $text_group_inputs,
 	    ],
-	    'progress_value' => [
+	    'target_value' => [
 		    'title'  => 'Value',
-		    'inputs' => $dynamic_group_inputs,
+		    'inputs' => [
+			    'text'   => [
+				    'title'      => 'Text',
+				    'placeholder' => 'Dynamic',
+				    'input_type' => 'disabled',
+			    ],
+			    'font_size'     => [
+				    'title' => 'Font Size',
+				    'input_type'  => 'text',
+                    'input_unit' => 'px',
+			    ],
+			    'font_weight'   => [
+				    'title' => 'Font Weight',
+				    'input_type'  => 'select',
+				    'select_options' => [
+					    '400'   => 'Normal',
+					    '700' => 'Bold',
+				    ]
+			    ],
+			    'color'    => [
+				    'title'      => 'Colour',
+				    'input_type' => 'color',
+			    ],
+			    'font_family'   => [
+				    'title'          => 'Font Family',
+				    'input_type'     => 'select',
+				    'select_options' => [
+					    'arial' => 'Arial',
+				    ]
+			    ],
+			    'css_classes'    => [
+				    'title' => 'CSS Classes',
+				    'input_type'  => 'text'
+			    ]
+		    ],
 	    ],
     ],
 ];
@@ -285,6 +361,7 @@ add_action( 'add_meta_boxes', 'register_progress_bar_meta' );
 
 function render_progress_bar_meta( $post ) {
     global $progress_bar_metas;
+
     foreach ($progress_bar_metas as $meta_group_label => $meta_groups) { ?>
         <div class="input_group_title">
             <h1><?= $meta_group_label ?></h1>
@@ -294,18 +371,20 @@ function render_progress_bar_meta( $post ) {
                 <div id="<?= $section_key ?>" class="input_column">
                     <h3><?= $meta_section['title'] ?? 'placeholder' ?></h3>
 				    <?php foreach ( $meta_section['inputs'] as $input_key => $input_config ) {
-					    $input_key = "{$section_key}_{$input_key}";
+					    $input_meta = "{$section_key}_{$input_key}";
 					    if ($input_config['input_type'] !== 'disabled') {
-						    $value = get_post_meta( $post->ID, "_{$input_key}", true );
+						    $value = get_post_meta( $post->ID, "_{$input_meta}", true );
 					    }
 
 					    display_meta_input(
-						    $input_key,
+						    $input_meta,
 						    $value,
 						    $input_config['input_type'],
 						    $input_config['title'] ?? '',
 						    $input_config['placeholder'] ?? '',
-						    $input_config['input_type'] === 'select' ? $input_config['select_options'] : []
+						    $input_config['input_type'] === 'select' ? $input_config['select_options'] : [],
+						    $input_key,
+						    $input_config['input_unit'] ?? ''
 					    );
 				    } ?>
                 </div>
@@ -323,6 +402,7 @@ function render_progress_bar_meta( $post ) {
  * @param string $title
  * @param string $placeholder
  * @param array $options
+ * @param string $input_classes
  */
 function display_meta_input(
 	string $key,
@@ -330,27 +410,41 @@ function display_meta_input(
 	string $type,
 	string $title = '',
 	string $placeholder = '',
-	array $options = []
+	array $options = [],
+    string $input_classes = '',
+    string $unit = ''
 ): void {
 	?>
-    <div class="input_field">
+    <div class="input_row">
 		<?php if ( $type === 'text' || $type === 'color' ) { ?>
-            <input name="<?= $key ?>" id="<?= $key ?>" type="<?= $type ?>"
-                   value="<?= $value ?>" <?= $placeholder ? "placeholder=\"$placeholder\"" : '' ?>>
 			<?php if ( $title ) { ?>
                 <label for="<?= $key ?>"><?= $title ?></label>
-            <?php }
-		} elseif ( $type === 'select' ) { ?>
-            <select name="<?= $key ?>" id="<?= $key ?>">
+			<?php } ?>
+            <div class="input_field <?= $input_classes ?> <?= $unit ? "has_input_unit" : "" ?>">
+                <input
+                        name="<?= $key ?>"
+                        id="<?= $key ?>" type="<?= $type ?>"
+                        value="<?= $value ?>"
+                    <?= $placeholder ? "placeholder=\"$placeholder\"" : '' ?>
+                >
+                <?php if ($unit) { ?>
+                    <div class="input_unit"><?= $unit ?></div>
+                <?php } ?>
+            </div>
+		<?php } elseif ( $type === 'select' ) { ?>
+			<?php if ( $title ) { ?>
+                <label for="<?= $key ?>"><?= $title ?></label>
+			<?php } ?>
+            <select name="<?= $key ?>" id="<?= $key ?>" class="<?= $input_classes ?>">
 				<?php foreach ( $options as $option_value => $option_title ) { ?>
                     <option value="<?= $option_value ?>"<?= $value === $option_value ? 'selected' : '' ?>><?= $option_title ?></option>
                 <?php } ?>
             </select>
+		<?php } elseif ($type === 'disabled') {?>
 			<?php if ( $title ) { ?>
                 <label for="<?= $key ?>"><?= $title ?></label>
-            <?php }
-		} elseif ($type === 'disabled') {?>
-            <input type="text" name="<?= $key ?>" id="<?= $key ?>" value="<?= $title ?>" disabled>
+			<?php } ?>
+            <input type="text" name="<?= $key ?>" id="<?= $key ?>" value="<?= $placeholder ?>" class="<?= $input_classes ?>" disabled>
         <?php } ?>
     </div>
 	<?php
@@ -358,12 +452,14 @@ function display_meta_input(
 
 function save_bar_meta( $post_id ) {
 	global $progress_bar_metas;
+
 	foreach ($progress_bar_metas as $meta_groups) {
 		foreach ( $meta_groups as $section_key => $meta_section ) {
 			foreach ( $meta_section['inputs'] as $input_key => $input_config ) {
 				if ($input_config['input_type'] === 'disabled') {
 					continue;
 				}
+
 				$input_key = "{$section_key}_{$input_key}";
 				$meta_key  = "_$input_key";
 
@@ -380,3 +476,24 @@ function save_bar_meta( $post_id ) {
 }
 
 add_action( 'save_post', 'save_bar_meta' );
+
+function progress_bar_shortcode($shortcode_args = []) {
+    $args = shortcode_atts(
+        ['id' => null],
+        $shortcode_args
+    );
+
+    /*
+     * Return early if ID provided does not correspond to a valid Progress Bar
+     */
+    if (!isset($args['id']) || get_post_type($args['id']) !== "progress_bar") {
+        return "<pre>The ID provided to this shortcode does not correspond to a valid Progress Bar post type ID.</pre>";
+    }
+
+    /*
+     * Render the Progress Bar with provided helper functions
+     */
+	$progress_bar = new ProgressBar($args['id']);
+    return $progress_bar->get_html();
+}
+add_shortcode('progress_bar', 'progress_bar_shortcode');
