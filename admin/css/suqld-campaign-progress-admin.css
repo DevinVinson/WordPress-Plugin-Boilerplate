@@ -13,7 +13,6 @@
 }
 
 .input_column h3 {
-    flex-basis: 100%;
     margin-block-start: 0;
 }
 
@@ -35,11 +34,25 @@
     align-items: center;
 }
 
+.input_column {
+    display: flex;
+    flex-direction: column;
+}
+.input_row:not(:last-child) {
+    margin-bottom: 10px;
+}
+.input_row:nth-last-child(2) {
+    margin-bottom: 40px;
+}
+.input_row:last-child {
+    margin-top: auto;
+}
+
 .css_classes, .text {
     width: 150px;
 }
 
-.input_row select, .input_field:not(.text, .css_classes) {
+.input_row select, .input_field:not(.css_classes, .label) {
     width: 100px;
 }
 
@@ -47,9 +60,12 @@
     display: flex;
 }
 
-.input_field input[type="text"] {
+.input_field input[type="text"], .input_field input[type="number"] {
     min-width: 0;
     width: auto;
+}
+.input_field input[type="number"] {
+    padding-left: 0;
 }
 
 .input_field.has_input_unit input {
@@ -59,12 +75,12 @@
     z-index: 1;
 }
 
-.input_field.has_input_unit.input_unit_prepend input {
+.input_field.has_input_unit.prepend_input_unit input {
     border-radius: 0 4px 4px 0;
     font-family: monospace;
 }
 
-.has_input_unit:not(.input_unit_prepend) input {
+.has_input_unit:not(.prepend_input_unit) input {
     text-align: right;
 }
 
@@ -79,12 +95,8 @@
     background-color: #f0f0f1;
 }
 
-.input_unit_prepend .input_unit {
+.prepend_input_unit .input_unit {
     border: 1px solid #8c8f94;
     border-right: none;
     border-radius: 4px 0 0 4px;
-}
-
-.input_row:not(:last-child) {
-    margin-bottom: 10px;
 }

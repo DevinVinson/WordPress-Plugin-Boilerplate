@@ -5,13 +5,13 @@ namespace Admin\Inputs;
 class TextField extends InputField
 {
     /**
-     * @param int $post_id
+     * @param string $post_id
      * @param string $input_key
      * @param string $title
      * @param array $css_classes
      */
     public function __construct(
-        int $post_id,
+        string $post_id,
         string $input_key,
         string $title,
         array $css_classes = []
@@ -26,18 +26,25 @@ class TextField extends InputField
         );
     }
 
+	/**
+	 * Returns formatted HTML to be displayed in a WordPress post's meta box.
+	 *
+	 * @return string Formatted HTML
+	 */
     public function get_html(): string {
         $field_classes = $this->concat_css_classes();
 
         return <<<HTML
-<label for="$this->meta_key">$this->title</label>
-<div class="$field_classes">
-    <input
-        name="$this->input_key"
-        id="$this->input_key"
-        type="$this->input_type"
-        value="$this->meta_value"
-    >
+<div class="input_row">
+	<label for="$this->meta_key">$this->title</label>
+	<div class="$field_classes">
+	    <input
+	        name="$this->input_key"
+	        id="$this->input_key"
+	        type="$this->input_type"
+	        value="$this->meta_value"
+	    >
+	</div>
 </div>
 HTML;
     }

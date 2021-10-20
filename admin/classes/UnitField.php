@@ -2,34 +2,33 @@
 
 namespace Admin\Inputs;
 
-class DisabledField extends InputField
+class UnitField extends InputField
 {
-    private $display_value;
+    private $input_unit;
 
     /**
      * @param string $post_id
      * @param string $input_key
      * @param string $title
-     * @param string $display_value
      * @param array $css_classes
      */
     public function __construct(
         string $post_id,
         string $input_key,
         string $title,
-        string $display_value,
+        string $input_unit,
         array $css_classes = []
     )
     {
         parent::__construct(
             $post_id,
-            "text",
+            "number",
             $input_key,
             $title,
             $css_classes
         );
 
-        $this->display_value = $display_value;
+        $this->input_unit = $input_unit;
     }
 
 	/**
@@ -38,7 +37,7 @@ class DisabledField extends InputField
 	 * @return string Formatted HTML
 	 */
     public function get_html(): string {
-        $field_classes = $this->concat_css_classes();
+        $field_classes = $this->concat_css_classes(["has_input_unit"]);
 
         return <<<HTML
 <div class="input_row">
@@ -48,9 +47,13 @@ class DisabledField extends InputField
 	        name="$this->input_key"
 	        id="$this->input_key"
 	        type="$this->input_type"
-	        value="$this->display_value"
-	        disabled
+	        value="$this->meta_value"
+	        dir="rtl"
+	        min="0"
+	        maxlength="6"
+	        spellcheck="false"
 	    >
+	    <div class="input_unit">$this->input_unit</div>
 	</div>
 </div>
 HTML;
