@@ -34,7 +34,7 @@ class Autoloader {
 
 		spl_autoload_register( array( $this, 'autoload' ) );
 
-		$this->include_path = untrailingslashit( PLUGIN_FILE ) . '/includes/';
+		$this->include_path = untrailingslashit( plugin_dir_path( PLUGIN_FILE ) ) . '/includes/';
 	}
 
 	/**

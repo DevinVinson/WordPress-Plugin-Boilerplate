@@ -34,3 +34,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 const VERSION     = '1.0.0';
 const PLUGIN_FILE = __FILE__;
 require_once 'class-plugin.php';
+Plugin::instance();
