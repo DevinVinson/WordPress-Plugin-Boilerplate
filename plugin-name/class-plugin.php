@@ -16,7 +16,7 @@ if ( ! class_exists( 'Plugin' ) ) :
 	final class Plugin {
 
 		/**
-		 * Plugin_Name version.
+		 * Plugin version.
 		 *
 		 * @var string
 		 */
@@ -75,7 +75,7 @@ if ( ! class_exists( 'Plugin' ) ) :
 		}
 
 		/**
-		 * Plugin_Name Initializer.
+		 * Initializer.
 		 */
 		public function initalize_plugin() {
 			if ( self::$initialized ) {
@@ -93,7 +93,7 @@ if ( ! class_exists( 'Plugin' ) ) :
 		}
 
 		/**
-		 * Define PName Constants.
+		 * Define Constants.
 		 */
 		private function define_constants() {
 			$upload_dir = wp_upload_dir();

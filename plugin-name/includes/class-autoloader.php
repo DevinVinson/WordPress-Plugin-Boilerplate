@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Plugin_Name Autoloader.
+ * Autoloader.
  */
 class Autoloader {
 

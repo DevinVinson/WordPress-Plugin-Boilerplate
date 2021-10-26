@@ -35,7 +35,7 @@ require_once 'class-plugin.php';
 /**
  * Main instance of Plugin.
  *
- * Returns the main instance of PName to prevent the need to use globals.
+ * Returns the main instance of the plugin to prevent the need to use globals.
  *
  * @since  1.0.0
  * @return \Plugin_Name\Plugin

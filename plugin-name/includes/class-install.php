@@ -13,12 +13,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * PName_Install Class.
+ * Install Class.
  */
 class Install {
 
 	/**
-	 * Install PName.
+	 * Install plugin.
 	 */
 	public static function install() {
 		// PERFORM INSTALL ACTIONS HERE.
