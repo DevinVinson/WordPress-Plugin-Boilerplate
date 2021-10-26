@@ -141,14 +141,14 @@ if ( ! class_exists( 'Plugin' ) ) :
 			include_once 'includes/class-autoloader.php';
 			new Autoloader();
 			include_once 'includes/plugin-name-core-functions.php';
-			include_once 'includes/class-install.php';
+			register_activation_hook( PNAME_PLUGIN_FILE, array( 'Plugin_Name\Install', 'install' ) );
 
 			if ( $this->is_request( 'admin' ) ) {
-				include_once 'includes/admin/class-main.php';
+				new Admin\Main();
 			}
 
 			if ( $this->is_request( 'frontend' ) ) {
-				include_once 'includes/class-frontend-assets.php'; // Frontend Scripts.
+				new Frontend_Assets(); // Frontend Scripts.
 			}
 
 			$this->load_customizations();

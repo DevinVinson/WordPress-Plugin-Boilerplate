@@ -64,5 +64,3 @@ class Admin_Assets extends Assets {
 	}
 
 }
-
-return new Admin_Assets();

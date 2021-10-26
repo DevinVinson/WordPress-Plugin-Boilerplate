@@ -63,5 +63,3 @@ class Frontend_Assets extends Assets {
 	}
 
 }
-
-new Frontend_Assets();
