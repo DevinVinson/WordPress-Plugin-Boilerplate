@@ -45,8 +45,8 @@ abstract class Assets {
 	 * @return string
 	 */
 	protected function localize_asset( $path ) {
-		$assets_path     = PNameSingleton()->plugin_path() . '/assets/';
-		$assets_path_url = str_replace( array( 'http:', 'https:' ), '', PNameSingleton()->plugin_url() ) . '/assets/';
+		$assets_path     = Plugin::instance()->plugin_path() . '/assets/';
+		$assets_path_url = str_replace( array( 'http:', 'https:' ), '', Plugin::instance()->plugin_url() ) . '/assets/';
 
 		if ( ! ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ) {
 			$ext_pos    = strrpos( $path, '.' );
@@ -176,7 +176,7 @@ abstract class Assets {
 		}
 
 		$suffix               = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
-		$assets_path          = str_replace( array( 'http:', 'https:' ), '', PNameSingleton()->plugin_url() ) . '/assets/';
+		$assets_path          = str_replace( array( 'http:', 'https:' ), '', Plugin::instance()->plugin_url() ) . '/assets/';
 		$frontend_script_path = $assets_path . 'js/frontend/';
 
 		// JS Scripts.

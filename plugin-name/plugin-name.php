@@ -31,18 +31,3 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 define( 'PNAME_PLUGIN_FILE', __FILE__ );
 require_once 'class-plugin.php';
-
-/**
- * Main instance of Plugin.
- *
- * Returns the main instance of the plugin to prevent the need to use globals.
- *
- * @since  1.0.0
- * @return \Plugin_Name\Plugin
- */
-function PNameSingleton() { // phpcs:ignore WordPress.NamingConventions.ValidFunctionName
-	return \Plugin_Name\Plugin::instance();
-}
-
-// Global for backwards compatibility.
-$GLOBALS['plugin_name'] = PNameSingleton();

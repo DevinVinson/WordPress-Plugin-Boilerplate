@@ -45,7 +45,6 @@ if ( ! class_exists( 'Plugin' ) ) :
 		 *
 		 * @since 1.0.0
 		 * @static
-		 * @see PNameSingleton()
 		 * @return Plugin - Main instance.
 		 */
 		public static function instance() {

@@ -54,7 +54,7 @@ class Frontend_Assets extends Assets {
 				'plugin-name-general' => array(
 					'src'  => $this->localize_asset( 'js/frontend/plugin-name.js' ),
 					'data' => array(
-						'ajax_url' => PNameSingleton()->ajax_url(),
+						'ajax_url' => Plugin::instance()->ajax_url(),
 					),
 				),
 			)
