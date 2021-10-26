@@ -27,6 +27,8 @@ class Main {
 
 	/**
 	 * Include any classes we need within admin.
+	 *
+	 * @return void
 	 */
 	public function includes() {
 		require_once 'plugin-name-admin-functions.php';
@@ -35,6 +37,8 @@ class Main {
 
 	/**
 	 * Include admin files conditionally.
+	 *
+	 * @return void
 	 */
 	public function conditional_includes() {
 		$screen = get_current_screen();

@@ -1,6 +1,5 @@
 parameters:
-	level: 3
-	treatPhpDocTypesAsCertain: false
+	level: 8
 	bootstrapFiles:
 		- %currentWorkingDirectory%/vendor/php-stubs/wordpress-stubs/wordpress-stubs.php
 		- %currentWorkingDirectory%/vendor/php-stubs/woocommerce-stubs/woocommerce-stubs.php

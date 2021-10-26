@@ -29,7 +29,7 @@ class Frontend_Assets extends Assets {
 	/**
 	 * Get styles for the frontend.
 	 *
-	 * @return array
+	 * @return array<string,array>
 	 */
 	public function get_styles() {
 		return apply_filters(
@@ -45,7 +45,7 @@ class Frontend_Assets extends Assets {
 	/**
 	 * Get styles for the frontend.
 	 *
-	 * @return array
+	 * @return array<string,array>
 	 */
 	public function get_scripts() {
 		return apply_filters(
