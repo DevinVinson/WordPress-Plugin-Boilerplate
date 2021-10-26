@@ -19,6 +19,8 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @param mixed  $slug Slug of the template to get.
  * @param string $name (default: '') Template name (sub-slug if you will).
+ *
+ * @return void
  */
 function plugin_name_get_template_part( $slug, $name = '' ) {
 	$template = '';
@@ -49,10 +51,12 @@ function plugin_name_get_template_part( $slug, $name = '' ) {
 /**
  * Get other templates passing attributes and including the file.
  *
- * @param string $template_name Filename to locate.
- * @param array  $args (default: array()) Args to send to template.
- * @param string $template_path (default: '') Path to look the template into.
- * @param string $default_path (default: '') Default path to fallback to.
+ * @param string              $template_name Filename to locate.
+ * @param array<string,mixed> $args (default: array()) Args to send to template.
+ * @param string              $template_path (default: '') Path to look the template into.
+ * @param string              $default_path (default: '') Default path to fallback to.
+ *
+ * @return void
  */
 function plugin_name_get_template( $template_name, $args = array(), $template_path = '', $default_path = '' ) {
 	if ( ! empty( $args ) && is_array( $args ) ) {
@@ -82,16 +86,18 @@ function plugin_name_get_template( $template_name, $args = array(), $template_pa
  *
  * @see plugin_name_get_template
  * @since 2.5.0
- * @param string $template_name Filename to locate.
- * @param array  $args (default: array()) Args to send to template.
- * @param string $template_path (default: '') Path to look the template into.
- * @param string $default_path (default: '') Default path to fallback to.
+ * @param string              $template_name Filename to locate.
+ * @param array<string,mixed> $args (default: array()) Args to send to template.
+ * @param string              $template_path (default: '') Path to look the template into.
+ * @param string              $default_path (default: '') Default path to fallback to.
  * @return string
  */
 function plugin_name_get_template_html( $template_name, $args = array(), $template_path = '', $default_path = '' ) {
 	ob_start();
 	plugin_name_get_template( $template_name, $args, $template_path, $default_path );
-	return ob_get_clean();
+	$ret = ob_get_clean();
+
+	return is_bool( $ret ) ? '' : $ret;
 }
 
 /**

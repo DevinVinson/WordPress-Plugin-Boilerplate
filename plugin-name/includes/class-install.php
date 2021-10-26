@@ -19,6 +19,8 @@ class Install {
 
 	/**
 	 * Install plugin.
+	 *
+	 * @return void
 	 */
 	public static function install() {
 		// PERFORM INSTALL ACTIONS HERE.

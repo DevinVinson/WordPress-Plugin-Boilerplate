@@ -23,7 +23,7 @@ final class Plugin {
 	/**
 	 * The single instance of the class.
 	 *
-	 * @var Plugin
+	 * @var Plugin|null
 	 * @since 1.0.0
 	 */
 	private static $instance = null;
@@ -73,6 +73,8 @@ final class Plugin {
 
 	/**
 	 * Initializer.
+	 *
+	 * @return void
 	 */
 	public function initalize_plugin() {
 		if ( self::$initialized ) {
@@ -110,6 +112,8 @@ final class Plugin {
 
 	/**
 	 * Include required core files used in admin and on the frontend.
+	 *
+	 * @return void
 	 */
 	private function includes() {
 		require_once 'includes/class-autoloader.php';
@@ -130,6 +134,8 @@ final class Plugin {
 
 	/**
 	 * Include required customizations files.
+	 *
+	 * @return void
 	 */
 	private function load_customizations() {
 		Customizations\ACF::init();
@@ -137,6 +143,8 @@ final class Plugin {
 
 	/**
 	 * Hook into actions and filters.
+	 *
+	 * @return void
 	 *
 	 * @since  1.0.0
 	 */
@@ -146,6 +154,8 @@ final class Plugin {
 
 	/**
 	 * Init Plugin when WordPress Initialises.
+	 *
+	 * @return void
 	 */
 	public function init() {
 		// Before init action.
@@ -166,6 +176,8 @@ final class Plugin {
 	 * Locales found in:
 	 *      - WP_LANG_DIR/plugin-name/plugin-name-LOCALE.mo
 	 *      - WP_LANG_DIR/plugins/plugin-name-LOCALE.mo
+	 *
+	 * @return void
 	 */
 	private function load_plugin_textdomain() {
 		$locale = apply_filters( 'plugin_locale', get_locale(), 'plugin-name' );

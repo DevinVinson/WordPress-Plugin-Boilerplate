@@ -28,10 +28,6 @@ class Autoloader {
 	 * The Constructor.
 	 */
 	public function __construct() {
-		if ( function_exists( '__autoload' ) ) {
-			spl_autoload_register( '__autoload' );
-		}
-
 		spl_autoload_register( array( $this, 'autoload' ) );
 
 		$this->include_path = untrailingslashit( PLUGIN_FILE ) . '/includes/';
@@ -65,6 +61,8 @@ class Autoloader {
 	 * Auto-load classes on demand to reduce memory consumption.
 	 *
 	 * @param string $_class Class to attempt autoloading.
+	 *
+	 * @return void
 	 */
 	public function autoload( $_class ) {
 		$prefix = 'Plugin_Name\\';

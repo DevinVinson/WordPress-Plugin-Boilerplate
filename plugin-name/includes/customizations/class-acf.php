@@ -19,6 +19,8 @@ class ACF {
 
 	/**
 	 * Hook in methods.
+	 *
+	 * @return void
 	 */
 	public static function init() {
 		// add_filter( 'acf/settings/load_json', array( __CLASS__, 'acf_json_load_point' ) );
@@ -28,8 +30,8 @@ class ACF {
 	/**
 	 * Set from where ACF must load JSON files
 	 *
-	 * @param  array $paths Paths that ACF will read JSON from.
-	 * @return array
+	 * @param  array<string> $paths Paths that ACF will read JSON from.
+	 * @return array<string>
 	 */
 	public static function acf_json_load_point( $paths ) {
 		unset( $paths[0] );

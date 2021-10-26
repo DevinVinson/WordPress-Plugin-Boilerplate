@@ -20,21 +20,21 @@ abstract class Assets {
 	/**
 	 * Contains an array of script handles registered by WC.
 	 *
-	 * @var array
+	 * @var array<string>
 	 */
 	private $scripts = array();
 
 	/**
 	 * Contains an array of script handles registered by WC.
 	 *
-	 * @var array
+	 * @var array<string>
 	 */
 	private $styles = array();
 
 	/**
 	 * Contains an array of script handles localized by WC.
 	 *
-	 * @var array
+	 * @var array<string>
 	 */
 	private $wp_localize_scripts = array();
 
@@ -49,12 +49,14 @@ abstract class Assets {
 		$assets_path_url = str_replace( array( 'http:', 'https:' ), '', Plugin::instance()->plugin_url() ) . '/assets/';
 
 		if ( ! ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ) {
-			$ext_pos    = strrpos( $path, '.' );
-			$clean_path = substr( $path, 0, $ext_pos );
-			$ext        = substr( $path, $ext_pos );
-			$min_path   = $clean_path . '.min' . $ext;
-			if ( file_exists( $assets_path . $min_path ) ) {
-				$path = $min_path;
+			$ext_pos = strrpos( $path, '.' );
+			if ( is_numeric( $ext_pos ) ) {
+				$clean_path = substr( $path, 0, $ext_pos );
+				$ext        = substr( $path, $ext_pos );
+				$min_path   = $clean_path . '.min' . $ext;
+				if ( file_exists( $assets_path . $min_path ) ) {
+					$path = $min_path;
+				}
 			}
 		}
 
@@ -64,7 +66,7 @@ abstract class Assets {
 	/**
 	 * Get styles for the frontend.
 	 *
-	 * @return array
+	 * @return array<string,array>
 	 */
 	public function get_styles() {
 		return array();
@@ -73,7 +75,7 @@ abstract class Assets {
 	/**
 	 * Get styles for the frontend.
 	 *
-	 * @return array
+	 * @return array<string,array>
 	 */
 	public function get_scripts() {
 		return array();
@@ -93,6 +95,8 @@ abstract class Assets {
 	 *                                    If set to null, no version is added.
 	 * @param bool             $in_footer Optional. Whether to enqueue the script before </body> instead of in the <head>.
 	 *                                    Default 'false'.
+	 *
+	 * @return void
 	 */
 	private function register_script( $handle, $path, $deps = array( 'jquery' ), $version = VERSION, $in_footer = true ) {
 		$this->scripts[] = $handle;
@@ -113,6 +117,8 @@ abstract class Assets {
 	 *                                    If set to null, no version is added.
 	 * @param bool             $in_footer Optional. Whether to enqueue the script before </body> instead of in the <head>.
 	 *                                    Default 'false'.
+	 *
+	 * @return void
 	 */
 	private function enqueue_script( $handle, $path = '', $deps = array( 'jquery' ), $version = VERSION, $in_footer = true ) {
 		if ( ! in_array( $handle, $this->scripts, true ) && $path ) {
@@ -136,6 +142,8 @@ abstract class Assets {
 	 * @param string           $media   Optional. The media for which this stylesheet has been defined.
 	 *                                  Default 'all'. Accepts media types like 'all', 'print' and 'screen', or media queries like
 	 *                                  '(orientation: portrait)' and '(max-width: 640px)'.
+	 *
+	 * @return void
 	 */
 	private function register_style( $handle, $path, $deps = array(), $version = VERSION, $media = 'all' ) {
 		$this->styles[] = $handle;
@@ -157,6 +165,8 @@ abstract class Assets {
 	 * @param string           $media   Optional. The media for which this stylesheet has been defined.
 	 *                                  Default 'all'. Accepts media types like 'all', 'print' and 'screen', or media queries like
 	 *                                  '(orientation: portrait)' and '(max-width: 640px)'.
+	 *
+	 * @return void
 	 */
 	private function enqueue_style( $handle, $path = '', $deps = array(), $version = VERSION, $media = 'all' ) {
 		if ( ! in_array( $handle, $this->styles, true ) && $path ) {
@@ -167,6 +177,8 @@ abstract class Assets {
 
 	/**
 	 * Register/queue frontend scripts.
+	 *
+	 * @return void
 	 */
 	public function load_scripts() {
 		global $post;
@@ -229,6 +241,8 @@ abstract class Assets {
 	 *
 	 * @since  1.0.0 this needs less wp_script_is() calls due to https://core.trac.wordpress.org/ticket/28404 being added in WP 4.0.
 	 * @param  string $handle Handle of the script to localize.
+	 *
+	 * @return void
 	 */
 	private function localize_script( $handle ) {
 		if ( ! in_array( $handle, $this->wp_localize_scripts, true ) && wp_script_is( $handle ) ) {
@@ -245,7 +259,7 @@ abstract class Assets {
 	 * Return data for script handles.
 	 *
 	 * @param  string $handle Handle of the script to add data for.
-	 * @return array|bool
+	 * @return array<string,mixed>|bool
 	 */
 	private function get_script_data( $handle ) {
 		global $wp;
@@ -263,6 +277,8 @@ abstract class Assets {
 
 	/**
 	 * Localize scripts only when enqueued.
+	 *
+	 * @return void
 	 */
 	public function localize_printed_scripts() {
 		foreach ( $this->scripts as $handle ) {
