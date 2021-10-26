@@ -60,7 +60,7 @@ class Autoloader {
 	 */
 	private function load_file( $path ) {
 		if ( $path && is_readable( $path ) ) {
-			include_once $path;
+			require_once $path;
 			return true;
 		}
 		return false;

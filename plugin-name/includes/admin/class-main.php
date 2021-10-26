@@ -30,7 +30,7 @@ class Main {
 	 * Include any classes we need within admin.
 	 */
 	public function includes() {
-		include_once 'plugin-name-admin-functions.php';
+		require_once 'plugin-name-admin-functions.php';
 		new Admin_Assets();
 	}
 

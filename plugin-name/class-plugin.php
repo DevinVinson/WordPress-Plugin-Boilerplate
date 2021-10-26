@@ -138,9 +138,9 @@ if ( ! class_exists( 'Plugin' ) ) :
 		 * Include required core files used in admin and on the frontend.
 		 */
 		private function includes() {
-			include_once 'includes/class-autoloader.php';
+			require_once 'includes/class-autoloader.php';
 			new Autoloader();
-			include_once 'includes/plugin-name-core-functions.php';
+			require_once 'includes/plugin-name-core-functions.php';
 			register_activation_hook( PNAME_PLUGIN_FILE, array( 'Plugin_Name\Install', 'install' ) );
 
 			if ( $this->is_request( 'admin' ) ) {
