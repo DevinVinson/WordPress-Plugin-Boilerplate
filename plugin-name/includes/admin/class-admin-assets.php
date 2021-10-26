@@ -2,7 +2,7 @@
 /**
  * Load assets
  *
- * @package     PName/Admin
+ * @package     Plugin_Name/Admin
  * @version     1.0.0
  */
 

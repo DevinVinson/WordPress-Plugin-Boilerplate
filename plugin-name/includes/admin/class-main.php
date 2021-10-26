@@ -2,7 +2,6 @@
 /**
  * WordPress Plugin Boilerplate Admin
  *
- * @class    PName_Admin
  * @package  Plugin_Name/Admin
  * @version  2.6.0
  */

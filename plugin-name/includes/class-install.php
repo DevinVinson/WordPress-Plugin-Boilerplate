@@ -2,7 +2,7 @@
 /**
  * Installation related functions and actions.
  *
- * @package  Plugin_Name/Classes
+ * @package  Plugin_Name
  * @version  1.0.0
  */
 

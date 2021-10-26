@@ -2,9 +2,8 @@
 /**
  * Autoloader class.
  *
- * @class       PName_Autoloader
  * @version     1.0.0
- * @package     Plugin_Name/Classes/
+ * @package     Plugin_Name
  */
 
 namespace Plugin_Name;
@@ -15,10 +14,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 /**
  * Plugin_Name Autoloader.
- *
- * @class       PName_Autoloader
- * @version     1.0.0
- * @package     Plugin_Name/Classes
  */
 class Autoloader {
 

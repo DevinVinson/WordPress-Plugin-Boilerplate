@@ -2,9 +2,8 @@
 /**
  * Handle frontend scripts
  *
- * @class       PName_Frontend_Scripts
  * @version     1.0.0
- * @package     Plugin_Name/Classes/
+ * @package     Plugin_Name
  */
 
 namespace Plugin_Name;

@@ -2,7 +2,7 @@
 /**
  * ACF Hooks
  *
- * @package     PName/Customizations
+ * @package     Plugin_Name/Customizations
  * @version     1.0.0
  */
 
