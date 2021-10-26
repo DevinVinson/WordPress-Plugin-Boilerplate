@@ -67,12 +67,12 @@ class Autoloader {
 	 * @param string $_class Class to attempt autoloading.
 	 */
 	public function autoload( $_class ) {
-		$class  = strtolower( $_class );
-		$prefix = 'plugin_name\\';
-		if ( 0 !== strpos( $class, $prefix ) ) {
+		$prefix = 'Plugin_Name\\';
+		if ( 0 !== strpos( $_class, $prefix ) ) {
 			return;
 		}
 
+		$class = strtolower( $_class );
 		$class = substr( $class, strlen( $prefix ) );
 
 		$path = explode( '\\', $class );
