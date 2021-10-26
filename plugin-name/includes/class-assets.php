@@ -7,14 +7,16 @@
  * @package     Plugin_Name/Classes/
  */
 
+namespace Plugin_Name;
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
 /**
- * PName_Frontend_Scripts Class.
+ * Generic Assets Class.
  */
-abstract class PName_Assets {
+abstract class Assets {
 
 	/**
 	 * Contains an array of script handles registered by WC.

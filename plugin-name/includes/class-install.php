@@ -6,6 +6,8 @@
  * @version  1.0.0
  */
 
+namespace Plugin_Name;
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
@@ -13,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * PName_Install Class.
  */
-class PName_Install {
+class Install {
 
 	/**
 	 * Install PName.
@@ -26,4 +28,4 @@ class PName_Install {
 	}
 }
 
-register_activation_hook( PNAME_PLUGIN_FILE, array( 'PName_Install', 'install' ) );
+register_activation_hook( PNAME_PLUGIN_FILE, array( 'Plugin_Name\Install', 'install' ) );

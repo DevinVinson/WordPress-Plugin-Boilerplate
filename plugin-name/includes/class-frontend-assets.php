@@ -7,6 +7,8 @@
  * @package     Plugin_Name/Classes/
  */
 
+namespace Plugin_Name;
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
@@ -14,9 +16,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 require_once PNameSingleton()->plugin_path() . '/includes/class-pname-assets.php';
 
 /**
- * PName_Frontend_Scripts Class.
+ * Frontend_Assets Class.
  */
-class PName_Frontend_Assets extends PName_Assets {
+class Frontend_Assets extends Assets {
 
 	/**
 	 * Hook in methods.
@@ -64,4 +66,4 @@ class PName_Frontend_Assets extends PName_Assets {
 
 }
 
-new PName_Frontend_Assets();
+new Frontend_Assets();

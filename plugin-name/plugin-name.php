@@ -33,21 +33,15 @@ define( 'PNAME_PLUGIN_FILE', __FILE__ );
 require_once 'class-plugin-name.php';
 
 /**
- * Main instance of Plugin_Name.
+ * Main instance of Plugin.
  *
  * Returns the main instance of PName to prevent the need to use globals.
  *
  * @since  1.0.0
- * @return Plugin_Name
- */
-
-/**
- * Return the plugin singleton instance.
- *
- * @return Plugin_Name
+ * @return \Plugin_Name\Plugin
  */
 function PNameSingleton() { // phpcs:ignore WordPress.NamingConventions.ValidFunctionName
-	return Plugin_Name::instance();
+	return \Plugin_Name\Plugin::instance();
 }
 
 // Global for backwards compatibility.

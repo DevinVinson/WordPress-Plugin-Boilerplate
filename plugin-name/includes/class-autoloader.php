@@ -7,6 +7,8 @@
  * @package     Plugin_Name/Classes/
  */
 
+namespace Plugin_Name;
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
@@ -18,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @version     1.0.0
  * @package     Plugin_Name/Classes
  */
-class PName_Autoloader {
+class Autoloader {
 
 	/**
 	 * Path to the includes directory.
@@ -93,4 +95,4 @@ class PName_Autoloader {
 	}
 }
 
-new PName_Autoloader();
+new Autoloader();

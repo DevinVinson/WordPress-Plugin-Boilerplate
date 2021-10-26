@@ -7,14 +7,16 @@
  * @version  2.6.0
  */
 
+namespace Plugin_Name\Admin;
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
 /**
- * PName_Admin class.
+ * Admin Main class.
  */
-class PName_Admin {
+class Main {
 
 	/**
 	 * Constructor.
@@ -52,4 +54,4 @@ class PName_Admin {
 	}
 }
 
-return new PName_Admin();
+return new Main();

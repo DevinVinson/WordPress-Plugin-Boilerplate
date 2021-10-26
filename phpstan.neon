@@ -6,7 +6,7 @@ parameters:
 		- %currentWorkingDirectory%/vendor/php-stubs/woocommerce-stubs/woocommerce-stubs.php
 	paths:
 		- plugin-name/plugin-name.php
-		- plugin-name/class-plugin-name.php
+		- plugin-name/class-plugin.php
 		- plugin-name/uninstall.php
 		- plugin-name/includes/
 		- plugin-name/templates/

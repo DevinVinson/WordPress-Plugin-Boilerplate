@@ -6,12 +6,14 @@
  * @version  1.0.0
  */
 
-if ( ! class_exists( 'Plugin_Name' ) ) :
+namespace Plugin_Name;
+
+if ( ! class_exists( 'Plugin' ) ) :
 
 	/**
 	 * Main Plugin Class. This will be the singleton instance
 	 */
-	final class Plugin_Name {
+	final class Plugin {
 
 		/**
 		 * Plugin_Name version.
@@ -23,7 +25,7 @@ if ( ! class_exists( 'Plugin_Name' ) ) :
 		/**
 		 * The single instance of the class.
 		 *
-		 * @var Plugin_Name
+		 * @var Plugin
 		 * @since 1.0.0
 		 */
 		protected static $instance = null;
@@ -37,14 +39,14 @@ if ( ! class_exists( 'Plugin_Name' ) ) :
 		protected static $initialized = false;
 
 		/**
-		 * Main Plugin_Name Instance.
+		 * Main Plugin Instance.
 		 *
-		 * Ensures only one instance of Plugin_Name is loaded or can be loaded.
+		 * Ensures only one instance of Plugin is loaded or can be loaded.
 		 *
 		 * @since 1.0.0
 		 * @static
 		 * @see PNameSingleton()
-		 * @return Plugin_Name - Main instance.
+		 * @return Plugin - Main instance.
 		 */
 		public static function instance() {
 			if ( is_null( self::$instance ) ) {
@@ -155,7 +157,7 @@ if ( ! class_exists( 'Plugin_Name' ) ) :
 		 * Include required customizations files.
 		 */
 		private function load_customizations() {
-			PName_ACF_Hooks::init();
+			Customizations\ACF::init();
 		}
 
 		/**
@@ -168,7 +170,7 @@ if ( ! class_exists( 'Plugin_Name' ) ) :
 		}
 
 		/**
-		 * Init Plugin_Name when WordPress Initialises.
+		 * Init Plugin when WordPress Initialises.
 		 */
 		public function init() {
 			// Before init action.

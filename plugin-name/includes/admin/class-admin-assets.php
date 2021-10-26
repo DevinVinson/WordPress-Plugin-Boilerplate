@@ -6,16 +6,18 @@
  * @version     1.0.0
  */
 
+namespace Plugin_Name\Admin;
+
+use Plugin_Name\Assets;
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-require_once PNameSingleton()->plugin_path() . '/includes/class-pname-assets.php';
-
 /**
- * PName_Admin_Assets Class.
+ * Admin_Assets Class.
  */
-class PName_Admin_Assets extends PName_Assets {
+class Admin_Assets extends Assets {
 
 	/**
 	 * Hook in methods.
@@ -63,4 +65,4 @@ class PName_Admin_Assets extends PName_Assets {
 
 }
 
-return new PName_Admin_Assets();
+return new Admin_Assets();
