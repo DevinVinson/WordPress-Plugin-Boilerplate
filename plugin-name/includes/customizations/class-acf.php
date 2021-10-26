@@ -2,20 +2,22 @@
 /**
  * ACF Hooks
  *
- * @package     PName/Customizations
+ * @package     Plugin_Name/Customizations
  * @version     1.0.0
  */
+
+namespace Plugin_Name\Customizations;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! class_exists( 'PName_ACF_Hooks' ) ) :
+if ( ! class_exists( 'ACF' ) ) :
 
 	/**
-	 * PName_ACF_Hooks Class.
+	 * ACF Class.
 	 */
-	class PName_ACF_Hooks {
+	class ACF {
 
 		/**
 		 * Hook in methods.
@@ -53,5 +55,3 @@ if ( ! class_exists( 'PName_ACF_Hooks' ) ) :
 	}
 
 endif;
-
-return new PName_ACF_Hooks();

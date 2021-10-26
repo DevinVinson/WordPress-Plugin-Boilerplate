@@ -8,6 +8,8 @@
  * @version  1.0.0
  */
 
+use Plugin_Name\Plugin;
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
@@ -23,17 +25,17 @@ function plugin_name_get_template_part( $slug, $name = '' ) {
 
 	// Look in yourtheme/slug-name.php and yourtheme/plugin-name/slug-name.php .
 	if ( $name ) {
-		$template = locate_template( array( "{$slug}-{$name}.php", PNameSingleton()->template_path() . "{$slug}-{$name}.php" ) );
+		$template = locate_template( array( "{$slug}-{$name}.php", Plugin::instance()->template_path() . "{$slug}-{$name}.php" ) );
 	}
 
 	// Get default slug-name.php .
-	if ( ! $template && $name && file_exists( PNameSingleton()->plugin_path() . "/templates/{$slug}-{$name}.php" ) ) {
-		$template = PNameSingleton()->plugin_path() . "/templates/{$slug}-{$name}.php";
+	if ( ! $template && $name && file_exists( Plugin::instance()->plugin_path() . "/templates/{$slug}-{$name}.php" ) ) {
+		$template = Plugin::instance()->plugin_path() . "/templates/{$slug}-{$name}.php";
 	}
 
 	// If template file doesn't exist, look in yourtheme/slug.php and yourtheme/plugin-name/slug.php .
 	if ( ! $template ) {
-		$template = locate_template( array( "{$slug}.php", PNameSingleton()->template_path() . "{$slug}.php" ) );
+		$template = locate_template( array( "{$slug}.php", Plugin::instance()->template_path() . "{$slug}.php" ) );
 	}
 
 	// Allow 3rd party plugins to filter template file from their plugin.
@@ -108,11 +110,11 @@ function plugin_name_get_template_html( $template_name, $args = array(), $templa
  */
 function plugin_name_locate_template( $template_name, $template_path = '', $default_path = '' ) {
 	if ( ! $template_path ) {
-		$template_path = PNameSingleton()->template_path();
+		$template_path = Plugin::instance()->template_path();
 	}
 
 	if ( ! $default_path ) {
-		$default_path = PNameSingleton()->plugin_path() . '/templates/';
+		$default_path = Plugin::instance()->plugin_path() . '/templates/';
 	}
 
 	// Look within passed path within the theme - this is priority.

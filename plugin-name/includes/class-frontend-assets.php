@@ -2,21 +2,20 @@
 /**
  * Handle frontend scripts
  *
- * @class       PName_Frontend_Scripts
  * @version     1.0.0
- * @package     Plugin_Name/Classes/
+ * @package     Plugin_Name
  */
+
+namespace Plugin_Name;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-require_once PNameSingleton()->plugin_path() . '/includes/class-pname-assets.php';
-
 /**
- * PName_Frontend_Scripts Class.
+ * Frontend_Assets Class.
  */
-class PName_Frontend_Assets extends PName_Assets {
+class Frontend_Assets extends Assets {
 
 	/**
 	 * Hook in methods.
@@ -55,7 +54,7 @@ class PName_Frontend_Assets extends PName_Assets {
 				'plugin-name-general' => array(
 					'src'  => $this->localize_asset( 'js/frontend/plugin-name.js' ),
 					'data' => array(
-						'ajax_url' => PNameSingleton()->ajax_url(),
+						'ajax_url' => Plugin::instance()->ajax_url(),
 					),
 				),
 			)
@@ -63,5 +62,3 @@ class PName_Frontend_Assets extends PName_Assets {
 	}
 
 }
-
-new PName_Frontend_Assets();

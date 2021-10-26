@@ -24,31 +24,13 @@
  * Domain Path:       /i18n/languages
  */
 
+namespace Plugin_Name;
+
 // If this file is called directly, abort.
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-define( 'PNAME_PLUGIN_FILE', __FILE__ );
-require_once 'class-plugin-name.php';
-
-/**
- * Main instance of Plugin_Name.
- *
- * Returns the main instance of PName to prevent the need to use globals.
- *
- * @since  1.0.0
- * @return Plugin_Name
- */
-
-/**
- * Return the plugin singleton instance.
- *
- * @return Plugin_Name
- */
-function PNameSingleton() { // phpcs:ignore WordPress.NamingConventions.ValidFunctionName
-	return Plugin_Name::instance();
-}
-
-// Global for backwards compatibility.
-$GLOBALS['plugin_name'] = PNameSingleton();
+const VERSION     = '1.0.0';
+const PLUGIN_FILE = __FILE__;
+require_once 'class-plugin.php';

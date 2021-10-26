@@ -2,19 +2,20 @@
 /**
  * WordPress Plugin Boilerplate Admin
  *
- * @class    PName_Admin
  * @package  Plugin_Name/Admin
  * @version  2.6.0
  */
+
+namespace Plugin_Name\Admin;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
 /**
- * PName_Admin class.
+ * Admin Main class.
  */
-class PName_Admin {
+class Main {
 
 	/**
 	 * Constructor.
@@ -28,8 +29,8 @@ class PName_Admin {
 	 * Include any classes we need within admin.
 	 */
 	public function includes() {
-		include_once 'plugin-name-admin-functions.php';
-		include_once 'class-pname-admin-assets.php';
+		require_once 'plugin-name-admin-functions.php';
+		new Admin_Assets();
 	}
 
 	/**
@@ -51,5 +52,3 @@ class PName_Admin {
 		}
 	}
 }
-
-return new PName_Admin();

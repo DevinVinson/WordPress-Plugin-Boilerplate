@@ -2,19 +2,20 @@
 /**
  * Handle frontend scripts
  *
- * @class       PName_Frontend_Scripts
  * @version     1.0.0
- * @package     Plugin_Name/Classes/
+ * @package     Plugin_Name
  */
+
+namespace Plugin_Name;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
 /**
- * PName_Frontend_Scripts Class.
+ * Generic Assets Class.
  */
-abstract class PName_Assets {
+abstract class Assets {
 
 	/**
 	 * Contains an array of script handles registered by WC.
@@ -44,8 +45,8 @@ abstract class PName_Assets {
 	 * @return string
 	 */
 	protected function localize_asset( $path ) {
-		$assets_path     = PNameSingleton()->plugin_path() . '/assets/';
-		$assets_path_url = str_replace( array( 'http:', 'https:' ), '', PNameSingleton()->plugin_url() ) . '/assets/';
+		$assets_path     = Plugin::instance()->plugin_path() . '/assets/';
+		$assets_path_url = str_replace( array( 'http:', 'https:' ), '', Plugin::instance()->plugin_url() ) . '/assets/';
 
 		if ( ! ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ) {
 			$ext_pos    = strrpos( $path, '.' );
@@ -93,7 +94,7 @@ abstract class PName_Assets {
 	 * @param bool             $in_footer Optional. Whether to enqueue the script before </body> instead of in the <head>.
 	 *                                    Default 'false'.
 	 */
-	private function register_script( $handle, $path, $deps = array( 'jquery' ), $version = PNAME_VERSION, $in_footer = true ) {
+	private function register_script( $handle, $path, $deps = array( 'jquery' ), $version = VERSION, $in_footer = true ) {
 		$this->scripts[] = $handle;
 		wp_register_script( $handle, $path, $deps, $version, $in_footer );
 	}
@@ -113,7 +114,7 @@ abstract class PName_Assets {
 	 * @param bool             $in_footer Optional. Whether to enqueue the script before </body> instead of in the <head>.
 	 *                                    Default 'false'.
 	 */
-	private function enqueue_script( $handle, $path = '', $deps = array( 'jquery' ), $version = PNAME_VERSION, $in_footer = true ) {
+	private function enqueue_script( $handle, $path = '', $deps = array( 'jquery' ), $version = VERSION, $in_footer = true ) {
 		if ( ! in_array( $handle, $this->scripts, true ) && $path ) {
 			$this->register_script( $handle, $path, $deps, $version, $in_footer );
 		}
@@ -136,7 +137,7 @@ abstract class PName_Assets {
 	 *                                  Default 'all'. Accepts media types like 'all', 'print' and 'screen', or media queries like
 	 *                                  '(orientation: portrait)' and '(max-width: 640px)'.
 	 */
-	private function register_style( $handle, $path, $deps = array(), $version = PNAME_VERSION, $media = 'all' ) {
+	private function register_style( $handle, $path, $deps = array(), $version = VERSION, $media = 'all' ) {
 		$this->styles[] = $handle;
 		wp_register_style( $handle, $path, $deps, $version, $media );
 	}
@@ -157,7 +158,7 @@ abstract class PName_Assets {
 	 *                                  Default 'all'. Accepts media types like 'all', 'print' and 'screen', or media queries like
 	 *                                  '(orientation: portrait)' and '(max-width: 640px)'.
 	 */
-	private function enqueue_style( $handle, $path = '', $deps = array(), $version = PNAME_VERSION, $media = 'all' ) {
+	private function enqueue_style( $handle, $path = '', $deps = array(), $version = VERSION, $media = 'all' ) {
 		if ( ! in_array( $handle, $this->styles, true ) && $path ) {
 			$this->register_style( $handle, $path, $deps, $version, $media );
 		}
@@ -175,7 +176,7 @@ abstract class PName_Assets {
 		}
 
 		$suffix               = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
-		$assets_path          = str_replace( array( 'http:', 'https:' ), '', PNameSingleton()->plugin_url() ) . '/assets/';
+		$assets_path          = str_replace( array( 'http:', 'https:' ), '', Plugin::instance()->plugin_url() ) . '/assets/';
 		$frontend_script_path = $assets_path . 'js/frontend/';
 
 		// JS Scripts.
@@ -187,7 +188,7 @@ abstract class PName_Assets {
 					array(
 						'src'       => '',
 						'deps'      => array( 'jquery' ),
-						'version'   => PNAME_VERSION,
+						'version'   => VERSION,
 						'in_footer' => true,
 						'enqueue'   => true,
 					)
@@ -209,7 +210,7 @@ abstract class PName_Assets {
 					array(
 						'src'     => '',
 						'deps'    => '',
-						'version' => PNAME_VERSION,
+						'version' => VERSION,
 						'media'   => 'all',
 						'enqueue' => true,
 					)

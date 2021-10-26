@@ -2,20 +2,23 @@
 /**
  * Load assets
  *
- * @package     PName/Admin
+ * @package     Plugin_Name/Admin
  * @version     1.0.0
  */
+
+namespace Plugin_Name\Admin;
+
+use Plugin_Name\Assets;
+use Plugin_Name\Plugin;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-require_once PNameSingleton()->plugin_path() . '/includes/class-pname-assets.php';
-
 /**
- * PName_Admin_Assets Class.
+ * Admin_Assets Class.
  */
-class PName_Admin_Assets extends PName_Assets {
+class Admin_Assets extends Assets {
 
 	/**
 	 * Hook in methods.
@@ -54,7 +57,7 @@ class PName_Admin_Assets extends PName_Assets {
 				'plugin-name-admin' => array(
 					'src'  => $this->localize_asset( 'js/admin/plugin-name-admin.js' ),
 					'data' => array(
-						'ajax_url' => PNameSingleton()->ajax_url(),
+						'ajax_url' => Plugin::instance()->ajax_url(),
 					),
 				),
 			)
@@ -62,5 +65,3 @@ class PName_Admin_Assets extends PName_Assets {
 	}
 
 }
-
-return new PName_Admin_Assets();

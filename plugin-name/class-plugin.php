@@ -6,27 +6,29 @@
  * @version  1.0.0
  */
 
-if ( ! class_exists( 'Plugin_Name' ) ) :
+namespace Plugin_Name;
+
+if ( ! class_exists( 'Plugin' ) ) :
 
 	/**
 	 * Main Plugin Class. This will be the singleton instance
 	 */
-	final class Plugin_Name {
+	final class Plugin {
 
 		/**
-		 * Plugin_Name version.
+		 * Plugin version.
 		 *
 		 * @var string
 		 */
-		public $version = '1.0.0';
+		const VERSION = VERSION;
 
 		/**
 		 * The single instance of the class.
 		 *
-		 * @var Plugin_Name
+		 * @var Plugin
 		 * @since 1.0.0
 		 */
-		protected static $instance = null;
+		private static $instance = null;
 
 		/**
 		 * If the class was initialized already.
@@ -34,17 +36,16 @@ if ( ! class_exists( 'Plugin_Name' ) ) :
 		 * @var bool
 		 * @since 1.0.0
 		 */
-		protected static $initialized = false;
+		private static $initialized = false;
 
 		/**
-		 * Main Plugin_Name Instance.
+		 * Main Plugin Instance.
 		 *
-		 * Ensures only one instance of Plugin_Name is loaded or can be loaded.
+		 * Ensures only one instance of Plugin is loaded or can be loaded.
 		 *
 		 * @since 1.0.0
 		 * @static
-		 * @see PNameSingleton()
-		 * @return Plugin_Name - Main instance.
+		 * @return Plugin - Main instance.
 		 */
 		public static function instance() {
 			if ( is_null( self::$instance ) ) {
@@ -73,7 +74,7 @@ if ( ! class_exists( 'Plugin_Name' ) ) :
 		}
 
 		/**
-		 * Plugin_Name Initializer.
+		 * Initializer.
 		 */
 		public function initalize_plugin() {
 			if ( self::$initialized ) {
@@ -83,33 +84,10 @@ if ( ! class_exists( 'Plugin_Name' ) ) :
 
 			self::$initialized = true;
 
-			$this->define_constants();
 			$this->includes();
 			$this->init_hooks();
 
 			do_action( 'plugin_name_loaded' );
-		}
-
-		/**
-		 * Define PName Constants.
-		 */
-		private function define_constants() {
-			$upload_dir = wp_upload_dir();
-
-			$this->define( 'PNAME_PLUGIN_BASENAME', plugin_basename( PNAME_PLUGIN_FILE ) );
-			$this->define( 'PNAME_VERSION', $this->version );
-		}
-
-		/**
-		 * Define constant if not already set.
-		 *
-		 * @param  string $name Variable to define.
-		 * @param  mixed  $value Value to define the variable with.
-		 */
-		private function define( $name, $value ) {
-			if ( ! defined( $name ) ) {
-				define( $name, $value );
-			}
 		}
 
 		/**
@@ -136,16 +114,17 @@ if ( ! class_exists( 'Plugin_Name' ) ) :
 		 * Include required core files used in admin and on the frontend.
 		 */
 		private function includes() {
-			include_once 'includes/class-pname-autoloader.php';
-			include_once 'includes/plugin-name-core-functions.php';
-			include_once 'includes/class-pname-install.php';
+			require_once 'includes/class-autoloader.php';
+			new Autoloader();
+			require_once 'includes/plugin-name-core-functions.php';
+			register_activation_hook( PLUGIN_FILE, array( 'Plugin_Name\Install', 'install' ) );
 
 			if ( $this->is_request( 'admin' ) ) {
-				include_once 'includes/admin/class-pname-admin.php';
+				new Admin\Main();
 			}
 
 			if ( $this->is_request( 'frontend' ) ) {
-				include_once 'includes/class-pname-frontend-assets.php'; // Frontend Scripts.
+				new Frontend_Assets(); // Frontend Scripts.
 			}
 
 			$this->load_customizations();
@@ -155,7 +134,7 @@ if ( ! class_exists( 'Plugin_Name' ) ) :
 		 * Include required customizations files.
 		 */
 		private function load_customizations() {
-			PName_ACF_Hooks::init();
+			Customizations\ACF::init();
 		}
 
 		/**
@@ -168,7 +147,7 @@ if ( ! class_exists( 'Plugin_Name' ) ) :
 		}
 
 		/**
-		 * Init Plugin_Name when WordPress Initialises.
+		 * Init Plugin when WordPress Initialises.
 		 */
 		public function init() {
 			// Before init action.

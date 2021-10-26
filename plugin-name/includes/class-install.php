@@ -2,21 +2,23 @@
 /**
  * Installation related functions and actions.
  *
- * @package  Plugin_Name/Classes
+ * @package  Plugin_Name
  * @version  1.0.0
  */
+
+namespace Plugin_Name;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
 /**
- * PName_Install Class.
+ * Install Class.
  */
-class PName_Install {
+class Install {
 
 	/**
-	 * Install PName.
+	 * Install plugin.
 	 */
 	public static function install() {
 		// PERFORM INSTALL ACTIONS HERE.
@@ -25,5 +27,3 @@ class PName_Install {
 		do_action( 'plugin_name_installed' );
 	}
 }
-
-register_activation_hook( PNAME_PLUGIN_FILE, array( 'PName_Install', 'install' ) );
