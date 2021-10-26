@@ -13,8 +13,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-require_once PNameSingleton()->plugin_path() . '/includes/class-pname-assets.php';
-
 /**
  * Frontend_Assets Class.
  */

@@ -30,7 +30,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 define( 'PNAME_PLUGIN_FILE', __FILE__ );
-require_once 'class-plugin-name.php';
+require_once 'class-plugin.php';
 
 /**
  * Main instance of Plugin.

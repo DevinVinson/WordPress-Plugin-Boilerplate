@@ -31,7 +31,7 @@ class Main {
 	 */
 	public function includes() {
 		include_once 'plugin-name-admin-functions.php';
-		include_once 'class-pname-admin-assets.php';
+		include_once 'class-admin-assets.php';
 	}
 
 	/**

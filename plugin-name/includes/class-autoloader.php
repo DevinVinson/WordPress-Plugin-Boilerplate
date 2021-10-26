@@ -71,28 +71,29 @@ class Autoloader {
 	 *
 	 * @param string $class Class to attempt autoloading.
 	 */
-	public function autoload( $class ) {
-		$class = strtolower( $class );
-
-		if ( 0 !== strpos( $class, 'pname_' ) ) {
+	public function autoload( $_class ) {
+		$class  = strtolower( $_class );
+		$prefix = 'plugin_name\\';
+		if ( 0 !== strpos( $class, $prefix ) ) {
 			return;
 		}
 
+		$class = substr( $class, strlen( $prefix ) );
+
+		$path = explode( '\\', $class );
+
+		$class = array_pop( $path );
+
 		$file = $this->get_file_name_from_class( $class );
-		$path = '';
 
-		if ( 0 === strpos( $class, 'pname_admin' ) ) {
-			$path = $this->include_path . 'admin/';
+		$path = implode( DIRECTORY_SEPARATOR, $path );
+
+		if ( empty( $path ) ) {
+			$path = $this->include_path;
+		} else {
+			$path = $this->include_path . $path . DIRECTORY_SEPARATOR;
 		}
 
-		if ( substr( $class, - 6 ) === '_hooks' ) {
-			$path = $this->include_path . 'customizations/';
-		}
-
-		if ( empty( $path ) || ! $this->load_file( $path . $file ) ) {
-			$this->load_file( $this->include_path . $file );
-		}
+		$this->load_file( $path . $file );
 	}
 }
-
-new Autoloader();

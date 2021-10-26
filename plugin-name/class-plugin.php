@@ -138,16 +138,17 @@ if ( ! class_exists( 'Plugin' ) ) :
 		 * Include required core files used in admin and on the frontend.
 		 */
 		private function includes() {
-			include_once 'includes/class-pname-autoloader.php';
+			include_once 'includes/class-autoloader.php';
+			new Autoloader();
 			include_once 'includes/plugin-name-core-functions.php';
-			include_once 'includes/class-pname-install.php';
+			include_once 'includes/class-install.php';
 
 			if ( $this->is_request( 'admin' ) ) {
-				include_once 'includes/admin/class-pname-admin.php';
+				include_once 'includes/admin/class-main.php';
 			}
 
 			if ( $this->is_request( 'frontend' ) ) {
-				include_once 'includes/class-pname-frontend-assets.php'; // Frontend Scripts.
+				include_once 'includes/class-frontend-assets.php'; // Frontend Scripts.
 			}
 
 			$this->load_customizations();
