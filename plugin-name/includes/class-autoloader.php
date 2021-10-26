@@ -69,7 +69,7 @@ class Autoloader {
 	/**
 	 * Auto-load PNAME classes on demand to reduce memory consumption.
 	 *
-	 * @param string $class Class to attempt autoloading.
+	 * @param string $_class Class to attempt autoloading.
 	 */
 	public function autoload( $_class ) {
 		$class  = strtolower( $_class );
