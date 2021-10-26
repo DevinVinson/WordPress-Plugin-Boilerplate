@@ -20,7 +20,7 @@ if ( ! class_exists( 'Plugin' ) ) :
 		 *
 		 * @var string
 		 */
-		public $version = '1.0.0';
+		const VERSION = VERSION;
 
 		/**
 		 * The single instance of the class.
@@ -84,33 +84,10 @@ if ( ! class_exists( 'Plugin' ) ) :
 
 			self::$initialized = true;
 
-			$this->define_constants();
 			$this->includes();
 			$this->init_hooks();
 
 			do_action( 'plugin_name_loaded' );
-		}
-
-		/**
-		 * Define Constants.
-		 */
-		private function define_constants() {
-			$upload_dir = wp_upload_dir();
-
-			$this->define( 'PNAME_PLUGIN_BASENAME', plugin_basename( PNAME_PLUGIN_FILE ) );
-			$this->define( 'PNAME_VERSION', $this->version );
-		}
-
-		/**
-		 * Define constant if not already set.
-		 *
-		 * @param  string $name Variable to define.
-		 * @param  mixed  $value Value to define the variable with.
-		 */
-		private function define( $name, $value ) {
-			if ( ! defined( $name ) ) {
-				define( $name, $value );
-			}
 		}
 
 		/**
@@ -140,7 +117,7 @@ if ( ! class_exists( 'Plugin' ) ) :
 			require_once 'includes/class-autoloader.php';
 			new Autoloader();
 			require_once 'includes/plugin-name-core-functions.php';
-			register_activation_hook( PNAME_PLUGIN_FILE, array( 'Plugin_Name\Install', 'install' ) );
+			register_activation_hook( PLUGIN_FILE, array( 'Plugin_Name\Install', 'install' ) );
 
 			if ( $this->is_request( 'admin' ) ) {
 				new Admin\Main();

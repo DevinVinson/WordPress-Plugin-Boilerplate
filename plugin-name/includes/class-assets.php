@@ -94,7 +94,7 @@ abstract class Assets {
 	 * @param bool             $in_footer Optional. Whether to enqueue the script before </body> instead of in the <head>.
 	 *                                    Default 'false'.
 	 */
-	private function register_script( $handle, $path, $deps = array( 'jquery' ), $version = PNAME_VERSION, $in_footer = true ) {
+	private function register_script( $handle, $path, $deps = array( 'jquery' ), $version = VERSION, $in_footer = true ) {
 		$this->scripts[] = $handle;
 		wp_register_script( $handle, $path, $deps, $version, $in_footer );
 	}
@@ -114,7 +114,7 @@ abstract class Assets {
 	 * @param bool             $in_footer Optional. Whether to enqueue the script before </body> instead of in the <head>.
 	 *                                    Default 'false'.
 	 */
-	private function enqueue_script( $handle, $path = '', $deps = array( 'jquery' ), $version = PNAME_VERSION, $in_footer = true ) {
+	private function enqueue_script( $handle, $path = '', $deps = array( 'jquery' ), $version = VERSION, $in_footer = true ) {
 		if ( ! in_array( $handle, $this->scripts, true ) && $path ) {
 			$this->register_script( $handle, $path, $deps, $version, $in_footer );
 		}
@@ -137,7 +137,7 @@ abstract class Assets {
 	 *                                  Default 'all'. Accepts media types like 'all', 'print' and 'screen', or media queries like
 	 *                                  '(orientation: portrait)' and '(max-width: 640px)'.
 	 */
-	private function register_style( $handle, $path, $deps = array(), $version = PNAME_VERSION, $media = 'all' ) {
+	private function register_style( $handle, $path, $deps = array(), $version = VERSION, $media = 'all' ) {
 		$this->styles[] = $handle;
 		wp_register_style( $handle, $path, $deps, $version, $media );
 	}
@@ -158,7 +158,7 @@ abstract class Assets {
 	 *                                  Default 'all'. Accepts media types like 'all', 'print' and 'screen', or media queries like
 	 *                                  '(orientation: portrait)' and '(max-width: 640px)'.
 	 */
-	private function enqueue_style( $handle, $path = '', $deps = array(), $version = PNAME_VERSION, $media = 'all' ) {
+	private function enqueue_style( $handle, $path = '', $deps = array(), $version = VERSION, $media = 'all' ) {
 		if ( ! in_array( $handle, $this->styles, true ) && $path ) {
 			$this->register_style( $handle, $path, $deps, $version, $media );
 		}
@@ -188,7 +188,7 @@ abstract class Assets {
 					array(
 						'src'       => '',
 						'deps'      => array( 'jquery' ),
-						'version'   => PNAME_VERSION,
+						'version'   => VERSION,
 						'in_footer' => true,
 						'enqueue'   => true,
 					)
@@ -210,7 +210,7 @@ abstract class Assets {
 					array(
 						'src'     => '',
 						'deps'    => '',
-						'version' => PNAME_VERSION,
+						'version' => VERSION,
 						'media'   => 'all',
 						'enqueue' => true,
 					)

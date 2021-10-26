@@ -34,7 +34,7 @@ class Autoloader {
 
 		spl_autoload_register( array( $this, 'autoload' ) );
 
-		$this->include_path = untrailingslashit( plugin_dir_path( PNAME_PLUGIN_FILE ) ) . '/includes/';
+		$this->include_path = untrailingslashit( PLUGIN_FILE ) . '/includes/';
 	}
 
 	/**
@@ -62,7 +62,7 @@ class Autoloader {
 	}
 
 	/**
-	 * Auto-load PNAME classes on demand to reduce memory consumption.
+	 * Auto-load classes on demand to reduce memory consumption.
 	 *
 	 * @param string $_class Class to attempt autoloading.
 	 */

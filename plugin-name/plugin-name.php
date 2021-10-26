@@ -24,10 +24,13 @@
  * Domain Path:       /i18n/languages
  */
 
+namespace Plugin_Name;
+
 // If this file is called directly, abort.
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-define( 'PNAME_PLUGIN_FILE', __FILE__ );
+const VERSION     = '1.0.0';
+const PLUGIN_FILE = __FILE__;
 require_once 'class-plugin.php';
