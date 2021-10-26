@@ -28,7 +28,7 @@ if ( ! class_exists( 'Plugin' ) ) :
 		 * @var Plugin
 		 * @since 1.0.0
 		 */
-		protected static $instance = null;
+		private static $instance = null;
 
 		/**
 		 * If the class was initialized already.
@@ -36,7 +36,7 @@ if ( ! class_exists( 'Plugin' ) ) :
 		 * @var bool
 		 * @since 1.0.0
 		 */
-		protected static $initialized = false;
+		private static $initialized = false;
 
 		/**
 		 * Main Plugin Instance.
