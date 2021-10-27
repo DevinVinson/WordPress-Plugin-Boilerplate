@@ -1,8 +1,8 @@
 <?php
 /**
- * WordPress Plugin Boilerplate Template Functions
+ * Utility Functions
  *
- * Functions related to templates.
+ * Functions used across the plugin that are just useful.
  *
  * @package  Plugin_Name
  * @version  1.0.0

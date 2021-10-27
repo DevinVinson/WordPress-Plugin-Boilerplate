@@ -1,6 +1,6 @@
 <?php
 /**
- * WordPress Plugin Boilerplate Admin
+ * Admin area code
  *
  * @package  Plugin_Name/Admin
  * @version  2.6.0

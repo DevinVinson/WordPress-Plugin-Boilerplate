@@ -1,6 +1,6 @@
 <?php
 /**
- * WordPress Plugin Boilerplate Template Functions
+ * Template Functions
  *
  * Functions related to templates.
  *
@@ -9,8 +9,6 @@
  */
 
 namespace Plugin_Name;
-
-use Plugin_Name\Plugin;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
