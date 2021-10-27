@@ -9,7 +9,7 @@
 namespace Plugin_Name\Admin;
 
 use Plugin_Name\Assets;
-use Plugin_Name\Plugin;
+use Plugin_Name\Utils;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -57,7 +57,7 @@ class Admin_Assets extends Assets {
 				'plugin-name-admin' => array(
 					'src'  => $this->localize_asset( 'js/admin/plugin-name-admin.js' ),
 					'data' => array(
-						'ajax_url' => Plugin::instance()->ajax_url(),
+						'ajax_url' => Utils::ajax_url(),
 					),
 				),
 			)

@@ -34,4 +34,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 const VERSION     = '1.0.0';
 const PLUGIN_FILE = __FILE__;
 require_once 'class-plugin.php';
-Plugin::instance();
+
+/**
+ * Main Plugin Instance.
+ *
+ * This is an alias of Plugin::instance() accessible directly from the namespace.
+ *
+ * @since 1.0.0
+ * @return Plugin - Main instance.
+ */
+function instance() {
+	return Plugin::instance();
+}
+
+instance();

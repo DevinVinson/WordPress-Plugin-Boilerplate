@@ -1,8 +1,8 @@
 <?php
 /**
- * WordPress Plugin Boilerplate Uninstall
+ * Uninstall
  *
- * Uninstalling WordPress Plugin Boilerplate.
+ * Uninstalling plugin code.
  *
  * @package     Plugin_Name/Uninstaller
  * @version     1.0.0

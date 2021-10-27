@@ -1,6 +1,6 @@
 <?php
 /**
- * WordPress Plugin Boilerplate Admin
+ * Admin area code
  *
  * @package  Plugin_Name/Admin
  * @version  2.6.0
@@ -31,7 +31,6 @@ class Main {
 	 * @return void
 	 */
 	public function includes() {
-		require_once 'plugin-name-admin-functions.php';
 		new Admin_Assets();
 	}
 

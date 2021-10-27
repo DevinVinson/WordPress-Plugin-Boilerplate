@@ -118,7 +118,6 @@ final class Plugin {
 	private function includes() {
 		require_once 'includes/class-autoloader.php';
 		new Autoloader();
-		require_once 'includes/plugin-name-core-functions.php';
 		register_activation_hook( PLUGIN_FILE, array( 'Plugin_Name\Install', 'install' ) );
 
 		if ( $this->is_request( 'admin' ) ) {
@@ -184,41 +183,5 @@ final class Plugin {
 
 		load_textdomain( 'plugin-name', WP_LANG_DIR . '/plugin-name/plugin-name-' . $locale . '.mo' );
 		load_plugin_textdomain( 'plugin-name', false, plugin_basename( dirname( __FILE__ ) ) . '/i18n/languages' );
-	}
-
-	/**
-	 * Get the plugin url.
-	 *
-	 * @return string
-	 */
-	public function plugin_url() {
-		return untrailingslashit( plugins_url( '/', __FILE__ ) );
-	}
-
-	/**
-	 * Get the plugin path.
-	 *
-	 * @return string
-	 */
-	public function plugin_path() {
-		return untrailingslashit( plugin_dir_path( __FILE__ ) );
-	}
-
-	/**
-	 * Get the template path.
-	 *
-	 * @return string
-	 */
-	public function template_path() {
-		return apply_filters( 'plugin_name_template_path', 'plugin-name/' );
-	}
-
-	/**
-	 * Get Ajax URL.
-	 *
-	 * @return string
-	 */
-	public function ajax_url() {
-		return admin_url( 'admin-ajax.php', 'relative' );
 	}
 }
