@@ -184,40 +184,4 @@ final class Plugin {
 		load_textdomain( 'plugin-name', WP_LANG_DIR . '/plugin-name/plugin-name-' . $locale . '.mo' );
 		load_plugin_textdomain( 'plugin-name', false, plugin_basename( dirname( __FILE__ ) ) . '/i18n/languages' );
 	}
-
-	/**
-	 * Get the plugin url.
-	 *
-	 * @return string
-	 */
-	public function plugin_url() {
-		return untrailingslashit( plugins_url( '/', __FILE__ ) );
-	}
-
-	/**
-	 * Get the plugin path.
-	 *
-	 * @return string
-	 */
-	public function plugin_path() {
-		return untrailingslashit( plugin_dir_path( __FILE__ ) );
-	}
-
-	/**
-	 * Get the template path.
-	 *
-	 * @return string
-	 */
-	public function template_path() {
-		return apply_filters( 'plugin_name_template_path', 'plugin-name/' );
-	}
-
-	/**
-	 * Get Ajax URL.
-	 *
-	 * @return string
-	 */
-	public function ajax_url() {
-		return admin_url( 'admin-ajax.php', 'relative' );
-	}
 }

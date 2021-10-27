@@ -4,7 +4,7 @@
  *
  * Functions related to templates.
  *
- * @package  Plugin_Name/Functions
+ * @package  Plugin_Name
  * @version  1.0.0
  */
 
@@ -34,17 +34,17 @@ class Template {
 
 		// Look in yourtheme/slug-name.php and yourtheme/plugin-name/slug-name.php .
 		if ( $name ) {
-			$template = locate_template( array( "{$slug}-{$name}.php", Plugin::instance()->template_path() . "{$slug}-{$name}.php" ) );
+			$template = locate_template( array( "{$slug}-{$name}.php", Utils::template_path() . "{$slug}-{$name}.php" ) );
 		}
 
 		// Get default slug-name.php .
-		if ( ! $template && $name && file_exists( Plugin::instance()->plugin_path() . "/templates/{$slug}-{$name}.php" ) ) {
-			$template = Plugin::instance()->plugin_path() . "/templates/{$slug}-{$name}.php";
+		if ( ! $template && $name && file_exists( Utils::plugin_path() . "/templates/{$slug}-{$name}.php" ) ) {
+			$template = Utils::plugin_path() . "/templates/{$slug}-{$name}.php";
 		}
 
 		// If template file doesn't exist, look in yourtheme/slug.php and yourtheme/plugin-name/slug.php .
 		if ( ! $template ) {
-			$template = locate_template( array( "{$slug}.php", Plugin::instance()->template_path() . "{$slug}.php" ) );
+			$template = locate_template( array( "{$slug}.php", Utils::template_path() . "{$slug}.php" ) );
 		}
 
 		// Allow 3rd party plugins to filter template file from their plugin.
@@ -122,11 +122,11 @@ class Template {
 	 */
 	public static function locate( $template_name, $template_path = '', $default_path = '' ) {
 		if ( ! $template_path ) {
-			$template_path = Plugin::instance()->template_path();
+			$template_path = Utils::template_path();
 		}
 
 		if ( ! $default_path ) {
-			$default_path = Plugin::instance()->plugin_path() . '/templates/';
+			$default_path = Utils::plugin_path() . '/templates/';
 		}
 
 		// Look within passed path within the theme - this is priority.
