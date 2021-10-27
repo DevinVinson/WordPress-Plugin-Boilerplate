@@ -118,7 +118,6 @@ final class Plugin {
 	private function includes() {
 		require_once 'includes/class-autoloader.php';
 		new Autoloader();
-		require_once 'includes/plugin-name-core-functions.php';
 		register_activation_hook( PLUGIN_FILE, array( 'Plugin_Name\Install', 'install' ) );
 
 		if ( $this->is_request( 'admin' ) ) {

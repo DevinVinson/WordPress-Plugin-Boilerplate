@@ -31,7 +31,6 @@ class Main {
 	 * @return void
 	 */
 	public function includes() {
-		require_once 'plugin-name-admin-functions.php';
 		new Admin_Assets();
 	}
 
