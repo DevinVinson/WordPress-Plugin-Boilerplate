@@ -8,7 +8,7 @@
  * @since      1.0.0
  *
  * @package    Plugin_Name/Admin
- * @subpackage Plugin_Name/Admin/views
+ * @subpackage Plugin_Name/Admin/templates
  */
 
 ?>
