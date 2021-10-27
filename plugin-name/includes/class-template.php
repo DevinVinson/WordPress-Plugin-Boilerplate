@@ -29,7 +29,7 @@ class Template {
 	 *
 	 * @return void
 	 */
-	public function get_part( $slug, $name = '' ) {
+	public static function get_part( $slug, $name = '' ) {
 		$template = '';
 
 		// Look in yourtheme/slug-name.php and yourtheme/plugin-name/slug-name.php .
@@ -65,13 +65,13 @@ class Template {
 	 *
 	 * @return void
 	 */
-	public function get( $template_name, $args = array(), $template_path = '', $default_path = '' ) {
+	public static function get( $template_name, $args = array(), $template_path = '', $default_path = '' ) {
 		if ( ! empty( $args ) && is_array( $args ) ) {
 			// phpcs:ignore WordPress.PHP.DontExtract
 			extract( $args );
 		}
 
-		$located = $this->locate( $template_name, $template_path, $default_path );
+		$located = self::locate( $template_name, $template_path, $default_path );
 
 		if ( ! file_exists( $located ) ) {
 			_doing_it_wrong( __FUNCTION__, sprintf( '<code>%s</code> does not exist.', $located ), '1.0.0' ); //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
@@ -98,9 +98,9 @@ class Template {
 	 * @param string              $default_path (default: '') Default path to fallback to.
 	 * @return string
 	 */
-	public function get_html( $template_name, $args = array(), $template_path = '', $default_path = '' ) {
+	public static function get_html( $template_name, $args = array(), $template_path = '', $default_path = '' ) {
 		ob_start();
-		$this->get( $template_name, $args, $template_path, $default_path );
+		self::get( $template_name, $args, $template_path, $default_path );
 		$ret = ob_get_clean();
 
 		return is_bool( $ret ) ? '' : $ret;
@@ -120,7 +120,7 @@ class Template {
 	 * @param string $default_path (default: '') Default path to fallback to.
 	 * @return string
 	 */
-	public function locate( $template_name, $template_path = '', $default_path = '' ) {
+	public static function locate( $template_name, $template_path = '', $default_path = '' ) {
 		if ( ! $template_path ) {
 			$template_path = Plugin::instance()->template_path();
 		}
