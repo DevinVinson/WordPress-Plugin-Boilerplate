@@ -22,7 +22,7 @@ class Utils {
 	 * @return string
 	 */
 	public static function plugin_url() {
-		return untrailingslashit( plugins_url( '/', __FILE__ ) );
+		return untrailingslashit( plugins_url( '/', PLUGIN_FILE ) );
 	}
 
 	/**
@@ -31,7 +31,7 @@ class Utils {
 	 * @return string
 	 */
 	public static function plugin_path() {
-		return untrailingslashit( plugin_dir_path( __FILE__ ) );
+		return untrailingslashit( plugin_dir_path( PLUGIN_FILE ) );
 	}
 
 	/**
