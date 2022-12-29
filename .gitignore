@@ -37,3 +37,7 @@ dwsync.xml
 intermediate
 .idea
 cache
+
+# composer
+vendor/
+composer.lock

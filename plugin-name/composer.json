@@ -1,0 +1,46 @@
+{
+    "name": "usuari/plugin-name",
+    "type": "wordpress-plugin",
+    "keywords": [
+        "wordpress",
+        "plugin",
+        "composer",
+        "domain driven design",
+        "test driven design",
+        "php"
+    ],
+    "authors": [
+        {
+            "name": "Your Name",
+            "email": "email@example.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "PluginName\\": "src/",
+            "PluginName\\Includes\\": "src/includes",
+            "PluginName\\AdminDomain\\": "src/admin",
+            "PluginName\\PublicDomain\\": "src/public"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "PluginNameTest\\": "tests/",
+            "PluginNameTest\\Unit\\": "tests/unit/"
+        }
+    },
+    "require": {},
+    "require-dev": {
+        "php-parallel-lint/php-parallel-lint": "^1.3",
+        "php-parallel-lint/php-console-highlighter": "^1.0",
+        "squizlabs/php_codesniffer": "^3.7"
+    },
+    "scripts": {
+        "style": "phpcs -p --standard=PSR2 --ignore=*.js,*.css,*.pot plugin-name.php uninstall.php src tests",
+        "fix-style": "phpcbf -p --standard=PSR2 --ignore=*.js,*.css,*.pot plugin-name.php uninstall.php src tests",
+        "test": [
+            "phpunit --configuration phpunit.xml"
+        ],
+        "build": "composer install --no-dev"
+    }
+}
