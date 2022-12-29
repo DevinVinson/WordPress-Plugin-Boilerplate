@@ -25,44 +25,56 @@
  * Domain Path:       /languages
  */
 
-// If this file is called directly, abort.
-if ( ! defined( 'WPINC' ) ) {
-	die;
+namespace PluginName;
+
+// check whether the WordPress environment loaded or not
+if (!defined('ABSPATH')) {
+    exit('WordPress is not loaded.');
 }
+
+// If this file is called directly, abort.
+if (! defined('WPINC')) {
+    exit('No WordPress includes.');
+}
+
+// checking Composer autoloader
+if (!is_readable(__DIR__ . '/vendor/autoload.php')) {
+    exit('No readable composer autoloader dependency.');
+}
+
+require_once __DIR__ . '/vendor/autoload.php';
 
 /**
  * Currently plugin version.
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'PLUGIN_NAME_VERSION', '1.0.0' );
+define('PLUGIN_NAME_VERSION', '1.0.0');
+
+use PluginName\Includes\PluginNameActivator;
+use PluginName\Includes\PluginNameDeactivator;
+use PluginName\Includes\PluginNameEngine;
 
 /**
  * The code that runs during plugin activation.
  * This action is documented in includes/class-plugin-name-activator.php
  */
-function activate_plugin_name() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-plugin-name-activator.php';
-	Plugin_Name_Activator::activate();
+function activate_plugin_name()
+{
+    PluginNameActivator::activate();
 }
 
 /**
  * The code that runs during plugin deactivation.
  * This action is documented in includes/class-plugin-name-deactivator.php
  */
-function deactivate_plugin_name() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-plugin-name-deactivator.php';
-	Plugin_Name_Deactivator::deactivate();
+function deactivate_plugin_name()
+{
+    PluginNameDeactivator::deactivate();
 }
 
-register_activation_hook( __FILE__, 'activate_plugin_name' );
-register_deactivation_hook( __FILE__, 'deactivate_plugin_name' );
-
-/**
- * The core plugin class that is used to define internationalization,
- * admin-specific hooks, and public-facing site hooks.
- */
-require plugin_dir_path( __FILE__ ) . 'includes/class-plugin-name.php';
+register_activation_hook(__FILE__, 'PluginName\activate_plugin_name');
+register_deactivation_hook(__FILE__, 'PluginName\deactivate_plugin_name');
 
 /**
  * Begins execution of the plugin.
@@ -73,10 +85,9 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-plugin-name.php';
  *
  * @since    1.0.0
  */
-function run_plugin_name() {
-
-	$plugin = new Plugin_Name();
-	$plugin->run();
-
+function run_plugin_name()
+{
+    $plugin = new PluginNameEngine;
+    $plugin->run();
 }
 run_plugin_name();
