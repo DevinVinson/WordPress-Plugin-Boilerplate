@@ -8,20 +8,20 @@
  * registers the activation and deactivation functions, and defines a function
  * that starts the plugin.
  *
- * @link              http://example.com
+ * @link              https://jimmitchellmedia.net
  * @since             1.0.0
- * @package           Plugin_Name
+ * @package           WP_Tinylytics
  *
  * @wordpress-plugin
  * Plugin Name:       WordPress Plugin Boilerplate
- * Plugin URI:        http://example.com/plugin-name-uri/
+ * Plugin URI:        https://jimmitchellmedia.net/tinylytics-for-wordpress/
  * Description:       This is a short description of what the plugin does. It's displayed in the WordPress admin area.
  * Version:           1.0.0
- * Author:            Your Name or Your Company
- * Author URI:        http://example.com/
+ * Author:            Jim Mitchell
+ * Author URI:        https://jimmitchellmedia.net/
  * License:           GPL-2.0+
- * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
- * Text Domain:       plugin-name
+ * License URI:       https://www.gnu.org/licenses/gpl-2.0.txt
+ * Text Domain:       wp-tinylytics
  * Domain Path:       /languages
  */
 
@@ -35,34 +35,34 @@ if ( ! defined( 'WPINC' ) ) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'PLUGIN_NAME_VERSION', '1.0.0' );
+define( 'WP_TINYLYTICS_VERSION', '0.0.1' );
 
 /**
  * The code that runs during plugin activation.
- * This action is documented in includes/class-plugin-name-activator.php
+ * This action is documented in includes/class-wp-tinylytics-activator.php
  */
-function activate_plugin_name() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-plugin-name-activator.php';
-	Plugin_Name_Activator::activate();
+function activate_wp_tinylytics() {
+	require_once plugin_dir_path( __FILE__ ) . 'includes/class-wp-tinylytics-activator.php';
+	WP_Tinylytics_Activator::activate();
 }
 
 /**
  * The code that runs during plugin deactivation.
- * This action is documented in includes/class-plugin-name-deactivator.php
+ * This action is documented in includes/class-wp-tinylytics-deactivator.php
  */
-function deactivate_plugin_name() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-plugin-name-deactivator.php';
-	Plugin_Name_Deactivator::deactivate();
+function deactivate_wp_tinylytics() {
+	require_once plugin_dir_path( __FILE__ ) . 'includes/class-wp-tinylytics-deactivator.php';
+	WP_Tinylytics_Deactivator::deactivate();
 }
 
-register_activation_hook( __FILE__, 'activate_plugin_name' );
-register_deactivation_hook( __FILE__, 'deactivate_plugin_name' );
+register_activation_hook( __FILE__, 'activate_wp_tinylytics' );
+register_deactivation_hook( __FILE__, 'deactivate_wp_tinylytics' );
 
 /**
  * The core plugin class that is used to define internationalization,
  * admin-specific hooks, and public-facing site hooks.
  */
-require plugin_dir_path( __FILE__ ) . 'includes/class-plugin-name.php';
+require plugin_dir_path( __FILE__ ) . 'includes/class-wp-tinylytics.php';
 
 /**
  * Begins execution of the plugin.
@@ -73,10 +73,10 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-plugin-name.php';
  *
  * @since    1.0.0
  */
-function run_plugin_name() {
+function run_wp_tinylytics() {
 
-	$plugin = new Plugin_Name();
+	$plugin = new WP_Tinylytics();
 	$plugin->run();
 
 }
-run_plugin_name();
+run_wp_tinylytics();

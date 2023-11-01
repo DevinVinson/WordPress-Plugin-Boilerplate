@@ -6,8 +6,8 @@
  * @link       http://example.com
  * @since      1.0.0
  *
- * @package    Plugin_Name
- * @subpackage Plugin_Name/includes
+ * @package    WP_Tinylytics
+ * @subpackage WP_Tinylytics/includes
  */
 
 /**
@@ -16,11 +16,11 @@
  * This class defines all code necessary to run during the plugin's activation.
  *
  * @since      1.0.0
- * @package    Plugin_Name
- * @subpackage Plugin_Name/includes
+ * @package    WP_Tinylytics
+ * @subpackage WP_Tinylytics/includes
  * @author     Your Name <email@example.com>
  */
-class Plugin_Name_Activator {
+class WP_Tinylytics_Activator {
 
 	/**
 	 * Short Description. (use period)
