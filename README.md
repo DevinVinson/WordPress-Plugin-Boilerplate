@@ -4,7 +4,7 @@ A standardized, organized, object-oriented foundation for building high-quality 
 
 ## Contents
 
-The WordPress Plugin Boilerplate includes the following files:
+The WP Tinylytics includes the following files:
 
 * `.gitignore`. Used to exclude certain files from the repository.
 * `CHANGELOG.md`. The list of changes to the core project.
@@ -38,7 +38,7 @@ The original launch of this version of the boilerplate included the folder struc
 
 ### i18n Tools
 
-The WordPress Plugin Boilerplate uses a variable to store the text domain used when internationalizing strings throughout the Boilerplate. To take advantage of this method, there are tools that are recommended for providing correct, translatable files:
+The WP Tinylytics uses a variable to store the text domain used when internationalizing strings throughout the Boilerplate. To take advantage of this method, there are tools that are recommended for providing correct, translatable files:
 
 * [Poedit](http://www.poedit.net/)
 * [makepot](http://i18n.svn.wordpress.org/tools/trunk/)
@@ -48,7 +48,7 @@ Any of the above tools should provide you with the proper tooling to internation
 
 ## License
 
-The WordPress Plugin Boilerplate is licensed under the GPL v2 or later.
+The WP Tinylytics is licensed under the GPL v2 or later.
 
 > This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License, version 2, as published by the Free Software Foundation.
 
@@ -62,7 +62,7 @@ A copy of the license is included in the root of the plugin’s directory. The f
 
 ### Licensing
 
-The WordPress Plugin Boilerplate is licensed under the GPL v2 or later; however, if you opt to use third-party code that is not compatible with v2, then you may need to switch to using code that is GPL v3 compatible.
+The WP Tinylytics is licensed under the GPL v2 or later; however, if you opt to use third-party code that is not compatible with v2, then you may need to switch to using code that is GPL v3 compatible.
 
 For reference, [here's a discussion](http://make.wordpress.org/themes/2013/03/04/licensing-note-apache-and-gpl/) that covers the Apache 2.0 License used by [Bootstrap](http://twitter.github.io/bootstrap/).
 
@@ -80,7 +80,7 @@ The example code provided shows how to register your hooks with the Loader class
 
 ### What About Other Features?
 
-The previous version of the WordPress Plugin Boilerplate included support for a number of different projects such as the [GitHub Updater](https://github.com/afragen/github-updater).
+The previous version of the WP Tinylytics included support for a number of different projects such as the [GitHub Updater](https://github.com/afragen/github-updater).
 
 These tools are not part of the core of this Boilerplate, as I see them as being additions, forks, or other contributions to the Boilerplate.
 
@@ -88,7 +88,7 @@ The same is true of using tools like Grunt, Composer, etc. These are all fantast
 
 # Credits
 
-The WordPress Plugin Boilerplate was started in 2011 by [Tom McFarlin](http://twitter.com/tommcfarlin/) and has since included a number of great contributions. In March of 2015 the project was handed over by Tom to Devin Vinson.
+The WP Tinylytics was started in 2011 by [Tom McFarlin](http://twitter.com/tommcfarlin/) and has since included a number of great contributions. In March of 2015 the project was handed over by Tom to Devin Vinson.
 
 The current version of the Boilerplate was developed in conjunction with [Josh Eaton](https://twitter.com/jjeaton), [Ulrich Pogson](https://twitter.com/grapplerulrich), and [Brad Vincent](https://twitter.com/themergency).
 

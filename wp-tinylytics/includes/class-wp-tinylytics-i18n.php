@@ -7,7 +7,7 @@
  * so that it is ready for translation.
  *
  * @link       http://example.com
- * @since      1.0.0
+ * @since      0.0.1
  *
  * @package    WP_Tinylytics
  * @subpackage WP_Tinylytics/includes
@@ -19,7 +19,7 @@
  * Loads and defines the internationalization files for this plugin
  * so that it is ready for translation.
  *
- * @since      1.0.0
+ * @since      0.0.1
  * @package    WP_Tinylytics
  * @subpackage WP_Tinylytics/includes
  * @author     Your Name <email@example.com>
@@ -30,7 +30,7 @@ class WP_Tinylytics_i18n {
 	/**
 	 * Load the plugin text domain for translation.
 	 *
-	 * @since    1.0.0
+	 * @since    0.0.1
 	 */
 	public function load_plugin_textdomain() {
 
