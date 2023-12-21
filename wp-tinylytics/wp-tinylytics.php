@@ -242,7 +242,7 @@ add_shortcode('tinykudos','tinylytics_kudos_function');
 function tinylytics_hits_function() {
 	$hits = get_option('tinylytics_hits', 0);
 	if ($hits === '1') {
-			return '<span class="tinylytics_hits"></span>';
+		return '<span class="tinylytics_hits" data-path="'. wp_make_link_relative(get_permalink()) .'"></span>';
 	}
 }
 add_shortcode('tinyhits','tinylytics_hits_function');
@@ -250,7 +250,7 @@ add_shortcode('tinyhits','tinylytics_hits_function');
 function tinylytics_flags_function() {
 	$flags = get_option('tinylytics_flags', 0);
 	if ($flags === '1') {
-			return '<span class="tinylytics_countries"></span>';
+		return '<span class="tinylytics_countries"></span>';
 	}
 }
 add_shortcode('tinyflags','tinylytics_flags_function');
