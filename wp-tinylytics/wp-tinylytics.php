@@ -93,8 +93,8 @@ function process_tinylytics_form() {
     }
 
     // Update options from form data
-	$site_id = isset($_POST['tinylytics_site_id']) ? $_POST['tinylytics_site_id'] : '';
-	update_option('tinylytics_site_id', $site_id);
+    $site_id = isset($_POST['tinylytics_site_id']) ? $_POST['tinylytics_site_id'] : '';
+    update_option('tinylytics_site_id', $site_id);
     $hits = isset($_POST['tinylytics_hits']) ? 1 : 0;
     update_option('tinylytics_hits', $hits);
     $stats = isset($_POST['tinylytics_stats']) ? 1 : 0;
@@ -103,15 +103,15 @@ function process_tinylytics_form() {
     update_option('tinylytics_uptime', $uptime);
     $kudos = isset($_POST['tinylytics_kudos']) ? 1 : 0;
     update_option('tinylytics_kudos', $kudos);
-	$kudos_label = isset($_POST['tinylytics_kudos_label']) ? $_POST['tinylytics_kudos_label'] : '';
-	update_option('tinylytics_kudos_label', $kudos_label);
+    $kudos_label = isset($_POST['tinylytics_kudos_label']) ? $_POST['tinylytics_kudos_label'] : '';
+    update_option('tinylytics_kudos_label', $kudos_label);
     $webring = isset($_POST['tinylytics_webring']) ? 1 : 0;
     update_option('tinylytics_webring', $webring);
-	$webring_label = isset($_POST['tinylytics_webring_label']) ? $_POST['tinylytics_webring_label'] : '';
-	update_option('tinylytics_webring_label', $webring_label);
-	$avatars = isset($_POST['tinylytics_avatars']) ? 1 : 0;
+    $webring_label = isset($_POST['tinylytics_webring_label']) ? $_POST['tinylytics_webring_label'] : '';
+    update_option('tinylytics_webring_label', $webring_label);
+    $avatars = isset($_POST['tinylytics_avatars']) ? 1 : 0;
     update_option('tinylytics_avatars', $avatars);
-	$flags = isset($_POST['tinylytics_flags']) ? 1 : 0;
+    $flags = isset($_POST['tinylytics_flags']) ? 1 : 0;
     update_option('tinylytics_flags', $flags);
 
     // Check for any errors trying to update the settings
