@@ -1,31 +1,15 @@
-<?php
+<?php // uninstall remove options
 
-/**
- * Fired when the plugin is uninstalled.
- *
- * When populating this file, consider the following flow
- * of control:
- *
- * - This method should be static
- * - Check if the $_REQUEST content actually is the plugin name
- * - Run an admin referrer check to make sure it goes through authentication
- * - Verify the output of $_GET makes sense
- * - Repeat with other user roles. Best directly by using the links/query string parameters.
- * - Repeat things for multisite. Once for a single site in the network, once sitewide.
- *
- * This file may be updated more in future version of the Boilerplate; however, this is the
- * general skeleton and outline for how the file should work.
- *
- * For more information, see the following discussion:
- * https://github.com/tommcfarlin/WordPress-Plugin-Boilerplate/pull/123#issuecomment-28541913
- *
- * @link       http://example.com
- * @since      0.0.1
- *
- * @package    WP_Tinylytics
- */
+if (!defined('ABSPATH') && !defined('WP_UNINSTALL_PLUGIN')) exit();
 
-// If uninstall not called from WordPress, then exit.
-if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
-	exit;
-}
+// delete options
+delete_option('	tinylytics_site_id');
+delete_option('	tinylytics_kudos_label');
+delete_option('tinylytics_webring_label');
+delete_option('tinylytics_hits');
+delete_option('tinylytics_stats');
+delete_option('tinylytics_uptime');
+delete_option('tinylytics_flags');
+delete_option('tinylytics_kudos');
+delete_option('tinylytics_webring');
+delete_option('tinylytics_avatars');

@@ -1,0 +1,16 @@
+.wp-admin .form-table {
+	background: #fff;
+	border: 1px solid #c3c4c7;
+}
+.wp-admin .form-table th,
+.wp-admin .form-table td {
+	vertical-align: middle;
+	padding: 15px 20px;
+}
+.wp-admin .form-table th {
+	width: 250px;
+}
+.wp-admin .form-table td {
+	margin-bottom: 0;
+	line-height: 0;
+}
