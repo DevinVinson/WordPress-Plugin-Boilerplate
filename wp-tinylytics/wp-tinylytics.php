@@ -247,6 +247,14 @@ function tinylytics_hits_function() {
 }
 add_shortcode('tinyhits','tinylytics_hits_function');
 
+function tinylytics_flags_function() {
+	$flags = get_option('tinylytics_flags', 0);
+	if ($flags === '1') {
+			return '<span class="tinylytics_countries"></span>';
+	}
+}
+add_shortcode('tinyflags','tinylytics_flags_function');
+
 
  // *** Display alerts after submitting custom admin wp form
  function tinylytics_admin_message($message, $msg_type) {
