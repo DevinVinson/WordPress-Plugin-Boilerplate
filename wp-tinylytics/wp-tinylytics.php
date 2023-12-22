@@ -2,7 +2,7 @@
 /*
 Plugin Name: WP Tinylytics
 Description: Custom plugin for embedding Tinylytics script.
-Version: 1.0.0
+Version: 1.0.1
 Author: Jim Mitchell
 */
 
@@ -201,8 +201,8 @@ function tinylytics_output_script() {
         $script_url .= $uptime ? 'uptime&' : '';
         $script_url .= $kudos && !$kudos_label ? 'kudos&' : '';
         $script_url .= $kudos && $kudos_label ? 'kudos=' . $kudos_label . '&' : '';
-        $script_url .= $webring && !$webring_label ? 'webring&' : '';
-        $script_url .= $webring && $webring_label ? 'webring=' . $webring_label . '&' : '';
+        $script_url .= $webring && !$avatars ? 'webring&' : '';
+        $script_url .= $webring && $avatars ? 'webring=' : '';
         $script_url .= $avatars ? 'avatars&' : '';
         $script_url .= $flags ? 'countries&' : '';
         $script_url = rtrim(rtrim($script_url, '&'), '?');
@@ -234,7 +234,7 @@ function tinylytics_user_scripts() {
 function tinylytics_kudos_function() {
 	$kudos = get_option('tinylytics_kudos', 0);
 	if ($kudos === '1') {
-		return '<button class="tinylytics_kudos"></button>';
+		return '<button class="tinylytics_kudos" data-path="'. wp_make_link_relative(get_permalink()) .'"></button>';
 	}
 }
 add_shortcode('tinykudos','tinylytics_kudos_function');
@@ -250,10 +250,26 @@ add_shortcode('tinyhits','tinylytics_hits_function');
 function tinylytics_flags_function() {
 	$flags = get_option('tinylytics_flags', 0);
 	if ($flags === '1') {
-		return '<span class="tinylytics_countries"></span>';
+		return '<p><span class="tinylytics_countries"></span></p>';
 	}
 }
 add_shortcode('tinyflags','tinylytics_flags_function');
+
+function tinylytics_webring_function() {
+	$webring = get_option('tinylytics_webring', 0);
+	$webring_label = get_option('tinylytics_webring_label');
+	$avatars = get_option('tinylytics_avatars', 0);
+	if ($webring === '1') {
+		$show_avatar = $avatars ? '<img class="tinylytics_webring_avatar" src="" style="display: none"/>' : '';
+		if ($webring_label === '') {
+			$output = '<span class="tiny_webring"><a href="" class="tinylytics_webring" target="_blank" title="Tinylytics Web Ring">🕸️' . $show_avatar . '💍</a></span>';
+		} else {
+			$output = '<span class="tiny_webring"><a href="" class="tinylytics_webring" target="_blank" title="Tinylytics Web Ring">'. $show_avatar . $webring_label . '</a></span>';
+		}
+	}
+	return $output;
+}
+add_shortcode('tinywebring','tinylytics_webring_function');
 
 
  // *** Display alerts after submitting custom admin wp form
