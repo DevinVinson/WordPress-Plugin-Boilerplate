@@ -25,10 +25,20 @@ The Boilerplate can be installed directly into your plugins folder "as-is". You 
 * rename files from `plugin-name` to `example-me`
 * change `plugin_name` to `example_me`
 * change `plugin-name` to `example-me`
-* change `Plugin_Name` to `Example_Me`
+* change `Plugin_Name` tao `Example_Me`
 * change `PLUGIN_NAME_` to `EXAMPLE_ME_`
 
 It's safe to activate the plugin at this point. Because the Boilerplate has no real functionality there will be no menu items, meta boxes, or custom post types added until you write the code.
+## Quick Start (For Beginners)
+
+If you are new to the WordPress Plugin Boilerplate, follow these steps:
+
+1. Rename the `plugin-name` folder to your desired plugin slug.
+2. Update class names, constants, and text domains to match your plugin.
+3. Activate the plugin from the WordPress admin dashboard.
+4. Begin adding functionality inside the `includes`, `admin`, or `public` directories.
+
+This quick start helps developers verify their setup before adding features.
 
 ## WordPress.org Preparation
 
@@ -77,6 +87,17 @@ Note that if you include your own classes, or third-party libraries, there are t
 Note that previous versions of the Boilerplate did not include `Plugin_Name_Loader` but this class is used to register all filters and actions with WordPress.
 
 The example code provided shows how to register your hooks with the Loader class.
+## Common Customization Checklist
+
+When starting a new plugin using this boilerplate, ensure the following:
+
+- Plugin header information is updated
+- Text domain matches the plugin slug
+- Hooks are registered via the Loader class
+- Admin and public logic are properly separated
+- All strings are wrapped with translation functions
+
+Following this checklist helps maintain WordPress coding standards and scalability.
 
 ### What About Other Features?
 
