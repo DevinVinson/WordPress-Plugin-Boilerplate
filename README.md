@@ -1,99 +1,165 @@
 # WordPress Plugin Boilerplate
 
-A standardized, organized, object-oriented foundation for building high-quality WordPress Plugins.
+A standardized, organized, object-oriented foundation for building high-quality
+WordPress plugins.
+
+---
 
 ## Contents
 
 The WordPress Plugin Boilerplate includes the following files:
 
-* `.gitignore`. Used to exclude certain files from the repository.
-* `CHANGELOG.md`. The list of changes to the core project.
-* `README.md`. The file that you’re currently reading.
-* A `plugin-name` directory that contains the source code - a fully executable WordPress plugin.
+- `.gitignore`  
+  Used to exclude certain files from the repository.
+
+- `CHANGELOG.md`  
+  Contains the list of changes made to the core project.
+
+- `README.md`  
+  The file you are currently reading.
+
+- `plugin-name/`  
+  A directory that contains the source code for a fully executable WordPress plugin.
+
+---
 
 ## Features
 
-* The Boilerplate is based on the [Plugin API](http://codex.wordpress.org/Plugin_API), [Coding Standards](http://codex.wordpress.org/WordPress_Coding_Standards), and [Documentation Standards](https://make.wordpress.org/core/handbook/best-practices/inline-documentation-standards/php/).
-* All classes, functions, and variables are documented so that you know what you need to change.
-* The Boilerplate uses a strict file organization scheme that corresponds both to the WordPress Plugin Repository structure, and that makes it easy to organize the files that compose the plugin.
-* The project includes a `.pot` file as a starting point for internationalization.
+The Boilerplate is based on WordPress Plugin API, Coding Standards, and
+Documentation Standards.
+
+- All classes, functions, and variables are documented to make customization easier.
+- Uses a strict file organization scheme that aligns with the WordPress Plugin
+  Repository structure.
+- Includes a `.pot` file as a starting point for plugin internationalization.
+
+---
 
 ## Installation
 
-The Boilerplate can be installed directly into your plugins folder "as-is". You will want to rename it and the classes inside of it to fit your needs. For example, if your plugin is named 'example-me' then:
+The Boilerplate can be installed directly into your plugins folder **as-is**.
+Before using it in a real project, you should rename the files and classes to
+match your plugin’s name.
 
-* rename files from `plugin-name` to `example-me`
-* change `plugin_name` to `example_me`
-* change `plugin-name` to `example-me`
-* change `Plugin_Name` to `Example_Me`
-* change `PLUGIN_NAME_` to `EXAMPLE_ME_`
+For example, if your plugin is named `example-me`, update the following:
 
-It's safe to activate the plugin at this point. Because the Boilerplate has no real functionality there will be no menu items, meta boxes, or custom post types added until you write the code.
+- Rename files from `plugin-name` to `example-me`
+- Change `plugin_name` to `example_me`
+- Change `plugin-name` to `example-me`
+- Change `Plugin_Name` to `Example_Me`
+- Change `PLUGIN_NAME_` to `EXAMPLE_ME_`
+
+At this point, it is safe to activate the plugin. Since the Boilerplate does not
+include functionality by default, no menu items, meta boxes, or custom post types
+will appear until code is added.
+
+---
 
 ## WordPress.org Preparation
 
-The original launch of this version of the boilerplate included the folder structure needed for using your plugin on WordPress.org. That folder structure has been moved to its own repo here: https://github.com/DevinVinson/Plugin-Directory-Boilerplate
+The original launch of this version of the Boilerplate included the folder
+structure required for WordPress.org plugins. That structure has since been
+moved to a separate repository:
+
+https://github.com/DevinVinson/Plugin-Directory-Boilerplate
+
+---
 
 ## Recommended Tools
 
-### i18n Tools
+### Internationalization (i18n) Tools
 
-The WordPress Plugin Boilerplate uses a variable to store the text domain used when internationalizing strings throughout the Boilerplate. To take advantage of this method, there are tools that are recommended for providing correct, translatable files:
+The Boilerplate uses a variable to store the text domain for internationalizing
+strings. The following tools are recommended for generating translatable files:
 
-* [Poedit](http://www.poedit.net/)
-* [makepot](http://i18n.svn.wordpress.org/tools/trunk/)
-* [i18n](https://github.com/grappler/i18n)
+- Poedit
+- makepot
+- i18n
 
-Any of the above tools should provide you with the proper tooling to internationalize the plugin.
+Any of these tools can be used to properly internationalize the plugin.
+
+---
 
 ## License
 
-The WordPress Plugin Boilerplate is licensed under the GPL v2 or later.
+The WordPress Plugin Boilerplate is licensed under **GPL v2 or later**.
 
-> This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License, version 2, as published by the Free Software Foundation.
+This program is free software; you can redistribute it and/or modify it under
+the terms of the GNU General Public License, version 2, as published by the Free
+Software Foundation.
 
-> This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+This program is distributed in the hope that it will be useful, but **WITHOUT
+ANY WARRANTY**; without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
 
-> You should have received a copy of the GNU General Public License along with this program; if not, write to the Free Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
+You should have received a copy of the GNU General Public License along with this
+program. If not, write to the Free Software Foundation, Inc.,  
+51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
 
-A copy of the license is included in the root of the plugin’s directory. The file is named `LICENSE`.
+A copy of the license is included in the root of the plugin’s directory as
+`LICENSE`.
+
+---
 
 ## Important Notes
 
 ### Licensing
 
-The WordPress Plugin Boilerplate is licensed under the GPL v2 or later; however, if you opt to use third-party code that is not compatible with v2, then you may need to switch to using code that is GPL v3 compatible.
+If you include third-party code that is not compatible with GPL v2, you may need
+to use GPL v3 compatible alternatives. Refer to relevant license documentation
+before including external libraries.
 
-For reference, [here's a discussion](http://make.wordpress.org/themes/2013/03/04/licensing-note-apache-and-gpl/) that covers the Apache 2.0 License used by [Bootstrap](http://twitter.github.io/bootstrap/).
+---
 
-### Includes
+## Includes
 
-Note that if you include your own classes, or third-party libraries, there are three locations in which said files may go:
+When adding your own classes or third-party libraries, files should be placed in
+one of the following locations:
 
-* `plugin-name/includes` is where functionality shared between the admin area and the public-facing parts of the site reside
-* `plugin-name/admin` is for all admin-specific functionality
-* `plugin-name/public` is for all public-facing functionality
+- `plugin-name/includes`  
+  Shared functionality between admin and public-facing areas.
 
-Note that previous versions of the Boilerplate did not include `Plugin_Name_Loader` but this class is used to register all filters and actions with WordPress.
+- `plugin-name/admin`  
+  Admin-specific functionality.
 
-The example code provided shows how to register your hooks with the Loader class.
+- `plugin-name/public`  
+  Public-facing functionality.
 
-### What About Other Features?
+Note: Earlier versions of the Boilerplate did not include `Plugin_Name_Loader`.
+This class is now used to register all filters and actions with WordPress.
 
-The previous version of the WordPress Plugin Boilerplate included support for a number of different projects such as the [GitHub Updater](https://github.com/afragen/github-updater).
+---
 
-These tools are not part of the core of this Boilerplate, as I see them as being additions, forks, or other contributions to the Boilerplate.
+## What About Other Features?
 
-The same is true of using tools like Grunt, Composer, etc. These are all fantastic tools, but not everyone uses them. In order to  keep the core Boilerplate as light as possible, these features have been removed and will be introduced in other editions, and will be listed and maintained on the project homepage.
+Previous versions of the Boilerplate included support for tools such as GitHub
+Updater, Grunt, and Composer.
 
-# Credits
+These tools are intentionally excluded from the core to keep the Boilerplate
+lightweight. Additional features may be introduced in separate editions and
+maintained on the project homepage.
 
-The WordPress Plugin Boilerplate was started in 2011 by [Tom McFarlin](http://twitter.com/tommcfarlin/) and has since included a number of great contributions. In March of 2015 the project was handed over by Tom to Devin Vinson.
+---
 
-The current version of the Boilerplate was developed in conjunction with [Josh Eaton](https://twitter.com/jjeaton), [Ulrich Pogson](https://twitter.com/grapplerulrich), and [Brad Vincent](https://twitter.com/themergency).
+## Credits
 
-The homepage is based on a design as provided by [HTML5Up](http://html5up.net), the Boilerplate logo was designed by Rob McCaskill of [BungaWeb](http://bungaweb.com), and the site `favicon` was created by [Mickey Kay](https://twitter.com/McGuive7).
+The WordPress Plugin Boilerplate was started in 2011 by **Tom McFarlin** and was
+handed over to **Devin Vinson** in 2015.
+
+The current version was developed with contributions from:
+
+- Josh Eaton
+- Ulrich Pogson
+- Brad Vincent
+
+Design credits:
+- Homepage design by HTML5Up
+- Boilerplate logo by Rob McCaskill (BungaWeb)
+- Favicon by Mickey Kay
+
+---
 
 ## Documentation, FAQs, and More
 
-If you’re interested in writing any documentation or creating tutorials please [let me know](http://devinvinson.com/contact/) .
+If you are interested in contributing documentation or writing tutorials,
+feel free to reach out or open a pull request.
