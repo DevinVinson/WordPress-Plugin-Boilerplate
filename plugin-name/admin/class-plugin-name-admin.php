@@ -64,7 +64,7 @@ class Plugin_Name_Admin {
 		/**
 		 * This function is provided for demonstration purposes only.
 		 *
-		 * An instance of this class should be passed to the run() function
+		 * An instance of this class should be passed to the add_action() function
 		 * defined in Plugin_Name_Loader as all of the hooks are defined
 		 * in that particular class.
 		 *
@@ -87,7 +87,7 @@ class Plugin_Name_Admin {
 		/**
 		 * This function is provided for demonstration purposes only.
 		 *
-		 * An instance of this class should be passed to the run() function
+		 * An instance of this class should be passed to the add_action() function
 		 * defined in Plugin_Name_Loader as all of the hooks are defined
 		 * in that particular class.
 		 *
